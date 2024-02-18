@@ -1,0 +1,81 @@
+{
+    "loginRedirection":"Redirecting to Login Page...",
+    "companyDetails":{
+        "companyName":"Priority Solutions",
+        "description":"A Petrol Pump Accounting and Inventory management software Developed under the guidance of RPDA",
+        "estd":"2024"
+    },
+     "welcomeTo": "Welcome to",
+    "rightsReserved":"All Rights Reserved",
+    "copyrightBy": "Copyright",
+    "signUptext":{
+        "msg":"Don't have an account yet?",
+        "signUp":"Sign Up!"
+    },
+    "loginText":{
+        "msg":"If you are Customer, Please Click here",
+        "customerLogin":"Customer Login!",
+        "login":"Login"
+    },
+    "label":{
+        "email": "Email",
+        "password":"Password"
+    },
+   "placeholders":{
+        "email":"Enter your email",
+        "password":"Enter your password",
+        "search":"Search"
+   },
+   "rememberMe":"Remember me",
+   "forgetPassword":"Forgot password?",
+   "signIn":"Sign in",
+   "support":"Support",
+    "phoneNumbers":{
+        "numberOne":"1234567890",
+        "numberTwo":"1234567890"
+    },
+    "whatsAppNumber":"1234567890",
+    "errors":{
+        "patternErrors":{
+            "email":"Please enter a valid email",
+            "password":"Password must contain an uppercase, lowercase, number, symbol and minimum 8 characters"
+        },
+        "requiredErrors":{
+            "email":"Please enter your email",
+            "password":"Please enter your password"
+        }
+    },
+    "sideBarTexts":{
+        "dashboard":"Dashboard",
+        "pump":"Pump",
+        "accounts":"Accounts",
+        "hr":"HR",
+        "reports":"Reports",
+        "utility":"Utility",
+        "register":"Register",
+        "aboutUs":"About Us",
+        "help":"Help"
+    },
+    "dashboardHeader":{
+        "meterReading":"Meter Reading",
+        "lubricantSale":"Lubricant Sale",
+        "creditSale":"Credit Sale",
+        "voucherEntry":"Voucher Entry",
+        "dayBook":"DayBook",
+        "purchaseInvoice":"Purchase Invoice"
+    },
+    "dashboardMainTitles":{
+        "purchaseReports":"Monthwise purchase reports",
+        "saleReports":"Monthwise sale reports"
+    },
+    "dashboardCardTitles":{
+        "availableStock":"Available Stock",
+        "outStandingList":"List of OutStanding"
+    },
+    "NavbarData":{
+        "myProfile":"My Profile",
+        "notifications":"Notifications",
+        "callSupport":"Support",
+        "logout":"Logout"
+    }
+}

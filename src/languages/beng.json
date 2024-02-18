@@ -1,0 +1,80 @@
+{   "loginRedirection":"লগইন পৃষ্ঠায় পুনঃনির্দেশ করা হচ্ছে...",
+    "companyDetails":{
+        "companyName":"Priority Solutions",
+        "description":"একটি পেট্রোল পাম্প অ্যাকাউন্টিং এবং ইনভেন্টরি ম্যানেজমেন্ট সফ্টওয়্যার RPDA এর নির্দেশনায় তৈরি করা হয়েছে",
+        "estd":"2024"
+    },
+     "welcomeTo": "স্বাগতম",
+    "rightsReserved":"সমস্ত অধিকার সংরক্ষিত",
+    "copyrightBy": "কপিরাইট",
+    "signUptext":{
+        "msg":"এখনো কোনো একাউন্ট নেই?",
+        "signUp":"নিবন্ধন করুন!"
+    },
+    "loginText":{
+        "msg":"আপনি গ্রাহক হলে, এখানে ক্লিক করুন",
+        "customerLogin":"গ্রাহক লগইন!",
+        "login":"লগইন"
+    },
+    "label":{
+        "email": "ইমেইল",
+        "password":"পাসওয়ার্ড"
+    },
+   "placeholders":{
+        "email":"আপনার ইমেল লিখুন",
+        "password":"আপনার পাসওয়ার্ড লিখুন",
+        "search":"অনুসন্ধান করুন"
+   },
+   "rememberMe":"আমাকে মনে কর",
+   "forgetPassword":"পাসওয়ার্ড ভুলে গেছেন?",
+   "signIn":"সাইন ইন করুন",
+   "support":"সমর্থন",
+    "phoneNumbers":{
+        "numberOne":"1234567890",
+        "numberTwo":"1234567890"
+    },
+    "whatsAppNumber":"1234567890",
+    "errors":{
+        "patternErrors":{
+            "email":"একটি বৈধ ইমেইল প্রবেশ করুন",
+            "password":"পাসওয়ার্ডে একটি বড় হাতের, ছোট হাতের, সংখ্যা, প্রতীক এবং ন্যূনতম 8টি অক্ষর থাকতে হবে"
+        },
+        "requiredErrors":{
+            "email":"দয়া করে আপনার ইমেল ঠিকানা দিন",
+            "password":"দয়া করে আপনার পাসওয়ার্ড দিন"
+        }
+    },
+    "sideBarTexts":{
+        "dashboard":"ড্যাশবোর্ড",
+        "pump":"পাম্প",
+        "accounts":"হিসাব",
+        "hr":"মানব সম্পদ",
+        "reports":"রিপোর্ট",
+        "utility":"ইউটিলিটি",
+        "register":"নিবন্ধন",
+        "aboutUs":"আমাদের সম্পর্কে",
+        "help":"সাহায্য"
+    },
+    "dashboardHeader":{
+        "meterReading":"মিটার রিডিং",
+        "lubricantSale":"লুব্রিকেন্ট বিক্রয়",
+        "creditSale":"ক্রেডিট বিক্রয়",
+        "voucherEntry":"ভাউচার এন্ট্রি",
+        "dayBook":"দিনের বই",
+        "purchaseInvoice":"ক্রয় চালান"
+    },
+    "dashboardMainTitles":{
+        "purchaseReports":"মাসভিত্তিক ক্রয় প্রতিবেদন",
+        "saleReports":"মাসভিত্তিক বিক্রয় প্রতিবেদন"
+    },
+    "dashboardCardTitles":{
+        "availableStock":"উপলব্ধ স্টক",
+        "outStandingList":"আউটস্ট্যান্ডিং তালিকা"
+    },
+    "NavbarData":{
+        "myProfile":"আমার প্রোফাইল",
+        "notifications":"বিজ্ঞপ্তি",
+        "callSupport":"সমর্থন",
+        "logout":"প্রস্থান"
+    }
+}

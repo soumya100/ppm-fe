@@ -1,0 +1,80 @@
+{   "loginRedirection":"लॉगिन पेज पर रीडायरेक्ट किया जा रहा है...",
+    "companyDetails":{
+        "companyName":"Priority Solutions",
+        "description":"आरपीडीए के मार्गदर्शन में एक पेट्रोल पंप लेखा और इन्वेंटरी प्रबंधन सॉफ्टवेयर विकसित किया गया",
+        "estd":"2024"
+    },
+     "welcomeTo": "आपका स्वागत है",
+    "rightsReserved":"सर्वाधिकार सुरक्षित",
+    "copyrightBy": "कॉपीराइट",
+    "signUptext":{
+        "msg":"अब तक कोई खाता नहीं है?",
+        "signUp":"साइन अप करें!"
+    },
+    "loginText":{
+        "msg":"यदि आप ग्राहक हैं, तो कृपया यहां क्लिक करें",
+        "customerLogin":"ग्राहक लॉगिन!",
+        "login":"लॉगिन"
+    },
+    "label":{
+        "email": "ईमेल",
+        "password":"पासवर्ड"
+    },
+   "placeholders":{
+        "email":"अपना ईमेल दर्ज करें",
+        "password":"अपना कूटशब्द भरें",
+        "search":"खोज"
+   },
+   "rememberMe":"मुझे याद करो",
+   "forgetPassword":"पासवर्ड भूल गए?",
+   "signIn":"साइन इन करें",
+   "support":"सहायता",
+    "phoneNumbers":{
+        "numberOne":"1234567890",
+        "numberTwo":"1234567890"
+    },
+    "whatsAppNumber":"1234567890",
+    "errors":{
+        "patternErrors":{
+            "email":"कृपया अपना ईमेल सही ढंग से दर्ज करें",
+            "password":"पासवर्ड में अपरकेस, लोअरकेस, संख्या, प्रतीक और न्यूनतम 8 अक्षर होने चाहिए"
+        },
+        "requiredErrors":{
+            "email":"कृपया अपना ईमेल दर्ज करें",
+            "password":"कृपया अपना पासवर्ड दर्ज करें"
+        }
+    },
+    "sideBarTexts":{
+        "dashboard":"डैशबोर्ड",
+        "pump":"पम्प",
+        "accounts":"हिसाब किताब",
+        "hr":"मानव संसाधन",
+        "reports":"रिपोर्टों",
+        "utility":"उपयोगिता",
+        "register":"पंजीकरण करवाना",
+        "aboutUs":"हमारे बारे में",
+        "help":"मदद"
+    },
+    "dashboardHeader":{
+        "meterReading":"मीटर रीडिंग",
+        "lubricantSale":"स्नेहक बिक्री",
+        "creditSale":"क्रेडिट बिक्री",
+        "voucherEntry":"वाउचर प्रविष्टि",
+        "dayBook":"दिन की किताब",
+        "purchaseInvoice":"खरीद चालान"
+    },
+    "dashboardMainTitles":{
+        "purchaseReports":"माहवार खरीद रिपोर्ट",
+        "saleReports":"मासिक बिक्री रिपोर्ट"
+    },
+    "dashboardCardTitles":{
+        "availableStock":"उपलब्ध स्टॉक",
+        "outStandingList":"बकाया की सूची"
+    },
+    "NavbarData":{
+        "myProfile":"मेरी प्रोफाइल",
+        "notifications":"सूचनाएं",
+        "callSupport":"सहायता",
+        "logout":"लॉग आउट"
+    }
+}

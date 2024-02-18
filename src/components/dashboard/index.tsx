@@ -1,0 +1,161 @@
+import { Box, Grid } from '@mui/material'
+import { FC } from 'react'
+import Header from './Header'
+import { DataCards, FlexBox } from '@/common'
+import { BarChart, PieChart } from '@mui/x-charts'
+import text from '@/languages/en_US.json'
+import PurchaseTable from './PurchaseTable'
+
+interface DashBoardProps {
+  handleShowStockData(): void
+  handleShowSaleData(): void
+  handleShowPurchaseData(): void
+  showMonthwiseData: boolean
+  showMonthwiseSale: boolean
+  showAvailableStocksGraph: boolean,
+  handleShowPurchaseGraph(): void
+  handleShowSaleGraph(): void
+  handleShowStockGraph(): void
+}
+
+const DashBoard: FC<DashBoardProps> = ({ handleShowPurchaseData, handleShowSaleData, handleShowStockData,
+  showAvailableStocksGraph, showMonthwiseData, showMonthwiseSale, handleShowPurchaseGraph, handleShowSaleGraph, handleShowStockGraph }) => {
+  const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
+  const xLabels = [
+    'Page A',
+    'Page B',
+    'Page C',
+    'Page D',
+    'Page E',
+    'Page F',
+    'Page G',
+  ];
+
+const cardCls=`h-[23rem] overflow-x-auto max-w-[93vw]`
+const headerCls=`bg-gradient-to-tr from-blue-600 via-sky-400 to-indigo-600 p-5 h-[2rem] `
+
+  return <Box className={`space-y-5 px-2 my-5`}>
+    <Header />
+    <Grid container columnSpacing={2} rowSpacing={2}>
+      <Grid item xs={12} sm={12} md={12} lg={6}>
+        <DataCards extraCls={cardCls} titleCls='h-[2rem]' istitle={false} isSelectors
+          purchasePlaceholder='Purchase'
+          allItemsPlaceholder='All items'
+          headerCls={headerCls}
+          mainTitle={text.dashboardMainTitles.purchaseReports}
+          mainTitleCls={`!text-sm !font-bold !text-center h-[2rem] flex items-center justify-center`}
+          allItemsdropDownRootCls='h-[2rem]' purchasedropDownRootCls='h-[2rem]' drpMainCls='h-full'
+          handleShowGraph={handleShowPurchaseGraph}
+          handleShowData={handleShowPurchaseData}
+          graph={showMonthwiseData}
+          tableComponent={<PurchaseTable />}
+        >
+          <FlexBox>
+            <BarChart
+              width={500}
+              height={300}
+              series={[
+                // { data: pData, label: 'pv', id: 'pvId' },
+                { data: uData, label: 'uv', id: 'uvId', color: '#8E44AD' },
+              ]}
+              xAxis={[{ data: xLabels, scaleType: 'band' }]}
+            />
+          </FlexBox>
+        </DataCards>
+      </Grid>
+      <Grid item xs={12} sm={12} md={12} lg={6}>
+        <DataCards extraCls={cardCls}
+          titleCls='h-[2rem] !font-bold flex items-center uppercase' istitle
+          isSelectors={false}
+          title={text.dashboardCardTitles.availableStock}
+          purchasePlaceholder='Purchase'
+          allItemsPlaceholder='All items' headerCls={headerCls}
+          allItemsdropDownRootCls='h-[2rem]' purchasedropDownRootCls='h-[2rem]' drpMainCls='h-full'
+          handleShowGraph={handleShowSaleGraph}
+          handleShowData={handleShowSaleData}
+          graph={showMonthwiseSale}
+          tableComponent={<PurchaseTable />}
+        >
+          <FlexBox>
+            <PieChart
+              series={[
+                {
+                  data: [
+                    { id: 0, value: 10, label: 'series A' },
+                    { id: 1, value: 15, label: 'series B' },
+                    { id: 2, value: 20, label: 'series C' },
+                  ],
+                },
+              ]}
+              width={300}
+              height={332}
+              slotProps={{
+                legend: {
+                  direction: 'row',
+                  position: { vertical: 'top', horizontal: 'middle' },
+                  padding: 10,
+                },
+              }}
+            />
+          </FlexBox>
+        </DataCards>
+      </Grid>
+      <Grid item xs={12} sm={12} md={12} lg={6}>
+        <DataCards extraCls={cardCls} titleCls='h-[2rem]' istitle={false}
+          isSelectors
+          purchasePlaceholder='Purchase'
+          allItemsPlaceholder='All items'
+          headerCls={headerCls}
+          mainTitle={text.dashboardMainTitles.saleReports}
+          mainTitleCls={`!text-sm !font-bold !text-center h-[2rem] flex items-center justify-center`}
+          allItemsdropDownRootCls='h-[2rem]' purchasedropDownRootCls='h-[2rem]' drpMainCls='h-full'
+          handleShowGraph={handleShowStockGraph}
+          handleShowData={handleShowStockData}
+          graph={showAvailableStocksGraph}
+          tableComponent={<PurchaseTable />}
+        >
+          <FlexBox>
+            <BarChart
+              width={500}
+              height={300}
+              series={[
+                // { data: pData, label: 'pv', id: 'pvId' },
+                { data: uData, label: 'uv', id: 'uvId' },
+              ]}
+              xAxis={[{ data: xLabels, scaleType: 'band' }]}
+            />
+          </FlexBox>
+        </DataCards>
+      </Grid>
+      <Grid item xs={12} sm={12} md={12} lg={6}>
+        <DataCards titleCls='h-[2rem] !font-bold flex items-center uppercase' extraCls={cardCls} istitle
+          title={text.dashboardCardTitles.outStandingList}
+          purchasePlaceholder='Purchase'
+          allItemsPlaceholder='All items' headerCls={headerCls} allItemsdropDownRootCls='h-[2rem]'
+          purchasedropDownRootCls='h-[2rem]' drpMainCls='h-full'
+          tableComponent={<PurchaseTable />}
+          isSelectors={false}
+          isNoGraph graph={false} handleShowData={() => { }} handleShowGraph={() => { }}>
+          <FlexBox>
+            <PieChart
+              series={[
+                {
+                  data: [
+                    { id: 0, value: 10, label: 'series A' },
+                    { id: 1, value: 15, label: 'series B' },
+                    { id: 2, value: 20, label: 'series C' },
+                  ],
+                },
+              ]}
+              width={400}
+              height={290}
+            />
+          </FlexBox>
+        </DataCards>
+
+      </Grid>
+    </Grid>
+  </Box>
+}
+
+export default DashBoard
