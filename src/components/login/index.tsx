@@ -10,11 +10,12 @@ import { FormikConfig } from 'formik'
 interface LoginProps {
   loginFormik: any,
   handleRememberMe(event: React.ChangeEvent<HTMLInputElement>): void
-  remember: boolean
+  remember: boolean,
+  loading: boolean
 }
 
 
-const Login: FC<LoginProps> = ({ loginFormik, handleRememberMe, remember }) => {
+const Login: FC<LoginProps> = ({ loginFormik, handleRememberMe, remember, loading }) => {
   return <Grid container>
     <Grid item xs={12} sm={12} md={6} lg={6} xl={6} className={`!bg-gradient-to-br from-sky-300 via-indigo-500 to-sky-600 text-white w-full min-h-screen`}>
       <FlexBetween className={`p-5 !flex-col !items-start !h-full !w-full `}>
@@ -124,6 +125,7 @@ const Login: FC<LoginProps> = ({ loginFormik, handleRememberMe, remember }) => {
               buttonextracls={`!rounded-sm !shadow !bg-sky-400 !p-3 !text-sm !capitalize`}
               variant={`contained`}
               type={'submit'}
+              loading={loading}
             />
         </form>
         <FlexItemCenter>

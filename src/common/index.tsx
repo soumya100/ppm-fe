@@ -10,6 +10,7 @@ import DropDownField from "./DropDown/DropDownField";
 import CheckBox from "./FormFields/Checkbox";
 import PasswordFieldInput from "./FormFields/PasswordFieldInput";
 import TextFieldInput from "./FormFields/TextFieldInput";
+import CommonLoading from "./CommonLoading";
 
 export{
     FlexBetween,
@@ -22,5 +23,6 @@ export{
     DropDownField,
     CheckBox,
     PasswordFieldInput,
-    TextFieldInput
+    TextFieldInput,
+    CommonLoading
 }

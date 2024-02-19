@@ -105,6 +105,9 @@ const Navbar: FC<NavbarProps> = ({ handleToggleHamMenu, openHamMenu, anchorEl, h
               <ListItemButton onClick={() => {
                 router.push(hamData.pathName)
                 handleToggleHamMenu
+                if(hamData.description === text.NavbarData.logout){
+                  sessionStorage.clear()
+                }
               }}>
                 <ListItemIcon>
                   <Icon>
@@ -126,6 +129,9 @@ const Navbar: FC<NavbarProps> = ({ handleToggleHamMenu, openHamMenu, anchorEl, h
         {NavbarData.map((data: sideBarDataTypes, idx: number) => <MenuItem key={idx} onClick={() => {
           router.push(data.pathName)
           handleAvatarClose()
+          if(data.description === text.NavbarData.logout){
+            sessionStorage.clear()
+          }
         }}>
           <ListItemIcon>
             <Icon>
