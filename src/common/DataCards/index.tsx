@@ -69,20 +69,20 @@ const DataCards: FC<DataCardsProps> = ({ extraCls, headerCls, titleCls,
           </FlexItemCenter>
         }
         <FlexBox gap={2} className='hidden sm:flex md:flex lg:flex xl:flex max-xl:flex'>
-          {!isNoGraph && <FlexItemCenter gap={1} className={`${graph ? 'text-red-500' : ''} cursor-pointer h-full px-5`} onClick={handleShowGraph} >
-            <BarChart fontSize='small' />
-            <Typography component={`p`} className={`!font-semibold !text-sm`}>
+          {!isNoGraph && <FlexItemCenter gap={1} className={`cursor-pointer h-full px-5`} onClick={handleShowGraph} >
+            <BarChart fontSize='small' className={`${graph ? 'text-white' : ''}`}/>
+            <Typography component={`p`} className={`${graph ? 'text-white' : ''} !font-semibold !text-sm`}>
               Graph
             </Typography>
           </FlexItemCenter>}
-          <FlexItemCenter gap={1} className={`${!graph ? 'text-red-500' : ''} cursor-pointer h-full`} onClick={handleShowData}>
-            <List fontSize='small' />
-            <Typography component={`p`} className={`!font-semibold !text-sm`}>
+          <FlexItemCenter gap={1} className={`cursor-pointer h-full`} onClick={handleShowData}>
+            <List fontSize='small' className={`${!graph ? 'text-white' : ''}`}/>
+            <Typography component={`p`} className={`${!graph ? 'text-white' : ''} !font-semibold !text-sm`}>
               Data
             </Typography>
           </FlexItemCenter>
         </FlexBox>
-        <FlexBox className={`!flex sm:hidden md:hidden lg:hidden xl:hidden max-xl:hidden cursor-pointer`}
+        <FlexBox className={`flex sm:hidden md:hidden lg:hidden xl:hidden max-xl:hidden cursor-pointer`}
           onClick={(event: React.MouseEvent<HTMLDivElement>) => handleClick(event)}>
           <KeyboardArrowDown className={`!text-white`} fontSize='small' />
         </FlexBox>

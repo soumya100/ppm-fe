@@ -121,7 +121,7 @@ const Login: FC<LoginProps> = ({ loginFormik, handleRememberMe, remember }) => {
             </Typography>
           </FlexBetween>
             <ButtonFieldInput name={text.signIn}
-              buttonextracls={`rounded-sm !shadow bg-sky-400 p-3 !text-sm`}
+              buttonextracls={`!rounded-sm !shadow !bg-sky-400 !p-3 !text-sm !capitalize`}
               variant={`contained`}
               type={'submit'}
             />
