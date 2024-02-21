@@ -6,6 +6,7 @@ import { BarChart, PieChart } from '@mui/x-charts'
 import text from '@/languages/en_US.json'
 import PurchaseTable from './PurchaseTable'
 import { notFound } from 'next/navigation'
+import getSessionStorageData from '@/utils/getSessionStorageData'
 
 interface DashBoardProps {
   handleShowStockData(): void
@@ -32,11 +33,11 @@ const DashBoard: FC<DashBoardProps> = ({ handleShowPurchaseData, handleShowSaleD
     'Page G',
   ];
 
-const cardCls=`h-[23rem] overflow-x-auto max-w-[93vw]`
-const headerCls=`bg-gradient-to-tr from-blue-600 via-sky-400 to-indigo-600 p-5 h-[2rem] `
-const token= sessionStorage.getItem('token')
+  const cardCls = `h-[23rem] overflow-x-auto max-w-[93vw]`
+  const headerCls = `bg-gradient-to-tr from-blue-600 via-sky-400 to-indigo-600 p-5 h-[2rem] `
+  const token = getSessionStorageData('login_token')
 
-if(!token) return notFound()
+  if (!token) notFound()
 
   return <Box className={`space-y-5 px-2 my-5`}>
     <Header />

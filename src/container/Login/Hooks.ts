@@ -1,11 +1,11 @@
 import { useFormik } from "formik";
 import * as Yup from 'yup'
 import text from '@/languages/en_US.json'
-import { PASSWORD_REGEX } from "@/utils/constants";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { pathName } from "@/utils/route";
 import { adminLoginAPI } from "./LoginApis";
+import toast from "react-hot-toast";
 
 export const LoginHooks = () =>{
 
@@ -50,8 +50,14 @@ export const LoginHooks = () =>{
                 setLoading(false)
              if(res.message==='Login Successful'){
                 resetForm();
+                toast.success('LoggedIn Successfully')
+                // console.log('hello world')
                 router.push(pathName.dashboard)
-                sessionStorage.setItem("token", res.token)
+                sessionStorage.setItem("login_token", res.token)
+                sessionStorage.setItem("orgId", res.org_id)
+                sessionStorage.setItem("orgName", res.org_name)
+             }else{
+                toast.error(res.message)
              }
             })
             .catch((err) => {

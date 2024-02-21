@@ -1,6 +1,6 @@
 "use client"
 import Login from '@/components/login'
-import React from 'react'
+import React, { memo } from 'react'
 import { LoginHooks } from './Hooks'
 
 const LoginContainer = () => {
@@ -15,5 +15,5 @@ const LoginContainer = () => {
      />
   )
 }
-
-export default LoginContainer
+const memoizedHook=memo(LoginContainer)
+export default memoizedHook

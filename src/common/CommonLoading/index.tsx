@@ -14,7 +14,7 @@ interface CommonLoadingProps {
 const CommonLoading: FC<CommonLoadingProps> = ({imgHeight, loadSpaceBetween, loadingText, loadingTextCls}) => {
   return <FlexCenter className='w-full h-full'>
     <FlexItemCenter gap={loadSpaceBetween}>
-    <Image src={loading} alt={`loading`} height={imgHeight}/>
+    <Image src={loading} alt={`loading`} height={imgHeight} priority/>
     <Typography component={`span`} className={loadingTextCls}>
       {loadingText ?? 'Loading...'}
     </Typography>

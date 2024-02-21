@@ -14,6 +14,7 @@ import Image from 'next/image';
 import { logo } from '@/Images';
 import { SideBarData } from '../sideBar/sideBarData';
 import { sideBarDataTypes } from '@/types/data-types';
+import getSessionStorageData from '@/utils/getSessionStorageData';
 
 
 interface NavbarProps {
@@ -48,12 +49,13 @@ const Navbar: FC<NavbarProps> = ({ handleToggleHamMenu, openHamMenu, anchorEl, h
 
   const drawerWidth = '90%'
 
+  const organizationName= getSessionStorageData('orgName') || text.companyDetails.companyName
   return (
     <>
       <CssBaseline />
       <AppBar position="sticky" className={`bg-gradient-to-tr from-blue-500 via-indigo-500 to-sky-400 h-[4rem] w-full z-10`}>
         <Toolbar className="justify-between">
-          <Typography className={`lg:!text-xl shrink-0`}>{text.companyDetails.companyName}</Typography>
+          <Typography className={`lg:!text-xl shrink-0 !capitalize`}>{organizationName}</Typography>
 
           <Box className="flex items-center space-x-2">
             {/* <SearchFieldInput onChange={() => { }} placeholder={text.placeholders.search} searchCls={`w-full`} /> */}

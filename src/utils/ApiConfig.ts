@@ -1,8 +1,8 @@
-const getToken = () => typeof window !== 'undefined' ? localStorage.getItem('token') : '';
+const getToken = () => typeof window !== 'undefined' ? sessionStorage.getItem('token') : '';
 
 const handleResponse = async (response: Response) => {
   if (response.status === 401) {
-    localStorage.clear();
+    sessionStorage.clear();
   } else {
     return response.json();
   }
@@ -10,7 +10,7 @@ const handleResponse = async (response: Response) => {
 
 const handleToken = (result: any) => {
   if (result?.token) {
-    localStorage.setItem('token', result?.token);
+    sessionStorage.setItem('token', result?.token);
   }
 };
 

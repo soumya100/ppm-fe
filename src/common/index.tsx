@@ -11,6 +11,7 @@ import CheckBox from "./FormFields/Checkbox";
 import PasswordFieldInput from "./FormFields/PasswordFieldInput";
 import TextFieldInput from "./FormFields/TextFieldInput";
 import CommonLoading from "./CommonLoading";
+import ToasterProvider from "./ToasterProvider"
 
 export{
     FlexBetween,
@@ -24,5 +25,6 @@ export{
     CheckBox,
     PasswordFieldInput,
     TextFieldInput,
-    CommonLoading
+    CommonLoading,
+    ToasterProvider
 }

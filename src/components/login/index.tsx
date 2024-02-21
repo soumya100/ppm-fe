@@ -5,7 +5,6 @@ import text from '@/languages/en_US.json'
 import Image from 'next/image'
 import { loginDescImage, logo } from '@/Images'
 import { WhatsApp } from '@mui/icons-material'
-import { FormikConfig } from 'formik'
 
 interface LoginProps {
   loginFormik: any,
