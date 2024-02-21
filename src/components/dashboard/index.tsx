@@ -35,7 +35,7 @@ const DashBoard: FC<DashBoardProps> = ({ handleShowPurchaseData, handleShowSaleD
 
   const cardCls = `h-[23rem] overflow-x-auto max-w-[93vw]`
   const headerCls = `bg-gradient-to-tr from-blue-600 via-sky-400 to-indigo-600 p-5 h-[2rem] `
-  const token = getSessionStorageData('login_token')
+  const token = getSessionStorageData('token')
 
   if (!token) notFound()
 

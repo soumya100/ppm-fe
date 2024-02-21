@@ -1,4 +1,5 @@
 const createApi=`http://115.187.40.33/api/`
 export const endPoints={
-    'login':`${createApi}admin/login`
+    login:`${createApi}admin/login`,
+    finYear:(id: number)=>`${createApi}admin/finyear/${id}`
 }

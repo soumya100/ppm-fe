@@ -6,12 +6,19 @@ export const SideBarData: sideBarDataTypes[]=[
     {
         icon:'dashboard',
         description: text.sideBarTexts.dashboard ,
-        pathName: pathName.dashboard
+        pathName: pathName.dashboard,
     },
     {
         icon: 'foundation',
         description: text.sideBarTexts.pump,
-        pathName: ''
+        pathName: '',
+        subMenu: [
+            {
+                icon: 'foundation',
+                description: 'asd',
+                pathName: ''
+            }
+        ]
     },
     {
         icon: 'groups',

@@ -1,67 +1,48 @@
-const getToken = () => typeof window !== 'undefined' ? sessionStorage.getItem('token') : '';
-
-const handleResponse = async (response: Response) => {
-  if (response.status === 401) {
-    sessionStorage.clear();
-  } else {
-    return response.json();
-  }
-};
-
-const handleToken = (result: any) => {
-  if (result?.token) {
-    sessionStorage.setItem('token', result?.token);
-  }
-};
-
-const baseRequest = async (data: any, method: string) => {
+const makeApiCall = async (method: string, data: any): Promise<any> => {
   try {
-    const token = getToken();
-    const reqstValues = {
+    let token: string | null = null;
+    if (typeof window !== 'undefined') {
+      token = sessionStorage.getItem('token');
+    }
+
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    };
+
+    if (token) {
+      headers.Authorization = 'Bearer ' + token;
+    }
+
+    const reqstValues: RequestInit = {
       method: method,
-      body: method !== 'GET' ? JSON.stringify(data.bodyData) : undefined,
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        Authorization: token || '',
-      },
+      headers: headers,
     };
 
-    const response = await fetch(data?.url, reqstValues);
-    const result = await handleResponse(response);
+    if (data.bodyData) {
+      reqstValues.body = JSON.stringify(data.bodyData);
+    }
 
-    handleToken(result);
+    const response = await fetch(data?.url, reqstValues);
+
+    if (response.status === 401) {
+      // Handle unauthorized access
+      sessionStorage.clear();
+    }
+
+    const result = await response.json();
+
+    if (result?.token) {
+      sessionStorage.setItem('token', result?.token);
+    }
+
     return result;
   } catch (error) {
     throw error;
   }
 };
 
-export const doGetApiCall = async (data: any) => baseRequest(data, 'GET');
-
-export const doPostApiCall = async (data: any) => baseRequest(data, 'POST');
-
-export const doUploadMediaApiCall = async (data: any) => {
-  try {
-    const token = getToken();
-    const reqstValues = {
-      method: 'POST',
-      body: data?.bodyData,
-      headers: {
-        Authorization: token || '',
-      },
-    };
-
-    const response = await fetch(data?.url, reqstValues);
-    const result = await handleResponse(response);
-
-    handleToken(result);
-    return result;
-  } catch (error) {
-    throw error;
-  }
-};
-
-export const doDeleteApiCall = async (data: any) => baseRequest(data, 'DELETE');
-
-export const doPutApiCall = async (data: any) => baseRequest(data, 'PUT');
+export const doGetApiCall = (data: any): Promise<any> => makeApiCall('GET', data);
+export const doPostApiCall = (data: any): Promise<any> => makeApiCall('POST', data);
+export const doDeleteApiCall = (data: any): Promise<any> => makeApiCall('DELETE', data);
+export const doPutApiCall = (data: any): Promise<any> => makeApiCall('PUT', data);

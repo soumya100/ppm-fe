@@ -53,7 +53,7 @@ export const LoginHooks = () =>{
                 toast.success('LoggedIn Successfully')
                 // console.log('hello world')
                 router.push(pathName.dashboard)
-                sessionStorage.setItem("login_token", res.token)
+                sessionStorage.setItem("token", res.token)
                 sessionStorage.setItem("orgId", res.org_id)
                 sessionStorage.setItem("orgName", res.org_name)
              }else{

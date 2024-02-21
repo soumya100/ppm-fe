@@ -1,6 +1,13 @@
 import { useState } from "react";
+import { getFinYearAPI } from "./NavBarAPis";
+import { useDispatch } from "react-redux";
+import { getNavData } from "./NavBarReducer";
 
 export const NavbarHooks = () => {
+
+    //dispatch function
+    const dispatch= useDispatch()
+
     //open menu states
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const openAvatar = Boolean(anchorEl);
@@ -18,12 +25,23 @@ export const NavbarHooks = () => {
         setOpenHamDrawer(prev=>!prev)
     }
 
+    const finYearGetApiCall= async (orgId: number)=>{
+        let res: any = await getFinYearAPI(orgId)
+        if(res.messsage === "Data Found"){
+            dispatch(getNavData([res.Data[0]]))
+            // console.log(res.Data)
+        }else{
+            dispatch(getNavData([]))
+        }
+    }
+
     return {
         openAvatar,
         anchorEl,
         handleAvatarClose,
         handleAvatarOpen,
         openHamDrawer,
-        handleToggleHamDrawer
+        handleToggleHamDrawer,
+        finYearGetApiCall
     }
 }

@@ -15,6 +15,8 @@ import { logo } from '@/Images';
 import { SideBarData } from '../sideBar/sideBarData';
 import { sideBarDataTypes } from '@/types/data-types';
 import getSessionStorageData from '@/utils/getSessionStorageData';
+import { useSelector } from 'react-redux';
+import dayjs from 'dayjs';
 
 
 interface NavbarProps {
@@ -28,7 +30,8 @@ interface NavbarProps {
 
 const Navbar: FC<NavbarProps> = ({ handleToggleHamMenu, openHamMenu, anchorEl, handleAvatarClose, handleAvatarOpen, openAvatar }) => {
   const router = useRouter()
-
+  const navFinancialYear = useSelector((state: any) => state.navbarData?.navData)
+  console.log(navFinancialYear[0]?.Fin_start, '* data')
   const HamData: sideBarDataTypes[] = [
     {
       icon: 'notifications',
@@ -49,13 +52,18 @@ const Navbar: FC<NavbarProps> = ({ handleToggleHamMenu, openHamMenu, anchorEl, h
 
   const drawerWidth = '90%'
 
-  const organizationName= getSessionStorageData('orgName') || text.companyDetails.companyName
+  const organizationName = getSessionStorageData('orgName') || text.companyDetails.companyName
   return (
     <>
       <CssBaseline />
       <AppBar position="sticky" className={`bg-gradient-to-tr from-blue-500 via-indigo-500 to-sky-400 h-[4rem] w-full z-10`}>
         <Toolbar className="justify-between">
-          <Typography className={`lg:!text-xl shrink-0 !capitalize`}>{organizationName}</Typography>
+          <Typography component={`p`} className={`lg:!text-xl shrink-0 !capitalize !font-bold`}>
+            {organizationName}&nbsp;
+            <Typography component={`span`} className='text-xs font-semibold'>
+             ({dayjs(navFinancialYear[0]?.Fin_start).format('DD/MM/YYYY') } - {dayjs(navFinancialYear[0]?.to).format('DD/MM/YYYY') })
+            </Typography>
+          </Typography>
 
           <Box className="flex items-center space-x-2">
             {/* <SearchFieldInput onChange={() => { }} placeholder={text.placeholders.search} searchCls={`w-full`} /> */}
@@ -68,12 +76,14 @@ const Navbar: FC<NavbarProps> = ({ handleToggleHamMenu, openHamMenu, anchorEl, h
               </IconButton>
 
               {/* Support Section */}
+              <IconButton color='inherit' className='rounded-md'>
               <FlexItemCenter gap={1} className={`cursor-pointer`}>
                 <Call />
                 <Typography component={`p`} className={`text-sm`}>
                   {text.support}
                 </Typography>
               </FlexItemCenter>
+              </IconButton>
               {/* Profile Section */}
               <Avatar alt="User Avatar" src="" className={`cursor-pointer`} onClick={(e: React.MouseEvent<HTMLElement>) => handleAvatarOpen(e)} />
             </Box>
@@ -98,7 +108,7 @@ const Navbar: FC<NavbarProps> = ({ handleToggleHamMenu, openHamMenu, anchorEl, h
                 {text.companyDetails.companyName}
               </Typography>
             </FlexItemCenter>
-            <Close onClick={handleToggleHamMenu} className={`cursor-pointer`}/>
+            <Close onClick={handleToggleHamMenu} className={`cursor-pointer`} />
           </FlexBetween>
         </FlexItemCenter>
         <nav>
@@ -107,7 +117,7 @@ const Navbar: FC<NavbarProps> = ({ handleToggleHamMenu, openHamMenu, anchorEl, h
               <ListItemButton onClick={() => {
                 router.push(hamData.pathName)
                 handleToggleHamMenu
-                if(hamData.description === text.NavbarData.logout){
+                if (hamData.description === text.NavbarData.logout) {
                   sessionStorage.clear()
                 }
               }}>
@@ -131,7 +141,7 @@ const Navbar: FC<NavbarProps> = ({ handleToggleHamMenu, openHamMenu, anchorEl, h
         {NavbarData.map((data: sideBarDataTypes, idx: number) => <MenuItem key={idx} onClick={() => {
           router.push(data.pathName)
           handleAvatarClose()
-          if(data.description === text.NavbarData.logout){
+          if (data.description === text.NavbarData.logout) {
             sessionStorage.clear()
           }
         }}>
