@@ -30,8 +30,8 @@ interface NavbarProps {
 
 const Navbar: FC<NavbarProps> = ({ handleToggleHamMenu, openHamMenu, anchorEl, handleAvatarClose, handleAvatarOpen, openAvatar }) => {
   const router = useRouter()
-  const navFinancialYear = useSelector((state: any) => state.navbarData?.navData)
-  console.log(navFinancialYear[0]?.Fin_start, '* data')
+  // const navFinancialYear = useSelector((state: any) => state.navbarData?.navData)
+  // console.log(navFinancialYear[0]?.Fin_start, '* data')
   const HamData: sideBarDataTypes[] = [
     {
       icon: 'notifications',
@@ -43,12 +43,13 @@ const Navbar: FC<NavbarProps> = ({ handleToggleHamMenu, openHamMenu, anchorEl, h
       description: text.NavbarData.callSupport,
       pathName: ''
     },
-    ...SideBarData
+    ...SideBarData,
+   ...NavbarData
   ];
 
   // Use spread operator to create a new array with the modified NavbarData
-  const modifiedHamData: sideBarDataTypes[] = [...NavbarData];
-  modifiedHamData.splice(1, 0, ...HamData);
+  // const modifiedHamData: sideBarDataTypes[] = [...NavbarData];
+  // modifiedHamData.splice(1, 0, ...HamData);
 
   const drawerWidth = '90%'
 
@@ -60,9 +61,9 @@ const Navbar: FC<NavbarProps> = ({ handleToggleHamMenu, openHamMenu, anchorEl, h
         <Toolbar className="justify-between">
           <Typography component={`p`} className={`lg:!text-xl shrink-0 !capitalize !font-bold`}>
             {organizationName}&nbsp;
-            <Typography component={`span`} className='text-xs font-semibold'>
+            {/* <Typography component={`span`} className='text-xs font-semibold'>
              ({dayjs(navFinancialYear[0]?.Fin_start).format('DD/MM/YYYY') } - {dayjs(navFinancialYear[0]?.to).format('DD/MM/YYYY') })
-            </Typography>
+            </Typography> */}
           </Typography>
 
           <Box className="flex items-center space-x-2">
@@ -85,7 +86,7 @@ const Navbar: FC<NavbarProps> = ({ handleToggleHamMenu, openHamMenu, anchorEl, h
               </FlexItemCenter>
               </IconButton>
               {/* Profile Section */}
-              <Avatar alt="User Avatar" src="" className={`cursor-pointer`} onClick={(e: React.MouseEvent<HTMLElement>) => handleAvatarOpen(e)} />
+              {/* <Avatar alt="User Avatar" src="" className={`cursor-pointer`} onClick={(e: React.MouseEvent<HTMLElement>) => handleAvatarOpen(e)} /> */}
             </Box>
 
             {/* For smaller screens, show a menu button to toggle additional options */}
@@ -112,7 +113,7 @@ const Navbar: FC<NavbarProps> = ({ handleToggleHamMenu, openHamMenu, anchorEl, h
           </FlexBetween>
         </FlexItemCenter>
         <nav>
-          {modifiedHamData.map((hamData: sideBarDataTypes, idx: number) => <List key={idx}>
+          {HamData.map((hamData: sideBarDataTypes, idx: number) => <List key={idx}>
             <ListItem disablePadding>
               <ListItemButton onClick={() => {
                 router.push(hamData.pathName)
@@ -138,7 +139,7 @@ const Navbar: FC<NavbarProps> = ({ handleToggleHamMenu, openHamMenu, anchorEl, h
         open={openAvatar}
         onClose={handleAvatarClose}
       >
-        {NavbarData.map((data: sideBarDataTypes, idx: number) => <MenuItem key={idx} onClick={() => {
+        {/* {NavbarData.map((data: sideBarDataTypes, idx: number) => <MenuItem key={idx} onClick={() => {
           router.push(data.pathName)
           handleAvatarClose()
           if (data.description === text.NavbarData.logout) {
@@ -153,7 +154,7 @@ const Navbar: FC<NavbarProps> = ({ handleToggleHamMenu, openHamMenu, anchorEl, h
           <ListItemText>
             {data.description}
           </ListItemText>
-        </MenuItem>)}
+        </MenuItem>)} */}
       </Menu>
     </>
   );

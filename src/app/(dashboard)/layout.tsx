@@ -1,7 +1,7 @@
 import { FlexBox } from "@/common"
-import SideBar from "@/components/sideBar"
 import FooterContainer from "@/container/Footer"
 import NavBarContainer from "@/container/Navbar"
+import SideBarContainer from "@/container/Sidebar"
 import { Box } from "@mui/material"
 import { FC, ReactNode } from "react"
 
@@ -13,7 +13,7 @@ const Layout: FC<LayoutInterface> = ({ children }) => {
   return <Box className={`w-full min-h-screen`}>
     <NavBarContainer />
     <FlexBox>
-      <SideBar />
+    <SideBarContainer />
       <Box className="min-h-screen" sx={{ flexGrow: 1}}>
         <main>
           {children}
