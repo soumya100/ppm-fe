@@ -24,7 +24,8 @@
         "email":"अपना ईमेल दर्ज करें",
         "password":"अपना कूटशब्द भरें",
         "search":"खोज",
-        "addUnitMaster":"यूनिट मास्टर दर्ज करें"
+        "addUnitMaster":"यूनिट मास्टर दर्ज करें",
+        "addItemCategory":"आइटम श्रेणी दर्ज करें"
    },
    "rememberMe":"मुझे याद करो",
    "forgetPassword":"पासवर्ड भूल गए?",
@@ -42,7 +43,9 @@
         },
         "requiredErrors":{
             "email":"कृपया अपना ईमेल दर्ज करें",
-            "password":"कृपया अपना पासवर्ड दर्ज करें"
+            "password":"कृपया अपना पासवर्ड दर्ज करें",
+            "unitMaster": "कृपया इकाई दर्ज करें",
+            "itemCategory": "कृपया आइटम श्रेणी दर्ज करें"
         }
     },
     "sideBarTexts":{

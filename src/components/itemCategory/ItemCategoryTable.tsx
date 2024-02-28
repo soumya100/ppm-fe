@@ -15,11 +15,11 @@ import { FC } from 'react'
 import { ButtonFieldInput } from '@/common';
 import { Edit } from '@mui/icons-material';
 
-interface UnitMasterTableProps {
-    unitDatas: any
+interface ItemCategoryTableProps {
+    ItemDatas: any
 }
 
-const UnitMasterTable: FC<UnitMasterTableProps> = ({unitDatas}) => {
+const ItemCategoryTable: FC<ItemCategoryTableProps> = ({ItemDatas}) => {
 
   const headerCls=`text-white font-extrabold text-md`
     return (
@@ -33,7 +33,7 @@ const UnitMasterTable: FC<UnitMasterTableProps> = ({unitDatas}) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {unitDatas.map((data: any, idx: number) => (
+              {ItemDatas.map((data: any, idx: number) => (
                 <TableRow
                   key={idx}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -42,7 +42,7 @@ const UnitMasterTable: FC<UnitMasterTableProps> = ({unitDatas}) => {
                     {data.si}
                   </TableCell>
                   <TableCell component="th" scope="row" align='center'>
-                    {data.unit}
+                    {data.item}
                   </TableCell>
                   <TableCell component="th" scope="row" align='right'>
                     <ButtonFieldInput name={`edit`} buttonextracls={`capitalize`} 
@@ -57,4 +57,4 @@ const UnitMasterTable: FC<UnitMasterTableProps> = ({unitDatas}) => {
       );
 }
 
-export default UnitMasterTable
+export default ItemCategoryTable

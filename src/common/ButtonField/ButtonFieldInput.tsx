@@ -25,7 +25,7 @@ const ButtonFieldInput = (props: any) => {
         >
             {props.loading === true ? (
                 <div className='loaderwithtxt'>
-                    <CircularProgress size={18} className={``} color='inherit' />
+                    <CircularProgress size={18} color='inherit' />
                 </div>
             ) : 
                      <p className={props.extraTextCls}>{props.name}</p>}

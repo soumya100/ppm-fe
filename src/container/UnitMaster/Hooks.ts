@@ -30,6 +30,8 @@ export const UnitMasterHooks = () => {
         }),
         onSubmit: (values, { resetForm }) => {
           console.log(values, '* unit master data')
+          resetForm()
+          handleCloseModal()
         }
     })
 

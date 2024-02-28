@@ -19,14 +19,14 @@ const UnitMasterModal: FC<UnitMasterModalProps> = ({formik, handleAdd, handleClo
   textinputname={`unitMaster`}
   variant={`standard`}
   onChange={formik?.handleChange}
-  value={formik?.values?.email}
+  value={formik?.values?.unitMaster}
   handleBlur={formik?.handleBlur}
   error={
-    formik?.touched?.email &&
-    Boolean(formik?.errors?.email)
+    formik?.touched?.unitMaster &&
+    Boolean(formik?.errors?.unitMaster)
   }
   helperText={
-    formik?.touched?.email && formik?.errors?.email
+    formik?.touched?.unitMaster && formik?.errors?.unitMaster
   }
   clickEnter={formik?.handleSubmit}
   fullwidthState />} 

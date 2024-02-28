@@ -25,7 +25,8 @@
         "email":"Enter your email",
         "password":"Enter your password",
         "search":"Search",
-        "addUnitMaster":"Enter unit"
+        "addUnitMaster":"Enter unit",
+        "addItemCategory":"Enter item category"
    },
    "rememberMe":"Remember me",
    "forgetPassword":"Forgot password?",
@@ -44,7 +45,8 @@
         "requiredErrors":{
             "email":"Please enter your email",
             "password":"Please enter your password",
-            "unitMaster": "Please enter unit"
+            "unitMaster": "Please enter unit",
+            "itemCategory": "Please enter item category"
         }
     },
     "sideBarTexts":{

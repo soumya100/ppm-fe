@@ -23,7 +23,7 @@ const UnitMaster: FC<UnitMasterProps> = ({ handleOpenDialog, handleCloseModal,
 
     ]
 
-  return <Box className={`min-h-screen`}>
+  return <Box className={`min-h-[90vh]`}>
     <TableCommon
      title={text.tableTitles.unitMaster}
      btnName={text.add.addUnitMaster}
