@@ -2,7 +2,6 @@ import React from 'react'
 import { CircularProgress } from "@mui/material";
 import Button from "@mui/material/Button";
 import PropTypes from "prop-types";
-import Image from "next/image";
 
 
 const ButtonFieldInput = (props: any) => {
@@ -28,23 +27,8 @@ const ButtonFieldInput = (props: any) => {
                 <div className='loaderwithtxt'>
                     <CircularProgress size={18} className={``} color='inherit' />
                 </div>
-            ) : (
-                    <div className={`flex items-center justify-center w-full ${!props.btnName && `gap-2` }${props.btnImgPosition}`}>
-                    <p className={props.extraTextCls}>{props.btnName}</p>
-                    {props.btnImg && (
-                            <div className={`${!props.btnName ? `mr-2` : ``} flex`}>
-                            <Image
-                                src={props.btnImg}
-                                height={props.height ? props.height : 20}
-                                width={props.width ? props.width : 20}
-                                    alt='Button image'
-                                    className={props.btnImgCls}
-                            />
-                        </div>
-                    )}
-                        {!props.btnName && <p className={props.extraTextCls}>{props.name}</p>}
-                </div>
-            )}
+            ) : 
+                     <p className={props.extraTextCls}>{props.name}</p>}
         </Button>
     )
 }
@@ -63,12 +47,6 @@ ButtonFieldInput.propTypes = {
     endIcon: PropTypes.node,
     buttonextracls: PropTypes.string,
     extraTextCls: PropTypes.string,
-    btnImg: PropTypes.object || PropTypes.string,
-    width: PropTypes.number,
-    height: PropTypes.number,
-    btnName: PropTypes.string,
-    btnImgCls: PropTypes.string,
-    btnImgPosition: PropTypes.string,
     disableRipple: PropTypes.bool,
     color: PropTypes.string,
     sx: PropTypes.object

@@ -23,7 +23,8 @@
    "placeholders":{
         "email":"अपना ईमेल दर्ज करें",
         "password":"अपना कूटशब्द भरें",
-        "search":"खोज"
+        "search":"खोज",
+        "addUnitMaster":"यूनिट मास्टर दर्ज करें"
    },
    "rememberMe":"मुझे याद करो",
    "forgetPassword":"पासवर्ड भूल गए?",
@@ -76,5 +77,24 @@
         "notifications":"सूचनाएं",
         "callSupport":"सहायता",
         "logout":"लॉग आउट"
+    },
+    "tableTitles":{
+        "unitMaster":"आइटम मास्टर",
+        "itemCategory":"आइटम श्रेणी",
+        "itemMaster":"आइटम मास्टर"
+    },
+    "add":{
+        "addUnitMaster":"यूनिट मास्टर जोड़ें",
+        "addItemCategory":"आइटम श्रेणी जोड़ें",
+        "addItemMaster":"आइटम मास्टर जोड़ें"
+    },
+    "addMsg": {
+        "unitmaster":"यूनिट जोड़ने के लिए, कृपया यहां अपनी यूनिट दर्ज करें",
+        "itemCategory":"आइटम श्रेणी जोड़ने के लिए, कृपया यहां अपनी आइटम श्रेणी दर्ज करें",
+        "itemMaster":"आइटम जोड़ने के लिए, कृपया निम्नलिखित डेटा सावधानीपूर्वक भरें"
+    },
+    "buttonNames":{
+        "cancel":"रद्द करना",
+        "add":"जोड़ना"
     }
 }

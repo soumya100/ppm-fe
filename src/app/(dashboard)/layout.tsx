@@ -14,7 +14,7 @@ const Layout: FC<LayoutInterface> = ({ children }) => {
     <NavBarContainer />
     <FlexBox>
     <SideBarContainer />
-      <Box className="min-h-screen" sx={{ flexGrow: 1}}>
+      <Box className="h-full" sx={{ flexGrow: 1}}>
         <main>
           {children}
         </main>

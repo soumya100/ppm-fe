@@ -24,7 +24,8 @@
    "placeholders":{
         "email":"Enter your email",
         "password":"Enter your password",
-        "search":"Search"
+        "search":"Search",
+        "addUnitMaster":"Enter unit"
    },
    "rememberMe":"Remember me",
    "forgetPassword":"Forgot password?",
@@ -42,7 +43,8 @@
         },
         "requiredErrors":{
             "email":"Please enter your email",
-            "password":"Please enter your password"
+            "password":"Please enter your password",
+            "unitMaster": "Please enter unit"
         }
     },
     "sideBarTexts":{
@@ -77,5 +79,24 @@
         "notifications":"Notifications",
         "callSupport":"Support",
         "logout":"Logout"
+    },
+    "tableTitles":{
+        "unitMaster":"Unit Master",
+        "itemCategory":"Item Category",
+        "itemMaster":"Item Master"
+    },
+    "add":{
+        "addUnitMaster":"Add unit",
+        "addItemCategory":"Add item Category",
+        "addItemMaster":"Add item"
+    },
+    "addMsg": {
+        "unitmaster":"To add unit, please enter your unit here",
+        "itemCategory":"To add item category, please enter your item category here",
+        "itemMaster":"To add item, please fill out the following data carefully"
+    },
+    "buttonNames":{
+        "cancel":"Cancel",
+        "add":"Add"
     }
 }

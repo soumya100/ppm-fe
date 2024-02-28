@@ -23,7 +23,8 @@
    "placeholders":{
         "email":"আপনার ইমেল লিখুন",
         "password":"আপনার পাসওয়ার্ড লিখুন",
-        "search":"অনুসন্ধান করুন"
+        "search":"অনুসন্ধান করুন",
+        "addUnitMaster":"ইউনিট মাস্টার লিখুন"
    },
    "rememberMe":"আমাকে মনে কর",
    "forgetPassword":"পাসওয়ার্ড ভুলে গেছেন?",
@@ -76,5 +77,24 @@
         "notifications":"বিজ্ঞপ্তি",
         "callSupport":"সমর্থন",
         "logout":"প্রস্থান"
+    },
+    "tableTitles":{
+        "unitMaster":"ইউনিট মাস্টার",
+        "itemCategory":"আইটেম বিভাগ",
+        "itemMaster":"আইটেম মাস্টার"
+    },
+    "add":{
+        "addUnitMaster":"আইটেম মাস্টার যোগ করুন",
+        "addItemCategory":"আইটেম বিভাগ যোগ করুন",
+        "addItemMaster":"আইটেম মাস্টার যোগ করুন"
+    },
+    "addMsg": {
+        "unitmaster":"ইউনিট যোগ করতে, এখানে আপনার ইউনিট লিখুন",
+        "itemCategory":"আইটেম বিভাগ যোগ করতে, এখানে আপনার আইটেম বিভাগ লিখুন",
+        "itemMaster":"আইটেম যোগ করতে, সাবধানে নিম্নলিখিত তথ্য পূরণ করুন"
+    },
+    "buttonNames":{
+        "cancel":"বাতিল করুন",
+        "add":"যোগ করুন"
     }
 }

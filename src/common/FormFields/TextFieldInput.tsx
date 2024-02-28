@@ -114,6 +114,7 @@ TextFieldInput.propTypes = {
     textnewclass: PropTypes.string,
     textinputname: PropTypes.string,
     disabled: PropTypes.bool,
+    variant: PropTypes.string,
     defaultValue: PropTypes.any,
     error: PropTypes.bool,
     fullwidthState: PropTypes.bool,
