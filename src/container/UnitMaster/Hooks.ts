@@ -8,6 +8,24 @@ export const UnitMasterHooks = () => {
     //modal functionalities
     const [openFormDialog, setOpenFormDialog] = useState(false)
 
+    
+    // unitmaster add formik
+    const AddUnitMasterFormik = useFormik({
+        initialValues: {
+            itemName: ''
+        },
+        validationSchema: Yup.object().shape({
+            itemName: Yup.string()
+            .required(text.errors.requiredErrors.unitMaster)
+            
+        }),
+        onSubmit: (values, { resetForm }) => {
+            console.log(values, '* unit master data')
+            resetForm()
+          setOpenFormDialog(false)
+        }
+    })
+    
     //modal open
     const handleOpenDialog = () => {
         setOpenFormDialog(true)
@@ -16,25 +34,8 @@ export const UnitMasterHooks = () => {
     //modal close
     const handleCloseModal=()=>{
         setOpenFormDialog(false)
+        AddUnitMasterFormik.resetForm()
     }
-
-    // unitmaster add formik
-    const AddUnitMasterFormik = useFormik({
-        initialValues: {
-            unitMaster: ''
-        },
-        validationSchema: Yup.object().shape({
-            unitMaster: Yup.string()
-                .required(text.errors.requiredErrors.unitMaster)
-           
-        }),
-        onSubmit: (values, { resetForm }) => {
-          console.log(values, '* unit master data')
-          resetForm()
-          handleCloseModal()
-        }
-    })
-
     return {
         openFormDialog,
         handleOpenDialog,

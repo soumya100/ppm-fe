@@ -21,7 +21,8 @@ const FormModal: FC<FormModalCommon> = ({ dialogContent, handleAdd, handleClose,
         open={open}
         onClose={handleClose}
         PaperProps={{
-            component: 'form'
+            component: 'form',
+            className: 'w-full'
         }}
         className='space-y-5'
     >

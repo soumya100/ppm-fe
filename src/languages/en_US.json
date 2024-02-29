@@ -19,14 +19,38 @@
     },
     "label":{
         "email": "Email",
-        "password":"Password"
+        "password":"Password",
+        "addItemMaster":{
+            "itemName":"Item name",
+            "itemShortName":"Item short name",
+            "itemType":"Item type",
+            "unitValue":"Unit value",
+            "unit":"Unit",
+            "cst":"CST",
+            "sgst":"SGST",
+            "igst":"IGST",
+            "basicSaleRate":"Basic sale rate",
+            "rememberQnty":"Remember quantity"
+        }
     },
    "placeholders":{
         "email":"Enter your email",
         "password":"Enter your password",
         "search":"Search",
         "addUnitMaster":"Enter unit",
-        "addItemCategory":"Enter item category"
+        "addItemCategory":"Enter item category",
+        "addItemMaster":{
+            "itemName":"Enter item name",
+            "itemShortName":"Enter item short name",
+            "itemType":"Select item type",
+            "unitValue":"Enter unit value",
+            "unit":"Select unit",
+            "cst":"Enter CST",
+            "sgst":"Enter SGST",
+            "igst":"Enter IGST",
+            "basicSaleRate":"Enter basic sale rate",
+            "rememberQnty":"Enter remember quantity"
+        }
    },
    "rememberMe":"Remember me",
    "forgetPassword":"Forgot password?",
@@ -46,7 +70,19 @@
             "email":"Please enter your email",
             "password":"Please enter your password",
             "unitMaster": "Please enter unit",
-            "itemCategory": "Please enter item category"
+            "itemCategory": "Please enter item category",
+            "addItemMaster":{
+                "itemName":"Please enter item name",
+                "itemShortName":"Please enter item short name",
+                "itemType":"Please Select item type",
+                "unitValue":"Please enter unit value",
+                "unit":"Please select unit",
+                "cst":"Please enter CST",
+                "sgst":"Please enter SGST",
+                "igst":"Please enter IGST",
+                "basicSaleRate":"Please enter basic sale rate",
+                "rememberQnty":"Please enter remember quantity"
+            }
         }
     },
     "sideBarTexts":{

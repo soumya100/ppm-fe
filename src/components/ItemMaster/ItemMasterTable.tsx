@@ -6,15 +6,17 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+
+
 import { FC } from 'react'
 import { ButtonFieldInput } from '@/common';
 import { Edit } from '@mui/icons-material';
 
-interface ItemCategoryTableProps {
+interface ItemMasterTableProps {
     ItemDatas: any
 }
 
-const ItemCategoryTable: FC<ItemCategoryTableProps> = ({ItemDatas}) => {
+const ItemMasterTable: FC<ItemMasterTableProps> = ({ItemDatas}) => {
 
   const headerCls=`text-white font-extrabold text-md`
     return (
@@ -23,8 +25,9 @@ const ItemCategoryTable: FC<ItemCategoryTableProps> = ({ItemDatas}) => {
             <TableHead className='bg-gradient-to-tr from-indigo-500 via-purple-400 to-blue-500'>
               <TableRow className={`text-white font-bold`}>
                 <TableCell className={headerCls}>Serial No.</TableCell>
-                <TableCell className={headerCls} align='center'>Unit</TableCell>
-                <TableCell className={headerCls} align='right'>Actions</TableCell>
+                <TableCell className={headerCls} align='center'>Item Name</TableCell>
+                <TableCell className={headerCls} align='center'>Item Unit</TableCell>
+                <TableCell className={headerCls} align='right'>Action</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -37,7 +40,10 @@ const ItemCategoryTable: FC<ItemCategoryTableProps> = ({ItemDatas}) => {
                     {data.si}
                   </TableCell>
                   <TableCell component="th" scope="row" align='center'>
-                    {data.item}
+                    {data.itemName}
+                  </TableCell>
+                  <TableCell component="th" scope="row" align='center'>
+                    {data.itemUnit}
                   </TableCell>
                   <TableCell component="th" scope="row" align='right'>
                     <ButtonFieldInput name={`edit`} buttonextracls={`capitalize`} 
@@ -52,4 +58,4 @@ const ItemCategoryTable: FC<ItemCategoryTableProps> = ({ItemDatas}) => {
       );
 }
 
-export default ItemCategoryTable
+export default ItemMasterTable

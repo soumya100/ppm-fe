@@ -1,32 +1,12 @@
-/**
- * @author uplVikash
- * @description this is the common component for dropdown select.
- * @param props 
- * @returns Dropdown field
- * @reference https://mui.com/material-ui/react-select/
- */
-
 import React from 'react'
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { Box, Tooltip, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import PropTypes from 'prop-types'
-// import Filtericon from '../../images/common/filterImg.svg'
-import styles from "./Index.module.css";
 import Image from 'next/image';
 import { FlexBox } from '..';
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-    PaperProps: {
-        style: {
-            maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-            width: 250,
-        },
-    },
-};
 
 const DropDownField = (props: any) => {
 
@@ -49,6 +29,7 @@ const DropDownField = (props: any) => {
                         defaultValue={props.defaultValue}
                         multiple={props.multiple}
                         variant={props.variant}
+                        label={props.dropdownLabel}
                         sx={props.sx}
                         SelectDisplayProps={props.SelectDisplayProps}
                         renderValue={props.renderValue}
@@ -59,6 +40,7 @@ const DropDownField = (props: any) => {
                         name={props.name}
                         error={props.error}
                         disabled={props.disabled}
+                        color={props.color}
                     >
                         <MenuItem disabled value={props.placeholder}>
                             {props.placeholder}
@@ -97,6 +79,7 @@ DropDownField.propTypes = {
     label: PropTypes.string,
     dropDownRootCls: PropTypes.string,
     id: PropTypes.string,
+    dropdownLabel: PropTypes.string,
     placeholder: PropTypes.string,
     selectOption: PropTypes.array,
     errorTextCls: PropTypes.string,
@@ -104,6 +87,7 @@ DropDownField.propTypes = {
     multiple: PropTypes.bool,
     variant: PropTypes.string,
     sx: PropTypes.any,
+    color: PropTypes.string,
     SelectDisplayProps: PropTypes.object,
     renderValue: PropTypes.func,
     open: PropTypes.bool,

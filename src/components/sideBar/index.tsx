@@ -8,30 +8,31 @@ import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import { SideBarData } from './sideBarData';
-import { sideBarDataTypes, subMenu } from '@/types/data-types';
-import { Avatar, Collapse, Icon, IconButton, ListItemAvatar, ListItemIcon, ListSubheader, Typography } from '@mui/material';
+import { Avatar, Collapse, Icon, IconButton, ListItemAvatar, ListItemIcon, Typography } from '@mui/material';
 import { FlexBetween, FlexItemCenter } from '@/common';
 import getSessionStorageData from '@/utils/getSessionStorageData';
 import { useSelector } from 'react-redux';
 import dayjs from 'dayjs';
-import { Drafts, ExpandLess, ExpandMore, Inbox, Logout, Send, StarBorder } from '@mui/icons-material';
+import {Logout} from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
-import { pathName } from '@/utils/route';
+import styles from './sideBar.module.css'
 
 const drawerWidth = 320;
 
-export default function SideBar() {
-  const orgName = getSessionStorageData('orgName') || '--'
-  const financialYear = useSelector((state: any) => state.sideBarData?.sideBarData)
-  const [open, setOpen] = React.useState(false);
+interface SideBarProps {
+  logOutGetApiCall(): void
+  handleSubMenu(id: number): void
+  openMenuId: number
+}
 
-  const handleClick = () => {
-    setOpen(!open);
-  };
-  const router = useRouter()
+export const SideBar: React.FC<SideBarProps> = ({ logOutGetApiCall , handleSubMenu, openMenuId}) => {
+  const orgName = getSessionStorageData('orgName') || '--'
+  const financialYear = useSelector((state: any) => state.sideBarData?.financialYear)
+  const sideBarData= useSelector((state: any)=> state.sideBarData?.sideBarData)
+  const router= useRouter()
+
   return (
-    <Box sx={{ display: 'flex' }} className={`hidden md:flex z-[9]`}>
+    <Box sx={{ display: 'flex' }} className={`hidden md:flex z-[9] ${styles.scrollbar}`}>
       <Drawer
         variant="permanent"
         sx={{
@@ -48,48 +49,33 @@ export default function SideBar() {
               component="nav"
               aria-labelledby="nested-list-subheader"
             >
-              <ListItemButton>
+             {sideBarData && sideBarData.length > 0 && sideBarData?.map((data: any)=><Box key={data.Menue_Id}>
+             <ListItemButton onClick={data.SubMenue && data.SubMenue.length > 0 ?
+                ()=> handleSubMenu(data.Menue_Id) : ()=> router.push(`/dashboard`)}>
                 <ListItemIcon>
-                  <Send />
+                  <Icon>
+                  {data?.Menue_Icon}
+                  </Icon>
                 </ListItemIcon>
-                <ListItemText primary="Sent mail" />
+                <ListItemText primary={data.Menue_Name} />
               </ListItemButton>
-              <ListItemButton  onClick={handleClick}>
-                <ListItemIcon>
-                  <Drafts />
-                </ListItemIcon>
-                <ListItemText primary="Drafts" />
-              </ListItemButton>
-              <Collapse in={open} timeout="auto" unmountOnExit>
+             {data?.SubMenue && data.SubMenue.length > 0 && <Collapse in={data.Menue_Id === openMenuId ? true : false } timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
-                  <ListItemButton sx={{ pl: 4 }}>
+                  {data.SubMenue.map((subMenu: any)=><ListItemButton key={subMenu.Id} sx={{ pl: 4 }}>
                     <ListItemIcon>
-                      <StarBorder />
+                      <Icon>
+                        {subMenu.icon_class}
+                      </Icon>
                     </ListItemIcon>
-                    <ListItemText primary="Starred" />
-                  </ListItemButton>
+                    <ListItemText primary={subMenu.Menue_Name} />
+                  </ListItemButton>)}
                 </List>
-              </Collapse>
-              <ListItemButton onClick={handleClick}>
-                <ListItemIcon>
-                  <Inbox />
-                </ListItemIcon>
-                <ListItemText primary="Inbox" />
-                {open ? <ExpandLess /> : <ExpandMore />}
-              </ListItemButton>
-              <Collapse in={open} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <StarBorder />
-                    </ListItemIcon>
-                    <ListItemText primary="Starred" />
-                  </ListItemButton>
-                </List>
-              </Collapse>
+              </Collapse>}
+             </Box>)
+              }
             </List>
           </Box>
-          <FlexItemCenter className='w-full px-2'>
+          <FlexItemCenter className='w-full px-2 sticky bottom-0 left-0 z-10 bg-white'>
             <ListItem>
               <ListItemAvatar>
                 <Avatar className='bg-sky-500 capitalize'>
@@ -114,10 +100,7 @@ export default function SideBar() {
                 }
               />
             </ListItem>
-            <IconButton onClick={() => {
-              sessionStorage.clear()
-              router.push(pathName.login)
-            }}>
+            <IconButton onClick={logOutGetApiCall}>
               <Logout fontSize='small' />
             </IconButton>
           </FlexItemCenter>
@@ -126,3 +109,5 @@ export default function SideBar() {
     </Box>
   );
 }
+
+export default SideBar

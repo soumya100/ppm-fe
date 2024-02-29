@@ -7,16 +7,8 @@ export const ItemCategoryHooks=()=>{
 
     const [openAddItemModal, setOpenAddItemModal]=useState(false)
 
-    //open modal state
-    const handleOpenModal=()=>{
-        setOpenAddItemModal(true)
-    }
-
-    //close modal state
-    const handleCloseModal=()=>{
-        setOpenAddItemModal(false)
-    }
-// unitmaster add formik
+    
+// item category add formik
 const AddItemCategoryFormik = useFormik({
     initialValues: {
         itemCategory: ''
@@ -29,9 +21,21 @@ const AddItemCategoryFormik = useFormik({
     onSubmit: (values, { resetForm }) => {
       console.log(values, '* item category data')
       resetForm()
-      handleCloseModal()
+     setOpenAddItemModal(false)
     }
 })
+
+//open modal state
+const handleOpenModal=()=>{
+    setOpenAddItemModal(true)
+}
+
+//close modal state
+const handleCloseModal=()=>{
+    setOpenAddItemModal(false)
+    AddItemCategoryFormik.resetForm()
+
+}
     return{
         handleOpenModal,
         handleCloseModal,
