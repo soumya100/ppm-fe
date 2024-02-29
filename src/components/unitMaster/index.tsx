@@ -4,23 +4,23 @@ import { TableCommon } from '@/common'
 import UnitMasterModal from './UnitMasterModal'
 import UnitMasterTable from './UnitMasterTable'
 import { Box } from '@mui/material'
+import { useSelector } from 'react-redux'
 
 interface UnitMasterProps {
   openFormDialog: boolean
   handleOpenDialog(): void
   handleCloseModal(): void
   AddUnitMasterFormik: any
+  handleEditData: any
+  loading: boolean
+  postLoaders: boolean
 }
 
 const UnitMaster: FC<UnitMasterProps> = ({ handleOpenDialog, handleCloseModal,
-  openFormDialog, AddUnitMasterFormik }) => {
+  openFormDialog, AddUnitMasterFormik, handleEditData, loading }) => {
 
-  const tableData = [
-    {
-      si: 1,
-      unit: 'litre'
-    }
-  ]
+  const unitMasterData = useSelector((state: any) => state.unitMasterData?.unitMasterData)
+
 
   return <Box className={`min-h-[90vh]`}>
     <TableCommon
@@ -30,7 +30,7 @@ const UnitMaster: FC<UnitMasterProps> = ({ handleOpenDialog, handleCloseModal,
       addComponent={<UnitMasterModal handleAdd={AddUnitMasterFormik.handleSubmit}
         handleClose={handleCloseModal} formik={AddUnitMasterFormik}
         unitMasterModalOpenState={openFormDialog} />}
-      tableComponent={<UnitMasterTable unitDatas={tableData} />}
+      tableComponent={<UnitMasterTable unitDatas={unitMasterData} handleEditData={handleEditData} loading={loading}/>}
       handleOpenButton={handleOpenDialog}
     />
   </Box>

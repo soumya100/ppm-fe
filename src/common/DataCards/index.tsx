@@ -52,7 +52,7 @@ const DataCards: FC<DataCardsProps> = ({ extraCls, headerCls, titleCls,
     <FlexItemCenter className={headerCls}>
       <FlexBetween className='w-full'>
         {
-          istitle && <Typography className={titleCls}>
+          istitle && <Typography className={titleCls} component={`p`}>
             {title}
           </Typography>
         }

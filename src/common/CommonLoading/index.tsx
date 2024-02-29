@@ -7,7 +7,7 @@ import { Typography } from '@mui/material'
 interface CommonLoadingProps {
   loadSpaceBetween: number,
   imgHeight: number,
-  loadingTextCls: string,
+  loadingTextCls?: string,
   loadingText?: string
 }
 

@@ -136,5 +136,6 @@
     "buttonNames":{
         "cancel":"Cancel",
         "add":"Add"
-    }
+    },
+    "noContentPage":"No Content found"
 }

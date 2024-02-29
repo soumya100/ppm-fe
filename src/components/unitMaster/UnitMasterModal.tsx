@@ -16,20 +16,20 @@ const UnitMasterModal: FC<UnitMasterModalProps> = ({formik, handleAdd, handleClo
   placeholder={text.placeholders.addUnitMaster}
   extraCls={`w-full`}
   color={`success`}
-  textinputname={`unitMaster`}
+  textinputname={`itemName`}
   variant={`standard`}
   onChange={formik?.handleChange}
-  value={formik?.values?.unitMaster}
+  value={formik?.values?.itemName}
   handleBlur={formik?.handleBlur}
   error={
-    formik?.touched?.unitMaster &&
-    Boolean(formik?.errors?.unitMaster)
+    formik?.touched?.itemName &&
+    Boolean(formik?.errors?.itemName)
   }
   helperText={
-    formik?.touched?.unitMaster && formik?.errors?.unitMaster
+    formik?.touched?.itemName && formik?.errors?.itemName
   }
   clickEnter={formik?.handleSubmit}
-  fullwidthState />} 
+  fullwidthState autoFocus/>} 
   dialoguContentTxt={text.addMsg.unitmaster}
   dialogTitle={text.add.addUnitMaster} 
   handleAdd={handleAdd}

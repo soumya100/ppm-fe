@@ -12,14 +12,16 @@ interface UnitMasterTableProps{
 }
 
 import { FC } from 'react'
-import { ButtonFieldInput } from '@/common';
+import { ButtonFieldInput, CommonLoading, FlexCenter, NoContentPage } from '@/common';
 import { Edit } from '@mui/icons-material';
 
 interface UnitMasterTableProps {
     unitDatas: any
+    handleEditData: any
+    loading: boolean
 }
 
-const UnitMasterTable: FC<UnitMasterTableProps> = ({unitDatas}) => {
+const UnitMasterTable: FC<UnitMasterTableProps> = ({unitDatas, handleEditData, loading}) => {
 
   const headerCls=`text-white font-extrabold text-md`
     return (
@@ -33,24 +35,31 @@ const UnitMasterTable: FC<UnitMasterTableProps> = ({unitDatas}) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {unitDatas.map((data: any, idx: number) => (
+              { loading ? 
+              <FlexCenter className='w-full h-[50vh]'>
+                <CommonLoading imgHeight={90} loadSpaceBetween={5} loadingTextCls='text-3xl font-bold'/>
+                </FlexCenter>
+             : unitDatas && unitDatas?.length > 0 ? unitDatas.map((data: any) => (
                 <TableRow
-                  key={idx}
+                  key={data.Id}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
-                    {data.si}
+                    {data.Id}
                   </TableCell>
                   <TableCell component="th" scope="row" align='center'>
-                    {data.unit}
+                    {data.Unit_Name}
                   </TableCell>
                   <TableCell component="th" scope="row" align='right'>
                     <ButtonFieldInput name={`edit`} buttonextracls={`capitalize`} 
                     variant={`outlined`}
-                    startIcon={<Edit />} handleClick={()=>{`edited`}}/>
+                    startIcon={<Edit />} handleClick={()=>handleEditData(data)} 
+                    />
                   </TableCell>
                 </TableRow>
-              ))}
+              )) : (loading || (!unitDatas && unitDatas.length === 0)) &&
+              <NoContentPage mainCls={`h-[50vh] w-full`} />
+             }
             </TableBody>
           </Table>
         </TableContainer>

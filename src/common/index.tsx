@@ -14,6 +14,7 @@ import CommonLoading from "./CommonLoading";
 import ToasterProvider from "./ToasterProvider"
 import TableCommon from "./TableCommon";
 import FormModal from "./FormModal";
+import NoContentPage from "./NoContentPage";
 
 export{
     FlexBetween,
@@ -30,5 +31,6 @@ export{
     CommonLoading,
     ToasterProvider,
     TableCommon,
-    FormModal
+    FormModal,
+NoContentPage
 }

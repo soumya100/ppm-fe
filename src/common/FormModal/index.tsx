@@ -28,7 +28,7 @@ const FormModal: FC<FormModalCommon> = ({ dialogContent, handleAdd, handleClose,
     >
         <DialogTitle className='border border-b'>
             <FlexBetween>
-                <Typography className={`font-bold text-xl`}>
+                <Typography className={`font-bold text-xl`} component={`p`}>
                     {dialogTitle}
                 </Typography>
                 <Close className={`text-red-500 cursor-pointer`} onClick={handleClose}/>

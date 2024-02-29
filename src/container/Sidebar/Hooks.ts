@@ -26,10 +26,9 @@ export const SideBarHooks=()=>{
     const logOutGetApiCall= async ()=>{
         let res: any = await getLogoutAPI()
         if(res.message === "Logout Successfull"){
-            toast.success(`LoggedOut Successfully`)
             sessionStorage.clear()
-              router.push(pathName.login)
-            // console.log(res.Data)
+            router.push(pathName.login)
+            toast.success(`LoggedOut Successfully`)
         }else{
             toast.error(res.message)
         }
@@ -45,7 +44,7 @@ export const SideBarHooks=()=>{
         }
     }
 
-//menmu open functionality
+//menu open functionality
 const [openMenuId, setOpenMenuId]=useState<number | null>(null)
 
 const handleSubMenu=(id: number)=>{
@@ -64,6 +63,7 @@ const handleSubMenuClose=()=>{
         logOutGetApiCall,
         getSideBarDataApiCall,
         handleSubMenu,
-        openMenuId
+        openMenuId,
+        handleSubMenuClose
     }
 }

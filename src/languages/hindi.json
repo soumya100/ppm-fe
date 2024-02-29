@@ -135,5 +135,6 @@
     "buttonNames":{
         "cancel":"रद्द करना",
         "add":"जोड़ना"
-    }
+    },
+    "noContentPage":"कोई सामग्री नहीं मिली"
 }
