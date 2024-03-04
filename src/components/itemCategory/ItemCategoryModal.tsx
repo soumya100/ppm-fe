@@ -6,8 +6,7 @@ interface UnitMasterModalProps {
   formik: any,
   handleAdd(): void,
   handleClose(): void,
-  itemCategoryModalOpenState: boolean,
-
+  itemCategoryModalOpenState: boolean
 }
 
 const ItemCategoryModal: FC<UnitMasterModalProps> = ({formik, handleAdd, handleClose, itemCategoryModalOpenState}) => {

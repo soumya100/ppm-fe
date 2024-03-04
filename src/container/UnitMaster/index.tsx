@@ -6,6 +6,7 @@ import getSessionStorageData from "@/utils/getSessionStorageData"
 
 const UnitMasterContainer = () => {
     const orgId = getSessionStorageData('orgId')
+    const token= getSessionStorageData('token')
     const { openFormDialog,
         handleOpenDialog,
         handleCloseModal,
@@ -17,8 +18,10 @@ const UnitMasterContainer = () => {
     } = UnitMasterHooks()
 
     useEffect(() => {
+        if(orgId && token){
         getUnitMasterDataApiCall(orgId)
-    }, [orgId])
+    }
+    }, [orgId, token])
 
     return <UnitMaster
         openFormDialog={openFormDialog}
@@ -28,6 +31,7 @@ const UnitMasterContainer = () => {
         handleEditData={handleEditData}
         loading={loading}
         postLoaders={postLoaders}
+        token={token}
     />
 }
 

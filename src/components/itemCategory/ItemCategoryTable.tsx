@@ -11,10 +11,11 @@ import { ButtonFieldInput } from '@/common';
 import { Edit } from '@mui/icons-material';
 
 interface ItemCategoryTableProps {
-    ItemDatas: any
+    ItemDatas: any,
+    handleEditData(data: any): void
 }
 
-const ItemCategoryTable: FC<ItemCategoryTableProps> = ({ItemDatas}) => {
+const ItemCategoryTable: FC<ItemCategoryTableProps> = ({ItemDatas, handleEditData}) => {
 
   const headerCls=`text-white font-extrabold text-md`
     return (
@@ -28,21 +29,21 @@ const ItemCategoryTable: FC<ItemCategoryTableProps> = ({ItemDatas}) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {ItemDatas.map((data: any, idx: number) => (
+              {ItemDatas.map((data: any) => (
                 <TableRow
-                  key={idx}
+                  key={data.Id}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
-                    {data.si}
+                    {data.Id}
                   </TableCell>
                   <TableCell component="th" scope="row" align='center'>
-                    {data.item}
+                    {data.Catagary_Name}
                   </TableCell>
                   <TableCell component="th" scope="row" align='right'>
                     <ButtonFieldInput name={`edit`} buttonextracls={`capitalize`} 
                     variant={`outlined`}
-                    startIcon={<Edit />} handleClick={()=>{`edited`}}/>
+                    startIcon={<Edit />} handleClick={()=>handleEditData(data)}/>
                   </TableCell>
                 </TableRow>
               ))}

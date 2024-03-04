@@ -5,6 +5,7 @@ import UnitMasterModal from './UnitMasterModal'
 import UnitMasterTable from './UnitMasterTable'
 import { Box } from '@mui/material'
 import { useSelector } from 'react-redux'
+import { notFound } from 'next/navigation'
 
 interface UnitMasterProps {
   openFormDialog: boolean
@@ -13,14 +14,16 @@ interface UnitMasterProps {
   AddUnitMasterFormik: any
   handleEditData: any
   loading: boolean
-  postLoaders: boolean
+  postLoaders: boolean,
+  token: string
 }
 
 const UnitMaster: FC<UnitMasterProps> = ({ handleOpenDialog, handleCloseModal,
-  openFormDialog, AddUnitMasterFormik, handleEditData, loading }) => {
+  openFormDialog, AddUnitMasterFormik, handleEditData, loading,token }) => {
 
   const unitMasterData = useSelector((state: any) => state.unitMasterData?.unitMasterData)
 
+  if(!token) return notFound()
 
   return <Box className={`min-h-[90vh]`}>
     <TableCommon

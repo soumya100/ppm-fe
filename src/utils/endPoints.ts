@@ -6,5 +6,8 @@ export const endPoints={
     getUnitMaster:(id: number)=>`${createApi}master/GetUnit/${id}`,
     postUnitMaster:`${createApi}master/AddUnit`,
     updateUnitMaster:`${createApi}master/UpdateUnit`,
+    getItemCategory:(id: number)=>`${createApi}master/GetCatagary/${id}`,
+    postItemMaster:`${createApi}master/AddCatagary`,
+    updateItemMaster: `${createApi}master/UpdateCatagary`,
     logout:`${createApi}logout`
 }
