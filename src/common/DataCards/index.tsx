@@ -61,10 +61,12 @@ const DataCards: FC<DataCardsProps> = ({ extraCls, headerCls, titleCls,
             <DropDownField handleChange={purchaseDrpChange}
               selectOption={purchaseSelectOption} dropdownContainerCls={drpMainCls} dropDownRootCls={purchasedropDownRootCls}
               placeholder={purchasePlaceholder}
+              fullWidthState
             />
             <DropDownField handleChange={allItemsDrpChange}
               selectOption={allItemsselectOption} dropdownContainerCls={drpMainCls} dropDownRootCls={allItemsdropDownRootCls}
               placeholder={allItemsPlaceholder}
+              fullWidthState
             />
           </FlexItemCenter>
         }

@@ -2,7 +2,7 @@ import React from 'react'
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { Box, Typography } from '@mui/material';
+import { Box, InputLabel, Typography } from '@mui/material';
 import PropTypes from 'prop-types'
 import Image from 'next/image';
 import { FlexBox } from '..';
@@ -20,6 +20,8 @@ const DropDownField = (props: any) => {
                     <FlexBox gap={1} alignItems={`center`}>
                         <label className={props.dropDownLabelCls}>{props.label}</label>
                     </FlexBox>
+                    <InputLabel id="demo-simple-select-label" color={props.color} 
+                    error={props.error}>{props.dropdownLabel}</InputLabel>
                     <Select
                         className={`relative ${props.option ? `` : `text-gray-60`} ${props.dropDownRootCls} ${props.error ? `!border !border-red-400` : ``}`}
                         id={props.id}
@@ -33,6 +35,7 @@ const DropDownField = (props: any) => {
                         sx={props.sx}
                         SelectDisplayProps={props.SelectDisplayProps}
                         renderValue={props.renderValue}
+                        onBlur={props.handleBlur}
                         open={props.open}
                         onOpen={props.onOpen}
                         onClose={props.onClose}
@@ -41,6 +44,7 @@ const DropDownField = (props: any) => {
                         error={props.error}
                         disabled={props.disabled}
                         color={props.color}
+                        fullWidth={props.fullWidthState}
                     >
                         <MenuItem disabled value={props.placeholder}>
                             {props.placeholder}
@@ -49,7 +53,7 @@ const DropDownField = (props: any) => {
                             <MenuItem
                                 key={idx}
                                 value={item.value ? item.value : props.placeholder}
-                                // className={`w-max`}
+                            // className={`w-max`}
                             >
                                 {props?.isTemplate ?
                                     <FlexBox gap={2} className={``}>
@@ -67,7 +71,13 @@ const DropDownField = (props: any) => {
                         }
                     </Select>
                 </div>
-                <p className={`text-[#d32f2f] mt-[3px] mx-[14px] text-[0.75rem]`}>{props.errorText}</p>
+                <p style={{
+                    marginLeft: '14px',
+                    fontSize: '0.75rem',
+                    lineHeight: '1rem',
+                    color: 'indianred',
+                    marginTop: '2px'
+                }}>{props.errorText}</p>
             </FormControl>
         </Box>
     );
@@ -77,6 +87,7 @@ DropDownField.propTypes = {
     extraMainCls: PropTypes.string,
     dropDownLabelCls: PropTypes.string,
     label: PropTypes.string,
+    handleBlur: PropTypes.func,
     dropDownRootCls: PropTypes.string,
     id: PropTypes.string,
     dropdownLabel: PropTypes.string,
@@ -86,6 +97,7 @@ DropDownField.propTypes = {
     defaultValue: PropTypes.any,
     multiple: PropTypes.bool,
     variant: PropTypes.string,
+    fullWidthState: PropTypes.bool,
     sx: PropTypes.any,
     color: PropTypes.string,
     SelectDisplayProps: PropTypes.object,

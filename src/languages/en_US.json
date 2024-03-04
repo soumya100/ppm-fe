@@ -30,7 +30,8 @@
             "sgst":"SGST",
             "igst":"IGST",
             "basicSaleRate":"Basic sale rate",
-            "rememberQnty":"Remember quantity"
+            "rememberQnty":"Remember quantity",
+            "openingQnty":"Opening quantity"
         }
     },
    "placeholders":{
@@ -49,7 +50,8 @@
             "sgst":"Enter SGST",
             "igst":"Enter IGST",
             "basicSaleRate":"Enter basic sale rate",
-            "rememberQnty":"Enter remember quantity"
+            "rememberQnty":"Enter remember quantity",
+            "openingQnty":"Enter opening quantity"
         }
    },
    "rememberMe":"Remember me",
@@ -64,7 +66,16 @@
     "errors":{
         "patternErrors":{
             "email":"Please enter a valid email",
-            "password":"Password must contain an uppercase, lowercase, number, symbol and minimum 8 characters"
+            "password":"Password must contain an uppercase, lowercase, number, symbol and minimum 8 characters",
+            "addItemMaster":{
+                "unitValue":"Unit master should contain a number more than zero",
+                "cst":"CST should contain a number greater than zero",
+                "sgst":"SGST should contain a number greater than zero",
+                "igst":"IGST should contain a number greater than zero",
+                "basicSaleRate":"Basic sale rate should contain a number greater than zero",
+                "rememberQnty":"Remember quantity should contain a number greater than zero",
+                "openingQnty":"Opening quantity should contain a number greater than zero"
+            }
         },
         "requiredErrors":{
             "email":"Please enter your email",
@@ -81,7 +92,8 @@
                 "sgst":"Please enter SGST",
                 "igst":"Please enter IGST",
                 "basicSaleRate":"Please enter basic sale rate",
-                "rememberQnty":"Please enter remember quantity"
+                "rememberQnty":"Please enter remember quantity",
+                "openingQnty":"Please enter opening quantity"
             }
         }
     },

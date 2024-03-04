@@ -18,7 +18,8 @@ export const ItemMasterHooks = () => {
             sgst: 0,
             igst: 0,
             basicSaleRate: 0,
-            rememberQnty: 0
+            rememberQnty: 0,
+            openingQnty:0
         },
         validationSchema: Yup.object().shape({
             itemName: Yup.string()
@@ -28,26 +29,28 @@ export const ItemMasterHooks = () => {
             itemType: Yup.string()
                 .required(text.errors.requiredErrors.addItemMaster.itemType),
             unitValue: Yup.number()
-                .lessThan(1,)
+                .moreThan(1,text.errors.patternErrors.addItemMaster.unitValue)
                 .required(text.errors.requiredErrors.addItemMaster.unitValue),
             unit: Yup.string()
             .required(text.errors.requiredErrors.addItemMaster.unit),
             cst: Yup.number()
-            .lessThan(1,)
+            .moreThan(1,text.errors.patternErrors.addItemMaster.cst)
             .required(text.errors.requiredErrors.addItemMaster.cst),
             sgst: Yup.number()
-            .lessThan(1,)
-            .required(),
+            .moreThan(1,text.errors.patternErrors.addItemMaster.sgst)
+            .required(text.errors.requiredErrors.addItemMaster.sgst),
             igst: Yup.number()
-            .lessThan(1,)
-            .required(),
+            .moreThan(1,text.errors.patternErrors.addItemMaster.igst)
+            .required(text.errors.patternErrors.addItemMaster.igst),
             basicSaleRate: Yup.number()
-            .lessThan(1,)
-            .required(),
+            .moreThan(1,text.errors.patternErrors.addItemMaster.basicSaleRate)
+            .required(text.errors.requiredErrors.addItemMaster.basicSaleRate),
             rememberQnty: Yup.number()
-            .lessThan(1,)
-            .required(),
-
+            .moreThan(1,text.errors.patternErrors.addItemMaster.rememberQnty)
+            .required(text.errors.requiredErrors.addItemMaster.rememberQnty),
+            openingQnty: Yup.number()
+            .moreThan(1,text.errors.patternErrors.addItemMaster.openingQnty)
+            .required(text.errors.requiredErrors.addItemMaster.openingQnty)
         }),
         onSubmit: (values, { resetForm }) => {
             console.log(values, '* item category data')
@@ -70,6 +73,7 @@ export const ItemMasterHooks = () => {
     return {
         handleCloseDrawer,
         handleOpenDrawer,
-        openItemMaster
+        openItemMaster,
+        AddItemMasterFormik
     }
 }

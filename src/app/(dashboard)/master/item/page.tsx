@@ -1,6 +1,7 @@
+import ItemMasterContainer from "@/container/ItemMaster"
 
 const page = ({}) => {
-  return <div>page</div>
+  return <ItemMasterContainer />
 }
 
 export default page
