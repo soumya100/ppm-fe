@@ -1,19 +1,40 @@
 "use client"
 import Navbar from "@/components/navbar"
 import { NavbarHooks } from "./Hooks"
+import { SideBarHooks } from "../Sidebar/Hooks";
+import { useEffect } from "react";
+import getSessionStorageData from "@/utils/getSessionStorageData";
 
 const NavBarContainer = () => {
 
-  const { anchorEl, handleAvatarClose, handleAvatarOpen,
-    openAvatar, openHamDrawer,
+  const { openHamDrawer,
     handleToggleHamDrawer } = NavbarHooks();
 
-  return <Navbar anchorEl={anchorEl}
-    handleAvatarClose={handleAvatarClose}
-    handleAvatarOpen={handleAvatarOpen}
+    const{getSideBarDataApiCall, handleSubMenu, 
+      handleSubMenuClose, openMenuId, finYearGetApiCall, 
+      logOutGetApiCall
+    }=SideBarHooks()
+
+
+    const token= getSessionStorageData('token')
+    const orgId= getSessionStorageData('orgId')
+
+    useEffect(()=>{
+      if(token){
+        getSideBarDataApiCall()
+      }
+      if(orgId && token){
+        finYearGetApiCall(orgId)
+      }
+    },[token, orgId])
+
+  return <Navbar
     handleToggleHamMenu={handleToggleHamDrawer}
-    openAvatar={openAvatar}
     openHamMenu={openHamDrawer}
+    handleSubMenu={handleSubMenu}
+     handleSubMenuClose={handleSubMenuClose}
+     openMenuId={openMenuId}
+     logOutGetApiCall={logOutGetApiCall}
   />
 }
 

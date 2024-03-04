@@ -1,7 +1,7 @@
 // components/Navbar.tsx
 import React, { FC } from 'react';
-import { AppBar, Toolbar, Typography, IconButton, Badge, Avatar, Box, Drawer, CssBaseline, Menu, MenuItem, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Icon } from '@mui/material';
-import { Call, Close, Menu as MenuIcon, Notifications as NotificationsIcon } from '@mui/icons-material';
+import { AppBar, Toolbar, Typography, IconButton, Badge, Avatar, Box, Drawer, CssBaseline, Menu, MenuItem, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Icon, Divider, Collapse } from '@mui/material';
+import { Call, Close, ExpandLess, ExpandMore, Menu as MenuIcon, Notifications as NotificationsIcon } from '@mui/icons-material';
 import {
   FlexBetween,
   FlexItemCenter,
@@ -12,8 +12,6 @@ import { useRouter } from 'next/navigation';
 import { NavbarData } from './NavbarData';
 import Image from 'next/image';
 import { logo } from '@/Images';
-import { SideBarData } from '../sideBar/sideBarData';
-import { sideBarDataTypes } from '@/types/data-types';
 import getSessionStorageData from '@/utils/getSessionStorageData';
 import { useSelector } from 'react-redux';
 import dayjs from 'dayjs';
@@ -22,38 +20,37 @@ import dayjs from 'dayjs';
 interface NavbarProps {
   handleToggleHamMenu(): void
   openHamMenu: boolean,
-  openAvatar: boolean
-  handleAvatarClose(): void,
-  handleAvatarOpen(event: React.MouseEvent<HTMLElement>): void,
-  anchorEl: HTMLElement | null
+  handleSubMenu(id: number): void
+  handleSubMenuClose(): void
+  openMenuId: number | null
+  logOutGetApiCall(): void
 }
 
-const Navbar: FC<NavbarProps> = ({ handleToggleHamMenu, openHamMenu, anchorEl, handleAvatarClose, handleAvatarOpen, openAvatar }) => {
+const Navbar: FC<NavbarProps> = ({ handleToggleHamMenu, openHamMenu, openMenuId, handleSubMenu,
+  handleSubMenuClose, logOutGetApiCall }) => {
   const router = useRouter()
-  // const navFinancialYear = useSelector((state: any) => state.navbarData?.navData)
-  // console.log(navFinancialYear[0]?.Fin_start, '* data')
-  const HamData: sideBarDataTypes[] = [
+  const sideBarData = useSelector((state: any) => state.sideBarData?.sideBarData)
+  const organizationName = getSessionStorageData('orgName') || text.companyDetails.companyName
+  const financialYear = useSelector((state: any) => state.sideBarData?.financialYear)
+
+  const HamData: any = [
+    ...sideBarData,
     {
-      icon: 'notifications',
-      description: text.NavbarData.notifications,
+      Menue_Icon: 'notifications',
+      Menue_Name: text.NavbarData.notifications,
       pathName: ''
     },
     {
-      icon: 'call',
-      description: text.NavbarData.callSupport,
+      Menue_Icon: 'call',
+      Menue_Name: text.NavbarData.callSupport,
       pathName: ''
     },
-    ...SideBarData,
-   ...NavbarData
+    ...NavbarData
   ];
 
-  // Use spread operator to create a new array with the modified NavbarData
-  // const modifiedHamData: sideBarDataTypes[] = [...NavbarData];
-  // modifiedHamData.splice(1, 0, ...HamData);
-
+  console.log(HamData, 'hamData')
   const drawerWidth = '90%'
 
-  const organizationName = getSessionStorageData('orgName') || text.companyDetails.companyName
   return (
     <>
       <CssBaseline />
@@ -78,12 +75,12 @@ const Navbar: FC<NavbarProps> = ({ handleToggleHamMenu, openHamMenu, anchorEl, h
 
               {/* Support Section */}
               <IconButton color='inherit' className='rounded-md'>
-              <FlexItemCenter gap={1} className={`cursor-pointer`}>
-                <Call />
-                <Typography component={`p`} className={`text-sm`}>
-                  {text.support}
-                </Typography>
-              </FlexItemCenter>
+                <FlexItemCenter gap={1} className={`cursor-pointer`}>
+                  <Call />
+                  <Typography component={`p`} className={`text-sm`}>
+                    {text.support}
+                  </Typography>
+                </FlexItemCenter>
               </IconButton>
               {/* Profile Section */}
               {/* <Avatar alt="User Avatar" src="" className={`cursor-pointer`} onClick={(e: React.MouseEvent<HTMLElement>) => handleAvatarOpen(e)} /> */}
@@ -105,57 +102,68 @@ const Navbar: FC<NavbarProps> = ({ handleToggleHamMenu, openHamMenu, anchorEl, h
           <FlexBetween className={`!w-full`}>
             <FlexItemCenter gap={2}>
               <Image src={logo} alt={`company logo`} height={50} />
-              <Typography component={`p`} className={` !capitalize !font-semibold !text-sm md:!text-2xl`}>
-                {text.companyDetails.companyName}
-              </Typography>
+              <Box className={`!w-full`}>
+                <Typography component={`p`} className={`!capitalize !font-semibold !text-sm md:!text-2xl`}>
+                  {organizationName}
+                </Typography>
+                <Typography component={`p`} className='text-xs font-semibold text-slate-500 ms-1'>
+                  Financial year: {dayjs(financialYear[0]?.Fin_start).format('YYYY')} - {dayjs(financialYear[0]?.Fin_To).format('YYYY')}
+                </Typography>
+              </Box>
             </FlexItemCenter>
             <Close onClick={handleToggleHamMenu} className={`cursor-pointer`} />
           </FlexBetween>
         </FlexItemCenter>
         <nav>
-          {HamData.map((hamData: sideBarDataTypes, idx: number) => <List key={idx}>
-            <ListItem disablePadding>
-              <ListItemButton onClick={() => {
-                router.push(hamData.pathName)
-                handleToggleHamMenu
-                if (hamData.description === text.NavbarData.logout) {
+          {HamData.map((hamData: any) => <Box key={hamData.Menue_Id}>
+            <ListItemButton onClick={hamData.SubMenue && hamData.SubMenue.length > 0 ?
+              () => handleSubMenu(hamData.Menue_Id) : hamData.Menue_Name.toLowerCase() === 'logout' ?
+                () => {
+                  logOutGetApiCall()
                   sessionStorage.clear()
+                  router.push('login')
                 }
-              }}>
-                <ListItemIcon>
-                  <Icon>
-                    {hamData.icon}
-                  </Icon>
-                </ListItemIcon>
-                <ListItemText primary={hamData.description} />
-              </ListItemButton>
-            </ListItem>
-          </List>)}
+                : () => {
+                  router.push(`/dashboard`)
+                  handleToggleHamMenu()
+                }}>
+              <ListItemIcon>
+                <Icon>
+                  {hamData?.Menue_Icon}
+                </Icon>
+              </ListItemIcon>
+              <ListItemText primary={<Typography component={`p`} className='text-lg font-bold'>
+                {hamData.Menue_Name}
+              </Typography>} />
+              {hamData?.SubMenue && hamData.SubMenue.length > 0 &&
+                <>
+                  {hamData.Menue_Id === openMenuId ? <ExpandLess /> : <ExpandMore />}
+                </>
+              }
+            </ListItemButton>
+            <Divider />
+            {hamData?.SubMenue && hamData.SubMenue.length > 0 && <Collapse in={hamData.Menue_Id === openMenuId ? true : false} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                {hamData.SubMenue.map((subMenu: any) => <Box key={subMenu.Id} >
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemIcon>
+                      <Icon>
+                        {subMenu.icon_class}
+                      </Icon>
+                    </ListItemIcon>
+                    <ListItemText primary={<Typography component={`p`} className='text-sm font-semibold'>
+                      {subMenu.Menue_Name}
+                    </Typography>
+                    } />
+                  </ListItemButton>
+                  <Divider />
+                </Box>
+                )}
+              </List>
+            </Collapse>}
+          </Box>)}
         </nav>
       </Drawer>
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={openAvatar}
-        onClose={handleAvatarClose}
-      >
-        {/* {NavbarData.map((data: sideBarDataTypes, idx: number) => <MenuItem key={idx} onClick={() => {
-          router.push(data.pathName)
-          handleAvatarClose()
-          if (data.description === text.NavbarData.logout) {
-            sessionStorage.clear()
-          }
-        }}>
-          <ListItemIcon>
-            <Icon>
-              {data.icon}
-            </Icon>
-          </ListItemIcon>
-          <ListItemText>
-            {data.description}
-          </ListItemText>
-        </MenuItem>)} */}
-      </Menu>
     </>
   );
 };
