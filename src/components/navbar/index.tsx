@@ -1,6 +1,6 @@
 // components/Navbar.tsx
 import React, { FC } from 'react';
-import { AppBar, Toolbar, Typography, IconButton, Badge, Avatar, Box, Drawer, CssBaseline, Menu, MenuItem, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Icon, Divider, Collapse } from '@mui/material';
+import { AppBar, Toolbar, Typography, IconButton, Badge, Avatar, Box, Drawer, CssBaseline, Menu, MenuItem, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Icon, Divider, Collapse, ClickAwayListener } from '@mui/material';
 import { Call, Close, ExpandLess, ExpandMore, Menu as MenuIcon, Notifications as NotificationsIcon } from '@mui/icons-material';
 import {
   FlexBetween,
@@ -48,7 +48,7 @@ const Navbar: FC<NavbarProps> = ({ handleToggleHamMenu, openHamMenu, openMenuId,
     ...NavbarData
   ];
 
-  console.log(HamData, 'hamData')
+  // console.log(HamData, 'hamData')
   const drawerWidth = '90%'
 
   return (
@@ -93,77 +93,80 @@ const Navbar: FC<NavbarProps> = ({ handleToggleHamMenu, openHamMenu, openMenuId,
           </Box>
         </Toolbar>
       </AppBar>
-      <Drawer open={openHamMenu} onClose={handleToggleHamMenu} anchor='right' sx={{
-        width: drawerWidth,
-        flexShrink: 0,
-        [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
-      }}>
-        <FlexItemCenter className={`h-[5rem] p-5 sticky z-10 top-0 left-0 shadow bg-white`}>
-          <FlexBetween className={`!w-full`}>
-            <FlexItemCenter gap={2}>
-              <Image src={logo} alt={`company logo`} height={50} />
-              <Box className={`!w-full`}>
-                <Typography component={`p`} className={`!capitalize !font-semibold !text-sm md:!text-2xl`}>
-                  {organizationName}
-                </Typography>
-                <Typography component={`p`} className='text-xs font-semibold text-slate-500 ms-1'>
-                  Financial year: {dayjs(financialYear[0]?.Fin_start).format('YYYY')} - {dayjs(financialYear[0]?.Fin_To).format('YYYY')}
-                </Typography>
-              </Box>
-            </FlexItemCenter>
-            <Close onClick={handleToggleHamMenu} className={`cursor-pointer`} />
-          </FlexBetween>
-        </FlexItemCenter>
-        <nav>
-          {HamData.map((hamData: any) => <Box key={hamData.Menue_Id}>
-            <ListItemButton onClick={hamData.SubMenue && hamData.SubMenue.length > 0 ?
-              () => handleSubMenu(hamData.Menue_Id) : hamData.Menue_Name.toLowerCase() === 'logout' ?
-                () => {
-                  logOutGetApiCall()
-                  sessionStorage.clear()
-                  router.push('login')
-                }
-                : () => {
-                  router.push(`/dashboard`)
-                  handleToggleHamMenu()
-                }}>
-              <ListItemIcon>
-                <Icon>
-                  {hamData?.Menue_Icon}
-                </Icon>
-              </ListItemIcon>
-              <ListItemText primary={<Typography component={`p`} className='text-lg font-bold'>
-                {hamData.Menue_Name}
-              </Typography>} />
-              {hamData?.SubMenue && hamData.SubMenue.length > 0 &&
-                <>
-                  {hamData.Menue_Id === openMenuId ? <ExpandLess /> : <ExpandMore />}
-                </>
-              }
-            </ListItemButton>
-            <Divider />
-            {hamData?.SubMenue && hamData.SubMenue.length > 0 && <Collapse in={hamData.Menue_Id === openMenuId ? true : false} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                {hamData.SubMenue.map((subMenu: any) => <Box key={subMenu.Id} >
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <Icon>
-                        {subMenu.icon_class}
-                      </Icon>
-                    </ListItemIcon>
-                    <ListItemText primary={<Typography component={`p`} className='text-sm font-semibold'>
-                      {subMenu.Menue_Name}
-                    </Typography>
-                    } />
-                  </ListItemButton>
-                  <Divider />
+      <ClickAwayListener onClickAway={handleSubMenuClose}>
+        <Drawer open={openHamMenu} onClose={handleToggleHamMenu} anchor='right' sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
+        }}>
+
+          <FlexItemCenter className={`h-[5rem] p-5 sticky z-10 top-0 left-0 shadow bg-white`}>
+            <FlexBetween className={`!w-full`}>
+              <FlexItemCenter gap={2}>
+                <Image src={logo} alt={`company logo`} height={50} />
+                <Box className={`!w-full`}>
+                  <Typography component={`p`} className={`!capitalize !font-semibold !text-sm md:!text-2xl`}>
+                    {organizationName}
+                  </Typography>
+                  <Typography component={`p`} className='text-xs font-semibold text-slate-500 ms-1'>
+                    Financial year: {dayjs(financialYear[0]?.Fin_start).format('YYYY')} - {dayjs(financialYear[0]?.Fin_To).format('YYYY')}
+                  </Typography>
                 </Box>
-                )}
-              </List>
-            </Collapse>}
-          </Box>)}
-        </nav>
-      </Drawer>
+              </FlexItemCenter>
+              <Close onClick={handleToggleHamMenu} className={`cursor-pointer`} />
+            </FlexBetween>
+          </FlexItemCenter>
+          <nav>
+            {HamData.map((hamData: any) => <Box key={hamData.Menue_Name}>
+              <ListItemButton onClick={hamData.SubMenue && hamData.SubMenue.length > 0 ?
+                () => handleSubMenu(hamData.Menue_Id) : hamData.Menue_Name.toLowerCase() === 'logout' ?
+                  () => {
+                    logOutGetApiCall()
+                    sessionStorage.clear()
+                    router.push('login')
+                  }
+                  : () => {
+                    router.push(`/dashboard`)
+                    handleToggleHamMenu()
+                  }}>
+                <ListItemIcon>
+                  <Icon>
+                    {hamData?.Menue_Icon}
+                  </Icon>
+                </ListItemIcon>
+                <ListItemText primary={<Typography component={`p`} className='text-lg font-bold'>
+                  {hamData.Menue_Name}
+                </Typography>} />
+                {hamData?.SubMenue && hamData.SubMenue.length > 0 &&
+                  <>
+                    {hamData.Menue_Id === openMenuId ? <ExpandLess /> : <ExpandMore />}
+                  </>
+                }
+              </ListItemButton>
+              <Divider />
+              {hamData?.SubMenue && hamData.SubMenue.length > 0 && <Collapse in={hamData.Menue_Id === openMenuId ? true : false} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  {hamData.SubMenue.map((subMenu: any) => <Box key={subMenu.Id} >
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                        <Icon>
+                          {subMenu.icon_class}
+                        </Icon>
+                      </ListItemIcon>
+                      <ListItemText primary={<Typography component={`p`} className='text-sm font-semibold'>
+                        {subMenu.Menue_Name}
+                      </Typography>
+                      } />
+                    </ListItemButton>
+                    <Divider />
+                  </Box>
+                  )}
+                </List>
+              </Collapse>}
+            </Box>)}
+          </nav>
+        </Drawer>
+      </ClickAwayListener>
     </>
   );
 };
