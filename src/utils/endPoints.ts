@@ -11,5 +11,6 @@ export const endPoints={
     updateItemCategory: `${createApi}master/UpdateCatagary`,
     getItemMasterUnit:(id: number)=>`${createApi}master/DropDownUnit/${id}`,
     getItemMasterCategory:(id: number)=>`${createApi}master/DropDownCat/${id}`,
+    postItemMaster:`${createApi}master/AddItem`,
     logout:`${createApi}logout`
 }

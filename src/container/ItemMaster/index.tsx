@@ -10,7 +10,8 @@ const ItemMasterContainer = ({ }) => {
         openItemMaster,
         AddItemMasterFormik,
         getItemMasterUnitApiCall,
-        getItemMasterCategoryApiCall
+        getItemMasterCategoryApiCall,
+        postLoaders
      } = ItemMasterHooks()
 
      const token=getSessionStorageData('token')
@@ -27,6 +28,7 @@ const ItemMasterContainer = ({ }) => {
         openItemMaster={openItemMaster}
         AddItemMasterFormik={AddItemMasterFormik}
         token={token}
+        postLoaders={postLoaders}
          />
 }
 

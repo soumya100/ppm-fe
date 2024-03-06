@@ -12,7 +12,8 @@ interface ItemMasterProps {
   handleOpenDrawer(): void
   openItemMaster: boolean,
   AddItemMasterFormik: any,
-  token: string
+  token: string,
+  postLoaders: boolean
 }
 
 const tableData = [
@@ -24,7 +25,7 @@ const tableData = [
 
 ]
 
-const ItemMaster: FC<ItemMasterProps> = ({ handleCloseDrawer, handleOpenDrawer, openItemMaster, AddItemMasterFormik, token }) => {
+const ItemMaster: FC<ItemMasterProps> = ({ handleCloseDrawer, handleOpenDrawer, openItemMaster, AddItemMasterFormik, token, postLoaders }) => {
   const unitDropDownValue= useSelector((state: any) => state.itemMasterData?.itemMasterUnit)?.map((data: any)=>{
     return{
       name:data.Unit_Name ,
@@ -48,6 +49,7 @@ if(!token) return notFound()
         openItemMaster={openItemMaster} formik={AddItemMasterFormik} 
         unitDropDownValue={unitDropDownValue}
         itemCatDropDownValue={itemCatDropDownValue}
+        loading={postLoaders}
         />}
       handleOpenButton={handleOpenDrawer}
       tableComponent={<ItemMasterTable ItemDatas={tableData} />}

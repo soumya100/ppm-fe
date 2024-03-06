@@ -31,7 +31,8 @@
             "igst":"IGST",
             "basicSaleRate":"Basic sale rate",
             "rememberQnty":"Remember quantity",
-            "openingQnty":"Opening quantity"
+            "openingQnty":"Opening quantity",
+            "openingRate":"Opening rate"
         }
     },
    "placeholders":{
@@ -51,7 +52,8 @@
             "igst":"Enter IGST",
             "basicSaleRate":"Enter basic sale rate",
             "rememberQnty":"Enter remember quantity",
-            "openingQnty":"Enter opening quantity"
+            "openingQnty":"Enter opening quantity",
+            "openingRate":"Enter opening rate"
         }
    },
    "rememberMe":"Remember me",
@@ -74,7 +76,8 @@
                 "igst":"IGST should contain a number greater than zero",
                 "basicSaleRate":"Basic sale rate should contain a number greater than zero",
                 "rememberQnty":"Remember quantity should contain a number greater than zero",
-                "openingQnty":"Opening quantity should contain a number greater than zero"
+                "openingQnty":"Opening quantity should contain a number greater than zero",
+                "openingRate":"Opening rate should contain a number greater than zero"
             }
         },
         "requiredErrors":{
@@ -93,7 +96,8 @@
                 "igst":"Please enter IGST",
                 "basicSaleRate":"Please enter basic sale rate",
                 "rememberQnty":"Please enter remember quantity",
-                "openingQnty":"Please enter opening quantity"
+                "openingQnty":"Please enter opening quantity",
+                "openingRate":"Please enter opening rate"
             }
         }
     },
