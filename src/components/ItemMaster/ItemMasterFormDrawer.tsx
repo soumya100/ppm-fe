@@ -7,10 +7,12 @@ import { KeyboardArrowLeft } from '@mui/icons-material'
 interface ItemMasterFormDrawerProps {
     formik: any,
     handleCloseDrawer(): void
-    openItemMaster: boolean
+    openItemMaster: boolean,
+    unitDropDownValue:any,
+    itemCatDropDownValue: any
 }
 
-const ItemMasterFormDrawer: FC<ItemMasterFormDrawerProps> = ({ formik, handleCloseDrawer, openItemMaster }) => {
+const ItemMasterFormDrawer: FC<ItemMasterFormDrawerProps> = ({ formik, handleCloseDrawer, openItemMaster, unitDropDownValue, itemCatDropDownValue }) => {
 
     const itemType = [
         {
@@ -98,7 +100,7 @@ const ItemMasterFormDrawer: FC<ItemMasterFormDrawerProps> = ({ formik, handleClo
                         option={formik?.values?.itemType}
                         handleChange={formik?.handleChange}
                         handleBlur={formik?.handleBlur}
-                        selectOption={itemType}
+                        selectOption={itemCatDropDownValue}
                         error={
                             formik?.touched?.itemType &&
                             Boolean(formik?.errors?.itemType)
@@ -118,7 +120,7 @@ const ItemMasterFormDrawer: FC<ItemMasterFormDrawerProps> = ({ formik, handleClo
                         option={formik?.values?.unit}
                         handleChange={formik?.handleChange}
                         handleBlur={formik?.handleBlur}
-                        selectOption={unit}
+                        selectOption={unitDropDownValue}
                         error={
                             formik?.touched?.unit &&
                             Boolean(formik?.errors?.unit)

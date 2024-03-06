@@ -7,7 +7,7 @@ import { SideBarHooks } from "./Hooks"
 const SideBarContainer = ({ }) => {
   const { finYearGetApiCall, logOutGetApiCall,
     getSideBarDataApiCall, handleSubMenu,
-    openMenuId, handleSubMenuClose} = SideBarHooks()
+    openMenuId, handleSubMenuClose, loader, logOutLoader} = SideBarHooks()
   useEffect(() => {
     const token = getSessionStorageData('token')
     const organizationId = getSessionStorageData('orgId')
@@ -22,6 +22,8 @@ const SideBarContainer = ({ }) => {
     handleSubMenu={handleSubMenu}
     openMenuId={openMenuId}
     handleSubMenuClose={handleSubMenuClose}
+    loader={loader}
+    logOutLoader={logOutLoader}
   />
 }
 

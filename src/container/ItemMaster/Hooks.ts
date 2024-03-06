@@ -2,9 +2,14 @@ import { useFormik } from "formik"
 import { useState } from "react"
 import * as Yup from 'yup'
 import text from '@/languages/en_US.json'
+import { getItemMasterDropDownApi } from "./itemMasterApis"
+import { useDispatch } from "react-redux"
+import { getItemMasterCategory, getItemMasterUnit } from "./itemMasterReducer"
+import toast from "react-hot-toast"
 
 export const ItemMasterHooks = () => {
     const [openItemMaster, setOpenItemMaster] = useState(false)
+    const dispatch=useDispatch()
 
     // item master add formik
     const AddItemMasterFormik = useFormik({
@@ -69,11 +74,38 @@ export const ItemMasterHooks = () => {
         AddItemMasterFormik.resetForm()
     }
 
+     //item master dropdown unit api call
+     const getItemMasterUnitApiCall= async (id: number)=>{
+        getItemMasterDropDownApi(id, 'unit').then((res: any)=>{
+         if(res.message === 'Data Found'){
+             dispatch(getItemMasterUnit(res.Data))
+         }else{
+             dispatch(getItemMasterUnit([]))
+         }
+     }).catch((err: any)=>{
+        toast.error(err)
+     })
+    }
+
+    //item master dropdown category 
+    const getItemMasterCategoryApiCall= async (id: number)=>{
+        getItemMasterDropDownApi(id, 'category').then((res: any)=>{
+            if(res.message === 'Data Found'){
+                dispatch(getItemMasterCategory(res.Data))
+            }else{
+                dispatch(getItemMasterCategory([]))
+            }
+        }).catch((err: any)=>{
+            toast.error(err)
+        })
+    }
 
     return {
         handleCloseDrawer,
         handleOpenDrawer,
         openItemMaster,
-        AddItemMasterFormik
+        AddItemMasterFormik,
+        getItemMasterUnitApiCall,
+        getItemMasterCategoryApiCall
     }
 }

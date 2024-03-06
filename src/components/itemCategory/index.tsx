@@ -21,7 +21,7 @@ const ItemCategory: FC<ItemCategoryProps> = ({ handleCloseModal, handleOpenModal
   
   const ItemCategoryData= useSelector((state: any) => state.itemCategoryData?.itemCategoryData)
 
- console.log(editData, '* data')
+//  console.log(editData, '* data')
   return <Box className={`min-h-[90vh]`}>
     <TableCommon
       title={text.tableTitles.itemCategory}

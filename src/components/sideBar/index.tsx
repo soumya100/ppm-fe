@@ -8,7 +8,7 @@ import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import { Avatar, ClickAwayListener, Collapse, Icon, IconButton, ListItemAvatar, ListItemIcon, Typography } from '@mui/material';
+import { Avatar, CircularProgress, ClickAwayListener, Collapse, Icon, IconButton, ListItemAvatar, ListItemIcon, Typography } from '@mui/material';
 import { FlexBetween, FlexItemCenter } from '@/common';
 import getSessionStorageData from '@/utils/getSessionStorageData';
 import { useSelector } from 'react-redux';
@@ -16,6 +16,7 @@ import dayjs from 'dayjs';
 import { ExpandLess, ExpandMore, Logout } from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
 import styles from './sideBar.module.css'
+import SideBarSkeleton from './SideBarSkeleton';
 
 const drawerWidth = 320;
 
@@ -24,9 +25,13 @@ interface SideBarProps {
   handleSubMenu(id: number): void
   openMenuId: number | null
   handleSubMenuClose(): void
+  loader: boolean
+  logOutLoader: boolean
 }
 
-export const SideBar: React.FC<SideBarProps> = ({ logOutGetApiCall, handleSubMenu, openMenuId, handleSubMenuClose }) => {
+export const SideBar: React.FC<SideBarProps> = ({ logOutGetApiCall, handleSubMenu, 
+  openMenuId, logOutLoader, 
+   handleSubMenuClose, loader }) => {
   const orgName = getSessionStorageData('orgName') || '--'
   const financialYear = useSelector((state: any) => state.sideBarData?.financialYear)
   const sideBarData = useSelector((state: any) => state.sideBarData?.sideBarData)
@@ -45,6 +50,9 @@ export const SideBar: React.FC<SideBarProps> = ({ logOutGetApiCall, handleSubMen
         >
           <Toolbar />
           <FlexBetween className='!flex-col !w-full !h-full'>
+           {loader ? 
+           <SideBarSkeleton /> :
+
             <Box sx={{ overflow: 'auto' }} className={`!w-full`}>
               <List
                 sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
@@ -91,7 +99,7 @@ export const SideBar: React.FC<SideBarProps> = ({ logOutGetApiCall, handleSubMen
                 </Box>)
                 }
               </List>
-            </Box>
+            </Box>}
             <FlexItemCenter className='w-full px-2 sticky bottom-0 left-0 z-10 bg-white'>
               <ListItem>
                 <ListItemAvatar>
@@ -117,9 +125,11 @@ export const SideBar: React.FC<SideBarProps> = ({ logOutGetApiCall, handleSubMen
                   }
                 />
               </ListItem>
+              {logOutLoader ? 
+                <CircularProgress size={20} color='secondary'/> :
               <IconButton onClick={logOutGetApiCall}>
                 <Logout fontSize='small' />
-              </IconButton>
+              </IconButton>}
             </FlexItemCenter>
           </FlexBetween>
         </Drawer>
