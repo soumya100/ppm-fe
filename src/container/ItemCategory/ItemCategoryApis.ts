@@ -11,7 +11,7 @@ export const getItemCategoryDataAPI = async(id: number)=>{
 
 export const postItemCategoryAPI = async (body: any) => {
     let data = {
-        url: endPoints?.postItemMaster,
+        url: endPoints?.postItemCategory,
         bodyData: body,
     }
     let res: any = await doPostApiCall(data)
@@ -20,7 +20,7 @@ export const postItemCategoryAPI = async (body: any) => {
 
 export const updateItemCategoryAPI = async (body: any) => {
     let data = {
-        url: endPoints?.updateItemMaster,
+        url: endPoints?.updateItemCategory,
         bodyData: body,
     }
     let res: any = await doPutApiCall(data)
