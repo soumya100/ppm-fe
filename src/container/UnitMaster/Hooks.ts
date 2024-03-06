@@ -68,15 +68,19 @@ export const UnitMasterHooks = () => {
     //unit master get api call
      const getUnitMasterDataApiCall= async (id: number)=>{
         setLoading(true)
-        let res: any = await getUnitMasterDataAPI(id)
+     getUnitMasterDataAPI(id).then((res: any)=>{
+         if(res.messsage === 'Data Found'){
+             dispatch(getUnitMasterData(res.Data))
+         }else{
+             dispatch(getUnitMasterData([]))
+         }
+     }).catch((err: any)=>{
+        toast.error('Something went wrong')
+        console.log(err)
+     }).finally(()=>{
+        setLoading(false)
+     })
 
-        if(res.messsage === 'Data Found'){
-            dispatch(getUnitMasterData(res.Data))
-            setLoading(false)
-        }else{
-            dispatch(getUnitMasterData([]))
-            setLoading(false)
-        }
     }
 
     //unit master post api call
@@ -92,16 +96,16 @@ export const UnitMasterHooks = () => {
                     setOpenFormDialog(false)
                     getUnitMasterDataApiCall(orgId)
                     toast.success('Unit created successfully')
-                    setPostLoaders(false)
                     setEditData(null)
                     resetForm()
                 }else{
                     toast.error(res.Message)
-                    setPostLoaders(false)
                 }
             })
             .catch((err) => {
-                console.error(err)
+                toast.error('Something went wrong')
+                console.log(err)
+            }).finally(()=>{
                 setPostLoaders(false)
             })
     }
@@ -109,24 +113,30 @@ export const UnitMasterHooks = () => {
 
     //update unit master api call
     const updateUnitMasterApiCall = async (unitId: number, item: any, resetForm: any) => {
-        setPostLoaders(false)
+        setPostLoaders(true)
         let bodyData = {
             unit_id: unitId,
             unit_name: item.itemName,
             org_id: orgId,
         }
-        let res: any = await updateUnitMasterAPI(bodyData)
-        if(res.Message === 'Unit Update Successful'){
-            getUnitMasterDataApiCall(orgId)
-            toast.success('Unit edited successfully')
-            handleCloseModal()
-            setEditData(null)
-            resetForm()
-            setPostLoaders(false)
-        }else{
-            toast.error(res.Message)
-            setPostLoaders(false)
-        }
+     updateUnitMasterAPI(bodyData).then((res: any)=>{
+         if(res.Message === 'Unit Update Successful'){
+             getUnitMasterDataApiCall(orgId)
+             toast.success('Unit edited successfully')
+             handleCloseModal()
+             setEditData(null)
+             resetForm()
+            //  setPostLoaders(false)
+         }else{
+             toast.error(res.Message)
+            //  setPostLoaders(false)
+         }
+     }).catch((err)=>{
+        toast.error('Something went wrong')
+        console.log(err)
+     }).finally(()=>{
+        setPostLoaders(false)
+     })
     }
 
     return {
@@ -137,6 +147,7 @@ export const UnitMasterHooks = () => {
         getUnitMasterDataApiCall,
         handleEditData,
         loading,
-        postLoaders
+        postLoaders,
+        editData
     }
 }

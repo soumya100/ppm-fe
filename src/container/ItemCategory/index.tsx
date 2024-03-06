@@ -5,27 +5,34 @@ import { useEffect } from "react"
 import getSessionStorageData from "@/utils/getSessionStorageData"
 
 const ItemCategoryContainer = () => {
-  const orgId=getSessionStorageData('orgId')
-  const token= getSessionStorageData('token')
+  const orgId = getSessionStorageData('orgId')
+  const token = getSessionStorageData('token')
   const { handleOpenModal,
     handleCloseModal,
     openAddItemModal,
-     AddItemCategoryFormik,
+    AddItemCategoryFormik,
     getItemCategoryApiCall,
-    handleEditData
-   } = ItemCategoryHooks()
+    handleEditData,
+    loading,
+    postLoaders,
+    editData
+  } = ItemCategoryHooks()
 
-   useEffect(()=>{
-    if(token && orgId){
+  useEffect(() => {
+    if (token && orgId) {
       getItemCategoryApiCall(orgId)
     }
-   },[token, orgId])
+  }, [token, orgId])
+  
   return <ItemCategory handleOpenModal={handleOpenModal}
     handleCloseModal={handleCloseModal}
-    openAddItemModal={openAddItemModal} 
+    openAddItemModal={openAddItemModal}
     AddItemCategoryFormik={AddItemCategoryFormik}
     handleEditData={handleEditData}
-    />
+    loading={loading}
+    postLoaders={postLoaders}
+    editData={editData}
+  />
 }
 
 export default ItemCategoryContainer

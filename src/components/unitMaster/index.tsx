@@ -15,11 +15,16 @@ interface UnitMasterProps {
   handleEditData: any
   loading: boolean
   postLoaders: boolean,
-  token: string
+  token: string,
+  editData: any
 }
 
 const UnitMaster: FC<UnitMasterProps> = ({ handleOpenDialog, handleCloseModal,
-  openFormDialog, AddUnitMasterFormik, handleEditData, loading,token }) => {
+  openFormDialog, AddUnitMasterFormik, handleEditData,
+   loading,token, 
+  postLoaders,
+  editData
+ }) => {
 
   const unitMasterData = useSelector((state: any) => state.unitMasterData?.unitMasterData)
 
@@ -32,7 +37,9 @@ const UnitMaster: FC<UnitMasterProps> = ({ handleOpenDialog, handleCloseModal,
       titleCls={`font-bold text-black text-3xl mb-5`}
       addComponent={<UnitMasterModal handleAdd={AddUnitMasterFormik.handleSubmit}
         handleClose={handleCloseModal} formik={AddUnitMasterFormik}
-        unitMasterModalOpenState={openFormDialog} />}
+        editData={editData} 
+        unitMasterModalOpenState={openFormDialog}
+        formLoader={postLoaders}/>}
       tableComponent={<UnitMasterTable unitDatas={unitMasterData} handleEditData={handleEditData} loading={loading}/>}
       handleOpenButton={handleOpenDialog}
     />

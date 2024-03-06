@@ -14,7 +14,8 @@ const UnitMasterContainer = () => {
         getUnitMasterDataApiCall,
         handleEditData,
         loading,
-        postLoaders
+        postLoaders,
+        editData
     } = UnitMasterHooks()
 
     useEffect(() => {
@@ -32,6 +33,7 @@ const UnitMasterContainer = () => {
         loading={loading}
         postLoaders={postLoaders}
         token={token}
+        editData={editData}
     />
 }
 

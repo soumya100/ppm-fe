@@ -56,6 +56,7 @@ export const ItemCategoryHooks = () => {
     const handleCloseModal = () => {
         setOpenAddItemModal(false)
         AddItemCategoryFormik.resetForm()
+        setEditData(null)
     }
 
 
@@ -86,40 +87,45 @@ export const ItemCategoryHooks = () => {
                     setOpenAddItemModal(false)
                     getItemCategoryApiCall(orgId)
                     toast.success('Item category created successfully')
-                    setPostLoaders(false)
                     setEditData(null)
                     resetForm()
                 } else {
                     toast.error(res.Message)
-                    setPostLoaders(false)
                 }
             })
             .catch((err) => {
                 console.error(err)
+                setPostLoaders(false)
+            }).finally(()=>{
                 setPostLoaders(false)
             })
     }
 
     //update unit master api call
     const updateItemCategoryApiCall = async (unitId: number, item: any, resetForm: any) => {
-        setPostLoaders(false)
+        setPostLoaders(true)
         let bodyData = {
             cat_id: unitId,
             cat_name: item.itemCategory,
             org_id: orgId,
         }
-        let res: any = await updateItemCategoryAPI(bodyData)
+    updateItemCategoryAPI(bodyData).then((res: any)=>{
         if(res.Message === 'Catagary Update Successful'){
             getItemCategoryApiCall(orgId)
             toast.success('Item category edited successfully')
             handleCloseModal()
             setEditData(null)
             resetForm()
-            setPostLoaders(false)
         }else{
             toast.error(res.Message)
-            setPostLoaders(false)
+            
         }
+    }).catch((err)=>{
+        toast.error('Something went wrong')
+        console.log(err)
+    }).finally(()=>{
+        setPostLoaders(false)
+    })
     }
 
     return {
@@ -130,6 +136,7 @@ export const ItemCategoryHooks = () => {
         getItemCategoryApiCall,
         handleEditData,
         loading,
-        postLoaders
+        postLoaders,
+        editData
     }
 }

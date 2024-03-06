@@ -140,14 +140,23 @@
         "addItemCategory":"Add item Category",
         "addItemMaster":"Add item"
     },
+    "edit":{
+        "editUnitMaster":"Edit unit",
+        "editItemCategory":"Edit item Category",
+        "editItemMaster":"Edit item"
+    },
     "addMsg": {
         "unitmaster":"To add unit, please enter your unit here",
-        "itemCategory":"To add item category, please enter your item category here",
-        "itemMaster":"To add item, please fill out the following data carefully"
+        "itemCategory":"To add item category, please enter your item category here"
+    },
+    "editMsg":{
+        "unitmaster":"To update unit, please enter your update unit here",
+        "itemCategory":"To update item category, please your update item category here"
     },
     "buttonNames":{
         "cancel":"Cancel",
-        "add":"Add"
+        "add":"Add",
+        "update":"Update"
     },
     "noContentPage":"No Content found"
 }

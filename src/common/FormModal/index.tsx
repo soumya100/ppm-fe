@@ -1,8 +1,12 @@
-import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Typography } from '@mui/material';
+import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import { FC, ReactNode } from 'react';
 import text from '@/languages/en_US.json'
 import { ButtonFieldInput, FlexBetween } from '@/common';
 import { Close } from '@mui/icons-material';
+import dynamic from 'next/dynamic';
+const DynamicTypography= dynamic(()=>import('@mui/material/Typography'), {
+    ssr: false
+})
 
 interface FormModalCommon {
     open: boolean,
@@ -12,11 +16,12 @@ interface FormModalCommon {
     dialoguContentTxt: string,
     dialogContent: ReactNode,
     handleAdd(): void,
-    addTxt?: string
+    addTxt?: string,
+    loading: boolean
 }
 
 const FormModal: FC<FormModalCommon> = ({ dialogContent, handleAdd, handleClose,
-    open, dialogContentTxtCls, dialogTitle, dialoguContentTxt, addTxt }) => {
+    open, dialogContentTxtCls, dialogTitle, dialoguContentTxt, addTxt, loading }) => {
     return <Dialog
         open={open}
         onClose={handleClose}
@@ -28,9 +33,9 @@ const FormModal: FC<FormModalCommon> = ({ dialogContent, handleAdd, handleClose,
     >
         <DialogTitle className='border border-b'>
             <FlexBetween>
-                <Typography className={`font-bold text-xl`} component={`p`}>
+                <DynamicTypography className={`font-bold text-xl`} variant='h6'>
                     {dialogTitle}
-                </Typography>
+                </DynamicTypography>
                 <Close className={`text-red-500 cursor-pointer`} onClick={handleClose}/>
             </FlexBetween>
         </DialogTitle>
@@ -46,7 +51,9 @@ const FormModal: FC<FormModalCommon> = ({ dialogContent, handleAdd, handleClose,
                 variant={`outlined`} buttonextracls={` rounded-full capitalize`} />
             <ButtonFieldInput handleClick={handleAdd}
                 name={addTxt ?? text.buttonNames.add} variant={`outlined`}
-                buttonextracls={`rounded-full capitalize bg-green-500`} extraTextCls={`text-green-500`} />
+                buttonextracls={`rounded-full capitalize bg-green-500`} extraTextCls={`text-green-500`}
+                loading={loading}
+                 />
         </DialogActions>
     </Dialog>
 }
