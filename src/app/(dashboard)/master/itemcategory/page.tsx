@@ -1,4 +1,4 @@
-import ItemCategoryContainer from '@/container/ItemCategory'
+import ItemCategoryContainer from '@/container/master/ItemCategory'
 
 const page= () => {
   return <ItemCategoryContainer />

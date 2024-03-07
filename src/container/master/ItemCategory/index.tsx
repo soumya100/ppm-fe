@@ -1,5 +1,5 @@
 "use client"
-import ItemCategory from "@/components/itemCategory"
+import ItemCategory from "@/components/master/itemCategory"
 import { ItemCategoryHooks } from "./Hooks"
 import { useEffect } from "react"
 import getSessionStorageData from "@/utils/getSessionStorageData"

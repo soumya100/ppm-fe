@@ -1,5 +1,5 @@
 "use client"
-import UnitMaster from "@/components/unitMaster"
+import UnitMaster from "@/components/master/unitMaster"
 import { UnitMasterHooks } from "./Hooks"
 import { useEffect } from "react"
 import getSessionStorageData from "@/utils/getSessionStorageData"

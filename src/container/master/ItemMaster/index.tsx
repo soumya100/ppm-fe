@@ -1,5 +1,5 @@
 "use client"
-import ItemMaster from "@/components/ItemMaster"
+import ItemMaster from "@/components/master/ItemMaster"
 import { ItemMasterHooks } from "./Hooks"
 import { useEffect } from "react"
 import getSessionStorageData from "@/utils/getSessionStorageData"

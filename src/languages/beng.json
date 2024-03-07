@@ -1,164 +1,183 @@
-{   "loginRedirection":"অনুগ্রহ করে অপেক্ষা করুন...",
-    "companyDetails":{
-        "companyName":"Priority Solutions",
-        "description":"একটি পেট্রোল পাম্প অ্যাকাউন্টিং এবং ইনভেন্টরি ম্যানেজমেন্ট সফ্টওয়্যার RPDA এর নির্দেশনায় তৈরি করা হয়েছে",
-        "estd":"2024"
+{
+    "loginRedirection": "অনুগ্রহ করে অপেক্ষা করুন...",
+    "companyDetails": {
+        "companyName": "Priority Solutions",
+        "description": "একটি পেট্রোল পাম্প অ্যাকাউন্টিং এবং ইনভেন্টরি ম্যানেজমেন্ট সফ্টওয়্যার RPDA এর নির্দেশনায় তৈরি করা হয়েছে",
+        "estd": "2024"
     },
-     "welcomeTo": "স্বাগতম",
-    "rightsReserved":"সমস্ত অধিকার সংরক্ষিত",
+    "welcomeTo": "স্বাগতম",
+    "rightsReserved": "সমস্ত অধিকার সংরক্ষিত",
     "copyrightBy": "কপিরাইট",
-    "signUptext":{
-        "msg":"এখনো কোনো একাউন্ট নেই?",
-        "signUp":"নিবন্ধন করুন!"
+    "signUptext": {
+        "msg": "এখনো কোনো একাউন্ট নেই?",
+        "signUp": "নিবন্ধন করুন!"
     },
-    "loginText":{
-        "msg":"আপনি গ্রাহক হলে, এখানে ক্লিক করুন",
-        "customerLogin":"গ্রাহক লগইন!",
-        "login":"লগইন"
+    "loginText": {
+        "msg": "আপনি গ্রাহক হলে, এখানে ক্লিক করুন",
+        "customerLogin": "গ্রাহক লগইন!",
+        "login": "লগইন"
     },
-    "label":{
+    "label": {
         "email": "ইমেইল",
-        "password":"পাসওয়ার্ড",
-        "addItemMaster":{
-            "itemName":"আইটেম নাম",
-            "itemShortName":"আইটেম সংক্ষিপ্ত নাম",
-            "itemType":"খবর ধরন",
-            "unitValue":"একক মূল্য",
-            "unit":"ইউনিট",
-            "cst":"সিএসটি",
-            "sgst":"এসজিএসটি",
-            "igst":"আইজিএসটি",
-            "basicSaleRate":"মৌলিক বিক্রয় হার",
-            "rememberQnty":"পরিমাণ মনে রাখবেন",
-            "openingQnty":"খোলার পরিমাণ",
-            "openingRate":"খোলার হার"
+        "password": "পাসওয়ার্ড",
+        "addItemMaster": {
+            "itemName": "আইটেম নাম",
+            "itemShortName": "আইটেম সংক্ষিপ্ত নাম",
+            "itemType": "খবর ধরন",
+            "unitValue": "একক মূল্য",
+            "unit": "ইউনিট",
+            "cst": "সিএসটি",
+            "sgst": "এসজিএসটি",
+            "igst": "আইজিএসটি",
+            "basicSaleRate": "মৌলিক বিক্রয় হার",
+            "rememberQnty": "পরিমাণ মনে রাখবেন",
+            "openingQnty": "খোলার পরিমাণ",
+            "openingRate": "খোলার হার"
+        },
+        "addPumpMaster": {
+            "pumpName": "পাম্পের নাম",
+            "nozzleNumber": "অগ্রভাগের সংখ্যা",
+            "nozzleName": "অগ্রভাগের নাম"
         }
     },
-   "placeholders":{
-        "email":"আপনার ইমেল লিখুন",
-        "password":"আপনার পাসওয়ার্ড লিখুন",
-        "search":"অনুসন্ধান করুন",
-        "addUnitMaster":"ইউনিট মাস্টার লিখুন",
-        "addItemMaster":{
-            "itemName":"আইটেম নাম লিখুন",
-            "itemShortName":"আইটেম সংক্ষিপ্ত নাম লিখুন",
-            "itemType":"আইটেম টাইপ নির্বাচন করুন",
-            "unitValue":"ইউনিট মান লিখুন",
-            "unit":"ইউনিট নির্বাচন করুন",
-            "cst":"CST লিখুন",
-            "sgst":"SGST লিখুন",
-            "igst":"IGST লিখুন",
-            "basicSaleRate":"বেসিক সেল রেট লিখুন",
-            "rememberQnty":"মনে রাখার পরিমাণ লিখুন",
-            "openingQnty":"খোলার পরিমাণ লিখুন",
-            "openingRate":"খোলার হার লিখুন"
+    "placeholders": {
+        "email": "আপনার ইমেল লিখুন",
+        "password": "আপনার পাসওয়ার্ড লিখুন",
+        "search": "অনুসন্ধান করুন",
+        "addUnitMaster": "ইউনিট মাস্টার লিখুন",
+        "addItemMaster": {
+            "itemName": "আইটেম নাম লিখুন",
+            "itemShortName": "আইটেম সংক্ষিপ্ত নাম লিখুন",
+            "itemType": "আইটেম টাইপ নির্বাচন করুন",
+            "unitValue": "ইউনিট মান লিখুন",
+            "unit": "ইউনিট নির্বাচন করুন",
+            "cst": "CST লিখুন",
+            "sgst": "SGST লিখুন",
+            "igst": "IGST লিখুন",
+            "basicSaleRate": "বেসিক সেল রেট লিখুন",
+            "rememberQnty": "মনে রাখার পরিমাণ লিখুন",
+            "openingQnty": "খোলার পরিমাণ লিখুন",
+            "openingRate": "খোলার হার লিখুন"
+        },
+        "addPumpMaster": {
+            "pumpName": "পাম্পের নাম লিখুন",
+            "nozzleNumber": "অগ্রভাগের সংখ্যা লিখুন",
+            "nozzleName": "অগ্রভাগের নাম লিখুন"
         }
-   },
-   "rememberMe":"আমাকে মনে কর",
-   "forgetPassword":"পাসওয়ার্ড ভুলে গেছেন?",
-   "signIn":"সাইন ইন করুন",
-   "support":"সমর্থন",
-    "phoneNumbers":{
-        "numberOne":"1234567890",
-        "numberTwo":"1234567890"
     },
-    "whatsAppNumber":"1234567890",
-    "errors":{
-        "patternErrors":{
-            "email":"একটি বৈধ ইমেইল প্রবেশ করুন",
-            "password":"পাসওয়ার্ডে একটি বড় হাতের, ছোট হাতের, সংখ্যা, প্রতীক এবং ন্যূনতম 8টি অক্ষর থাকতে হবে",
-            "addItemMaster":{
-                "unitValue":"ইউনিট মাস্টারে শূন্যের চেয়ে বেশি সংখ্যা থাকতে হবে",
-                "cst":"CST-এ শূন্যের চেয়ে বড় একটি সংখ্যা থাকা উচিত",
-                "sgst":"SGST-এ শূন্যের চেয়ে বড় সংখ্যা থাকতে হবে",
-                "igst":"IGST-এ শূন্যের চেয়ে বড় সংখ্যা থাকা উচিত",
-                "basicSaleRate":"বেসিক সেল রেট শূন্যের থেকে বড় একটি সংখ্যা থাকা উচিত",
-                "rememberQnty":"মনে রাখবেন পরিমাণে শূন্যের চেয়ে বড় একটি সংখ্যা থাকা উচিত",
-                "openingQnty":"খোলার পরিমাণে শূন্যের চেয়ে বড় একটি সংখ্যা থাকা উচিত",
-                "openingRate":"খোলার হারে শূন্যের চেয়ে বড় সংখ্যা থাকা উচিত"
+    "rememberMe": "আমাকে মনে কর",
+    "forgetPassword": "পাসওয়ার্ড ভুলে গেছেন?",
+    "signIn": "সাইন ইন করুন",
+    "support": "সমর্থন",
+    "phoneNumbers": {
+        "numberOne": "1234567890",
+        "numberTwo": "1234567890"
+    },
+    "whatsAppNumber": "1234567890",
+    "errors": {
+        "patternErrors": {
+            "email": "একটি বৈধ ইমেইল প্রবেশ করুন",
+            "password": "পাসওয়ার্ডে একটি বড় হাতের, ছোট হাতের, সংখ্যা, প্রতীক এবং ন্যূনতম 8টি অক্ষর থাকতে হবে",
+            "addItemMaster": {
+                "unitValue": "ইউনিট মাস্টারে শূন্যের চেয়ে বেশি সংখ্যা থাকতে হবে",
+                "cst": "CST-এ শূন্যের চেয়ে বড় একটি সংখ্যা থাকা উচিত",
+                "sgst": "SGST-এ শূন্যের চেয়ে বড় সংখ্যা থাকতে হবে",
+                "igst": "IGST-এ শূন্যের চেয়ে বড় সংখ্যা থাকা উচিত",
+                "basicSaleRate": "বেসিক সেল রেট শূন্যের থেকে বড় একটি সংখ্যা থাকা উচিত",
+                "rememberQnty": "মনে রাখবেন পরিমাণে শূন্যের চেয়ে বড় একটি সংখ্যা থাকা উচিত",
+                "openingQnty": "খোলার পরিমাণে শূন্যের চেয়ে বড় একটি সংখ্যা থাকা উচিত",
+                "openingRate": "খোলার হারে শূন্যের চেয়ে বড় সংখ্যা থাকা উচিত"
+            },
+            "addPumpMaster": {
+                "nozzleNumber": "অগ্রভাগের সংখ্যা শূন্যের বেশি হওয়া উচিত"
             }
         },
-        "requiredErrors":{
-            "email":"দয়া করে আপনার ইমেল ঠিকানা দিন",
-            "password":"দয়া করে আপনার পাসওয়ার্ড দিন",
+        "requiredErrors": {
+            "email": "দয়া করে আপনার ইমেল ঠিকানা দিন",
+            "password": "দয়া করে আপনার পাসওয়ার্ড দিন",
             "unitMaster": "অনুগ্রহ করে ইউনিট লিখুন",
             "itemCategory": "আইটেম বিভাগ লিখুন দয়া করে",
-            "addItemMaster":{
-                "itemName":"অনুগ্রহ করে আইটেমের নাম লিখুন",
-                "itemShortName":"অনুগ্রহ করে আইটেমের সংক্ষিপ্ত নাম লিখুন",
-                "itemType":"অনুগ্রহ করে আইটেমের প্রকার নির্বাচন করুন",
-                "unitValue":"অনুগ্রহ করে ইউনিট মান লিখুন",
-                "unit":"অনুগ্রহ করে ইউনিট নির্বাচন করুন",
-                "cst":"অনুগ্রহ করে CST লিখুন",
-                "sgst":"অনুগ্রহ করে SGST লিখুন",
-                "igst":"অনুগ্রহ করে IGST লিখুন",
-                "basicSaleRate":" অনুগ্রহ করে মৌলিক বিক্রয় হার লিখুন",
-                "rememberQnty":"অনুগ্রহ করে মনে রাখার পরিমাণ লিখুন",
-                "openingQnty":"অনুগ্রহ করে খোলার পরিমাণ লিখুন",
-                "openingRate":"অনুগ্রহ করে খোলার হার লিখুন"
+            "addItemMaster": {
+                "itemName": "অনুগ্রহ করে আইটেমের নাম লিখুন",
+                "itemShortName": "অনুগ্রহ করে আইটেমের সংক্ষিপ্ত নাম লিখুন",
+                "itemType": "অনুগ্রহ করে আইটেমের প্রকার নির্বাচন করুন",
+                "unitValue": "অনুগ্রহ করে ইউনিট মান লিখুন",
+                "unit": "অনুগ্রহ করে ইউনিট নির্বাচন করুন",
+                "cst": "অনুগ্রহ করে CST লিখুন",
+                "sgst": "অনুগ্রহ করে SGST লিখুন",
+                "igst": "অনুগ্রহ করে IGST লিখুন",
+                "basicSaleRate": " অনুগ্রহ করে মৌলিক বিক্রয় হার লিখুন",
+                "rememberQnty": "অনুগ্রহ করে মনে রাখার পরিমাণ লিখুন",
+                "openingQnty": "অনুগ্রহ করে খোলার পরিমাণ লিখুন",
+                "openingRate": "অনুগ্রহ করে খোলার হার লিখুন"
             }
+        },
+        "addPumpMaster": {
+            "pumpName": "অনুগ্রহ করে পাম্পের নাম লিখুন",
+            "nozzleNumber": "অনুগ্রহ করে অগ্রভাগের সংখ্যা লিখুন",
+            "nozzleName": "অনুগ্রহ করে অগ্রভাগের নাম লিখুন"
         }
     },
-    "sideBarTexts":{
-        "dashboard":"ড্যাশবোর্ড",
-        "pump":"পাম্প",
-        "accounts":"হিসাব",
-        "hr":"মানব সম্পদ",
-        "reports":"রিপোর্ট",
-        "utility":"ইউটিলিটি",
-        "register":"নিবন্ধন",
-        "aboutUs":"আমাদের সম্পর্কে",
-        "help":"সাহায্য"
+    "sideBarTexts": {
+        "dashboard": "ড্যাশবোর্ড",
+        "pump": "পাম্প",
+        "accounts": "হিসাব",
+        "hr": "মানব সম্পদ",
+        "reports": "রিপোর্ট",
+        "utility": "ইউটিলিটি",
+        "register": "নিবন্ধন",
+        "aboutUs": "আমাদের সম্পর্কে",
+        "help": "সাহায্য"
     },
-    "dashboardHeader":{
-        "meterReading":"মিটার রিডিং",
-        "lubricantSale":"লুব্রিকেন্ট বিক্রয়",
-        "creditSale":"ক্রেডিট বিক্রয়",
-        "voucherEntry":"ভাউচার এন্ট্রি",
-        "dayBook":"দিনের বই",
-        "purchaseInvoice":"ক্রয় চালান"
+    "dashboardHeader": {
+        "meterReading": "মিটার রিডিং",
+        "lubricantSale": "লুব্রিকেন্ট বিক্রয়",
+        "creditSale": "ক্রেডিট বিক্রয়",
+        "voucherEntry": "ভাউচার এন্ট্রি",
+        "dayBook": "দিনের বই",
+        "purchaseInvoice": "ক্রয় চালান"
     },
-    "dashboardMainTitles":{
-        "purchaseReports":"মাসভিত্তিক ক্রয় প্রতিবেদন",
-        "saleReports":"মাসভিত্তিক বিক্রয় প্রতিবেদন"
+    "dashboardMainTitles": {
+        "purchaseReports": "মাসভিত্তিক ক্রয় প্রতিবেদন",
+        "saleReports": "মাসভিত্তিক বিক্রয় প্রতিবেদন"
     },
-    "dashboardCardTitles":{
-        "availableStock":"উপলব্ধ স্টক",
-        "outStandingList":"আউটস্ট্যান্ডিং তালিকা"
+    "dashboardCardTitles": {
+        "availableStock": "উপলব্ধ স্টক",
+        "outStandingList": "আউটস্ট্যান্ডিং তালিকা"
     },
-    "NavbarData":{
-        "myProfile":"আমার প্রোফাইল",
-        "notifications":"বিজ্ঞপ্তি",
-        "callSupport":"সমর্থন",
-        "logout":"প্রস্থান"
+    "NavbarData": {
+        "myProfile": "আমার প্রোফাইল",
+        "notifications": "বিজ্ঞপ্তি",
+        "callSupport": "সমর্থন",
+        "logout": "প্রস্থান"
     },
-    "tableTitles":{
-        "unitMaster":"ইউনিট মাস্টার",
-        "itemCategory":"আইটেম বিভাগ",
-        "itemMaster":"আইটেম মাস্টার"
+    "tableTitles": {
+        "unitMaster": "ইউনিট মাস্টার",
+        "itemCategory": "আইটেম বিভাগ",
+        "itemMaster": "আইটেম মাস্টার"
     },
-    "add":{
-        "addUnitMaster":"আইটেম মাস্টার যোগ করুন",
-        "addItemCategory":"আইটেম বিভাগ যোগ করুন",
-        "addItemMaster":"আইটেম মাস্টার যোগ করুন"
+    "add": {
+        "addUnitMaster": "আইটেম মাস্টার যোগ করুন",
+        "addItemCategory": "আইটেম বিভাগ যোগ করুন",
+        "addItemMaster": "আইটেম মাস্টার যোগ করুন"
     },
-    "edit":{
-        "editUnitMaster":"ইউনিট সম্পাদনা করুন",
-        "editItemCategory":"আইটেম বিভাগ সম্পাদনা করুন",
-        "editItemMaster":"আইটেম সম্পাদনা করুন"
+    "edit": {
+        "editUnitMaster": "ইউনিট সম্পাদনা করুন",
+        "editItemCategory": "আইটেম বিভাগ সম্পাদনা করুন",
+        "editItemMaster": "আইটেম সম্পাদনা করুন"
     },
     "addMsg": {
-        "unitmaster":"ইউনিট যোগ করতে, এখানে আপনার ইউনিট লিখুন",
-        "itemCategory":"আইটেম বিভাগ যোগ করতে, এখানে আপনার আইটেম বিভাগ লিখুন"
+        "unitmaster": "ইউনিট যোগ করতে, এখানে আপনার ইউনিট লিখুন",
+        "itemCategory": "আইটেম বিভাগ যোগ করতে, এখানে আপনার আইটেম বিভাগ লিখুন"
     },
-    "editMsg":{
-        "unitmaster":"ইউনিট আপডেট করতে, এখানে আপনার আপডেট ইউনিট লিখুন",
-        "itemCategory":"আইটেম বিভাগ আপডেট করতে, এখানে আপনার আইটেম বিভাগ আপডেট করুন"
+    "editMsg": {
+        "unitmaster": "ইউনিট আপডেট করতে, এখানে আপনার আপডেট ইউনিট লিখুন",
+        "itemCategory": "আইটেম বিভাগ আপডেট করতে, এখানে আপনার আইটেম বিভাগ আপডেট করুন"
     },
-    "buttonNames":{
-        "cancel":"বাতিল করুন",
-        "add":"যোগ করুন",
-        "update":"হালনাগাদ"
+    "buttonNames": {
+        "cancel": "বাতিল করুন",
+        "add": "যোগ করুন",
+        "update": "হালনাগাদ"
     },
-    "noContentPage":"কোন বিষয়বস্তু পাওয়া যায়নি"
+    "noContentPage": "কোন বিষয়বস্তু পাওয়া যায়নি"
 }

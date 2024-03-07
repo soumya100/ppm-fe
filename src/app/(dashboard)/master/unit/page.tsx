@@ -1,4 +1,4 @@
-import UnitMasterContainer from "@/container/UnitMaster"
+import UnitMasterContainer from "@/container/master/UnitMaster"
 
 const page = () => {
   return <UnitMasterContainer />

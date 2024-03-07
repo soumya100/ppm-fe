@@ -62,13 +62,14 @@ export const ItemMasterHooks = () => {
                 .moreThan(1, text.errors.patternErrors.addItemMaster.openingQnty)
                 .required(text.errors.requiredErrors.addItemMaster.openingQnty),
             openingRate: Yup.number()
-                .moreThan(1, text.errors.patternErrors.addItemMaster.openingQnty)
-                .required(text.errors.requiredErrors.addItemMaster.openingQnty)
+                .moreThan(1, text.errors.patternErrors.addItemMaster.openingRate)
+                .required(text.errors.requiredErrors.addItemMaster.openingRate)
         }),
         onSubmit: (values, { resetForm }) => {
             postItemApiCall(orgId, values, resetForm)
         }
     })
+    
     //handle open drawer
     const handleOpenDrawer = () => {
         setOpenItemMaster(true)
@@ -105,6 +106,9 @@ export const ItemMasterHooks = () => {
             toast.error(err)
         })
     }
+
+    //item get api call
+    
 
     //item post api call
     const postItemApiCall = async (orgId: number, item: any, resetForm: any) => {
