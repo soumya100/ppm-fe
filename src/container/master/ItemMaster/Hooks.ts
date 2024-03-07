@@ -10,11 +10,11 @@ import getSessionStorageData from "@/utils/getSessionStorageData"
 
 export const ItemMasterHooks = () => {
     const dispatch = useDispatch()
+    const orgId = getSessionStorageData('orgId')
     const [openItemMaster, setOpenItemMaster] = useState<boolean>(false)
     const [postLoaders, setPostLoaders] = useState<boolean>(false)
     const [loader, setLoader]= useState<boolean>(false)
-    const orgId = getSessionStorageData('orgId')
-
+    const [editData, setEditData]: any= useState(null)
 
     // item master add formik
     const AddItemMasterFormik = useFormik({
@@ -40,30 +40,30 @@ export const ItemMasterHooks = () => {
             itemType: Yup.string()
                 .required(text.errors.requiredErrors.addItemMaster.itemType),
             unitValue: Yup.number()
-                .moreThan(1, text.errors.patternErrors.addItemMaster.unitValue)
+                .positive(text.errors.patternErrors.addItemMaster.unitValue)
                 .required(text.errors.requiredErrors.addItemMaster.unitValue),
             unit: Yup.string()
                 .required(text.errors.requiredErrors.addItemMaster.unit),
             cst: Yup.number()
-                .moreThan(1, text.errors.patternErrors.addItemMaster.cst)
+                .positive(text.errors.patternErrors.addItemMaster.cst)
                 .required(text.errors.requiredErrors.addItemMaster.cst),
             sgst: Yup.number()
-                .moreThan(1, text.errors.patternErrors.addItemMaster.sgst)
+                .positive(text.errors.patternErrors.addItemMaster.sgst)
                 .required(text.errors.requiredErrors.addItemMaster.sgst),
             igst: Yup.number()
-                .moreThan(1, text.errors.patternErrors.addItemMaster.igst)
-                .required(text.errors.patternErrors.addItemMaster.igst),
+                .positive(text.errors.patternErrors.addItemMaster.igst),
+                // .required(text.errors.patternErrors.addItemMaster.igst),
             basicSaleRate: Yup.number()
-                .moreThan(1, text.errors.patternErrors.addItemMaster.basicSaleRate)
+                .positive(text.errors.patternErrors.addItemMaster.basicSaleRate)
                 .required(text.errors.requiredErrors.addItemMaster.basicSaleRate),
             rememberQnty: Yup.number()
-                .moreThan(1, text.errors.patternErrors.addItemMaster.rememberQnty)
+                .positive(text.errors.patternErrors.addItemMaster.rememberQnty)
                 .required(text.errors.requiredErrors.addItemMaster.rememberQnty),
             openingQnty: Yup.number()
-                .moreThan(1, text.errors.patternErrors.addItemMaster.openingQnty)
+                .positive(text.errors.patternErrors.addItemMaster.openingQnty)
                 .required(text.errors.requiredErrors.addItemMaster.openingQnty),
             openingRate: Yup.number()
-                .moreThan(1, text.errors.patternErrors.addItemMaster.openingRate)
+                .positive(text.errors.patternErrors.addItemMaster.openingRate)
                 .required(text.errors.requiredErrors.addItemMaster.openingRate)
         }),
         onSubmit: (values, { resetForm }) => {
@@ -79,9 +79,11 @@ export const ItemMasterHooks = () => {
     //handle close drawer 
     const handleCloseDrawer = () => {
         setOpenItemMaster(false)
+        setEditData(null)
         AddItemMasterFormik.resetForm()
     }
 
+   
     //item master dropdown unit api call
     const getItemMasterUnitApiCall = async (id: number) => {
         getItemMasterDropDownAPI(id, 'unit').then((res: any) => {
@@ -135,7 +137,7 @@ export const ItemMasterHooks = () => {
             item_unit: item.unit,
             cgst_val: item.cst,
             sgst_val: item.sgst,
-            igst_val: item.igst,
+            igst_val: item.igst ?? 0,
             basic_sale_rate: item.basicSaleRate,
             remember_qnty: item.rememberQnty,
             open_qnty: item.openingQnty,

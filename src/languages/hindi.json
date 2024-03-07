@@ -37,6 +37,13 @@
             "pumpName":"पंप का नाम",
             "nozzleNumber":"नोजल की संख्या",
             "nozzleName":"नोजल का नाम"
+        },
+        "tankMaster":{
+            "tankName":"टैंक का नाम",
+            "product":"उत्पाद",
+            "tankDiameter":"टैंक का व्यास",
+            "tankLength":"टैंक की लंबाई",
+            "maxVolume":"अधिकतम मात्रा"
         }
     },
    "placeholders":{
@@ -63,6 +70,13 @@
             "pumpName":"पंप का नाम दर्ज करें",
             "nozzleNumber":"नोजल नंबर दर्ज करें",
             "nozzleName":"नोजल का नाम दर्ज करें"
+        },
+        "tankMaster":{
+            "tankName":"टैंक का नाम दर्ज करें",
+            "product":"उत्पाद दर्ज करें",
+            "tankDiameter":"टैंक का व्यास दर्ज करें",
+            "tankLength":"टैंक की लंबाई दर्ज करें",
+            "maxVolume":"अधिकतम मात्रा दर्ज करें"
         }
    },
    "rememberMe":"मुझे याद करो",
@@ -90,6 +104,11 @@
             },
             "addPumpMaster":{
                 "nozzleNumber":"नोजल की संख्या शून्य से अधिक होनी चाहिए"
+            },
+            "tankMaster":{
+                "tankDiameter":"टैंक का व्यास शून्य से अधिक होना चाहिए",
+                "tankLength":"टैंक की लंबाई शून्य से अधिक होनी चाहिए",
+                "maxVolume":"अधिकतम मात्रा शून्य से अधिक होनी चाहिए"
             }
         },
         "requiredErrors":{
@@ -115,6 +134,13 @@
                 "pumpName":"कृपया पंप का नाम दर्ज करें",
                 "nozzleNumber":"कृपया नोजल की संख्या दर्ज करें",
                 "nozzleName":"कृपया नोजल का नाम दर्ज करें"
+            },
+            "tankMaster":{
+                "tankName":"कृपया टैंक का नाम दर्ज करें",
+                "product":"कृपया उत्पाद दर्ज करें",
+                "tankDiameter":"कृपया टैंक का व्यास दर्ज करें",
+                "tankLength":"कृपया टैंक की लंबाई दर्ज करें",
+                "maxVolume":"कृपया अधिकतम मात्रा दर्ज करें"
             }
         }
     },
@@ -154,12 +180,14 @@
     "tableTitles":{
         "unitMaster":"आइटम मास्टर",
         "itemCategory":"आइटम श्रेणी",
-        "itemMaster":"आइटम मास्टर"
+        "itemMaster":"आइटम मास्टर",
+        "tankMaster":"टैंक मास्टर"
     },
     "add":{
         "addUnitMaster":"यूनिट मास्टर जोड़ें",
         "addItemCategory":"आइटम श्रेणी जोड़ें",
-        "addItemMaster":"आइटम मास्टर जोड़ें"
+        "addItemMaster":"आइटम मास्टर जोड़ें",
+        "addTank":"टैंक जोड़ें"
     },
     "edit":{
         "editUnitMaster":"इकाई संपादित करें",

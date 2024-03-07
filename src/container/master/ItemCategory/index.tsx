@@ -32,6 +32,7 @@ const ItemCategoryContainer = () => {
     loading={loading}
     postLoaders={postLoaders}
     editData={editData}
+    token={token}
   />
 }
 

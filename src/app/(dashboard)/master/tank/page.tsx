@@ -1,10 +1,9 @@
+import TankMasterContainer from '@/container/master/TankMaster'
 import React from 'react'
 
 const tank = () => {
   return (
-    <div>
-     tank page 
-    </div>
+    <TankMasterContainer />
   )
 }
 

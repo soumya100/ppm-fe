@@ -14,7 +14,7 @@ export const PumpMasterHooks = () => {
             pumpName: Yup.string()
                 .required(text.errors.requiredErrors.addPumpMaster.pumpName),
             nozzleNumber: Yup.number()
-                .moreThan(1, text.errors.patternErrors.addPumpMaster.nozzleNumber)
+                .positive(text.errors.patternErrors.addPumpMaster.nozzleNumber)
                 .required(text.errors.requiredErrors.addPumpMaster.nozzleNumber),
             nozzleName: Yup.string()
                 .required(text.errors.requiredErrors.addPumpMaster.nozzleName)

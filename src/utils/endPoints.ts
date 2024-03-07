@@ -13,5 +13,8 @@ export const endPoints={
     getItemMasterCategory:(id: number)=>`${createApi}master/DropDownCat/${id}`,
     getItemMaster:(id: number)=>`${createApi}master/GetItemList/${id}`,
     postItemMaster:`${createApi}master/AddItem`,
+    getTankMaster:(id: number)=>`${createApi}master/GetTank/${id}`,
+    postTankMaster:`${createApi}master/AddTank`,
+    updateTankMaster: `${createApi}master/UpdateTank`,
     logout:`${createApi}logout`
 }

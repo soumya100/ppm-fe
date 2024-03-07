@@ -5,6 +5,7 @@ import ItemCategoryModal from './ItemCategoryModal'
 import ItemCategoryTable from './ItemCategoryTable'
 import { Box } from '@mui/material'
 import { useSelector } from 'react-redux'
+import { notFound } from 'next/navigation'
 interface ItemCategoryProps {
   handleOpenModal(): void
   handleCloseModal(): void
@@ -14,14 +15,15 @@ interface ItemCategoryProps {
   loading: boolean
   postLoaders: boolean
   editData: any
+  token: string
 }
 
 const ItemCategory: FC<ItemCategoryProps> = ({ handleCloseModal, handleOpenModal, 
-  openAddItemModal, AddItemCategoryFormik, handleEditData, loading, postLoaders, editData }) => {
+  openAddItemModal, AddItemCategoryFormik, handleEditData, loading, postLoaders, editData, token }) => {
   
   const ItemCategoryData= useSelector((state: any) => state.itemCategoryData?.itemCategoryData)
 
-//  console.log(editData, '* data')
+  if(!token) return notFound()
   return <Box className={`min-h-[90vh]`}>
     <TableCommon
       title={text.tableTitles.itemCategory}

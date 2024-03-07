@@ -38,6 +38,13 @@
             "pumpName":"Pump name",
             "nozzleNumber":"Number of nozzles",
             "nozzleName":"Nozzle name"
+        },
+        "tankMaster":{
+            "tankName":"Tank name",
+            "product":"Product",
+            "tankDiameter":"Tank diameter",
+            "tankLength":"Tank length",
+            "maxVolume":"Maximum volume"
         }
     },
    "placeholders":{
@@ -64,6 +71,13 @@
             "pumpName":"Enter pump name",
             "nozzleNumber":"Enter number of nozzles",
             "nozzleName":"Enter name of the nozzle"
+        },
+        "tankMaster":{
+            "tankName":"Enter tank name",
+            "product":"Enter product",
+            "tankDiameter":"Enter tank diameter",
+            "tankLength":"Enter tank length",
+            "maxVolume":"Enter maximum volume"
         }
    },
    "rememberMe":"Remember me",
@@ -91,6 +105,11 @@
             },
             "addPumpMaster":{
                 "nozzleNumber":"Number of nozzles should be greater than zero"
+            },
+            "tankMaster":{
+                "tankDiameter":"Tank diameter should be greater than zero",
+                "tankLength":"Tank length should be greater than zero",
+                "maxVolume":"Maximum volume should be greater than zero"
             }
         },
         "requiredErrors":{
@@ -116,6 +135,13 @@
                 "pumpName":"Please enter pump name",
                 "nozzleNumber":"Please enter number of nozzles",
                 "nozzleName":"Please enter name of the nozzle"
+            },
+            "tankMaster":{
+                "tankName":"Please enter tank name",
+                "product":"Please enter product",
+                "tankDiameter":"Please enter tank diameter",
+                "tankLength":"Please enter tank length",
+                "maxVolume":"Please enter maximum volume"
             }
         }
     },
@@ -155,12 +181,14 @@
     "tableTitles":{
         "unitMaster":"Unit Master",
         "itemCategory":"Item Category",
-        "itemMaster":"Item Master"
+        "itemMaster":"Item Master",
+        "tankMaster":"Tank Master"
     },
     "add":{
         "addUnitMaster":"Add unit",
         "addItemCategory":"Add item Category",
-        "addItemMaster":"Add item"
+        "addItemMaster":"Add item",
+        "addTank":"Add tank"
     },
     "edit":{
         "editUnitMaster":"Edit unit",

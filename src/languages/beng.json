@@ -38,6 +38,13 @@
             "pumpName": "পাম্পের নাম",
             "nozzleNumber": "অগ্রভাগের সংখ্যা",
             "nozzleName": "অগ্রভাগের নাম"
+        },
+        "tankMaster":{
+            "tankName":"ট্যাঙ্কের নাম",
+            "product":"পণ্য",
+            "tankDiameter":"ট্যাঙ্ক ব্যাস",
+            "tankLength":"ট্যাঙ্কের দৈর্ঘ্য",
+            "maxVolume":"সর্বোচ্চ ভলিউম"
         }
     },
     "placeholders": {
@@ -63,6 +70,13 @@
             "pumpName": "পাম্পের নাম লিখুন",
             "nozzleNumber": "অগ্রভাগের সংখ্যা লিখুন",
             "nozzleName": "অগ্রভাগের নাম লিখুন"
+        },
+        "tankMaster":{
+            "tankName":"ট্যাঙ্কের নাম লিখুন",
+            "product":"পণ্য লিখুন",
+            "tankDiameter":"ট্যাংক ব্যাস লিখুন",
+            "tankLength":"ট্যাঙ্কের দৈর্ঘ্য লিখুন",
+            "maxVolume":"সর্বোচ্চ ভলিউম লিখুন"
         }
     },
     "rememberMe": "আমাকে মনে কর",
@@ -90,6 +104,11 @@
             },
             "addPumpMaster": {
                 "nozzleNumber": "অগ্রভাগের সংখ্যা শূন্যের বেশি হওয়া উচিত"
+            },
+            "tankMaster":{
+                "tankDiameter":"ট্যাঙ্কের ব্যাস শূন্যের চেয়ে বেশি হওয়া উচিত",
+                "tankLength":"ট্যাঙ্কের দৈর্ঘ্য শূন্যের চেয়ে বেশি হওয়া উচিত",
+                "maxVolume":"সর্বোচ্চ ভলিউম শূন্যের চেয়ে বেশি হওয়া উচিত"
             }
         },
         "requiredErrors": {
@@ -116,6 +135,13 @@
             "pumpName": "অনুগ্রহ করে পাম্পের নাম লিখুন",
             "nozzleNumber": "অনুগ্রহ করে অগ্রভাগের সংখ্যা লিখুন",
             "nozzleName": "অনুগ্রহ করে অগ্রভাগের নাম লিখুন"
+        },
+        "tankMaster":{
+            "tankName":"অনুগ্রহ করে ট্যাঙ্কের নাম লিখুন",
+            "product":"অনুগ্রহ করে পণ্য লিখুন",
+            "tankDiameter":"অনুগ্রহ করে ট্যাংক এর ব্যাস লিখুন",
+            "tankLength":"অনুগ্রহ করে ট্যাঙ্কের দৈর্ঘ্য লিখুন",
+            "maxVolume":"সর্বোচ্চ ভলিউম লিখুন দয়া করে"
         }
     },
     "sideBarTexts": {
@@ -154,12 +180,14 @@
     "tableTitles": {
         "unitMaster": "ইউনিট মাস্টার",
         "itemCategory": "আইটেম বিভাগ",
-        "itemMaster": "আইটেম মাস্টার"
+        "itemMaster": "আইটেম মাস্টার",
+        "tankMaster":"ট্যাংক মাস্টার"
     },
     "add": {
         "addUnitMaster": "আইটেম মাস্টার যোগ করুন",
         "addItemCategory": "আইটেম বিভাগ যোগ করুন",
-        "addItemMaster": "আইটেম মাস্টার যোগ করুন"
+        "addItemMaster": "আইটেম মাস্টার যোগ করুন",
+        "addTank":"ট্যাঙ্ক যোগ করুন"
     },
     "edit": {
         "editUnitMaster": "ইউনিট সম্পাদনা করুন",
