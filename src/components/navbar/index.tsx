@@ -147,7 +147,7 @@ const Navbar: FC<NavbarProps> = ({ handleToggleHamMenu, openHamMenu, openMenuId,
               {hamData?.SubMenue && hamData.SubMenue.length > 0 && <Collapse in={hamData.Menue_Id === openMenuId ? true : false} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                   {hamData.SubMenue.map((subMenu: any) => <Box key={subMenu.Id} >
-                    <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemButton sx={{ pl: 4 }} onClick={subMenu.page_alis!== null ? ()=>router.push(subMenu.page_alis) : ()=>{}}>
                       <ListItemIcon>
                         <Icon>
                           {subMenu.icon_class}
