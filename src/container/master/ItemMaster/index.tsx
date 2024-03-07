@@ -11,6 +11,8 @@ const ItemMasterContainer = ({ }) => {
         AddItemMasterFormik,
         getItemMasterUnitApiCall,
         getItemMasterCategoryApiCall,
+        getItemApiCall,
+        loader,
         postLoaders
      } = ItemMasterHooks()
 
@@ -20,6 +22,7 @@ const ItemMasterContainer = ({ }) => {
       if(orgId && token){
         getItemMasterUnitApiCall(orgId)
         getItemMasterCategoryApiCall(orgId)
+        getItemApiCall(orgId)
       }
      }, [orgId, token])
      
@@ -29,6 +32,7 @@ const ItemMasterContainer = ({ }) => {
         AddItemMasterFormik={AddItemMasterFormik}
         token={token}
         postLoaders={postLoaders}
+        loader={loader}
          />
 }
 

@@ -9,14 +9,15 @@ import Paper from '@mui/material/Paper';
 
 
 import { FC } from 'react'
-import { ButtonFieldInput } from '@/common';
+import { ButtonFieldInput, CommonLoading, FlexCenter, NoContentPage } from '@/common';
 import { Edit } from '@mui/icons-material';
 
 interface ItemMasterTableProps {
-    ItemDatas: any
+    ItemDatas: any,
+     loader: boolean
 }
 
-const ItemMasterTable: FC<ItemMasterTableProps> = ({ItemDatas}) => {
+const ItemMasterTable: FC<ItemMasterTableProps> = ({ItemDatas, loader}) => {
 
   const headerCls=`text-white font-extrabold text-md`
     return (
@@ -31,19 +32,24 @@ const ItemMasterTable: FC<ItemMasterTableProps> = ({ItemDatas}) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {ItemDatas.map((data: any, idx: number) => (
+              {
+                loader ? 
+                <FlexCenter className='w-full h-[50vh]'>
+                <CommonLoading imgHeight={90} loadSpaceBetween={5} loadingTextCls='text-3xl font-bold'/>
+                </FlexCenter> :
+              ItemDatas && ItemDatas.length > 0 ? ItemDatas.map((data: any, idx: number) => (
                 <TableRow
                   key={idx}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
-                    {data.si}
+                    {data.Id}
                   </TableCell>
                   <TableCell component="th" scope="row" align='center'>
-                    {data.itemName}
+                    {data.Item_Name}
                   </TableCell>
                   <TableCell component="th" scope="row" align='center'>
-                    {data.itemUnit}
+                    {data.Unit_Name}
                   </TableCell>
                   <TableCell component="th" scope="row" align='right'>
                     <ButtonFieldInput name={`edit`} buttonextracls={`capitalize`} 
@@ -51,7 +57,11 @@ const ItemMasterTable: FC<ItemMasterTableProps> = ({ItemDatas}) => {
                     startIcon={<Edit />} handleClick={()=>{`edited`}}/>
                   </TableCell>
                 </TableRow>
-              ))}
+              ))
+              :
+              (loader || (!ItemDatas && ItemDatas.length === 0)) &&
+              <NoContentPage mainCls={`h-[50vh] w-full`} />
+            }
             </TableBody>
           </Table>
         </TableContainer>

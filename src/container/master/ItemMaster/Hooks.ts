@@ -4,7 +4,7 @@ import * as Yup from 'yup'
 import text from '@/languages/en_US.json'
 import { getItemMasterDropDownAPI, postItemMasterAPI } from "./itemMasterApis"
 import { useDispatch } from "react-redux"
-import { getItemMasterCategory, getItemMasterUnit } from "./itemMasterReducer"
+import { getItemMaster, getItemMasterCategory, getItemMasterUnit } from "./itemMasterReducer"
 import toast from "react-hot-toast"
 import getSessionStorageData from "@/utils/getSessionStorageData"
 
@@ -12,6 +12,7 @@ export const ItemMasterHooks = () => {
     const dispatch = useDispatch()
     const [openItemMaster, setOpenItemMaster] = useState<boolean>(false)
     const [postLoaders, setPostLoaders] = useState<boolean>(false)
+    const [loader, setLoader]= useState<boolean>(false)
     const orgId = getSessionStorageData('orgId')
 
 
@@ -108,7 +109,20 @@ export const ItemMasterHooks = () => {
     }
 
     //item get api call
-    
+    const getItemApiCall = async (id: number) => {
+        setLoader(true)
+        getItemMasterDropDownAPI(id, 'item').then((res: any) => {
+            if (res.messsage === 'Data Found') {
+                dispatch(getItemMaster(res.Data))
+            } else {
+                dispatch(getItemMaster([]))
+            }
+        }).catch((err: any) => {
+            toast.error(err)
+        }).finally(()=>{
+            setLoader(false)
+        })
+    }
 
     //item post api call
     const postItemApiCall = async (orgId: number, item: any, resetForm: any) => {
@@ -130,10 +144,9 @@ export const ItemMasterHooks = () => {
         }
         postItemMasterAPI(bodyData)
             .then((res: any) => {
-                // console.log(res, '* res')
                 if (res.Message === 'Item Create Successful') {
                    setOpenItemMaster(false)
-                    // getItemCategoryApiCall(orgId)
+                   getItemApiCall(orgId)
                     toast.success('Item category created successfully')
                     // setEditData(null)
                     resetForm()
@@ -156,6 +169,8 @@ export const ItemMasterHooks = () => {
         AddItemMasterFormik,
         getItemMasterUnitApiCall,
         getItemMasterCategoryApiCall,
-        postLoaders
+        postLoaders,
+        getItemApiCall,
+        loader
     }
 }

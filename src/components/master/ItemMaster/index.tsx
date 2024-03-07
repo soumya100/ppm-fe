@@ -13,7 +13,8 @@ interface ItemMasterProps {
   openItemMaster: boolean,
   AddItemMasterFormik: any,
   token: string,
-  postLoaders: boolean
+  postLoaders: boolean,
+  loader: boolean
 }
 
 const tableData = [
@@ -25,7 +26,8 @@ const tableData = [
 
 ]
 
-const ItemMaster: FC<ItemMasterProps> = ({ handleCloseDrawer, handleOpenDrawer, openItemMaster, AddItemMasterFormik, token, postLoaders }) => {
+const ItemMaster: FC<ItemMasterProps> = ({ handleCloseDrawer, handleOpenDrawer, openItemMaster, 
+  AddItemMasterFormik, token, postLoaders, loader }) => {
   const unitDropDownValue= useSelector((state: any) => state.itemMasterData?.itemMasterUnit)?.map((data: any)=>{
     return{
       name:data.Unit_Name ,
@@ -39,6 +41,9 @@ const ItemMaster: FC<ItemMasterProps> = ({ handleCloseDrawer, handleOpenDrawer, 
        value: data.Id
     }
   })
+
+  const itemData=useSelector((state: any)=> state.itemMasterData?.itemMasterData)
+
 if(!token) return notFound()
   return <Box className={`min-h-[90vh]`}>
     <TableCommon
@@ -52,7 +57,7 @@ if(!token) return notFound()
         loading={postLoaders}
         />}
       handleOpenButton={handleOpenDrawer}
-      tableComponent={<ItemMasterTable ItemDatas={tableData} />}
+      tableComponent={<ItemMasterTable ItemDatas={itemData} loader={loader}/>}
     />
   </Box>
 }

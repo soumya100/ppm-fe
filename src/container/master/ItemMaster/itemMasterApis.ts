@@ -1,7 +1,7 @@
 import { doGetApiCall, doPostApiCall } from "@/utils/ApiConfig";
 import { endPoints } from "@/utils/endPoints";
 
-export const getItemMasterDropDownAPI = async(id: number, type: 'unit' | 'category')=>{
+export const getItemMasterDropDownAPI = async(id: number, type: 'unit' | 'category' | 'item')=>{
     let url;
     switch(type){
         case 'unit':
@@ -10,6 +10,8 @@ export const getItemMasterDropDownAPI = async(id: number, type: 'unit' | 'catego
         case 'category':
            url=endPoints?.getItemMasterCategory(id)
             break;
+        case 'item':
+            url=endPoints?.getItemMaster(id)
     }
     let data = {
         url: url

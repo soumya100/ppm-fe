@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const initialState = {
     itemMasterUnit:[],
-    itemMasterCategory:[]
+    itemMasterCategory:[],
+    itemMasterData:[]
 };
 const itemMasterSlice = createSlice({
     name: 'itemMasterData',
@@ -13,8 +14,11 @@ const itemMasterSlice = createSlice({
         },
         getItemMasterCategory: (state, action) =>{
             state.itemMasterCategory = action.payload
+        },
+        getItemMaster:(state, action)=>{
+            state.itemMasterData= action.payload
         }
     },
 });
-export const { getItemMasterUnit, getItemMasterCategory } = itemMasterSlice.actions;
+export const { getItemMasterUnit, getItemMasterCategory, getItemMaster } = itemMasterSlice.actions;
 export default itemMasterSlice.reducer;
