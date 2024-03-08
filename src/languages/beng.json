@@ -42,8 +42,8 @@
         "tankMaster":{
             "tankName":"ট্যাঙ্কের নাম",
             "product":"পণ্য",
-            "tankDiameter":"ট্যাঙ্ক ব্যাস",
-            "tankLength":"ট্যাঙ্কের দৈর্ঘ্য",
+            "tankDiameter":"ট্যাঙ্কের ব্যাস (সেমিতে)",
+            "tankLength":"ট্যাঙ্কের দৈর্ঘ্য (সেমিতে)",
             "maxVolume":"সর্বোচ্চ ভলিউম"
         }
     },
@@ -74,8 +74,8 @@
         "tankMaster":{
             "tankName":"ট্যাঙ্কের নাম লিখুন",
             "product":"পণ্য লিখুন",
-            "tankDiameter":"ট্যাংক ব্যাস লিখুন",
-            "tankLength":"ট্যাঙ্কের দৈর্ঘ্য লিখুন",
+            "tankDiameter":"ট্যাঙ্কের ব্যাস লিখুন (সেমিতে)",
+            "tankLength":"ট্যাঙ্কের দৈর্ঘ্য লিখুন (সেমিতে)",
             "maxVolume":"সর্বোচ্চ ভলিউম লিখুন"
         }
     },
@@ -192,7 +192,8 @@
     "edit": {
         "editUnitMaster": "ইউনিট সম্পাদনা করুন",
         "editItemCategory": "আইটেম বিভাগ সম্পাদনা করুন",
-        "editItemMaster": "আইটেম সম্পাদনা করুন"
+        "editItemMaster": "আইটেম সম্পাদনা করুন",
+        "editTankMaster":"ট্যাঙ্ক সম্পাদনা করুন"
     },
     "addMsg": {
         "unitmaster": "ইউনিট যোগ করতে, এখানে আপনার ইউনিট লিখুন",

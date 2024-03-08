@@ -15,10 +15,10 @@ export const TankMasterHooks = () => {
     const orgId = getSessionStorageData('orgId')
     const token = getSessionStorageData('token')
     const [openTankMasterDrawer, setOpenTankMasterDrawer] = useState<boolean>(false)
-    const[loader, setLoader]= useState<boolean>(false)
+    const [loader, setLoader] = useState<boolean>(false)
     const [postLoaders, setPostLoaders] = useState<boolean>(false)
-    const[editData, setEditData]: any=useState(null)
-   
+    const [editData, setEditData]: any = useState(null)
+
     //handle open drawer
     const handleOpenDrawer = () => {
         setOpenTankMasterDrawer(true)
@@ -31,22 +31,22 @@ export const TankMasterHooks = () => {
         TankMasterFormik.resetForm()
     }
 
-     //edit data handler
-     const handleEditData=(data: any)=>{
-         handleOpenDrawer()
-         setEditData(data)
+    //edit data handler
+    const handleEditData = (data: any) => {
+        handleOpenDrawer()
+        setEditData(data)
         // console.log(data, '* data')
     }
-    
-     // tank master add formik
-     const TankMasterFormik = useFormik({
+
+    // tank master add formik
+    const TankMasterFormik = useFormik({
         enableReinitialize: true,
         initialValues: {
-            tankName:editData && Object.keys(editData).length > 0 ? editData.Tank_Name : '',
-            product:editData && Object.keys(editData).length > 0 ? editData.Link_Item : '',
-            tankDiameter:editData && Object.keys(editData).length > 0 ? parseInt(editData.Tank_Diameter) : 0,
-            tankLength:editData && Object.keys(editData).length > 0 ? parseInt(editData.Tank_Length) : 0,
-            maxVolume:editData && Object.keys(editData).length > 0 ? parseInt(editData.Max_Volum) : 0
+            tankName: editData && Object.keys(editData).length > 0 ? editData.Tank_Name : '',
+            product: editData && Object.keys(editData).length > 0 ? editData.Link_Item : '',
+            tankDiameter: editData && Object.keys(editData).length > 0 ? parseInt(editData.Tank_Diameter) : 0,
+            tankLength: editData && Object.keys(editData).length > 0 ? parseInt(editData.Tank_Length) : 0,
+            maxVolume: editData && Object.keys(editData).length > 0 ? parseInt(editData.Max_Volum) : 0
         },
         validationSchema: Yup.object().shape({
             tankName: Yup.string()
@@ -65,10 +65,8 @@ export const TankMasterHooks = () => {
 
         }),
         onSubmit: (values, { resetForm }) => {
-          if(editData && Object.keys(editData).length > 0)
-          {updateTankMasterApiCall(editData.Id, values, resetForm)}
-          else
-            {postTankApiCall(orgId, values, resetForm)}
+            if (editData && Object.keys(editData).length > 0) { updateTankMasterApiCall(editData.Id, values, resetForm) }
+            else { postTankApiCall(orgId, values, resetForm) }
         }
     })
 
@@ -85,7 +83,7 @@ export const TankMasterHooks = () => {
             }
         }).catch((err: any) => {
             toast.error(err)
-        }).finally(()=>{
+        }).finally(() => {
             setLoader(false)
         })
     }
@@ -104,8 +102,8 @@ export const TankMasterHooks = () => {
         postTankDataAPI(bodyData)
             .then((res: any) => {
                 if (res.Message === 'Tank Added Successful') {
-                   handleCloseDrawer()
-                   getTankApiCall(orgId)
+                    handleCloseDrawer()
+                    getTankApiCall(orgId)
                     toast.success('Tank created successfully')
                     // setEditData(null)
                     resetForm()
@@ -133,24 +131,24 @@ export const TankMasterHooks = () => {
             Link_Item: item.product,
             org_id: orgId
         }
-     updatetankDataAPI(bodyData).then((res: any)=>{
-         if(res.Message === 'Tank Update Successful'){
-             getTankApiCall(orgId)
-             toast.success('Tank edited successfully')
-             handleCloseDrawer()
-             setEditData(null)
-             resetForm()
-            //  setPostLoaders(false)
-         }else{
-             toast.error(res.Message)
-            //  setPostLoaders(false)
-         }
-     }).catch((err)=>{
-        toast.error('Something went wrong')
-        console.error(err)
-     }).finally(()=>{
-        setPostLoaders(false)
-     })
+        updatetankDataAPI(bodyData).then((res: any) => {
+            if (res.Message === 'Tank Update Successful') {
+                getTankApiCall(orgId)
+                toast.success('Tank edited successfully')
+                handleCloseDrawer()
+                setEditData(null)
+                resetForm()
+                //  setPostLoaders(false)
+            } else {
+                toast.error(res.Message)
+                //  setPostLoaders(false)
+            }
+        }).catch((err) => {
+            toast.error('Something went wrong')
+            console.error(err)
+        }).finally(() => {
+            setPostLoaders(false)
+        })
     }
 
     return {
@@ -163,6 +161,7 @@ export const TankMasterHooks = () => {
         token,
         loader,
         postLoaders,
-        handleEditData
+        handleEditData,
+        editData
     }
 }

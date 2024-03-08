@@ -42,8 +42,8 @@
         "tankMaster":{
             "tankName":"Tank name",
             "product":"Product",
-            "tankDiameter":"Tank diameter",
-            "tankLength":"Tank length",
+            "tankDiameter":"Tank diameter (in cm)",
+            "tankLength":"Tank length (in cm)",
             "maxVolume":"Maximum volume"
         }
     },
@@ -75,8 +75,8 @@
         "tankMaster":{
             "tankName":"Enter tank name",
             "product":"Enter product",
-            "tankDiameter":"Enter tank diameter",
-            "tankLength":"Enter tank length",
+            "tankDiameter":"Enter tank diameter (in cm)",
+            "tankLength":"Enter tank length (in cm)",
             "maxVolume":"Enter maximum volume"
         }
    },
@@ -193,7 +193,8 @@
     "edit":{
         "editUnitMaster":"Edit unit",
         "editItemCategory":"Edit item Category",
-        "editItemMaster":"Edit item"
+        "editItemMaster":"Edit item",
+        "editTankMaster":"Edit tank"
     },
     "addMsg": {
         "unitmaster":"To add unit, please enter your unit here",

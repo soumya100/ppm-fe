@@ -41,8 +41,8 @@
         "tankMaster":{
             "tankName":"टैंक का नाम",
             "product":"उत्पाद",
-            "tankDiameter":"टैंक का व्यास",
-            "tankLength":"टैंक की लंबाई",
+            "tankDiameter":"टैंक का व्यास (सेमी में)",
+            "tankLength":"टैंक की लंबाई (सेमी में)",
             "maxVolume":"अधिकतम मात्रा"
         }
     },
@@ -74,8 +74,8 @@
         "tankMaster":{
             "tankName":"टैंक का नाम दर्ज करें",
             "product":"उत्पाद दर्ज करें",
-            "tankDiameter":"टैंक का व्यास दर्ज करें",
-            "tankLength":"टैंक की लंबाई दर्ज करें",
+            "tankDiameter":"टैंक का व्यास दर्ज करें (सेमी में)",
+            "tankLength":"टैंक की लंबाई दर्ज करें (सेमी में)",
             "maxVolume":"अधिकतम मात्रा दर्ज करें"
         }
    },
@@ -192,7 +192,8 @@
     "edit":{
         "editUnitMaster":"इकाई संपादित करें",
         "editItemCategory":"आइटम श्रेणी संपादित करें",
-        "editItemMaster":"संपादित आइटम"
+        "editItemMaster":"संपादित आइटम",
+        "editTankMaster":"टैंक संपादित करें"
     },
     "addMsg": {
         "unitmaster":"यूनिट जोड़ने के लिए, कृपया यहां अपनी यूनिट दर्ज करें",

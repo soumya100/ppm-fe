@@ -14,7 +14,8 @@ const TankMasterContainer = () => {
         token,
         postLoaders,
         loader,
-        handleEditData
+        handleEditData,
+        editData
     } = TankMasterHooks()
 
     const { getItemApiCall } = ItemMasterHooks()
@@ -35,6 +36,7 @@ const TankMasterContainer = () => {
             loader={loader}
             postLoaders={postLoaders}
             handleEditData={handleEditData}
+            editData={editData}
         />
     )
 }

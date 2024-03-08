@@ -10,10 +10,11 @@ interface TankMasterProps {
     openTankMasterDrawer: boolean
     productDropDownValue: any
     loading: boolean
+    editData: any
 }
 
 const TankMasterForm: FC<TankMasterProps> = ({ formik, openTankMasterDrawer, handleToggleDrawer, 
-    productDropDownValue, loading }) => {
+    productDropDownValue, loading, editData }) => {
     const unit = [
         {
             name: 'data',
@@ -32,19 +33,19 @@ const TankMasterForm: FC<TankMasterProps> = ({ formik, openTankMasterDrawer, han
             [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
         }}
     >
-        <FlexItemCenter className='h-[4rem]' gap={3}>
+        <FlexItemCenter className='h-[4rem] px-2' gap={3}>
             <IconButton onClick={handleToggleDrawer}>
                 <KeyboardArrowLeft />
             </IconButton>
             <Typography component={`p`} className={`!font-bold text-2xl`}>
-                {text.add.addTank}
+                {editData && Object.keys(editData).length > 0  ? text.edit.editTankMaster : text.add.addTank}
             </Typography>
         </FlexItemCenter>
         <Divider />
         <Container className='py-5'>
             <form onSubmit={formik?.handleSubmit}>
                 <Grid container spacing={2}>
-                    <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                         <TextFieldInput
                             placeholder={text.placeholders.tankMaster.tankName}
                             extraCls={`w-full`}
@@ -64,7 +65,7 @@ const TankMasterForm: FC<TankMasterProps> = ({ formik, openTankMasterDrawer, han
                             clickEnter={formik?.handleSubmit}
                             fullwidthState autoFocus />
                     </Grid>
-                    <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                         <DropDownField
                             name={`product`}
                             dropdownLabel={text.label.tankMaster.product}
@@ -84,7 +85,7 @@ const TankMasterForm: FC<TankMasterProps> = ({ formik, openTankMasterDrawer, han
                             fullWidthState
                         />
                     </Grid>
-                    <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                         <TextFieldInput
                             inputLabel={text.label.tankMaster.tankDiameter}
                             placeholder={text.placeholders.tankMaster.tankDiameter}
@@ -113,7 +114,7 @@ const TankMasterForm: FC<TankMasterProps> = ({ formik, openTankMasterDrawer, han
                             clickEnter={formik?.handleSubmit}
                             fullwidthState />
                     </Grid>
-                    <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                         <TextFieldInput
                             inputLabel={text.label.tankMaster.tankLength}
                             placeholder={text.placeholders.tankMaster.tankLength}
@@ -142,7 +143,7 @@ const TankMasterForm: FC<TankMasterProps> = ({ formik, openTankMasterDrawer, han
                             clickEnter={formik?.handleSubmit}
                             fullwidthState />
                     </Grid>
-                    <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                         <TextFieldInput
                             inputLabel={text.label.tankMaster.maxVolume}
                             placeholder={text.placeholders.tankMaster.maxVolume}
@@ -174,9 +175,11 @@ const TankMasterForm: FC<TankMasterProps> = ({ formik, openTankMasterDrawer, han
                 </Grid>
                 <FlexItemCenter className='w-full h-[5rem]'>
                     <FlexBetween className='flex-row-reverse w-full'>
-                        <ButtonFieldInput name={text.buttonNames.add}
+                        <ButtonFieldInput
+                         name={editData && Object.keys(editData).length > 0 ? text.buttonNames.update : text.buttonNames.add}
                             buttonextracls={`rounded-full bg-blue-500 capitalize`}
-                            variant={`contained`} loading={loading} />
+                            variant={`contained`} loading={loading}  
+                            />
                         <ButtonFieldInput name={text.buttonNames.cancel}
                             buttonextracls={`rounded-full bg-gray-400 capitalize`}
                             variant={`contained`} type={`button`} handleClick={

@@ -15,11 +15,12 @@ interface TankMasterProps {
   token: string,
   loader: boolean
   postLoaders: boolean
-  handleEditData(data: any): void
+  handleEditData(data: any): void,
+  editData: any
 }
 
 const TankMaster: FC<TankMasterProps> = ({ tankMasterFormik,  handleOpenDrawer,
-  handleCloseDrawer, openTankMasterDrawer, token, postLoaders, loader, handleEditData }) => {
+  handleCloseDrawer, openTankMasterDrawer, token, postLoaders, loader, handleEditData, editData }) => {
 
   const tankMasterData = useSelector((state: any) => state.tankMasterData?.tankMasterData)
   const itemData=useSelector((state: any)=> state.itemMasterData?.itemMasterData)?.map((data: any)=>{
@@ -38,6 +39,7 @@ const TankMaster: FC<TankMasterProps> = ({ tankMasterFormik,  handleOpenDrawer,
         openTankMasterDrawer={openTankMasterDrawer} formik={tankMasterFormik}
       productDropDownValue={itemData}
       loading={postLoaders}
+      editData={editData}
       />}
       handleOpenButton={handleOpenDrawer}
       tableComponent={<TankMasterTable tankMasterData={tankMasterData} 
