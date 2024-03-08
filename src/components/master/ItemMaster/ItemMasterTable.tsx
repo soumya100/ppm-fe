@@ -39,11 +39,11 @@ const ItemMasterTable: FC<ItemMasterTableProps> = ({ItemDatas, loader}) => {
                 </FlexCenter> :
               ItemDatas && ItemDatas.length > 0 ? ItemDatas.map((data: any, idx: number) => (
                 <TableRow
-                  key={idx}
+                  key={data.Id}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
-                    {data.Id}
+                    {idx+1}
                   </TableCell>
                   <TableCell component="th" scope="row" align='center'>
                     {data.Item_Name}

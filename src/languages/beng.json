@@ -37,7 +37,8 @@
         "addPumpMaster": {
             "pumpName": "পাম্পের নাম",
             "nozzleNumber": "অগ্রভাগের সংখ্যা",
-            "nozzleName": "অগ্রভাগের নাম"
+            "nozzleName": "অগ্রভাগের নাম",
+            "selectTank":"ট্যাঙ্ক নির্বাচন করুন"
         },
         "tankMaster":{
             "tankName":"ট্যাঙ্কের নাম",
@@ -69,7 +70,8 @@
         "addPumpMaster": {
             "pumpName": "পাম্পের নাম লিখুন",
             "nozzleNumber": "অগ্রভাগের সংখ্যা লিখুন",
-            "nozzleName": "অগ্রভাগের নাম লিখুন"
+            "nozzleName": "অগ্রভাগের নাম লিখুন",
+            "selectTank":"ট্যাঙ্ক নির্বাচন করুন"
         },
         "tankMaster":{
             "tankName":"ট্যাঙ্কের নাম লিখুন",
@@ -128,7 +130,8 @@
                 "basicSaleRate": " অনুগ্রহ করে মৌলিক বিক্রয় হার লিখুন",
                 "rememberQnty": "অনুগ্রহ করে মনে রাখার পরিমাণ লিখুন",
                 "openingQnty": "অনুগ্রহ করে খোলার পরিমাণ লিখুন",
-                "openingRate": "অনুগ্রহ করে খোলার হার লিখুন"
+                "openingRate": "অনুগ্রহ করে খোলার হার লিখুন",
+                "selectTank":"অনুগ্রহ করে ট্যাংক নির্বাচন করুন"
             }
         },
         "addPumpMaster": {
@@ -181,13 +184,16 @@
         "unitMaster": "ইউনিট মাস্টার",
         "itemCategory": "আইটেম বিভাগ",
         "itemMaster": "আইটেম মাস্টার",
-        "tankMaster":"ট্যাংক মাস্টার"
+        "tankMaster":"ট্যাংক মাস্টার",
+        "pumpMaster":"পাম্প মাস্টার"
     },
     "add": {
         "addUnitMaster": "আইটেম মাস্টার যোগ করুন",
         "addItemCategory": "আইটেম বিভাগ যোগ করুন",
         "addItemMaster": "আইটেম মাস্টার যোগ করুন",
-        "addTank":"ট্যাঙ্ক যোগ করুন"
+        "addTank":"ট্যাঙ্ক যোগ করুন",
+        "addPump":"পাম্প যোগ করুন",
+        "addNozzle":"অগ্রভাগ যোগ করুন"
     },
     "edit": {
         "editUnitMaster": "ইউনিট সম্পাদনা করুন",

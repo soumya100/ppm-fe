@@ -14,7 +14,7 @@ import getSessionStorageData from '@/utils/getSessionStorageData';
 import { useSelector } from 'react-redux';
 import dayjs from 'dayjs';
 import { ExpandLess, ExpandMore, Logout } from '@mui/icons-material';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import styles from './sideBar.module.css'
 import SideBarSkeleton from './SideBarSkeleton';
 
@@ -29,14 +29,15 @@ interface SideBarProps {
   logOutLoader: boolean
 }
 
-export const SideBar: React.FC<SideBarProps> = ({ logOutGetApiCall, handleSubMenu, 
-  openMenuId, logOutLoader, 
-   handleSubMenuClose, loader }) => {
+export const SideBar: React.FC<SideBarProps> = ({ logOutGetApiCall, handleSubMenu,
+  openMenuId, logOutLoader,
+  handleSubMenuClose, loader }) => {
+  const router = useRouter()
+  const pathName=usePathname()
   const orgName = getSessionStorageData('orgName') || '--'
   const financialYear = useSelector((state: any) => state.sideBarData?.financialYear)
   const sideBarData = useSelector((state: any) => state.sideBarData?.sideBarData)
-  const router = useRouter()
-
+console.log(pathName, '* path')
   return (
     <ClickAwayListener onClickAway={handleSubMenuClose}>
       <Box sx={{ display: 'flex' }} className={`hidden md:flex z-[9] ${styles.scrollbar}`}>
@@ -50,57 +51,57 @@ export const SideBar: React.FC<SideBarProps> = ({ logOutGetApiCall, handleSubMen
         >
           <Toolbar />
           <FlexBetween className='!flex-col !w-full !h-full'>
-           {loader ? 
-           <SideBarSkeleton /> :
+            {loader ?
+              <SideBarSkeleton /> :
 
-            <Box sx={{ overflow: 'auto' }} className={`!w-full`}>
-              <List
-                sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
-                component="nav"
-                aria-labelledby="nested-list-subheader"
-              >
-                {sideBarData && sideBarData.length > 0 && sideBarData?.map((data: any) => <Box key={data.Menue_Id}>
-                  <ListItemButton onClick={data.SubMenue && data.SubMenue.length > 0 ?
-                    () => handleSubMenu(data.Menue_Id) : () => router.push(`/dashboard`)}>
-                    <ListItemIcon>
-                      <Icon>
-                        {data?.Menue_Icon}
-                      </Icon>
-                    </ListItemIcon>
-                    <ListItemText primary={<Typography component={`p`} className='text-lg font-bold'>
-                      {data.Menue_Name}
-                    </Typography>} />
-                    {data?.SubMenue && data.SubMenue.length > 0 &&
-                      <>
-                        {data.Menue_Id === openMenuId ? <ExpandLess /> : <ExpandMore />}
-                      </>
-                    }
-                  </ListItemButton>
-                  <Divider />
-                  {data?.SubMenue && data.SubMenue.length > 0 && <Collapse in={data.Menue_Id === openMenuId ? true : false} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
-                      {data.SubMenue.map((subMenu: any) => <Box key={subMenu.Id} >
-                        <ListItemButton sx={{ pl: 4 }} onClick={subMenu.page_alis !==null ? 
-                          ()=> router.push(subMenu.page_alis) : ()=>{}}>
-                          <ListItemIcon>
-                            <Icon>
-                              {subMenu.icon_class}
-                            </Icon>
-                          </ListItemIcon>
-                          <ListItemText primary={<Typography component={`p`} className='text-sm font-semibold'>
-                            {subMenu.Menue_Name}
-                          </Typography>
-                          } />
-                        </ListItemButton>
-                        <Divider />
-                      </Box>
-                      )}
-                    </List>
-                  </Collapse>}
-                </Box>)
-                }
-              </List>
-            </Box>}
+              <Box sx={{ overflow: 'auto' }} className={`!w-full`}>
+                <List
+                  sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+                  component="nav"
+                  aria-labelledby="nested-list-subheader"
+                >
+                  {sideBarData && sideBarData.length > 0 && sideBarData?.map((data: any) => <Box key={data.Menue_Id}>
+                    <ListItemButton onClick={data.SubMenue && data.SubMenue.length > 0 ?
+                      () => handleSubMenu(data.Menue_Id) : () => router.push(`/dashboard`)}>
+                      <ListItemIcon>
+                        <Icon>
+                          {data?.Menue_Icon}
+                        </Icon>
+                      </ListItemIcon>
+                      <ListItemText primary={<Typography component={`p`} className='text-lg font-bold'>
+                        {data.Menue_Name}
+                      </Typography>} />
+                      {data?.SubMenue && data.SubMenue.length > 0 &&
+                        <>
+                          {data.Menue_Id === openMenuId ? <ExpandLess /> : <ExpandMore />}
+                        </>
+                      }
+                    </ListItemButton>
+                    <Divider />
+                    {data?.SubMenue && data.SubMenue.length > 0 && <Collapse in={data.Menue_Id === openMenuId ? true : false} timeout="auto" unmountOnExit>
+                      <List component="div" disablePadding>
+                        {data.SubMenue.map((subMenu: any) => <Box key={subMenu.Id} >
+                          <ListItemButton sx={{ pl: 4 }} onClick={subMenu.page_alis !== null ?
+                            () => router.push(subMenu.page_alis) : () => { }} selected={subMenu.page_alias === pathName ? true : false}>
+                            <ListItemIcon>
+                              <Icon>
+                                {subMenu.icon_class}
+                              </Icon>
+                            </ListItemIcon>
+                            <ListItemText primary={<Typography component={`p`} className='text-sm font-semibold'>
+                              {subMenu.Menue_Name}
+                            </Typography>
+                            } />
+                          </ListItemButton>
+                          <Divider />
+                        </Box>
+                        )}
+                      </List>
+                    </Collapse>}
+                  </Box>)
+                  }
+                </List>
+              </Box>}
             <FlexItemCenter className='w-full px-2 sticky bottom-0 left-0 z-10 bg-white'>
               <ListItem>
                 <ListItemAvatar>
@@ -126,11 +127,11 @@ export const SideBar: React.FC<SideBarProps> = ({ logOutGetApiCall, handleSubMen
                   }
                 />
               </ListItem>
-              {logOutLoader ? 
-                <CircularProgress size={20} color='secondary'/> :
-              <IconButton onClick={logOutGetApiCall}>
-                <Logout fontSize='small' />
-              </IconButton>}
+              {logOutLoader ?
+                <CircularProgress size={20} color='secondary' /> :
+                <IconButton onClick={logOutGetApiCall}>
+                  <Logout fontSize='small' />
+                </IconButton>}
             </FlexItemCenter>
           </FlexBetween>
         </Drawer>

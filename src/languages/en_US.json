@@ -37,7 +37,8 @@
         "addPumpMaster":{
             "pumpName":"Pump name",
             "nozzleNumber":"Number of nozzles",
-            "nozzleName":"Nozzle name"
+            "nozzleName":"Nozzle name",
+            "selectTank":"Select tank"
         },
         "tankMaster":{
             "tankName":"Tank name",
@@ -70,7 +71,8 @@
         "addPumpMaster":{
             "pumpName":"Enter pump name",
             "nozzleNumber":"Enter number of nozzles",
-            "nozzleName":"Enter name of the nozzle"
+            "nozzleName":"Enter name of the nozzle",
+            "selectTank":"Select tank"
         },
         "tankMaster":{
             "tankName":"Enter tank name",
@@ -134,7 +136,8 @@
             "addPumpMaster":{
                 "pumpName":"Please enter pump name",
                 "nozzleNumber":"Please enter number of nozzles",
-                "nozzleName":"Please enter name of the nozzle"
+                "nozzleName":"Please enter name of the nozzle",
+                "selectTank":"Please select tank"
             },
             "tankMaster":{
                 "tankName":"Please enter tank name",
@@ -182,13 +185,17 @@
         "unitMaster":"Unit Master",
         "itemCategory":"Item Category",
         "itemMaster":"Item Master",
-        "tankMaster":"Tank Master"
+        "tankMaster":"Tank Master",
+        "pumpMaster":"Pump Master",
+        "addNozzle":"Add Nozzle"
     },
     "add":{
         "addUnitMaster":"Add unit",
         "addItemCategory":"Add item Category",
         "addItemMaster":"Add item",
-        "addTank":"Add tank"
+        "addTank":"Add tank",
+        "addPump":"Add Pump",
+        "addNozzle":"Add Nozzle"
     },
     "edit":{
         "editUnitMaster":"Edit unit",

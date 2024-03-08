@@ -25,7 +25,7 @@ const TankMasterTable: FC<TankMasterTableProps> = ({ tankMasterData, loading, ha
         <TableHead className='bg-gradient-to-tr from-indigo-500 via-purple-400 to-blue-500'>
           <TableRow className={`text-white font-bold`}>
             <TableCell className={headerCls}>Serial No.</TableCell>
-            <TableCell className={headerCls} align='center'>Unit</TableCell>
+            <TableCell className={headerCls} align='center'>Tank name</TableCell>
             <TableCell className={headerCls} align='center'>Product</TableCell>
             <TableCell className={headerCls} align='right'>Actions</TableCell>
           </TableRow>
@@ -36,13 +36,13 @@ const TankMasterTable: FC<TankMasterTableProps> = ({ tankMasterData, loading, ha
               <FlexCenter className='w-full h-[50vh]'>
                 <CommonLoading imgHeight={90} loadSpaceBetween={5} loadingTextCls='text-3xl font-bold' />
               </FlexCenter> :
-              tankMasterData && tankMasterData.length > 0 ? tankMasterData.map((data: any) => (
+              tankMasterData && tankMasterData.length > 0 ? tankMasterData.map((data: any, idx: number) => (
                 <TableRow
                   key={data.Id}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
-                    {data.Id}
+                    {idx+1}
                   </TableCell>
                   <TableCell component="th" scope="row" align='center'>
                     {data.Tank_Name}

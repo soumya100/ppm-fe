@@ -3,7 +3,6 @@ import { Box } from '@mui/material'
 import { FC, ReactNode } from 'react'
 import { ButtonFieldInput, FlexBetween } from '..'
 import { Add } from '@mui/icons-material'
-import Typography from '@mui/material/Typography'
 import dynamic from 'next/dynamic'
 const DynamicTypography= dynamic(()=>import('@mui/material/Typography'), {
     ssr: false

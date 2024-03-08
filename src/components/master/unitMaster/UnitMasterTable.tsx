@@ -39,13 +39,13 @@ const UnitMasterTable: FC<UnitMasterTableProps> = ({unitDatas, handleEditData, l
               <FlexCenter className='w-full h-[50vh]'>
                 <CommonLoading imgHeight={90} loadSpaceBetween={5} loadingTextCls='text-3xl font-bold'/>
                 </FlexCenter>
-             : unitDatas && unitDatas?.length > 0 ? unitDatas.map((data: any) => (
+             : unitDatas && unitDatas?.length > 0 ? unitDatas.map((data: any, idx: number) => (
                 <TableRow
                   key={data.Id}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
-                    {data.Id}
+                    {idx+1}
                   </TableCell>
                   <TableCell component="th" scope="row" align='center'>
                     {data.Unit_Name}

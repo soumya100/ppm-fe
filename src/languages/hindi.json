@@ -36,7 +36,8 @@
         "addPumpMaster":{
             "pumpName":"पंप का नाम",
             "nozzleNumber":"नोजल की संख्या",
-            "nozzleName":"नोजल का नाम"
+            "nozzleName":"नोजल का नाम",
+            "selectTank":"टैंक का चयन करें"
         },
         "tankMaster":{
             "tankName":"टैंक का नाम",
@@ -69,7 +70,8 @@
         "addPumpMaster":{
             "pumpName":"पंप का नाम दर्ज करें",
             "nozzleNumber":"नोजल नंबर दर्ज करें",
-            "nozzleName":"नोजल का नाम दर्ज करें"
+            "nozzleName":"नोजल का नाम दर्ज करें",
+            "selectTank":"टैंक का चयन करें"
         },
         "tankMaster":{
             "tankName":"टैंक का नाम दर्ज करें",
@@ -133,7 +135,8 @@
             "addPumpMaster":{
                 "pumpName":"कृपया पंप का नाम दर्ज करें",
                 "nozzleNumber":"कृपया नोजल की संख्या दर्ज करें",
-                "nozzleName":"कृपया नोजल का नाम दर्ज करें"
+                "nozzleName":"कृपया नोजल का नाम दर्ज करें",
+                "selectTank":"कृपया टैंक का चयन करें"
             },
             "tankMaster":{
                 "tankName":"कृपया टैंक का नाम दर्ज करें",
@@ -181,13 +184,16 @@
         "unitMaster":"आइटम मास्टर",
         "itemCategory":"आइटम श्रेणी",
         "itemMaster":"आइटम मास्टर",
-        "tankMaster":"टैंक मास्टर"
+        "tankMaster":"टैंक मास्टर",
+        "pumpMaster":"पम्प मास्टर"
     },
     "add":{
         "addUnitMaster":"यूनिट मास्टर जोड़ें",
         "addItemCategory":"आइटम श्रेणी जोड़ें",
         "addItemMaster":"आइटम मास्टर जोड़ें",
-        "addTank":"टैंक जोड़ें"
+        "addTank":"टैंक जोड़ें",
+        "addPump":"पम्प जोड़ें",
+        "addNozzle":"नोजल जोड़ें"
     },
     "edit":{
         "editUnitMaster":"इकाई संपादित करें",
