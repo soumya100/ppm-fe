@@ -43,7 +43,7 @@ const PumpMaster: FC<PumpMasterProps> = ({ formik, showNozzleForm, addNozzleForm
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
                 <Box className='shadow-md rounded-md border-t'>
-                    {showNozzleForm ?
+                    {!showNozzleForm ?
                         <PumpMasterForm formik={formik} /> :
                         <NozzleForm formik={addNozzleForm} addNozzleData={addNozzleData} tankMasterData={tankMasterData}/>
                     }
