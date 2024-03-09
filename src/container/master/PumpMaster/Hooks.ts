@@ -41,6 +41,7 @@ export const PumpMasterHooks = () => {
 
     // add Nozzle formik
     const AddNozzleFormik = useFormik({
+        enableReinitialize: true,
         initialValues: {
             nozzleName: '',
             tankName: '',
@@ -58,6 +59,7 @@ export const PumpMasterHooks = () => {
            const tankData= tankMasterData && tankMasterData.filter((data: any)=>data.value === values.tankName)
             setAddNozzleData((prev: any)=>[...prev, {nozzleName: values.nozzleName, 
                 tankId:tankData[0].value, tankName:tankData[0].name}])
+            resetForm()
         }
     })
     return{
