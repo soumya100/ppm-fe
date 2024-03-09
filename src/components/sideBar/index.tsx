@@ -62,7 +62,9 @@ console.log(pathName, '* path')
                 >
                   {sideBarData && sideBarData.length > 0 && sideBarData?.map((data: any) => <Box key={data.Menue_Id}>
                     <ListItemButton onClick={data.SubMenue && data.SubMenue.length > 0 ?
-                      () => handleSubMenu(data.Menue_Id) : () => router.push(`/dashboard`)}>
+                      () => handleSubMenu(data.Menue_Id) : 
+                     data.Page_Alies !==null ?
+                       () => router.push(data.Page_Alies) : ()=>{}}>
                       <ListItemIcon>
                         <Icon>
                           {data?.Menue_Icon}
