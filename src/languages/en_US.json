@@ -46,6 +46,11 @@
             "tankDiameter":"Tank diameter (in cm)",
             "tankLength":"Tank length (in cm)",
             "maxVolume":"Maximum volume"
+        },
+        "addShiftMaster":{
+            "shiftName":"Shift name",
+            "startTime":"Start time",
+            "endTime":"End time"
         }
     },
    "placeholders":{
@@ -80,6 +85,11 @@
             "tankDiameter":"Enter tank diameter (in cm)",
             "tankLength":"Enter tank length (in cm)",
             "maxVolume":"Enter maximum volume"
+        },
+        "addShiftMaster":{
+            "shiftName":"Enter shift name",
+            "startTime":"Enter start time",
+            "endTime":"Enter end time"
         }
    },
    "rememberMe":"Remember me",
@@ -145,6 +155,11 @@
                 "tankDiameter":"Please enter tank diameter",
                 "tankLength":"Please enter tank length",
                 "maxVolume":"Please enter maximum volume"
+            },
+            "shiftMaster":{
+                "shiftName":"Please enter shift name",
+                "startTime":"Please enter start time",
+                "endTime":"Please enter end time"
             }
         }
     },
@@ -187,7 +202,8 @@
         "itemMaster":"Item Master",
         "tankMaster":"Tank Master",
         "pumpMaster":"Pump Master",
-        "addNozzle":"Add Nozzle"
+        "addNozzle":"Add Nozzle",
+        "shiftMaster":"Shift Master"
     },
     "add":{
         "addUnitMaster":"Add unit",
@@ -195,7 +211,8 @@
         "addItemMaster":"Add item",
         "addTank":"Add tank",
         "addPump":"Add Pump",
-        "addNozzle":"Add Nozzle"
+        "addNozzle":"Add Nozzle",
+        "shiftMaster":"Add shift master"
     },
     "edit":{
         "editUnitMaster":"Edit unit",

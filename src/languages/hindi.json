@@ -45,6 +45,11 @@
             "tankDiameter":"टैंक का व्यास (सेमी में)",
             "tankLength":"टैंक की लंबाई (सेमी में)",
             "maxVolume":"अधिकतम मात्रा"
+        },
+        "addShiftMaster":{
+            "shiftName":"शिफ्ट का नाम",
+            "startTime":"समय शुरू",
+            "endTime":"अंत समय"
         }
     },
    "placeholders":{
@@ -79,6 +84,11 @@
             "tankDiameter":"टैंक का व्यास दर्ज करें (सेमी में)",
             "tankLength":"टैंक की लंबाई दर्ज करें (सेमी में)",
             "maxVolume":"अधिकतम मात्रा दर्ज करें"
+        },
+        "addShiftMaster":{
+            "shiftName":"शिफ्ट नाम दर्ज करें",
+            "startTime":"प्रारंभ समय दर्ज करें",
+            "endTime":"अंत समय दर्ज करें"
         }
    },
    "rememberMe":"मुझे याद करो",
@@ -144,6 +154,11 @@
                 "tankDiameter":"कृपया टैंक का व्यास दर्ज करें",
                 "tankLength":"कृपया टैंक की लंबाई दर्ज करें",
                 "maxVolume":"कृपया अधिकतम मात्रा दर्ज करें"
+            },
+            "shiftMaster":{
+                "shiftName":"कृपया शिफ्ट नाम दर्ज करें",
+                "startTime":"कृपया प्रारंभ समय दर्ज करें",
+                "endTime":"कृपया समाप्ति समय दर्ज करें"
             }
         }
     },
@@ -185,7 +200,8 @@
         "itemCategory":"आइटम श्रेणी",
         "itemMaster":"आइटम मास्टर",
         "tankMaster":"टैंक मास्टर",
-        "pumpMaster":"पम्प मास्टर"
+        "pumpMaster":"पम्प मास्टर",
+        "shiftMaster":"शिफ्ट मास्टर"
     },
     "add":{
         "addUnitMaster":"यूनिट मास्टर जोड़ें",
@@ -193,7 +209,8 @@
         "addItemMaster":"आइटम मास्टर जोड़ें",
         "addTank":"टैंक जोड़ें",
         "addPump":"पम्प जोड़ें",
-        "addNozzle":"नोजल जोड़ें"
+        "addNozzle":"नोजल जोड़ें",
+        "shiftMaster":"शिफ्ट मास्टर जोड़ें"
     },
     "edit":{
         "editUnitMaster":"इकाई संपादित करें",

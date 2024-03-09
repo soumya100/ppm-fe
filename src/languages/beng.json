@@ -46,6 +46,11 @@
             "tankDiameter":"ট্যাঙ্কের ব্যাস (সেমিতে)",
             "tankLength":"ট্যাঙ্কের দৈর্ঘ্য (সেমিতে)",
             "maxVolume":"সর্বোচ্চ ভলিউম"
+        },
+        "addShiftMaster":{
+            "shiftName":"শিফটের নাম",
+            "startTime":"সময় শুরু",
+            "endTime":"শেষ সময়"
         }
     },
     "placeholders": {
@@ -79,6 +84,11 @@
             "tankDiameter":"ট্যাঙ্কের ব্যাস লিখুন (সেমিতে)",
             "tankLength":"ট্যাঙ্কের দৈর্ঘ্য লিখুন (সেমিতে)",
             "maxVolume":"সর্বোচ্চ ভলিউম লিখুন"
+        },
+        "addShiftMaster":{
+            "shiftName":"শিফটের নাম লিখুন",
+            "startTime":"শুরুর সময় লিখুন",
+            "endTime":"শেষ সময় লিখুন"
         }
     },
     "rememberMe": "আমাকে মনে কর",
@@ -145,6 +155,11 @@
             "tankDiameter":"অনুগ্রহ করে ট্যাংক এর ব্যাস লিখুন",
             "tankLength":"অনুগ্রহ করে ট্যাঙ্কের দৈর্ঘ্য লিখুন",
             "maxVolume":"সর্বোচ্চ ভলিউম লিখুন দয়া করে"
+        },
+        "shiftMaster":{
+            "shiftName":"অনুগ্রহ করে শিফটের নাম লিখুন",
+            "startTime":"অনুগ্রহ করে শুরুর সময় লিখুন",
+            "endTime":"শেষ সময় লিখুন দয়া করে"
         }
     },
     "sideBarTexts": {
@@ -185,7 +200,8 @@
         "itemCategory": "আইটেম বিভাগ",
         "itemMaster": "আইটেম মাস্টার",
         "tankMaster":"ট্যাংক মাস্টার",
-        "pumpMaster":"পাম্প মাস্টার"
+        "pumpMaster":"পাম্প মাস্টার",
+        "shiftMaster":"শিফট মাস্টার"
     },
     "add": {
         "addUnitMaster": "আইটেম মাস্টার যোগ করুন",
@@ -193,7 +209,8 @@
         "addItemMaster": "আইটেম মাস্টার যোগ করুন",
         "addTank":"ট্যাঙ্ক যোগ করুন",
         "addPump":"পাম্প যোগ করুন",
-        "addNozzle":"অগ্রভাগ যোগ করুন"
+        "addNozzle":"অগ্রভাগ যোগ করুন",
+        "shiftMaster":"শিফট মাস্টার যোগ করুন"
     },
     "edit": {
         "editUnitMaster": "ইউনিট সম্পাদনা করুন",
