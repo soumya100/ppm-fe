@@ -63,14 +63,19 @@ export const ItemCategoryHooks = () => {
     //get api call for item category
     const getItemCategoryApiCall = async (id: number) => {
         setLoading(true)
-        let res: any = await getItemCategoryDataAPI(id)
-        if (res.messsage === 'Data Found') {
-            dispatch(getItemCategoryData(res.Data))
-            setLoading(false)
-        } else {
+        getItemCategoryDataAPI(id).then((res: any)=>{
+            if (res.messsage === 'Data Found') {
+                dispatch(getItemCategoryData(res.Data))
+            } else {
+                dispatch(getItemCategoryData([]))
+            }
+        }).catch((err)=>{
+            console.log(err)
+            toast.error('Something went wrong')
             dispatch(getItemCategoryData([]))
+        }).finally(()=>{
             setLoading(false)
-        }
+        })
     }
 
     //item category post api call
@@ -95,6 +100,7 @@ export const ItemCategoryHooks = () => {
             })
             .catch((err) => {
                 console.error(err)
+                toast.error('Something went wrong')
                 setPostLoaders(false)
             }).finally(()=>{
                 setPostLoaders(false)

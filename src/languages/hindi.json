@@ -50,6 +50,11 @@
             "shiftName":"शिफ्ट का नाम",
             "startTime":"समय शुरू",
             "endTime":"अंत समय"
+        },
+        "addAccountHead":{
+            "headName":"मुखिया का नाम",
+            "headCode":"प्रमुख कोड",
+            "mainHead":"मुख्य मुखिया"
         }
     },
    "placeholders":{
@@ -89,6 +94,10 @@
             "shiftName":"शिफ्ट नाम दर्ज करें",
             "startTime":"प्रारंभ समय दर्ज करें",
             "endTime":"अंत समय दर्ज करें"
+        },
+        "addAccountHead":{
+            "headName":"मुखिया का नाम दर्ज करें",
+            "headCode":"हेड कोड दर्ज करें"
         }
    },
    "rememberMe":"मुझे याद करो",
@@ -121,6 +130,9 @@
                 "tankDiameter":"टैंक का व्यास शून्य से अधिक होना चाहिए",
                 "tankLength":"टैंक की लंबाई शून्य से अधिक होनी चाहिए",
                 "maxVolume":"अधिकतम मात्रा शून्य से अधिक होनी चाहिए"
+            },
+            "addAccountHead":{
+                "headCode":"हेड कोड शून्य से अधिक होना चाहिए"
             }
         },
         "requiredErrors":{
@@ -159,6 +171,11 @@
                 "shiftName":"कृपया शिफ्ट नाम दर्ज करें",
                 "startTime":"कृपया प्रारंभ समय दर्ज करें",
                 "endTime":"कृपया समाप्ति समय दर्ज करें"
+            },
+            "addAccountHead":{
+                "headName":"कृपया मुखिया का नाम दर्ज करें",
+                "headCode":"कृपया हेड कोड दर्ज करें",
+                "mainHead":"कृपया मुख्य शीर्ष का चयन करें"
             }
         }
     },
@@ -210,7 +227,8 @@
         "addTank":"टैंक जोड़ें",
         "addPump":"पम्प जोड़ें",
         "addNozzle":"नोजल जोड़ें",
-        "shiftMaster":"शिफ्ट मास्टर जोड़ें"
+        "shiftMaster":"शिफ्ट मास्टर जोड़ें",
+        "accountHead":"Add account head"
     },
     "edit":{
         "editUnitMaster":"इकाई संपादित करें",

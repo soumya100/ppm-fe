@@ -77,6 +77,7 @@ export const UnitMasterHooks = () => {
      }).catch((err: any)=>{
         toast.error('Something went wrong')
         console.log(err)
+        dispatch(getUnitMasterData([]))
      }).finally(()=>{
         setLoading(false)
      })

@@ -47,7 +47,6 @@ export const LoginHooks = () =>{
         }
      adminLoginAPI(bodyData)
             .then((res: any) => {
-                setLoading(false)
              if(res.message==='Login Successful'){
                 resetForm();
                 toast.success('LoggedIn Successfully')
@@ -62,7 +61,9 @@ export const LoginHooks = () =>{
             })
             .catch((err) => {
                 console.error(err)
-                setLoading(false)
+                toast.error('Something went wrong')
+            }).finally(()=>{
+                setLoading(false)      
             })
     }
     return{

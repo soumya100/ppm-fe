@@ -83,6 +83,8 @@ export const TankMasterHooks = () => {
             }
         }).catch((err: any) => {
             toast.error(err)
+            toast.error('Something went wrong')
+            dispatch(getTankMasterData([]))
         }).finally(() => {
             setLoader(false)
         })
@@ -113,6 +115,7 @@ export const TankMasterHooks = () => {
             })
             .catch((err) => {
                 console.error(err)
+                toast.error('SOmething went wrong')
             }).finally(() => {
                 setPostLoaders(false)
             })

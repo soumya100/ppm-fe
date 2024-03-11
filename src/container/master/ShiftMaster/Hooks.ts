@@ -3,7 +3,7 @@ import * as Yup from 'yup'
 import text from '@/languages/en_US.json'
 
 export const ShiftMasterHooks=()=>{
-    // add Nozzle formik
+    // add shift formik
     const AddShiftFormik = useFormik({
         enableReinitialize: true,
         initialValues: {

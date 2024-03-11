@@ -14,13 +14,18 @@ export const SideBarHooks = () => {
 
     //financial year get api call
     const finYearGetApiCall = async (orgId: number) => {
-        let res: any = await getFinYearAPI(orgId)
-        if (res.messsage === "Data Found") {
-            dispatch(getFinancialYear([res.Data[0]]))
-            // console.log(res.Data)
-        } else {
-            dispatch(getFinancialYear([]))
-        }
+     getFinYearAPI(orgId).then((res: any)=>{
+         if (res.messsage === "Data Found") {
+             dispatch(getFinancialYear([res.Data[0]]))
+             // console.log(res.Data)
+         } else {
+             dispatch(getFinancialYear([]))
+         }
+     }).catch((err)=>{
+        console.log(err)
+        toast.error('Something went wrong')
+        dispatch(getFinancialYear([]))
+     })
     }
 
     //logout get api call
@@ -36,6 +41,8 @@ export const SideBarHooks = () => {
          }
      }).catch((err: any)=>{
         toast.error('Something went wrong')
+        console.log(err)
+    }).finally(()=>{
         setLogOutLoader(false)
      })
     }
@@ -51,6 +58,8 @@ export const SideBarHooks = () => {
             }
         }).catch((err: any)=>{
             console.log(err)
+            toast.error('Something went wrong')
+            dispatch(getSideBarData([]))
         }).finally(()=>{
             setLoader(false)
         })

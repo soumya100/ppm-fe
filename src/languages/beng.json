@@ -51,6 +51,11 @@
             "shiftName":"শিফটের নাম",
             "startTime":"সময় শুরু",
             "endTime":"শেষ সময়"
+        },
+        "addAccountHead":{
+            "headName":"মাথার নাম",
+            "headCode":"হেড কোড",
+            "mainHead":"প্রধান প্রধান"
         }
     },
     "placeholders": {
@@ -89,6 +94,10 @@
             "shiftName":"শিফটের নাম লিখুন",
             "startTime":"শুরুর সময় লিখুন",
             "endTime":"শেষ সময় লিখুন"
+        },
+        "addAccountHead":{
+            "headName":"Enter head name",
+            "headCode":"Enter head code"
         }
     },
     "rememberMe": "আমাকে মনে কর",
@@ -121,6 +130,9 @@
                 "tankDiameter":"ট্যাঙ্কের ব্যাস শূন্যের চেয়ে বেশি হওয়া উচিত",
                 "tankLength":"ট্যাঙ্কের দৈর্ঘ্য শূন্যের চেয়ে বেশি হওয়া উচিত",
                 "maxVolume":"সর্বোচ্চ ভলিউম শূন্যের চেয়ে বেশি হওয়া উচিত"
+            },
+            "addAccountHead":{
+                "headCode":"হেড কোড শূন্যের চেয়ে বেশি হওয়া উচিত"
             }
         },
         "requiredErrors": {
@@ -160,6 +172,11 @@
             "shiftName":"অনুগ্রহ করে শিফটের নাম লিখুন",
             "startTime":"অনুগ্রহ করে শুরুর সময় লিখুন",
             "endTime":"শেষ সময় লিখুন দয়া করে"
+        },
+        "addAccountHead":{
+            "headName":"অনুগ্রহ করে মাথার নাম লিখুন",
+            "headCode":"অনুগ্রহ করে হেড কোড লিখুন",
+            "mainHead":"অনুগ্রহ করে প্রধান প্রধান নির্বাচন করুন"
         }
     },
     "sideBarTexts": {
@@ -210,7 +227,8 @@
         "addTank":"ট্যাঙ্ক যোগ করুন",
         "addPump":"পাম্প যোগ করুন",
         "addNozzle":"অগ্রভাগ যোগ করুন",
-        "shiftMaster":"শিফট মাস্টার যোগ করুন"
+        "shiftMaster":"শিফট মাস্টার যোগ করুন",
+        "accountHead":"অ্যাকাউন্ট প্রধান যোগ করুন"
     },
     "edit": {
         "editUnitMaster": "ইউনিট সম্পাদনা করুন",

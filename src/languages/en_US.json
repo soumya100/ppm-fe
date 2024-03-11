@@ -51,6 +51,11 @@
             "shiftName":"Shift name",
             "startTime":"Start time",
             "endTime":"End time"
+        },
+        "addAccountHead":{
+            "headName":"Head name",
+            "headCode":"Head code",
+            "mainHead":"Main head"
         }
     },
    "placeholders":{
@@ -90,6 +95,10 @@
             "shiftName":"Enter shift name",
             "startTime":"Enter start time",
             "endTime":"Enter end time"
+        },
+        "addAccountHead":{
+            "headName":"Enter head name",
+            "headCode":"Enter head code"
         }
    },
    "rememberMe":"Remember me",
@@ -122,6 +131,9 @@
                 "tankDiameter":"Tank diameter should be greater than zero",
                 "tankLength":"Tank length should be greater than zero",
                 "maxVolume":"Maximum volume should be greater than zero"
+            },
+            "addAccountHead":{
+                "headCode":"Head code should be greater than zero"
             }
         },
         "requiredErrors":{
@@ -160,6 +172,11 @@
                 "shiftName":"Please enter shift name",
                 "startTime":"Please enter start time",
                 "endTime":"Please enter end time"
+            },
+            "addAccountHead":{
+                "headName":"Please enter head name",
+                "headCode":"Please enter head code",
+                "mainHead":"Please select main head"
             }
         }
     },
@@ -212,7 +229,8 @@
         "addTank":"Add tank",
         "addPump":"Add Pump",
         "addNozzle":"Add Nozzle",
-        "shiftMaster":"Add shift master"
+        "shiftMaster":"Add shift master",
+        "accountHead":"Add account head"
     },
     "edit":{
         "editUnitMaster":"Edit unit",

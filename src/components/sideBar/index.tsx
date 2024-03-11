@@ -123,7 +123,7 @@ console.log(pathName, '* path')
                         sx={{ display: 'inline' }}
                         component="span"
                         className='text-xs font-semibold'>
-                        Financial Year: {dayjs(financialYear[0]?.Fin_start).format('YYYY')} - {dayjs(financialYear[0]?.Fin_To).format('YYYY')}
+                        Financial Year: {financialYear[0] ? dayjs(financialYear[0]?.Fin_start).format('YYYY') : '--'} - {financialYear[0] ? dayjs(financialYear[0]?.Fin_To).format('YYYY') : '--'}
                       </Typography>
                     </React.Fragment>
                   }

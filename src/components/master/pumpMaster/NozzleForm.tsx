@@ -12,7 +12,7 @@ interface NozzleFormProps {
 
 const NozzleForm: FC<NozzleFormProps> = ({ formik, addNozzleData, tankMasterData }) => {
 
-console.log(addNozzleData)
+// console.log(addNozzleData)
     return <Box className={`pb-5`}>
     <form onSubmit={formik?.handleSubmit}>
         <FlexItemCenter className='h-[3rem]'>
