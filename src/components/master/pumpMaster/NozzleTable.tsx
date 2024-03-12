@@ -4,10 +4,11 @@ import { FC } from 'react'
 
 interface NozzleTableProps {
     addNozzleData: any
+    handleNozzleDelete(id: number): void
 }
 
-const NozzleTable: FC<NozzleTableProps> = ({addNozzleData}) => {
-  return  <table className="table-auto w-full">
+const NozzleTable: FC<NozzleTableProps> = ({addNozzleData, handleNozzleDelete}) => {
+  return  <table className="table-auto w-full border border-blue-400 rounded-lg py-3">
   {addNozzleData && addNozzleData.length > 0 && <thead>
     <tr>
       <th>SI No.</th>
@@ -23,7 +24,7 @@ const NozzleTable: FC<NozzleTableProps> = ({addNozzleData}) => {
       <td align='center'>{data.tankName}</td>
       <td align='center' className='space-x-2'>
             <Edit fontSize='small' color='success' className='cursor-pointer'/> 
-            <Delete fontSize='small' color='error' className='cursor-pointer'/>
+            <Delete fontSize='small' color='error' className='cursor-pointer' onClick={()=>handleNozzleDelete(idx)}/>
       </td>
     </tr>) 
     }

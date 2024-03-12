@@ -18,9 +18,12 @@ interface PumpMasterProps {
     tankMasterData: any
     loader: boolean
     nozzleNumberError: boolean
+    handleNozzleDelete(id: number): void
+    addDataToApi(): void
 }
 
-const PumpMaster: FC<PumpMasterProps> = ({ formik, showNozzleForm, addNozzleForm, addNozzleData, tankMasterData, loader, nozzleNumberError }) => {
+const PumpMaster: FC<PumpMasterProps> = ({ formik, showNozzleForm, addNozzleForm, addNozzleData, 
+    tankMasterData, loader, nozzleNumberError, handleNozzleDelete, addDataToApi }) => {
     const tableData = [
         {
             si: 1,
@@ -51,24 +54,25 @@ const PumpMaster: FC<PumpMasterProps> = ({ formik, showNozzleForm, addNozzleForm
                 <Box className='shadow-md rounded-md border-t'>
                     {!showNozzleForm ?
                         <PumpMasterForm formik={formik} /> :
-                        <NozzleForm formik={addNozzleForm} addNozzleData={addNozzleData} tankMasterData={tankMasterData} />
+                        <NozzleForm formik={addNozzleForm} addNozzleData={addNozzleData} tankMasterData={tankMasterData} handleNozzleDelete={handleNozzleDelete}/>
                     }
-                    {
-                        nozzleNumberError &&
+                   
                         <FlexBetween className='w-full p-5'>
-                            <Typography component={`p`} className={`text-xs text-red-500 font-semibold`}>
+                        {
+                        nozzleNumberError && <Typography component={`p`} className={`text-xs text-red-500 font-semibold`}>
                                 You cannot add more nozzles
-                            </Typography>
-                            <ButtonFieldInput variant={`outlined`}
+                            </Typography>}
+                            <Box></Box>
+                            {showNozzleForm && <ButtonFieldInput variant={`outlined`}
                                 type={`button`}
                                 buttonextracls={`rounded-full capitalize`}
                                 color={`success`}
                                 extraTextCls={`text-xs`}
                                 name={text.buttonNames.add}
-                                handleClick={() => { }}
-                            />
+                                handleClick={addDataToApi}
+                            />}
                         </FlexBetween>
-                    }
+                    
                 </Box>
             </Grid>
         </Grid>

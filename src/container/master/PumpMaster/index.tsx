@@ -13,7 +13,8 @@ const PumpMasterContainer = () => {
   const { AddPumpMasterFormik, showNozzleForm,
     AddNozzleFormik, addNozzleData, 
     tankMasterData, getPumpMasterApiCall,
-    loader, nozzleNumberError
+    loader, nozzleNumberError,
+    handleNozzleDelete, addDataToApi
    } = PumpMasterHooks()
 
   useEffect(() => {
@@ -31,6 +32,8 @@ const PumpMasterContainer = () => {
     tankMasterData={tankMasterData}
     loader={loader}
     nozzleNumberError={nozzleNumberError}
+    handleNozzleDelete={handleNozzleDelete}
+    addDataToApi={addDataToApi}
     />
   )
 }

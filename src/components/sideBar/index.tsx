@@ -37,7 +37,7 @@ export const SideBar: React.FC<SideBarProps> = ({ logOutGetApiCall, handleSubMen
   const orgName = getSessionStorageData('orgName') || '--'
   const financialYear = useSelector((state: any) => state.sideBarData?.financialYear)
   const sideBarData = useSelector((state: any) => state.sideBarData?.sideBarData)
-console.log(pathName, '* path')
+// console.log(pathName, '* path')
   return (
     <ClickAwayListener onClickAway={handleSubMenuClose}>
       <Box sx={{ display: 'flex' }} className={`hidden md:flex z-[9] ${styles.scrollbar}`}>

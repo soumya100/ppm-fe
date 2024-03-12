@@ -43,6 +43,7 @@ export const PumpMasterHooks = () => {
             console.log(values, '* values')
             setNozzleNumber(values.nozzleNumber)
             setShowNozzleForm(true)
+            resetForm()
         }
     })
 
@@ -65,8 +66,8 @@ export const PumpMasterHooks = () => {
         onSubmit: (values, { resetForm }) => {
             const tankData = tankMasterData && tankMasterData.filter((data: any) => data.value === values.tankName)
             // if(nozzleNumber<=addNozzleData.length ){
-                console.log(nozzleNumber, '* noz no')
-                console.log(addNozzleData.length, '* noz data len')
+                // console.log(nozzleNumber, '* noz no')
+                // console.log(addNozzleData.length, '* noz data len')
                 if(nozzleNumber>addNozzleData.length){
                     setAddNozzleData((prev: any) => [...prev, {
                         nozzleName: values.nozzleName,
@@ -98,6 +99,17 @@ export const PumpMasterHooks = () => {
         })
     }
 
+    //handle nozzle delete functionality
+    const handleNozzleDelete=(id: number)=>{
+        setAddNozzleData((prev: any)=> prev.filter(( _: any,index: number)=>index !== id))
+    }
+    //post data to api
+    const addDataToApi=()=>{
+        console.log(addNozzleData, '* nozzle data')
+        setShowNozzleForm(false)
+        setNozzleNumberError(false)
+        setAddNozzleData([])
+    }
     return {
         AddPumpMasterFormik,
         showNozzleForm,
@@ -106,6 +118,8 @@ export const PumpMasterHooks = () => {
         tankMasterData,
         getPumpMasterApiCall,
         loader,
-        nozzleNumberError
+        nozzleNumberError,
+        handleNozzleDelete,
+        addDataToApi
     }
 }
