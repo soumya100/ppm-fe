@@ -4,14 +4,16 @@ import text from '@/languages/en_US.json'
 import dynamic from 'next/dynamic'
 import ShiftMasterTable from './ShiftMasterTable'
 import ShiftMasterForm from './ShiftMasterForm'
+import { useSelector } from 'react-redux'
 const DynamicTypography = dynamic(() => import('@mui/material/Typography'), {
     ssr: false
 })
 interface ShiftMasterProps {
     formik: any
+    loader: boolean
 }
 
-const ShiftMaster: FC<ShiftMasterProps> = ({ formik }) => {
+const ShiftMaster: FC<ShiftMasterProps> = ({ formik, loader }) => {
     const tableData = [
         {
             si: 1,
@@ -19,6 +21,8 @@ const ShiftMaster: FC<ShiftMasterProps> = ({ formik }) => {
             itemUnit: 20
         }
     ]
+
+    const shiftMasterData = useSelector((state: any) => state.shiftMasterData?.shiftMasterData)
 
     // console.log(addNozzleData, '*data')
     return <Box className={`min-h-[85vh] p-5`}>
@@ -28,7 +32,7 @@ const ShiftMaster: FC<ShiftMasterProps> = ({ formik }) => {
         </DynamicTypography>
         <Grid container spacing={2}>
             <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
-                <ShiftMasterTable shiftMasterData={tableData} handleEditData={() => { }} />
+                <ShiftMasterTable shiftMasterData={shiftMasterData} handleEditData={() => { }} loading={loader}/>
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
                 <Box className='shadow-md rounded-md border-t'>

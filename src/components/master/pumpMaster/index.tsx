@@ -1,22 +1,26 @@
-import { Box, Grid } from '@mui/material'
+import { Box, Grid, Typography } from '@mui/material'
 import { FC } from 'react'
 import text from '@/languages/en_US.json'
 import PumpMasterTable from './PumpMasterTable'
 import dynamic from 'next/dynamic'
 import PumpMasterForm from './PumpMasterForm'
 import NozzleForm from './NozzleForm'
+import { useSelector } from 'react-redux'
+import { ButtonFieldInput, FlexBetween } from '@/common'
 const DynamicTypography = dynamic(() => import('@mui/material/Typography'), {
     ssr: false
 })
 interface PumpMasterProps {
     formik: any
     showNozzleForm: boolean
-    addNozzleForm:any
-    addNozzleData:any
+    addNozzleForm: any
+    addNozzleData: any
     tankMasterData: any
+    loader: boolean
+    nozzleNumberError: boolean
 }
 
-const PumpMaster: FC<PumpMasterProps> = ({ formik, showNozzleForm, addNozzleForm, addNozzleData, tankMasterData }) => {
+const PumpMaster: FC<PumpMasterProps> = ({ formik, showNozzleForm, addNozzleForm, addNozzleData, tankMasterData, loader, nozzleNumberError }) => {
     const tableData = [
         {
             si: 1,
@@ -24,6 +28,8 @@ const PumpMaster: FC<PumpMasterProps> = ({ formik, showNozzleForm, addNozzleForm
             itemUnit: 20
         }
     ]
+
+    const pumpData = useSelector((state: any) => state.pumpMasterData?.pumpMasterData)
 
     // console.log(addNozzleData, '*data')
     return <Box className={`min-h-[85vh] p-5`}>
@@ -39,13 +45,29 @@ const PumpMaster: FC<PumpMasterProps> = ({ formik, showNozzleForm, addNozzleForm
         {/* </FlexBetween> */}
         <Grid container spacing={2}>
             <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
-                <PumpMasterTable PumpMasterData={tableData} handleEditData={() => { }} />
+                <PumpMasterTable PumpMasterData={pumpData} handleEditData={() => { }} loading={loader} />
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
                 <Box className='shadow-md rounded-md border-t'>
                     {!showNozzleForm ?
                         <PumpMasterForm formik={formik} /> :
-                        <NozzleForm formik={addNozzleForm} addNozzleData={addNozzleData} tankMasterData={tankMasterData}/>
+                        <NozzleForm formik={addNozzleForm} addNozzleData={addNozzleData} tankMasterData={tankMasterData} />
+                    }
+                    {
+                        nozzleNumberError &&
+                        <FlexBetween className='w-full p-5'>
+                            <Typography component={`p`} className={`text-xs text-red-500 font-semibold`}>
+                                You cannot add more nozzles
+                            </Typography>
+                            <ButtonFieldInput variant={`outlined`}
+                                type={`button`}
+                                buttonextracls={`rounded-full capitalize`}
+                                color={`success`}
+                                extraTextCls={`text-xs`}
+                                name={text.buttonNames.add}
+                                handleClick={() => { }}
+                            />
+                        </FlexBetween>
                     }
                 </Box>
             </Grid>

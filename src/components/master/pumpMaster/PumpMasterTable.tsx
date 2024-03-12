@@ -25,8 +25,8 @@ const PumpMasterTable: FC<PumpMasterTableProps> = ({ PumpMasterData, loading, ha
         <TableHead className='bg-gradient-to-tr from-indigo-500 via-purple-400 to-blue-500'>
           <TableRow className={`text-white font-bold`}>
             <TableCell className={headerCls}>Serial No.</TableCell>
-            <TableCell className={headerCls} align='center'>Unit</TableCell>
-            <TableCell className={headerCls} align='center'>Product</TableCell>
+            <TableCell className={headerCls} align='center'>No of nozzle</TableCell>
+            <TableCell className={headerCls} align='center'>Pump name</TableCell>
             <TableCell className={headerCls} align='right'>Actions</TableCell>
           </TableRow>
         </TableHead>
@@ -45,10 +45,10 @@ const PumpMasterTable: FC<PumpMasterTableProps> = ({ PumpMasterData, loading, ha
                     {idx+1}
                   </TableCell>
                   <TableCell component="th" scope="row" align='center'>
-                    {data.Tank_Name}
+                    {data.No_Of_Nozzle}
                   </TableCell>
                   <TableCell component="th" scope="row" align='center'>
-                    {data.Item_Name}
+                    {data.Pump_Name}
                   </TableCell>
                   <TableCell component="th" scope="row" align='right'>
                     <ButtonFieldInput name={`edit`} buttonextracls={`capitalize`}

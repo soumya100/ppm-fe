@@ -2,6 +2,7 @@ import { ButtonFieldInput, FlexBetween, FlexItemCenter, TextFieldInput } from '@
 import { Divider, Grid } from '@mui/material'
 import { FC } from 'react'
 import text from '@/languages/en_US.json'
+import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
 
 interface ShiftMasterFormProps {
   formik: any
@@ -63,6 +64,18 @@ const ShiftMasterForm: FC<ShiftMasterFormProps> = ({formik}) => {
               }
               clickEnter={formik?.handleSubmit}
               fullwidthState />
+              {/* <LocalizationProvider dateAdapter={adapterFns}>
+        <DatePicker
+          label="Select Date"
+          name="selectedDate"
+          value={formik.values.selectedDate}
+          onChange={(date) => formik.setFieldValue('selectedDate', date)}
+          format="dd/MM/yyyy HH:mm"
+          onError={formik.touched.selectedDate && Boolean(formik.errors.selectedDate)}
+
+          showTodayButton
+        />
+      </LocalizationProvider> */}
       </Grid>
       <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
           <TextFieldInput

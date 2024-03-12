@@ -2,19 +2,25 @@ import { useFormik } from "formik"
 import * as Yup from 'yup'
 import text from '@/languages/en_US.json'
 import { useState } from "react"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { getPumpListAPI } from "./PumpMasterApi"
+import { getPumpMasterData } from "./PumpMasterReducer"
+import toast from "react-hot-toast"
 
 export const PumpMasterHooks = () => {
 
-    const[showNozzleForm, setShowNozzleForm]=useState<boolean>(false)
-    const[addNozzleData, setAddNozzleData]: any=useState([])
-    const[tankName, setTankName]= useState<string>('')
+    const dispatch=useDispatch()
+    const [showNozzleForm, setShowNozzleForm] = useState<boolean>(false)
+    const [addNozzleData, setAddNozzleData]: any = useState([])
+    const[loader, setLoader]=useState<boolean>(false)
+    const[nozzleNumberError,setNozzleNumberError]=useState<boolean>(false)
+    const[nozzleNumber, setNozzleNumber]=useState<number>(0)
 
-    const tankMasterData = useSelector((state: any) => state.tankMasterData?.tankMasterData)?.map((data: any)=>{
-       return{
-           name:data.Tank_Name ,
-          value: data.Id
-       }
+    const tankMasterData = useSelector((state: any) => state.tankMasterData?.tankMasterData)?.map((data: any) => {
+        return {
+            name: data.Tank_Name,
+            value: data.Id
+        }
     })
 
     // pump master add formik
@@ -35,6 +41,7 @@ export const PumpMasterHooks = () => {
         }),
         onSubmit: (values, { resetForm }) => {
             console.log(values, '* values')
+            setNozzleNumber(values.nozzleNumber)
             setShowNozzleForm(true)
         }
     })
@@ -50,23 +57,55 @@ export const PumpMasterHooks = () => {
         validationSchema: Yup.object().shape({
             nozzleName: Yup.string()
                 .required(text.errors.requiredErrors.addPumpMaster.nozzleName),
-                tankName: Yup.string()
+            tankName: Yup.string()
                 .required(text.errors.requiredErrors.addPumpMaster.selectTank),
             // nozzleName: Yup.string()
             //     .required(text.errors.requiredErrors.addPumpMaster.nozzleName)
         }),
         onSubmit: (values, { resetForm }) => {
-           const tankData= tankMasterData && tankMasterData.filter((data: any)=>data.value === values.tankName)
-            setAddNozzleData((prev: any)=>[...prev, {nozzleName: values.nozzleName, 
-                tankId:tankData[0].value, tankName:tankData[0].name}])
+            const tankData = tankMasterData && tankMasterData.filter((data: any) => data.value === values.tankName)
+            // if(nozzleNumber<=addNozzleData.length ){
+                console.log(nozzleNumber, '* noz no')
+                console.log(addNozzleData.length, '* noz data len')
+                if(nozzleNumber>addNozzleData.length){
+                    setAddNozzleData((prev: any) => [...prev, {
+                        nozzleName: values.nozzleName,
+                        tankId: tankData[0].value, tankName: tankData[0].name
+                    }])
+                }else{
+                setNozzleNumberError(true)
+            }
             resetForm()
         }
     })
-    return{
+
+    //get pump master data
+    const getPumpMasterApiCall = async (id: number) => {
+        setLoader(true)
+        getPumpListAPI(id).then((res: any) => {
+            // console.log(res)
+            if (res.messsage === 'Data Found') {
+                dispatch(getPumpMasterData(res.Data))
+            } else {
+                dispatch(getPumpMasterData([]))
+            }
+        }).catch((err: any) => {
+            toast.error(err)
+            toast.error('Something went wrong')
+            dispatch(getPumpMasterData([]))
+        }).finally(() => {
+            setLoader(false)
+        })
+    }
+
+    return {
         AddPumpMasterFormik,
         showNozzleForm,
         AddNozzleFormik,
         addNozzleData,
-        tankMasterData
+        tankMasterData,
+        getPumpMasterApiCall,
+        loader,
+        nozzleNumberError
     }
 }

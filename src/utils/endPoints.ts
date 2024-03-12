@@ -16,5 +16,7 @@ export const endPoints={
     getTankMaster:(id: number)=>`${createApi}master/GetTank/${id}`,
     postTankMaster:`${createApi}master/AddTank`,
     updateTankMaster: `${createApi}master/UpdateTank`,
+    getPumpList:(id: number)=>`${createApi}master/GetPumpList/${id}`,
+    getShiftMaster:(id: number)=>`${createApi}master/GetShift/${id}`,
     logout:`${createApi}logout`
 }

@@ -6,14 +6,20 @@ import getSessionStorageData from "@/utils/getSessionStorageData"
 import { useEffect } from "react"
 
 const PumpMasterContainer = () => {
-  const { AddPumpMasterFormik, showNozzleForm,AddNozzleFormik, addNozzleData, tankMasterData } = PumpMasterHooks()
+
   const token=getSessionStorageData('token')
   const orgId=getSessionStorageData('orgId')
   const {getTankApiCall}=TankMasterHooks()
+  const { AddPumpMasterFormik, showNozzleForm,
+    AddNozzleFormik, addNozzleData, 
+    tankMasterData, getPumpMasterApiCall,
+    loader, nozzleNumberError
+   } = PumpMasterHooks()
 
   useEffect(() => {
     if(token && orgId){
       getTankApiCall(orgId)
+      getPumpMasterApiCall(orgId)
     }
   }, [orgId && token])
   
@@ -23,6 +29,8 @@ const PumpMasterContainer = () => {
     addNozzleForm={AddNozzleFormik}
     addNozzleData={addNozzleData}
     tankMasterData={tankMasterData}
+    loader={loader}
+    nozzleNumberError={nozzleNumberError}
     />
   )
 }
