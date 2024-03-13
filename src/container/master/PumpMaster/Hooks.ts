@@ -154,7 +154,7 @@ export const PumpMasterHooks = () => {
     //post data to api
     const addDataToApi = () => {
         if (addNozzleData.length < pumpData.nozzleNumber) {
-            setNozzleNumberError(`please add ${pumpData.nozzleNumber - addNozzleData.length} more nozzles`)
+            setNozzleNumberError(`Please add ${pumpData.nozzleNumber - addNozzleData.length} nozzles`)
         } else {
             console.log(addNozzleData, '* nozzle data')
             setShowNozzleForm(false)
