@@ -17,7 +17,7 @@ interface PumpMasterProps {
     addNozzleData: any
     tankMasterData: any
     loader: boolean
-    nozzleNumberError: boolean
+    nozzleNumberError: string
     handleNozzleDelete(id: number): void
     addDataToApi(): void
 }
@@ -60,7 +60,7 @@ const PumpMaster: FC<PumpMasterProps> = ({ formik, showNozzleForm, addNozzleForm
                         <FlexBetween className='w-full p-5'>
                         {
                         nozzleNumberError && <Typography component={`p`} className={`text-xs text-red-500 font-semibold`}>
-                                You cannot add more nozzles
+                                {nozzleNumberError}
                             </Typography>}
                             <Box></Box>
                             {showNozzleForm && <ButtonFieldInput variant={`outlined`}

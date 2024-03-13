@@ -7,14 +7,21 @@ import { getPumpListAPI } from "./PumpMasterApi"
 import { getPumpMasterData } from "./PumpMasterReducer"
 import toast from "react-hot-toast"
 
+interface pumpData{
+    pumpName: string
+    nozzleNumber: number
+}
 export const PumpMasterHooks = () => {
 
     const dispatch=useDispatch()
     const [showNozzleForm, setShowNozzleForm] = useState<boolean>(false)
     const [addNozzleData, setAddNozzleData]: any = useState([])
     const[loader, setLoader]=useState<boolean>(false)
-    const[nozzleNumberError,setNozzleNumberError]=useState<boolean>(false)
-    const[nozzleNumber, setNozzleNumber]=useState<number>(0)
+    const[nozzleNumberError,setNozzleNumberError]=useState<string>('')
+    const[pumpData, setPumpData]=useState<pumpData>({
+        nozzleNumber: 0,
+        pumpName:''
+    })
 
     const tankMasterData = useSelector((state: any) => state.tankMasterData?.tankMasterData)?.map((data: any) => {
         return {
@@ -25,6 +32,7 @@ export const PumpMasterHooks = () => {
 
     // pump master add formik
     const AddPumpMasterFormik = useFormik({
+        enableReinitialize: true,
         initialValues: {
             pumpName: '',
             nozzleNumber: 0,
@@ -41,7 +49,10 @@ export const PumpMasterHooks = () => {
         }),
         onSubmit: (values, { resetForm }) => {
             console.log(values, '* values')
-            setNozzleNumber(values.nozzleNumber)
+           setPumpData({
+            nozzleNumber: values.nozzleNumber,
+            pumpName: values.pumpName
+           })
             setShowNozzleForm(true)
             resetForm()
         }
@@ -68,13 +79,13 @@ export const PumpMasterHooks = () => {
             // if(nozzleNumber<=addNozzleData.length ){
                 // console.log(nozzleNumber, '* noz no')
                 // console.log(addNozzleData.length, '* noz data len')
-                if(nozzleNumber>addNozzleData.length){
+                if(pumpData.nozzleNumber>addNozzleData.length){
                     setAddNozzleData((prev: any) => [...prev, {
                         nozzleName: values.nozzleName,
                         tankId: tankData[0].value, tankName: tankData[0].name
                     }])
                 }else{
-                setNozzleNumberError(true)
+                setNozzleNumberError('You cannot add more nozzles')
             }
             resetForm()
         }
@@ -105,10 +116,14 @@ export const PumpMasterHooks = () => {
     }
     //post data to api
     const addDataToApi=()=>{
-        console.log(addNozzleData, '* nozzle data')
-        setShowNozzleForm(false)
-        setNozzleNumberError(false)
-        setAddNozzleData([])
+        if(addNozzleData.length < pumpData.nozzleNumber){
+            setNozzleNumberError(`please add ${pumpData.nozzleNumber - addNozzleData.length} more nozzles`)
+        }else{
+            console.log(addNozzleData, '* nozzle data')
+            setShowNozzleForm(false)
+            setNozzleNumberError('')
+            setAddNozzleData([])
+        }
     }
     return {
         AddPumpMasterFormik,
