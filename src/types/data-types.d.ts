@@ -16,3 +16,10 @@ export interface DashBoardHeaderTypes{
     icon: ReactNode,
     title: string
 }
+
+interface nozzleData{
+    id: number | null
+    nozzleName: string
+    tankName: string
+    tankId: number | null
+}

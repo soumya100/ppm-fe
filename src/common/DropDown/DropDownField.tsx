@@ -26,7 +26,7 @@ const DropDownField = (props: any) => {
                         className={`relative ${props.option ? `` : `text-gray-60`} ${props.dropDownRootCls} ${props.error ? `!border !border-red-400` : ``}`}
                         id={props.id}
                         size={props.size}
-                        value={props.option ? props.option : props.placeholder}
+                        value={props.option}
                         onChange={handleChange}
                         defaultValue={props.defaultValue}
                         multiple={props.multiple}
@@ -46,9 +46,9 @@ const DropDownField = (props: any) => {
                         color={props.color}
                         fullWidth={props.fullWidthState}
                     >
-                        <MenuItem disabled value={props.placeholder}>
+                        {/* <MenuItem disabled value={props.placeholder}>
                             {props.placeholder}
-                        </MenuItem>
+                        </MenuItem> */}
                         {props?.selectOption?.map((item: any, idx: number) => (
                             <MenuItem
                                 key={idx}

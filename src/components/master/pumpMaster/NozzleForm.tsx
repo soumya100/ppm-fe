@@ -3,15 +3,17 @@ import { Box, Divider, Grid } from '@mui/material'
 import { FC } from 'react'
 import text from '@/languages/en_US.json'
 import NozzleTable from './NozzleTable'
+import { nozzleData } from '@/types/data-types'
 
 interface NozzleFormProps {
     formik: any
     addNozzleData: any
     tankMasterData: any
     handleNozzleDelete(id: number): void
+    handleNozzleEdit(editData: nozzleData): void
 }
 
-const NozzleForm: FC<NozzleFormProps> = ({ formik, addNozzleData, tankMasterData, handleNozzleDelete }) => {
+const NozzleForm: FC<NozzleFormProps> = ({ formik, addNozzleData, tankMasterData, handleNozzleDelete, handleNozzleEdit }) => {
 
     // console.log(addNozzleData)
     return <Box className={`pb-5`}>
@@ -76,7 +78,10 @@ const NozzleForm: FC<NozzleFormProps> = ({ formik, addNozzleData, tankMasterData
             </FlexItemCenter>
         </form>
         <Box className={`p-5`}>
-            <NozzleTable addNozzleData={addNozzleData} handleNozzleDelete={handleNozzleDelete}/>
+            <NozzleTable addNozzleData={addNozzleData} 
+            handleNozzleDelete={handleNozzleDelete} 
+            handleNozzleEdit={handleNozzleEdit}
+            />
         </Box>
     </Box>
 }

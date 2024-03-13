@@ -7,6 +7,7 @@ import PumpMasterForm from './PumpMasterForm'
 import NozzleForm from './NozzleForm'
 import { useSelector } from 'react-redux'
 import { ButtonFieldInput, FlexBetween } from '@/common'
+import { nozzleData } from '@/types/data-types'
 const DynamicTypography = dynamic(() => import('@mui/material/Typography'), {
     ssr: false
 })
@@ -20,10 +21,11 @@ interface PumpMasterProps {
     nozzleNumberError: string
     handleNozzleDelete(id: number): void
     addDataToApi(): void
+    handleNozzleEdit(editData: nozzleData): void
 }
 
 const PumpMaster: FC<PumpMasterProps> = ({ formik, showNozzleForm, addNozzleForm, addNozzleData, 
-    tankMasterData, loader, nozzleNumberError, handleNozzleDelete, addDataToApi }) => {
+    tankMasterData, loader, nozzleNumberError, handleNozzleDelete, addDataToApi, handleNozzleEdit }) => {
     const tableData = [
         {
             si: 1,
@@ -54,7 +56,8 @@ const PumpMaster: FC<PumpMasterProps> = ({ formik, showNozzleForm, addNozzleForm
                 <Box className='shadow-md rounded-md border-t'>
                     {!showNozzleForm ?
                         <PumpMasterForm formik={formik} /> :
-                        <NozzleForm formik={addNozzleForm} addNozzleData={addNozzleData} tankMasterData={tankMasterData} handleNozzleDelete={handleNozzleDelete}/>
+                        <NozzleForm formik={addNozzleForm} addNozzleData={addNozzleData}
+                         tankMasterData={tankMasterData} handleNozzleDelete={handleNozzleDelete} handleNozzleEdit={handleNozzleEdit}/>
                     }
                    
                         <FlexBetween className='w-full p-5'>
