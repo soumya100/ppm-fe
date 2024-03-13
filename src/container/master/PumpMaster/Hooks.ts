@@ -3,10 +3,11 @@ import * as Yup from 'yup'
 import text from '@/languages/en_US.json'
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { getPumpListAPI } from "./PumpMasterApi"
+import { getPumpListAPI, postPumpMasterAPI } from "./PumpMasterApi"
 import { getPumpMasterData } from "./PumpMasterReducer"
 import toast from "react-hot-toast"
 import { nozzleData } from "@/types/data-types"
+import getSessionStorageData from "@/utils/getSessionStorageData"
 
 interface pumpData {
     pumpName: string
@@ -32,6 +33,9 @@ export const PumpMasterHooks = () => {
         tankId: null
     })
 
+    const[postLoaders, setPostLoaders]=useState<boolean>(false)
+    const orgId=getSessionStorageData('orgId')
+    const token=getSessionStorageData('token')
     const tankMasterData = useSelector((state: any) => state.tankMasterData?.tankMasterData)?.map((data: any) => {
         return {
             name: data.Tank_Name,
@@ -156,12 +160,48 @@ export const PumpMasterHooks = () => {
         if (addNozzleData.length < pumpData.nozzleNumber) {
             setNozzleNumberError(`Please add ${pumpData.nozzleNumber - addNozzleData.length} nozzles`)
         } else {
-            console.log(addNozzleData, '* nozzle data')
-            setShowNozzleForm(false)
-            setNozzleNumberError('')
-            setAddNozzleData([])
+           const data={
+            pumpName: pumpData.pumpName,
+            nozzleNumber: pumpData.nozzleNumber,
+            nozzleData: addNozzleData
+           }
+           postPumpApiCall(orgId, data)
+           
         }
     }
+
+    //pump post api call
+    const postPumpApiCall = async (orgId: number, data: any) => {
+        setPostLoaders(true);
+        let bodyData = {
+            Pump_Name: data.pumpName,
+            No_Nozzel: data.nozzleNumber,
+            Nozzel_Data: data.nozzleData,
+         org_id: orgId
+        
+        }
+        postPumpMasterAPI(bodyData)
+            .then((res: any) => {
+                console.log(res)
+            //     if (res.Message === ' Successful') {
+            //         setShowNozzleForm(false)
+            // setNozzleNumberError('')
+            // setAddNozzleData([])
+            //         toast.success('Item category created successfully')
+            //         // setEditData(null)
+            //         resetForm()
+            //     } else {
+            //         toast.error(res.Message)
+            //     }
+            })
+            .catch((err) => {
+                console.error(err)
+                toast.error('Something went wrong')
+            }).finally(() => {
+                setPostLoaders(false)
+            })
+    }
+
 
     return {
         AddPumpMasterFormik,
@@ -174,6 +214,8 @@ export const PumpMasterHooks = () => {
         nozzleNumberError,
         handleNozzleDelete,
         addDataToApi,
-        handleNozzleEdit
+        handleNozzleEdit,
+        token,
+        orgId
     }
 }

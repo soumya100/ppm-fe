@@ -7,15 +7,14 @@ import { useEffect } from "react"
 
 const PumpMasterContainer = () => {
 
-  const token=getSessionStorageData('token')
-  const orgId=getSessionStorageData('orgId')
   const {getTankApiCall}=TankMasterHooks()
   const { AddPumpMasterFormik, showNozzleForm,
     AddNozzleFormik, addNozzleData, 
     tankMasterData, getPumpMasterApiCall,
     loader, nozzleNumberError,
     handleNozzleDelete, addDataToApi,
-    handleNozzleEdit
+    handleNozzleEdit, 
+    orgId, token
    } = PumpMasterHooks()
 
   useEffect(() => {
