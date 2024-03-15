@@ -56,6 +56,13 @@
             "headName":"মাথার নাম",
             "headCode":"হেড কোড",
             "mainHead":"প্রধান প্রধান"
+        },
+        "accountLedger":{
+            "ledgerName":"খাতার নাম",
+            "ledgerCode":"লেজার কোড",
+            "accountHead":"হিসাব প্রধান",
+            "openingBalance":"খোলার ব্যালেন্স",
+            "openingDate":"খোলার তারিখ"
         }
     },
     "placeholders": {
@@ -98,6 +105,11 @@
         "addAccountHead":{
             "headName":"Enter head name",
             "headCode":"Enter head code"
+        },
+        "accountLedger":{
+            "ledgerName":"খাতার নাম লিখুন",
+            "ledgerCode":"লেজার কোড লিখুন",
+            "openingBalance":"খোলার ব্যালেন্স লিখুন"
         }
     },
     "rememberMe": "আমাকে মনে কর",
@@ -133,6 +145,11 @@
             },
             "addAccountHead":{
                 "headCode":"হেড কোড শূন্যের চেয়ে বেশি হওয়া উচিত"
+            },
+            "accountLedger":{
+                "ledgerCode":"লেজার কোড শূন্যের চেয়ে বেশি হওয়া উচিত",
+                "openingBalance":"খোলার ব্যালেন্স শূন্যের চেয়ে বেশি হওয়া উচিত",
+                "invalidDate":"Please enter a valid date"
             }
         },
         "requiredErrors": {
@@ -177,6 +194,12 @@
             "headName":"অনুগ্রহ করে মাথার নাম লিখুন",
             "headCode":"অনুগ্রহ করে হেড কোড লিখুন",
             "mainHead":"অনুগ্রহ করে প্রধান প্রধান নির্বাচন করুন"
+        },
+        "accountLedger":{
+            "ledgerName":"অনুগ্রহ করে অ্যাকাউন্ট লেজারের নাম লিখুন",
+            "ledgerCode":"অনুগ্রহ করে লেজার কোড লিখুন",
+            "accountHead":"অনুগ্রহ করে একাউন্ট হেড লিখুন",
+            "openingBalance":"অনুগ্রহ করে খোলার ব্যালেন্স লিখুন"
         }
     },
     "sideBarTexts": {
@@ -228,7 +251,8 @@
         "addPump":"পাম্প যোগ করুন",
         "addNozzle":"অগ্রভাগ যোগ করুন",
         "shiftMaster":"শিফট মাস্টার যোগ করুন",
-        "accountHead":"অ্যাকাউন্ট প্রধান যোগ করুন"
+        "accountHead":"অ্যাকাউন্ট প্রধান যোগ করুন",
+        "accountLedger":"অ্যাকাউন্ট লেজার যোগ করুন"
     },
     "edit": {
         "editUnitMaster": "ইউনিট সম্পাদনা করুন",

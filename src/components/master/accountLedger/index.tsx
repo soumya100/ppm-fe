@@ -1,11 +1,10 @@
 import { TableCommon } from '@/common'
 import { Box } from '@mui/material'
 import { FC } from 'react'
-import ItemMasterFormDrawer from '../ItemMaster/ItemMasterFormDrawer'
-import ItemMasterTable from '../ItemMaster/ItemMasterTable'
 import text from '@/languages/en_US.json'
 import AccountLedgerForm from './AccountLedgerForm'
 import AccountLedgerTable from './AccountLedgerTable'
+import { Dayjs } from 'dayjs'
 
 interface AccountLedgerProps {
   loader?: boolean
@@ -13,10 +12,16 @@ interface AccountLedgerProps {
   openAccountLedgerForm: boolean
   accountLedgerFormik: any
   handleOpenDrawer(): void
+  handleOpeningDate(): void
+  handleOpeningDateError(): void
+  openingDate: Dayjs | null
+  errorMessage: string
 }
 
 const AccountLedger: FC<AccountLedgerProps> = ({accountLedgerFormik, 
-  handleCloseDrawer, handleOpenDrawer, openAccountLedgerForm, loader}) => {
+  handleCloseDrawer, handleOpenDrawer, openAccountLedgerForm, loader , handleOpeningDate,
+   handleOpeningDateError,
+   openingDate, errorMessage}) => {
   return <Box className={`min-h-[90vh]`}>
   <TableCommon
     title={text.tableTitles.itemMaster}
@@ -24,9 +29,13 @@ const AccountLedger: FC<AccountLedgerProps> = ({accountLedgerFormik,
     titleCls={`font-bold text-black text-3xl mb-5`}
     addComponent={<AccountLedgerForm handleCloseDrawer={handleCloseDrawer}
       openForm={openAccountLedgerForm} formik={accountLedgerFormik} 
+      date={openingDate}
+      errMessage={errorMessage}
+      handleDateChange={handleOpeningDate}
+      handleError={handleOpeningDateError}
       />}
     handleOpenButton={handleOpenDrawer}
-    tableComponent={<AccountLedgerTable />}
+    tableComponent={<AccountLedgerTable AccountLedgerData={[]}/>}
   />
 </Box>
 }

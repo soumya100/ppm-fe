@@ -55,6 +55,13 @@
             "headName":"मुखिया का नाम",
             "headCode":"प्रमुख कोड",
             "mainHead":"मुख्य मुखिया"
+        },
+        "accountLedger":{
+            "ledgerName":"बहीखाता का नाम",
+            "ledgerCode":"खाता बही कोड",
+            "accountHead":"खाता प्रमुख",
+            "openingBalance":"प्रारंभिक जमा",
+            "openingDate":"खुलने की तिथि"
         }
     },
    "placeholders":{
@@ -98,6 +105,11 @@
         "addAccountHead":{
             "headName":"मुखिया का नाम दर्ज करें",
             "headCode":"हेड कोड दर्ज करें"
+        },
+        "accountLedger":{
+            "ledgerName":"खाता बही का नाम दर्ज करें",
+            "ledgerCode":"खाता बही कोड दर्ज करें",
+            "openingBalance":"आरंभिक शेष दर्ज करें"
         }
    },
    "rememberMe":"मुझे याद करो",
@@ -133,6 +145,11 @@
             },
             "addAccountHead":{
                 "headCode":"हेड कोड शून्य से अधिक होना चाहिए"
+            },
+            "accountLedger":{
+                "ledgerCode":"लेजर कोड शून्य से अधिक होना चाहिए",
+                "openingBalance":"आरंभिक शेष शून्य से अधिक होना चाहिए",
+                "invalidDate":"कृपया कोई मान्य दिनांक दर्ज करें"
             }
         },
         "requiredErrors":{
@@ -176,6 +193,12 @@
                 "headName":"कृपया मुखिया का नाम दर्ज करें",
                 "headCode":"कृपया हेड कोड दर्ज करें",
                 "mainHead":"कृपया मुख्य शीर्ष का चयन करें"
+            },
+            "accountLedger":{
+                "ledgerName":"कृपया खाता बही का नाम दर्ज करें",
+                "ledgerCode":"कृपया खाता बही कोड दर्ज करें",
+                "accountHead":"कृपया खाता शीर्ष दर्ज करें",
+                "openingBalance":"कृपया आरंभिक शेष दर्ज करें"
             }
         }
     },
@@ -228,7 +251,8 @@
         "addPump":"पम्प जोड़ें",
         "addNozzle":"नोजल जोड़ें",
         "shiftMaster":"शिफ्ट मास्टर जोड़ें",
-        "accountHead":"Add account head"
+        "accountHead":"खाता प्रमुख जोड़ें",
+        "accountLedger":"खाता बही जोड़ें"
     },
     "edit":{
         "editUnitMaster":"इकाई संपादित करें",

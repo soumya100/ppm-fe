@@ -3,14 +3,20 @@ import { KeyboardArrowLeft } from '@mui/icons-material'
 import { Container, Divider, Drawer, Grid, IconButton, Typography } from '@mui/material'
 import { FC } from 'react'
 import text from '@/languages/en_US.json'
+import { Dayjs } from 'dayjs'
 
 interface AccountLedgerFormProps {
   handleCloseDrawer(): void
   openForm: boolean
   formik: any
+  handleDateChange(): void
+  date: Dayjs | null
+  handleError(): void
+  errMessage: string
 }
 
-const AccountLedgerForm: FC<AccountLedgerFormProps> = ({ formik, handleCloseDrawer, openForm }) => {
+const AccountLedgerForm: FC<AccountLedgerFormProps> = ({ formik, handleCloseDrawer, openForm,
+  date, errMessage, handleDateChange, handleError }) => {
 
   const drawerWidth = 700
   const unit = [
@@ -139,15 +145,17 @@ const AccountLedgerForm: FC<AccountLedgerFormProps> = ({ formik, handleCloseDraw
               clickEnter={formik?.handleSubmit}
               fullwidthState />
           </Grid>
-          <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+          <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
             <DatePickerField
               label={text.label.accountLedger.openingDate}
-              handleChange={}
-              date={}
-              handleError={}
+              handleChange={handleDateChange}
+              date={date}
+              handleError={handleError}
+              errorMessage={errMessage}
+              extraCls={`w-full`}
+              handleBlur={handleError}
+              color={errMessage ? 'error' : 'success'}
               clearable
-              errorMessage=''
-
             />
           </Grid>
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
@@ -155,7 +163,8 @@ const AccountLedgerForm: FC<AccountLedgerFormProps> = ({ formik, handleCloseDraw
               <ButtonFieldInput buttonextracls={`rounded-full bg-[#032974] text-white capitalize`}
                 variant={'contained'}
                 name={text.buttonNames.add}
-                // loading={loading}
+                handleClick={date === null ? handleError : formik?.handleSubmit}
+              // loading={loading}
               />
               <ButtonFieldInput buttonextracls={`rounded-full bg-[#BDBDBD] text-black capitalize`}
                 name={text.buttonNames.cancel} variant={'contained'} type={`button`}

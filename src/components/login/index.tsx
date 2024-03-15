@@ -125,6 +125,7 @@ const Login: FC<LoginProps> = ({ loginFormik, handleRememberMe, remember, loadin
               variant={`contained`}
               type={'submit'}
               loading={loading}
+              disabled={loading}
             />
         </form>
         <FlexItemCenter>

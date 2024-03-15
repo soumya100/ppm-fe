@@ -28,16 +28,19 @@ export const AccountLedgerHooks = () => {
 
 
     //handle opening date 
-    const handleOpeningDate=(newValue: Dayjs)=>{
-        setOpeningDate(newValue)
+    const handleOpeningDate=(newValue?: Dayjs)=>{
+        setOpeningDate(newValue || null)
         if(newValue === null){
             setOpeningDateError('invalidDate')
         }
     }
 
     //handle opening date error
-    const handleOpeningDateError=(newError: DateValidationError | null)=>{
-        setOpeningDateError(newError)
+    const handleOpeningDateError=(newError?: DateValidationError | null)=>{
+        setOpeningDateError(newError || null)
+        if(openingDate === null){
+            setOpeningDateError('invalidDate')
+        }
     }
 
     //error Message function
@@ -58,7 +61,8 @@ export const AccountLedgerHooks = () => {
         initialValues: {
             ledgerName: '',
             ledgerCode: 0,
-            accountHead: ''
+            accountHead: '',
+            openingBalance: 0
         },
         validationSchema: Yup.object().shape({
             ledgerName: Yup.string()
@@ -66,7 +70,7 @@ export const AccountLedgerHooks = () => {
             
                 ledgerCode: Yup.number()
                 .positive(text.errors.patternErrors.accountLedger.ledgerCode)
-                .required(text.errors.requiredErrors.ledgerCode),
+                .required(text.errors.requiredErrors.accountLedger.ledgerCode),
                 accountHead: Yup.string()
                 .required(text.errors.requiredErrors.accountLedger.accountHead),
                 openingBalance: Yup.number()
@@ -74,7 +78,13 @@ export const AccountLedgerHooks = () => {
                 .required(text.errors.requiredErrors.accountLedger.openingBalance)
         }),
         onSubmit: (values, { resetForm }) => {
-            console.log(values, '* account ledger')
+            if(openingDateError === null && openingDate !==null){
+                console.log({...values, openingDate: openingDate}, '* account ledger')
+                resetForm()
+                setOpeningDate(null)
+            }else{
+               setOpeningDateError('invalidDate') 
+            }
         }
     })
 

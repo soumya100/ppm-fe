@@ -15,15 +15,19 @@ interface DatePickerProps {
   sx?: SxProps<Theme> 
   handleError(): void
   dateName?: string
+  handleBlur?(): void
+  color?: 'error' | 'info' | 'success' | 'primary'
 }
 
 const DatePickerField: FC<DatePickerProps> = ({ extraCls, errorMessage, label, date, handleChange, 
-  clearable, sx, handleError, dateName }) => {
+  clearable, sx, handleError, dateName, handleBlur, color }) => {
   return <LocalizationProvider dateAdapter={AdapterDayjs}>
     <DatePicker
       slotProps={{
         textField: {
           helperText: errorMessage,
+          onBlur: handleBlur,
+          color: color,
         },
         field:{
           clearable: clearable || false
