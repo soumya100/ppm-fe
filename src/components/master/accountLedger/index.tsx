@@ -8,11 +8,15 @@ import AccountLedgerForm from './AccountLedgerForm'
 import AccountLedgerTable from './AccountLedgerTable'
 
 interface AccountLedgerProps {
-  loader?: boolean,
-
+  loader?: boolean
+  handleCloseDrawer(): void
+  openAccountLedgerForm: boolean
+  accountLedgerFormik: any
+  handleOpenDrawer(): void
 }
 
-const AccountLedger: FC<AccountLedgerProps> = ({}) => {
+const AccountLedger: FC<AccountLedgerProps> = ({accountLedgerFormik, 
+  handleCloseDrawer, handleOpenDrawer, openAccountLedgerForm, loader}) => {
   return <Box className={`min-h-[90vh]`}>
   <TableCommon
     title={text.tableTitles.itemMaster}
