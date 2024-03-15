@@ -33,9 +33,9 @@ export const PumpMasterHooks = () => {
         tankId: null
     })
 
-    const[postLoaders, setPostLoaders]=useState<boolean>(false)
-    const orgId=getSessionStorageData('orgId')
-    const token=getSessionStorageData('token')
+    const [postLoaders, setPostLoaders] = useState<boolean>(false)
+    const orgId = getSessionStorageData('orgId')
+    const token = getSessionStorageData('token')
     const tankMasterData = useSelector((state: any) => state.tankMasterData?.tankMasterData)?.map((data: any) => {
         return {
             name: data.Tank_Name,
@@ -100,10 +100,12 @@ export const PumpMasterHooks = () => {
                         tankId: tankData[0].value, tankName: tankData[0].name
                     };
                 }))
-                setEditNozzle({id: null,
+                setEditNozzle({
+                    id: null,
                     nozzleName: '',
                     tankName: '',
-                    tankId: null})
+                    tankId: null
+                })
                 resetForm()
             } else {
                 if (pumpData.nozzleNumber > addNozzleData.length) {
@@ -158,15 +160,15 @@ export const PumpMasterHooks = () => {
     //post data to api
     const addDataToApi = () => {
         if (addNozzleData.length < pumpData.nozzleNumber) {
-            setNozzleNumberError(`Please add ${pumpData.nozzleNumber - addNozzleData.length} nozzles`)
+            setNozzleNumberError(`Please add ${pumpData.nozzleNumber - addNozzleData.length} more nozzles`)
         } else {
-           const data={
-            pumpName: pumpData.pumpName,
-            nozzleNumber: pumpData.nozzleNumber,
-            nozzleData: addNozzleData
-           }
-           postPumpApiCall(orgId, data)
-           
+            const data = {
+                pumpName: pumpData.pumpName,
+                nozzleNumber: pumpData.nozzleNumber,
+                nozzleData: addNozzleData
+            }
+            postPumpApiCall(orgId, data)
+
         }
     }
 
@@ -177,22 +179,21 @@ export const PumpMasterHooks = () => {
             Pump_Name: data.pumpName,
             No_Nozzel: data.nozzleNumber,
             Nozzel_Data: data.nozzleData,
-         org_id: orgId
-        
+            org_id: orgId
+
         }
         postPumpMasterAPI(bodyData)
             .then((res: any) => {
-                console.log(res)
-            //     if (res.Message === ' Successful') {
-            //         setShowNozzleForm(false)
-            // setNozzleNumberError('')
-            // setAddNozzleData([])
-            //         toast.success('Item category created successfully')
-            //         // setEditData(null)
-            //         resetForm()
-            //     } else {
-            //         toast.error(res.Message)
-            //     }
+                // console.log(res)
+                if (res.Message === 'Pump Add Successful') {
+                    setShowNozzleForm(false)
+                    setNozzleNumberError('')
+                    setAddNozzleData([])
+                    getPumpMasterApiCall(orgId)
+                    toast.success('Pump added successfully')
+                } else {
+                    toast.error(res.Message)
+                }
             })
             .catch((err) => {
                 console.error(err)
@@ -216,6 +217,7 @@ export const PumpMasterHooks = () => {
         addDataToApi,
         handleNozzleEdit,
         token,
-        orgId
+        orgId,
+        postLoaders
     }
 }

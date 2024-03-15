@@ -14,7 +14,7 @@ const PumpMasterContainer = () => {
     loader, nozzleNumberError,
     handleNozzleDelete, addDataToApi,
     handleNozzleEdit, 
-    orgId, token
+    orgId, token, postLoaders
    } = PumpMasterHooks()
 
   useEffect(() => {
@@ -35,6 +35,7 @@ const PumpMasterContainer = () => {
     handleNozzleDelete={handleNozzleDelete}
     addDataToApi={addDataToApi}
     handleNozzleEdit={handleNozzleEdit}
+    postLoaders={postLoaders}
     />
   )
 }

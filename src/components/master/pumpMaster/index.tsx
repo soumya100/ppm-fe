@@ -22,10 +22,11 @@ interface PumpMasterProps {
     handleNozzleDelete(id: number): void
     addDataToApi(): void
     handleNozzleEdit(editData: nozzleData): void
+    postLoaders: boolean
 }
 
 const PumpMaster: FC<PumpMasterProps> = ({ formik, showNozzleForm, addNozzleForm, addNozzleData, 
-    tankMasterData, loader, nozzleNumberError, handleNozzleDelete, addDataToApi, handleNozzleEdit }) => {
+    tankMasterData, loader, nozzleNumberError, handleNozzleDelete, addDataToApi, handleNozzleEdit, postLoaders }) => {
     const tableData = [
         {
             si: 1,
@@ -57,7 +58,8 @@ const PumpMaster: FC<PumpMasterProps> = ({ formik, showNozzleForm, addNozzleForm
                     {!showNozzleForm ?
                         <PumpMasterForm formik={formik} /> :
                         <NozzleForm formik={addNozzleForm} addNozzleData={addNozzleData}
-                         tankMasterData={tankMasterData} handleNozzleDelete={handleNozzleDelete} handleNozzleEdit={handleNozzleEdit}/>
+                         tankMasterData={tankMasterData} handleNozzleDelete={handleNozzleDelete} 
+                         handleNozzleEdit={handleNozzleEdit}/>
                     }
                    
                         <FlexBetween className='w-full p-5'>
@@ -73,6 +75,8 @@ const PumpMaster: FC<PumpMasterProps> = ({ formik, showNozzleForm, addNozzleForm
                                 extraTextCls={`text-xs`}
                                 name={text.buttonNames.add}
                                 handleClick={addDataToApi}
+                                loading={postLoaders}
+                                disabled={postLoaders}
                             />}
                         </FlexBetween>
                     
