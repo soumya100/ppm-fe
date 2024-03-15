@@ -17,7 +17,7 @@ const ShiftMasterContainer= () => {
   }, [token, orgId])
   
 
-  return <ShiftMaster formik={AddShiftFormik} loader={loader}/>
+  return <ShiftMaster formik={AddShiftFormik} loader={loader} token={token}/>
 }
 
 export default ShiftMasterContainer

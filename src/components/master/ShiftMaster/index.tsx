@@ -5,15 +5,20 @@ import dynamic from 'next/dynamic'
 import ShiftMasterTable from './ShiftMasterTable'
 import ShiftMasterForm from './ShiftMasterForm'
 import { useSelector } from 'react-redux'
+import { notFound } from 'next/navigation'
 const DynamicTypography = dynamic(() => import('@mui/material/Typography'), {
     ssr: false
 })
 interface ShiftMasterProps {
     formik: any
     loader: boolean
+    token: string
 }
 
-const ShiftMaster: FC<ShiftMasterProps> = ({ formik, loader }) => {
+const ShiftMaster: FC<ShiftMasterProps> = ({ formik, loader, token }) => {
+
+
+
     const tableData = [
         {
             si: 1,
@@ -23,6 +28,8 @@ const ShiftMaster: FC<ShiftMasterProps> = ({ formik, loader }) => {
     ]
 
     const shiftMasterData = useSelector((state: any) => state.shiftMasterData?.shiftMasterData)
+
+    if(!token) return notFound()
 
     // console.log(addNozzleData, '*data')
     return <Box className={`min-h-[85vh] p-5`}>
