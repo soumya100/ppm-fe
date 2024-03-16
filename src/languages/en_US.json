@@ -243,7 +243,8 @@
         "tankMaster":"Tank Master",
         "pumpMaster":"Pump Master",
         "addNozzle":"Add Nozzle",
-        "shiftMaster":"Shift Master"
+        "shiftMaster":"Shift Master",
+        "accountHead":"Account head"
     },
     "add":{
         "addUnitMaster":"Add unit",

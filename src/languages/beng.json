@@ -241,7 +241,8 @@
         "itemMaster": "আইটেম মাস্টার",
         "tankMaster":"ট্যাংক মাস্টার",
         "pumpMaster":"পাম্প মাস্টার",
-        "shiftMaster":"শিফট মাস্টার"
+        "shiftMaster":"শিফট মাস্টার",
+        "accountHead":"হিসাব প্রধান"
     },
     "add": {
         "addUnitMaster": "আইটেম মাস্টার যোগ করুন",

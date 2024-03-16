@@ -4,17 +4,13 @@ import { FC } from 'react'
 import text from '@/languages/en_US.json'
 
 interface AccountHeadFormProps {
-    formik: any
+    formik: any,
+    accountHeadMainDropDown: any
+    postLoaders: boolean
 }
 
-const itemType = [
-    {
-        name: 'data',
-        value: 'data'
-    }
-]
 
-const AccountHeadForm: FC<AccountHeadFormProps> = ({ formik }) => {
+const AccountHeadForm: FC<AccountHeadFormProps> = ({ formik, accountHeadMainDropDown, postLoaders }) => {
     return <form onSubmit={formik?.handleSubmit}>
         <FlexItemCenter className='h-[3rem]'>
             <p className='font-bold text-black text-lg px-5'>
@@ -71,7 +67,7 @@ const AccountHeadForm: FC<AccountHeadFormProps> = ({ formik }) => {
                     clickEnter={formik?.handleSubmit}
                     fullwidthState />
             </Grid>
-            <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+            <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                 <DropDownField
                     name={`mainHead`}
                     dropdownLabel={text.label.addAccountHead.mainHead}
@@ -80,7 +76,7 @@ const AccountHeadForm: FC<AccountHeadFormProps> = ({ formik }) => {
                     option={formik?.values?.mainHead}
                     handleChange={formik?.handleChange}
                     handleBlur={formik?.handleBlur}
-                    selectOption={itemType}
+                    selectOption={accountHeadMainDropDown}
                     error={
                         formik?.touched?.mainHead &&
                         Boolean(formik?.errors?.mainHead)
@@ -96,10 +92,11 @@ const AccountHeadForm: FC<AccountHeadFormProps> = ({ formik }) => {
             <FlexBetween className='flex-row-reverse w-full'>
                 <ButtonFieldInput name={text.buttonNames.add}
                     buttonextracls={`rounded-full bg-blue-500  capitalize`}
-                    variant={`contained`} />
+                    variant={`contained`} loading={postLoaders}
+                     disabled={postLoaders}/>
                 <ButtonFieldInput name={text.buttonNames.cancel}
                     buttonextracls={`rounded-full bg-gray-400 capitalize`}
-                    variant={`contained`} type={`button`} />
+                    variant={`contained`} type={`button`} handleClick={formik.resetForm} />
             </FlexBetween>
         </FlexItemCenter>
     </form>
