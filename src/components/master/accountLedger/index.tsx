@@ -5,6 +5,7 @@ import text from '@/languages/en_US.json'
 import AccountLedgerForm from './AccountLedgerForm'
 import AccountLedgerTable from './AccountLedgerTable'
 import { Dayjs } from 'dayjs'
+import { useSelector } from 'react-redux'
 
 interface AccountLedgerProps {
   loader?: boolean
@@ -22,6 +23,9 @@ const AccountLedger: FC<AccountLedgerProps> = ({ accountLedgerFormik,
   handleCloseDrawer, handleOpenDrawer, openAccountLedgerForm, loader, handleOpeningDate,
   handleOpeningDateError,
   openingDate, errorMessage }) => {
+
+    const accountLedgerData= useSelector((state: any) => state.accountLedgerData?.accountLedgerData)
+
   return <>
     <Box className={`min-h-[90vh]`}>
       <TableCommon
@@ -37,7 +41,7 @@ const AccountLedger: FC<AccountLedgerProps> = ({ accountLedgerFormik,
           handleError={handleOpeningDateError}
         />}
         handleOpenButton={handleOpenDrawer}
-        tableComponent={<AccountLedgerTable AccountLedgerData={[]} />}
+        tableComponent={<AccountLedgerTable AccountLedgerData={accountLedgerData} loading={loader}/>}
       />
     </Box>
   </>

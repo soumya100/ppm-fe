@@ -36,10 +36,10 @@ const AccountLedgerTable: FC<AccountLedgerTableProps> = ({AccountLedgerData, loa
                 {idx+1}
               </TableCell>
               <TableCell component="th" scope="row" align='center'>
-                {data.No_Of_Nozzle}
+                {data.Acct_Name}
               </TableCell>
               <TableCell component="th" scope="row" align='center'>
-                {data.Pump_Name}
+                {data.Head_Name}
               </TableCell>
               <TableCell component="th" scope="row" align='right'>
                 <ButtonFieldInput name={`edit`} buttonextracls={`capitalize`}

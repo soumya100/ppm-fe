@@ -1,6 +1,6 @@
 "use client"
 import AccountLedger from '@/components/master/accountLedger'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { AccountLedgerHooks } from './Hooks'
 
 const AccountLedgerContainer = () => {
@@ -8,7 +8,13 @@ const AccountLedgerContainer = () => {
     handleOpenAccountLedger,
     openAccountLedger, handleOpeningDate,
     handleOpeningDateError,
-    openingDate, errorMessage } = AccountLedgerHooks()
+    openingDate, errorMessage, getAccountLedgerApiCall, orgId, token,loader } = AccountLedgerHooks()
+
+    useEffect(()=>{
+      if(token && orgId ){
+        getAccountLedgerApiCall(orgId)
+      }
+    },[token, orgId])
   return (
     <AccountLedger accountLedgerFormik={AddAccountLedgerFormik}
       handleCloseDrawer={handleCloseAccountLedger}
@@ -18,6 +24,7 @@ const AccountLedgerContainer = () => {
       handleOpeningDateError={handleOpeningDateError}
       openingDate={openingDate}
       errorMessage={errorMessage}
+      loader={loader}
     />
   )
 }

@@ -18,6 +18,7 @@ export const endPoints={
     updateTankMaster: `${createApi}master/UpdateTank`,
     getAccountHeadMain:(id: number)=>`${createApi}master/GetAcctMain/${id}`,
     getAccountHead:(id: number)=>`${createApi}master/GetAcctHead/${id}`,
+    getAccountLedger:(id: number)=>`${createApi}master/GetAcctLedg/${id}`,
     postAccountHead:`${createApi}master/AddAcctHead`,
     updateAccountHead:`${createApi}master/UpdateAcctHead`,
     getPumpList:(id: number)=>`${createApi}master/GetPumpList/${id}`,
