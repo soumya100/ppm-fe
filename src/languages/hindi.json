@@ -242,7 +242,8 @@
         "tankMaster":"टैंक मास्टर",
         "pumpMaster":"पम्प मास्टर",
         "shiftMaster":"शिफ्ट मास्टर",
-        "accountHead":"खाता प्रमुख"
+        "accountHead":"खाता प्रमुख",
+        "accountLedger":"खाता बही"
     },
     "add":{
         "addUnitMaster":"यूनिट मास्टर जोड़ें",

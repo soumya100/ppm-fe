@@ -34,7 +34,8 @@ const UnitMaster: FC<UnitMasterProps> = ({ handleOpenDialog, handleCloseModal,
     <TableCommon
       title={text.tableTitles.unitMaster}
       btnName={text.add.addUnitMaster}
-      titleCls={`font-bold text-black text-3xl mb-5`}
+      titleTextCls={`font-bold text-black text-3xl`}
+      titleCls='mb-5'
       addComponent={<UnitMasterModal handleAdd={AddUnitMasterFormik.handleSubmit}
         handleClose={handleCloseModal} formik={AddUnitMasterFormik}
         editData={editData} 

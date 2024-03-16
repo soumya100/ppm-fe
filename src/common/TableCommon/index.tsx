@@ -1,7 +1,7 @@
 "use client"
 import { Box } from '@mui/material'
 import { FC, ReactNode } from 'react'
-import { ButtonFieldInput, FlexBetween } from '..'
+import { ButtonFieldInput, FlexBetween, FlexItemCenter } from '..'
 import { Add } from '@mui/icons-material'
 import dynamic from 'next/dynamic'
 const DynamicTypography= dynamic(()=>import('@mui/material/Typography'), {
@@ -14,12 +14,14 @@ interface TableCommonProps {
     btnName: string,
     tableComponent: ReactNode,
     addComponent: ReactNode,
-    handleOpenButton(): void
+    handleOpenButton(): void,
+    titleTextCls?: string
 }
-const TableCommon: FC<TableCommonProps> = ({ titleCls, title, btnName, tableComponent, addComponent, handleOpenButton }) => {
+const TableCommon: FC<TableCommonProps> = ({ titleCls, title, btnName, tableComponent, addComponent, handleOpenButton, titleTextCls }) => {
     return <Box className={`p-5`}>
+        <FlexItemCenter className={titleCls}>
         <FlexBetween className='w-full'>
-            <DynamicTypography variant={`h6`} className={titleCls}>
+            <DynamicTypography variant={`h6`} className={titleTextCls}>
                 {title}
             </DynamicTypography>
             <ButtonFieldInput
@@ -28,6 +30,7 @@ const TableCommon: FC<TableCommonProps> = ({ titleCls, title, btnName, tableComp
                 handleClick={handleOpenButton}
                 />
         </FlexBetween>
+        </FlexItemCenter>
         {tableComponent}
         {addComponent}
     </Box>

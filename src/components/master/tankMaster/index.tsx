@@ -34,7 +34,8 @@ const TankMaster: FC<TankMasterProps> = ({ tankMasterFormik,  handleOpenDrawer,
     <TableCommon
       title={text.tableTitles.tankMaster}
       btnName={text.add.addTank}
-      titleCls={`font-bold text-black text-3xl mb-5`}
+      titleTextCls={`font-bold text-black text-3xl`}
+      titleCls='mb-5'
       addComponent={<TankMasterForm handleToggleDrawer={handleCloseDrawer}
         openTankMasterDrawer={openTankMasterDrawer} formik={tankMasterFormik}
       productDropDownValue={itemData}

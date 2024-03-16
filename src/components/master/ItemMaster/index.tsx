@@ -49,7 +49,8 @@ if(!token) return notFound()
     <TableCommon
       title={text.tableTitles.itemMaster}
       btnName={text.add.addItemMaster}
-      titleCls={`font-bold text-black text-3xl mb-5`}
+      titleTextCls={`font-bold text-black text-3xl`}
+      titleCls='mb-5'
       addComponent={<ItemMasterFormDrawer handleCloseDrawer={handleCloseDrawer}
         openItemMaster={openItemMaster} formik={AddItemMasterFormik} 
         unitDropDownValue={unitDropDownValue}

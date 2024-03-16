@@ -244,7 +244,8 @@
         "pumpMaster":"Pump Master",
         "addNozzle":"Add Nozzle",
         "shiftMaster":"Shift Master",
-        "accountHead":"Account head"
+        "accountHead":"Account head",
+        "accountLedger":"Account Ledger"
     },
     "add":{
         "addUnitMaster":"Add unit",

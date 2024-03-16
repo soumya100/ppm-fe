@@ -28,7 +28,8 @@ const ItemCategory: FC<ItemCategoryProps> = ({ handleCloseModal, handleOpenModal
     <TableCommon
       title={text.tableTitles.itemCategory}
       btnName={text.add.addItemCategory}
-      titleCls={`font-bold text-black text-3xl mb-5`}
+      titleTextCls={`font-bold text-black text-3xl`}
+      titleCls='mb-5'
       addComponent={<ItemCategoryModal handleAdd={AddItemCategoryFormik.handleSubmit}
         handleClose={handleCloseModal} formik={AddItemCategoryFormik}
         itemCategoryModalOpenState={openAddItemModal} 

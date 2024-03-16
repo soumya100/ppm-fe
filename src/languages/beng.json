@@ -242,7 +242,8 @@
         "tankMaster":"ট্যাংক মাস্টার",
         "pumpMaster":"পাম্প মাস্টার",
         "shiftMaster":"শিফট মাস্টার",
-        "accountHead":"হিসাব প্রধান"
+        "accountHead":"হিসাব প্রধান",
+        "accountLedger":"অ্যাকাউন্ট লেজার"
     },
     "add": {
         "addUnitMaster": "আইটেম মাস্টার যোগ করুন",

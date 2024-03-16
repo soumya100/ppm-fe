@@ -25,9 +25,10 @@ const AccountLedger: FC<AccountLedgerProps> = ({ accountLedgerFormik,
   return <>
     <Box className={`min-h-[90vh]`}>
       <TableCommon
-        title={text.tableTitles.itemMaster}
-        btnName={text.add.addItemMaster}
-        titleCls={`font-bold text-black text-3xl mb-5`}
+        title={text.tableTitles.accountLedger}
+        btnName={text.add.accountLedger}
+        titleTextCls={`font-bold text-black text-3xl`}
+        titleCls='mb-5'
         addComponent={<AccountLedgerForm handleCloseDrawer={handleCloseDrawer}
           openForm={openAccountLedgerForm} formik={accountLedgerFormik}
           date={openingDate}
