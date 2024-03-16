@@ -1,7 +1,7 @@
 import { ButtonFieldInput, DatePickerField, DropDownField, FlexBetween, FlexItemCenter, TextFieldInput } from '@/common'
 import { KeyboardArrowLeft } from '@mui/icons-material'
 import { Container, Divider, Drawer, Grid, IconButton, Typography } from '@mui/material'
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import text from '@/languages/en_US.json'
 import { Dayjs } from 'dayjs'
 
@@ -25,6 +25,11 @@ const AccountLedgerForm: FC<AccountLedgerFormProps> = ({ formik, handleCloseDraw
       value: 'data'
     }
   ]
+
+  useEffect(()=>{
+    console.log(date, '* date')
+    console.log(errMessage, '* errMsg')
+  },[date, errMessage])
   return <Drawer
     anchor={`right`}
     open={openForm}

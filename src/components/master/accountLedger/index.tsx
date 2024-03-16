@@ -18,26 +18,28 @@ interface AccountLedgerProps {
   errorMessage: string
 }
 
-const AccountLedger: FC<AccountLedgerProps> = ({accountLedgerFormik, 
-  handleCloseDrawer, handleOpenDrawer, openAccountLedgerForm, loader , handleOpeningDate,
-   handleOpeningDateError,
-   openingDate, errorMessage}) => {
-  return <Box className={`min-h-[90vh]`}>
-  <TableCommon
-    title={text.tableTitles.itemMaster}
-    btnName={text.add.addItemMaster}
-    titleCls={`font-bold text-black text-3xl mb-5`}
-    addComponent={<AccountLedgerForm handleCloseDrawer={handleCloseDrawer}
-      openForm={openAccountLedgerForm} formik={accountLedgerFormik} 
-      date={openingDate}
-      errMessage={errorMessage}
-      handleDateChange={handleOpeningDate}
-      handleError={handleOpeningDateError}
-      />}
-    handleOpenButton={handleOpenDrawer}
-    tableComponent={<AccountLedgerTable AccountLedgerData={[]}/>}
-  />
-</Box>
+const AccountLedger: FC<AccountLedgerProps> = ({ accountLedgerFormik,
+  handleCloseDrawer, handleOpenDrawer, openAccountLedgerForm, loader, handleOpeningDate,
+  handleOpeningDateError,
+  openingDate, errorMessage }) => {
+  return <>
+    <Box className={`min-h-[90vh]`}>
+      <TableCommon
+        title={text.tableTitles.itemMaster}
+        btnName={text.add.addItemMaster}
+        titleCls={`font-bold text-black text-3xl mb-5`}
+        addComponent={<AccountLedgerForm handleCloseDrawer={handleCloseDrawer}
+          openForm={openAccountLedgerForm} formik={accountLedgerFormik}
+          date={openingDate}
+          errMessage={errorMessage}
+          handleDateChange={handleOpeningDate}
+          handleError={handleOpeningDateError}
+        />}
+        handleOpenButton={handleOpenDrawer}
+        tableComponent={<AccountLedgerTable AccountLedgerData={[]} />}
+      />
+    </Box>
+  </>
 }
 
 export default AccountLedger

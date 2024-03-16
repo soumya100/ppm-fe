@@ -13,7 +13,7 @@ interface TimeRangePickerProps {
   errorMessage: string,
   timeRangeErrorHandler(): void
   handleBlur?(): void
-  color: 'success' | 'error' | 'primary'
+  color?: 'success' | 'error' | 'primary'
   extraCls?: string
   sx?: SxProps<Theme> 
 }

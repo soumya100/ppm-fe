@@ -6,6 +6,8 @@ import ShiftMasterTable from './ShiftMasterTable'
 import ShiftMasterForm from './ShiftMasterForm'
 import { useSelector } from 'react-redux'
 import { notFound } from 'next/navigation'
+import { DateRange, DateValidationError, TimeRangeValidationError } from '@mui/x-date-pickers-pro'
+import { Dayjs } from 'dayjs'
 const DynamicTypography = dynamic(() => import('@mui/material/Typography'), {
     ssr: false
 })
@@ -13,9 +15,13 @@ interface ShiftMasterProps {
     formik: any
     loader: boolean
     token: string
+    handleTimeRange(): void
+    timeRange: DateRange<Dayjs>
+    timeRangeError: DateValidationError | null
+    handleTimeRangeError(): void
 }
 
-const ShiftMaster: FC<ShiftMasterProps> = ({ formik, loader, token }) => {
+const ShiftMaster: FC<ShiftMasterProps> = ({ formik, loader, token, handleTimeRange, handleTimeRangeError, timeRange, timeRangeError }) => {
 
 
 
@@ -29,7 +35,7 @@ const ShiftMaster: FC<ShiftMasterProps> = ({ formik, loader, token }) => {
 
     const shiftMasterData = useSelector((state: any) => state.shiftMasterData?.shiftMasterData)
 
-    if(!token) return notFound()
+    if (!token) return notFound()
 
     // console.log(addNozzleData, '*data')
     return <Box className={`min-h-[85vh] p-5`}>
@@ -39,11 +45,16 @@ const ShiftMaster: FC<ShiftMasterProps> = ({ formik, loader, token }) => {
         </DynamicTypography>
         <Grid container spacing={2}>
             <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
-                <ShiftMasterTable shiftMasterData={shiftMasterData} handleEditData={() => { }} loading={loader}/>
+                <ShiftMasterTable shiftMasterData={shiftMasterData} handleEditData={() => { }} loading={loader} />
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
                 <Box className='shadow-md rounded-md border-t'>
-                        <ShiftMasterForm formik={formik} /> 
+                    <ShiftMasterForm formik={formik} 
+                    handleTimeRange={handleTimeRange}
+                    handleTimeRangeError={handleTimeRangeError}
+                    timeRange={timeRange}
+                    timeRangeError={timeRangeError}
+                    />
                 </Box>
             </Grid>
         </Grid>

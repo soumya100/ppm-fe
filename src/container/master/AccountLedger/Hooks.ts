@@ -78,7 +78,7 @@ export const AccountLedgerHooks = () => {
                 .required(text.errors.requiredErrors.accountLedger.openingBalance)
         }),
         onSubmit: (values, { resetForm }) => {
-            if(openingDateError === null && openingDate !==null){
+            if(openingDate !==null){
                 console.log({...values, openingDate: openingDate}, '* account ledger')
                 resetForm()
                 setOpeningDate(null)

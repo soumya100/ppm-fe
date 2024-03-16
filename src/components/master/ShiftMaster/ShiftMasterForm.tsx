@@ -1,14 +1,19 @@
-import { ButtonFieldInput, FlexBetween, FlexItemCenter, TextFieldInput } from '@/common'
+import { ButtonFieldInput, FlexBetween, FlexItemCenter, TextFieldInput, TimeRangePicker } from '@/common'
 import { Divider, Grid } from '@mui/material'
 import { FC } from 'react'
 import text from '@/languages/en_US.json'
-import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
+import { DateRange, DateValidationError, TimeRangeValidationError } from '@mui/x-date-pickers-pro'
+import { Dayjs } from 'dayjs'
 
 interface ShiftMasterFormProps {
   formik: any
+  handleTimeRange(): void
+  timeRange: DateRange<Dayjs>
+  timeRangeError: DateValidationError | null
+  handleTimeRangeError(): void
 }
 
-const ShiftMasterForm: FC<ShiftMasterFormProps> = ({formik}) => {
+const ShiftMasterForm: FC<ShiftMasterFormProps> = ({formik, handleTimeRange, handleTimeRangeError, timeRange, timeRangeError}) => {
   return <form onSubmit={formik?.handleSubmit}>
   <FlexItemCenter className='h-[3rem]'>
       <p className='font-bold text-black text-lg px-5'>
@@ -17,7 +22,7 @@ const ShiftMasterForm: FC<ShiftMasterFormProps> = ({formik}) => {
   </FlexItemCenter>
   <Divider className='w-full m-0'/>
   <Grid container spacing={1} className='p-5'>
-      <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+      <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
           <TextFieldInput
               placeholder={text.placeholders.addShiftMaster.shiftName}
               extraCls={`w-full`}
@@ -37,8 +42,8 @@ const ShiftMasterForm: FC<ShiftMasterFormProps> = ({formik}) => {
               clickEnter={formik?.handleSubmit}
               fullwidthState autoFocus />
       </Grid>
-      <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-          <TextFieldInput
+      <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+          {/* <TextFieldInput
               placeholder={text.placeholders.addShiftMaster.startTime}
               extraCls={`w-full`}
               color={`success`}
@@ -64,18 +69,6 @@ const ShiftMasterForm: FC<ShiftMasterFormProps> = ({formik}) => {
               }
               clickEnter={formik?.handleSubmit}
               fullwidthState />
-              {/* <LocalizationProvider dateAdapter={adapterFns}>
-        <DatePicker
-          label="Select Date"
-          name="selectedDate"
-          value={formik.values.selectedDate}
-          onChange={(date) => formik.setFieldValue('selectedDate', date)}
-          format="dd/MM/yyyy HH:mm"
-          onError={formik.touched.selectedDate && Boolean(formik.errors.selectedDate)}
-
-          showTodayButton
-        />
-      </LocalizationProvider> */}
       </Grid>
       <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
           <TextFieldInput
@@ -103,7 +96,17 @@ const ShiftMasterForm: FC<ShiftMasterFormProps> = ({formik}) => {
                   formik?.touched?.endTime && formik?.errors?.endTime
               }
               clickEnter={formik?.handleSubmit}
-              fullwidthState />
+              fullwidthState /> */}
+
+              <TimeRangePicker
+               handleTimeRangeChange={handleTimeRange}
+               timeRange={timeRange}
+               timeRangeErrorHandler={handleTimeRangeError}
+               errorMessage=''
+               label={`${text.label.addShiftMaster.startTime} - ${text.label.addShiftMaster.endTime}`}
+               extraCls='w-full'
+               color='success'
+              />
       </Grid>
   </Grid>
   <FlexItemCenter className='w-full mt-2 p-5'>
