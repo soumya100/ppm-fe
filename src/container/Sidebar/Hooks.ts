@@ -33,8 +33,8 @@ export const SideBarHooks = () => {
         setLogOutLoader(true)
      getLogoutAPI().then((res: any)=>{
          if (res.message === "Logout Successfull") {
-             sessionStorage.clear()
              router.push(pathName.login)
+             sessionStorage.clear()
              toast.success(`LoggedOut Successfully`)
          } else {
              toast.error(res.message)
