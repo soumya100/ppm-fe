@@ -2,45 +2,68 @@ import { useFormik } from "formik"
 import * as Yup from 'yup'
 import text from '@/languages/en_US.json'
 import { useMemo, useState } from "react"
-import { getShiftMasterAPI } from "./ShiftMasterApis"
+import { getShiftMasterAPI, postShiftMasterAPI } from "./ShiftMasterApis"
 import { useDispatch } from "react-redux"
 import toast from "react-hot-toast"
 import { getShiftMaster } from "./ShiftMasterReducer"
-import { DateRange, DateValidationError } from "@mui/x-date-pickers-pro"
-import { Dayjs } from "dayjs"
+import { DateRange, TimeRangeValidationError } from "@mui/x-date-pickers-pro"
+import dayjs, { Dayjs } from "dayjs"
+import getSessionStorageData from "@/utils/getSessionStorageData"
 
 export const ShiftMasterHooks=()=>{
 
     const dispatch=useDispatch()
-    const [loader, setLoader]= useState(false)
-
+    const [loader, setLoader]= useState<boolean>(false)
+    const[postLoaders,setPostLoaders]=useState<boolean>(false)
     //shift range date
     const [timeRange, setTimeRange] = useState<DateRange<Dayjs>>(()=>[null, null]);
-    const[timeRangeError, setTimeRangeError]=useState<DateValidationError | null>(null)
+    const[timeRangeError, setTimeRangeError]=useState<TimeRangeValidationError | null>([null, null])
+    const token= getSessionStorageData('token')
+    const orgId= getSessionStorageData('orgId')
 
-
-    //error Message function
-    const errorMessage = useMemo(() => {
-        switch (timeRangeError) {
-          case "invalidDate": {
-            return text.errors.patternErrors.accountLedger.invalidDate
-          }
-          default: {
-            return '';
-          }
-        }
-      }, [timeRangeError]);
+    
 
     //change time range handler functions
    const handleTimeRange=(newValue?: DateRange<Dayjs>)=>{
     setTimeRange(newValue || [null, null])
-    console.log(newValue)
+    if(newValue &&(newValue[0] === null && newValue[1]===null)){
+        setTimeRangeError(['invalidRange', 'invalidRange'])
+    }else{
+        setTimeRangeError(null)
+    }
    }
 
    //handleTimeRange error
-   const handleTimeRangeError=(newError?: DateValidationError | null)=>{
-        setTimeRangeError(newError || null)
+   const handleTimeRangeError=(newError?: TimeRangeValidationError)=>{
+        
+        if (timeRange[0]=== null || timeRange[1]===null) {
+            setTimeRangeError(["invalidDate", "invalidDate"])
+        }else if(dayjs(timeRange[0]).format('HH:mm') === dayjs(timeRange[1]).format('HH:mm')){
+            setTimeRangeError(["invalidRange", "invalidRange"])
+        }
+        else{
+            setTimeRangeError(newError || [null, null])
+            console.log(newError)
+        }
    }
+
+   //error Message function
+   const errorMessage = useMemo(() => {
+    switch ((timeRangeError && timeRangeError[0] ) || (timeRangeError && timeRangeError[1]) || (timeRangeError)) {
+      case "invalidDate": {
+        return text.errors.patternErrors.shiftMaster.invalidTime
+      }
+      case "invalidRange":{
+        return text.errors.patternErrors.shiftMaster.invalidTime
+      }
+      case ["invalidRange", "invalidRange"]:{
+        return text.errors.patternErrors.shiftMaster.invalidTime
+      }
+      default: {
+        return '';
+      }
+    }
+  }, [timeRangeError]);
 
     // add shift formik
     const AddShiftFormik = useFormik({
@@ -59,8 +82,19 @@ export const ShiftMasterHooks=()=>{
                 // .required(text.errors.requiredErrors.shiftMaster.endTime)
         }),
         onSubmit: (values, { resetForm }) => {
-            console.log(values, '* shift master')
-            resetForm()
+            if((timeRange[0] === null || timeRange[1] === null) || (dayjs(timeRange[0]).format('HH:mm') >= dayjs(timeRange[1]).format('HH:mm'))){
+                setTimeRangeError(["invalidRange", "invalidRange"])
+            }
+           else{
+            const startTime= dayjs(timeRange[0]).format('HH:mm')
+            const endTime= dayjs(timeRange[1]).format('HH:mm')
+            const data={
+                ...values,
+                startTime,
+                endTime
+            }
+             postShiftMasterApiCall(orgId, data, resetForm)
+            }
         }
     })
 
@@ -83,13 +117,48 @@ export const ShiftMasterHooks=()=>{
         })
     }
 
+    //post shift api call
+    const postShiftMasterApiCall=(orgId: number, item: any, resetForm: any)=>{
+        setPostLoaders(true);
+        let bodyData = {
+            Shift_Name: item.shiftName,
+            Shift_Start: item.startTime,
+            Shift_End: item.endTime,
+            org_id:orgId
+        }
+        console.table(bodyData)
+        postShiftMasterAPI(bodyData)
+            .then((res: any) => {
+                console.log(res)
+                if (res.Message === 'Shift Add Successful') {
+                   getShiftApiCall(orgId)
+                    toast.success('Shift Added successfully')
+                    // setEditData(null)
+                    resetForm()
+                    setTimeRangeError([null, null])
+                    setTimeRange([null, null])
+                } else {
+                    toast.error(res.Message)
+                }
+            })
+            .catch((err) => {
+                console.error(err)
+                toast.error('Something went wrong')
+            }).finally(() => {
+                setPostLoaders(false)
+            })
+    }
     return {
         AddShiftFormik,
         getShiftApiCall,
         loader,
         handleTimeRange,
         timeRange,
+        handleTimeRangeError,
+        errorMessage,
         timeRangeError,
-        handleTimeRangeError
+        orgId,
+        token,
+        postLoaders
     }
 }

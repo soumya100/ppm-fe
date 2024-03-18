@@ -146,6 +146,9 @@
             "addAccountHead":{
                 "headCode":"হেড কোড শূন্যের চেয়ে বেশি হওয়া উচিত"
             },
+            "shiftMaster":{
+                "invalidTime":"একটি বৈধ সময় লিখুন"
+            },
             "accountLedger":{
                 "ledgerCode":"লেজার কোড শূন্যের চেয়ে বেশি হওয়া উচিত",
                 "openingBalance":"খোলার ব্যালেন্স শূন্যের চেয়ে বেশি হওয়া উচিত",

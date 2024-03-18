@@ -147,6 +147,9 @@
             "addAccountHead":{
                 "headCode":"Head code should be greater than zero"
             },
+            "shiftMaster":{
+                "invalidTime":"Please enter a valid time"
+            },
             "accountLedger":{
                 "ledgerCode":"Ledger code should be greater than zero",
                 "openingBalance":"opening balance should be greater than zero",
@@ -186,9 +189,7 @@
                 "maxVolume":"Please enter maximum volume"
             },
             "shiftMaster":{
-                "shiftName":"Please enter shift name",
-                "startTime":"Please enter start time",
-                "endTime":"Please enter end time"
+                "shiftName":"Please enter shift name"
             },
             "addAccountHead":{
                 "headName":"Please enter head name",

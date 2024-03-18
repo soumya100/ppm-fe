@@ -1,13 +1,14 @@
 import { Theme } from '@emotion/react'
 import { SxProps } from '@mui/material'
-import { LocalizationProvider } from '@mui/x-date-pickers-pro'
-import { DateRange, SingleInputTimeRangeField } from '@mui/x-date-pickers-pro'
+import { LocalizationProvider, MultiInputTimeRangeField } from '@mui/x-date-pickers-pro'
+import { DateRange } from '@mui/x-date-pickers-pro'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { Dayjs } from 'dayjs'
 import { FC } from 'react'
 
 interface TimeRangePickerProps {
-  label: string,
+  startLabel?: string,
+  endLabel?: string,
   timeRange: DateRange<Dayjs>
   handleTimeRangeChange(): void
   errorMessage: string,
@@ -16,25 +17,27 @@ interface TimeRangePickerProps {
   color?: 'success' | 'error' | 'primary'
   extraCls?: string
   sx?: SxProps<Theme> 
+  timeFormat?: string
 }
 
-const TimeRangePicker: FC<TimeRangePickerProps> = ({handleTimeRangeChange, label, timeRange, 
-    color, errorMessage, timeRangeErrorHandler, handleBlur, extraCls, sx}) => {
+const TimeRangePicker: FC<TimeRangePickerProps> = ({handleTimeRangeChange, startLabel, endLabel, timeRange, 
+    color, errorMessage, timeRangeErrorHandler, handleBlur, extraCls, sx, timeFormat}) => {
   return<LocalizationProvider dateAdapter={AdapterDayjs}>
-  <SingleInputTimeRangeField
-    label={label}
+  <MultiInputTimeRangeField
     value={timeRange}
     onChange={handleTimeRangeChange}
     onError={timeRangeErrorHandler}
     slotProps={{
-        textField: {
+        textField: ({ position }) => ( {
           helperText: errorMessage,
           onBlur: handleBlur,
           color: color,
-        }
+          label: position === 'start' ? startLabel : endLabel,
+        })
       }}
       className={extraCls}
       sx={sx}
+      format={timeFormat}
   />
   </LocalizationProvider>
 }

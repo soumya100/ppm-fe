@@ -146,6 +146,9 @@
             "addAccountHead":{
                 "headCode":"हेड कोड शून्य से अधिक होना चाहिए"
             },
+            "shiftMaster":{
+                "invalidTime":"कृपया एक वैध समय दर्ज करें"
+            },
             "accountLedger":{
                 "ledgerCode":"लेजर कोड शून्य से अधिक होना चाहिए",
                 "openingBalance":"आरंभिक शेष शून्य से अधिक होना चाहिए",

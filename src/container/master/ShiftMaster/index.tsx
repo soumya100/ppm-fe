@@ -1,17 +1,13 @@
 "use client"
 import ShiftMaster from "@/components/master/ShiftMaster"
 import { ShiftMasterHooks } from "./Hooks"
-import getSessionStorageData from "@/utils/getSessionStorageData"
 import { useEffect } from "react"
 
 const ShiftMasterContainer = () => {
 
-  const token = getSessionStorageData('token')
-  const orgId = getSessionStorageData('orgId')
   const { AddShiftFormik, getShiftApiCall, loader, handleTimeRange,
     timeRange,
-    timeRangeError,
-    handleTimeRangeError } = ShiftMasterHooks()
+    handleTimeRangeError, errorMessage, timeRangeError, orgId, token, postLoaders } = ShiftMasterHooks()
 
   useEffect(() => {
     if (token && orgId) {
@@ -25,8 +21,10 @@ const ShiftMasterContainer = () => {
     token={token}
     handleTimeRange={handleTimeRange}
     timeRange={timeRange}
-    timeRangeError={timeRangeError}
     handleTimeRangeError={handleTimeRangeError}
+    errorMessage={errorMessage}
+    timeRangeError={timeRangeError}
+    postLoaders={postLoaders}
   />
 }
 

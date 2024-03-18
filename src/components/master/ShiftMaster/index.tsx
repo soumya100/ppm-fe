@@ -7,7 +7,7 @@ import ShiftMasterForm from './ShiftMasterForm'
 import { useSelector } from 'react-redux'
 import { notFound } from 'next/navigation'
 import { DateRange, DateValidationError, TimeRangeValidationError } from '@mui/x-date-pickers-pro'
-import { Dayjs } from 'dayjs'
+import dayjs, { Dayjs } from 'dayjs'
 const DynamicTypography = dynamic(() => import('@mui/material/Typography'), {
     ssr: false
 })
@@ -17,21 +17,14 @@ interface ShiftMasterProps {
     token: string
     handleTimeRange(): void
     timeRange: DateRange<Dayjs>
-    timeRangeError: DateValidationError | null
     handleTimeRangeError(): void
+    errorMessage: string
+    timeRangeError: any
+    postLoaders: boolean
 }
 
-const ShiftMaster: FC<ShiftMasterProps> = ({ formik, loader, token, handleTimeRange, handleTimeRangeError, timeRange, timeRangeError }) => {
-
-
-
-    const tableData = [
-        {
-            si: 1,
-            itemName: 'diesel',
-            itemUnit: 20
-        }
-    ]
+const ShiftMaster: FC<ShiftMasterProps> = ({ formik, loader, token, handleTimeRange, handleTimeRangeError, 
+    timeRange, errorMessage, postLoaders }) => {
 
     const shiftMasterData = useSelector((state: any) => state.shiftMasterData?.shiftMasterData)
 
@@ -53,7 +46,8 @@ const ShiftMaster: FC<ShiftMasterProps> = ({ formik, loader, token, handleTimeRa
                     handleTimeRange={handleTimeRange}
                     handleTimeRangeError={handleTimeRangeError}
                     timeRange={timeRange}
-                    timeRangeError={timeRangeError}
+                    errorMessage={errorMessage}
+                    postLoaders={postLoaders}
                     />
                 </Box>
             </Grid>
