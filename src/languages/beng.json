@@ -63,6 +63,14 @@
             "accountHead":"হিসাব প্রধান",
             "openingBalance":"খোলার ব্যালেন্স",
             "openingDate":"খোলার তারিখ"
+        },
+        "addBankAccount":{
+            "bankName":"Bank name",
+            "bankBranch":"Bank branch",
+            "bankIfsc":"Bank ifsc",
+            "accountNo":"Account no",
+            "openingBalance":"Opening balance",
+            "itemType":"ItemType"
         }
     },
     "placeholders": {
@@ -103,8 +111,8 @@
             "endTime":"শেষ সময় লিখুন"
         },
         "addAccountHead":{
-            "headName":"Enter head name",
-            "headCode":"Enter head code"
+            "headName":"মাথার নাম লিখুন",
+            "headCode":"হেড কোড লিখুন"
         },
         "accountLedger":{
             "ledgerName":"খাতার নাম লিখুন",
@@ -152,8 +160,16 @@
             "accountLedger":{
                 "ledgerCode":"লেজার কোড শূন্যের চেয়ে বেশি হওয়া উচিত",
                 "openingBalance":"খোলার ব্যালেন্স শূন্যের চেয়ে বেশি হওয়া উচিত",
-                "invalidDate":"Please enter a valid date"
-            }
+                "invalidDate":"দয়া করে একটি বৈধ তারিখ লিখুন "
+            },
+            "bankAccount":{
+                "accountNo":{
+                    "positive":"একটি বৈধ নম্বর লিখুন",
+                    "notDecimal":"দশমিক মান অনুমোদিত নয়"
+                },
+                "openingBalance":"খোলার ব্যালেন্স শূন্যের বেশি হওয়া উচিত"
+            },
+            "invalidDate":"একটি বৈধ খোলার তারিখ লিখুন"
         },
         "requiredErrors": {
             "email": "দয়া করে আপনার ইমেল ঠিকানা দিন",
@@ -203,6 +219,14 @@
             "ledgerCode":"অনুগ্রহ করে লেজার কোড লিখুন",
             "accountHead":"অনুগ্রহ করে একাউন্ট হেড লিখুন",
             "openingBalance":"অনুগ্রহ করে খোলার ব্যালেন্স লিখুন"
+        },
+        "bankAccount":{
+            "bankName":"অনুগ্রহ করে ব্যাঙ্কের নাম লিখুন",
+            "bankBranch":"অনুগ্রহ করে ব্যাঙ্ক শাখা প্রবেশ করুন",
+            "bankIfSc":"অনুগ্রহ করে ব্যাঙ্কের আইএফএসসি কোড লিখুন",
+            "accountNo":"অনুগ্রহ করে ব্যাঙ্ক অ্যাকাউন্ট নম্বর লিখুন",
+            "underLedger":"অনুগ্রহ করে একটি আন্ডার লেজার নির্বাচন করুন",
+            "openingBalance":"অনুগ্রহ করে খোলার ব্যালেন্স লিখুন"
         }
     },
     "sideBarTexts": {
@@ -246,7 +270,8 @@
         "pumpMaster":"পাম্প মাস্টার",
         "shiftMaster":"শিফট মাস্টার",
         "accountHead":"হিসাব প্রধান",
-        "accountLedger":"অ্যাকাউন্ট লেজার"
+        "accountLedger":"অ্যাকাউন্ট লেজার",
+        "bankAccounts":"ব্যাংক হিসাব"
     },
     "add": {
         "addUnitMaster": "আইটেম মাস্টার যোগ করুন",

@@ -62,6 +62,14 @@
             "accountHead":"खाता प्रमुख",
             "openingBalance":"प्रारंभिक जमा",
             "openingDate":"खुलने की तिथि"
+        },
+        "addBankAccount":{
+            "bankName":"बैंक का नाम",
+            "bankBranch":"बैंक शाखा",
+            "bankIfsc":"बैंक आईएफएससी",
+            "accountNo":"खाता नंबर",
+            "openingBalance":"प्रारंभिक जमा",
+            "itemType":"वस्तु का प्रकार"
         }
     },
    "placeholders":{
@@ -110,6 +118,13 @@
             "ledgerName":"खाता बही का नाम दर्ज करें",
             "ledgerCode":"खाता बही कोड दर्ज करें",
             "openingBalance":"आरंभिक शेष दर्ज करें"
+        },
+        "addBankAccount":{
+            "bankName":"बैंक का नाम दर्ज करें",
+            "bankBranch":"बैंक शाखा दर्ज करें",
+            "bankIfsc":"बैंक ifsc दर्ज करें",
+            "accountNo":"खाता संख्या दर्ज करें",
+            "openingBalance":"आरंभिक शेष दर्ज करें"
         }
    },
    "rememberMe":"मुझे याद करो",
@@ -153,6 +168,14 @@
                 "ledgerCode":"लेजर कोड शून्य से अधिक होना चाहिए",
                 "openingBalance":"आरंभिक शेष शून्य से अधिक होना चाहिए",
                 "invalidDate":"कृपया कोई मान्य दिनांक दर्ज करें"
+            },
+            "bankAccount":{
+                "accountNo":{
+                    "positive":"कृपया सही अंक दर्ज करें",
+                    "notDecimal":"दशमलव मान की अनुमति नहीं है"
+                },
+                "openingBalance":"प्रारंभिक शेष शून्य से अधिक होना चाहिए",
+                "invalidDate":"कृपया एक वैध उद्घाटन तिथि दर्ज करें"
             }
         },
         "requiredErrors":{
@@ -202,6 +225,14 @@
                 "ledgerCode":"कृपया खाता बही कोड दर्ज करें",
                 "accountHead":"कृपया खाता शीर्ष दर्ज करें",
                 "openingBalance":"कृपया आरंभिक शेष दर्ज करें"
+            },
+            "bankAccount":{
+                "bankName":"कृपया बैंक का नाम दर्ज करें",
+                "bankBranch":"कृपया बैंक शाखा दर्ज करें",
+                "bankIfSc":"कृपया बैंक आईएफएससी कोड दर्ज करें",
+                "accountNo":"कृपया बैंक खाता संख्या दर्ज करें",
+                "underLedger":"कृपया एक अंडर लेजर का चयन करें",
+                "openingBalance":"कृपया आरंभिक शेष दर्ज करें"
             }
         }
     },
@@ -246,7 +277,8 @@
         "pumpMaster":"पम्प मास्टर",
         "shiftMaster":"शिफ्ट मास्टर",
         "accountHead":"खाता प्रमुख",
-        "accountLedger":"खाता बही"
+        "accountLedger":"खाता बही",
+        "bankAccounts":"बैंक खाते"
     },
     "add":{
         "addUnitMaster":"यूनिट मास्टर जोड़ें",

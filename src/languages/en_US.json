@@ -63,6 +63,14 @@
             "accountHead":"Account head",
             "openingBalance":"Opening balance",
             "openingDate":"Opening date"
+        },
+        "addBankAccount":{
+            "bankName":"Bank name",
+            "bankBranch":"Bank branch",
+            "bankIfsc":"Bank ifsc",
+            "accountNo":"Account no",
+            "openingBalance":"Opening balance",
+            "itemType":"Item type"
         }
     },
    "placeholders":{
@@ -111,6 +119,13 @@
             "ledgerName":"Enter ledger name",
             "ledgerCode":"Enter ledger code",
             "openingBalance":"Enter opening balance"
+        },
+        "addBankAccount":{
+            "bankName":"Enter bank name",
+            "bankBranch":"Enter bank branch",
+            "bankIfsc":"Enter bank ifsc",
+            "accountNo":"Enter account no",
+            "openingBalance":"Enter opening balance"
         }
    },
    "rememberMe":"Remember me",
@@ -154,6 +169,14 @@
                 "ledgerCode":"Ledger code should be greater than zero",
                 "openingBalance":"opening balance should be greater than zero",
                 "invalidDate":"Please enter a valid date"
+            },
+            "bankAccount":{
+                "accountNo":{
+                    "positive":"Please enter a valid number",
+                    "notDecimal":"Decimal value is not allowed"
+                },
+                "openingBalance":"Opening balance should be greater than zero",
+                "invalidDate":"Please enter a valid opening date"
             }
         },
         "requiredErrors":{
@@ -201,6 +224,14 @@
                 "ledgerCode":"Please enter ledger code",
                 "accountHead":"Please enter account head",
                 "openingBalance":"Please enter opening balance"
+            },
+            "bankAccount":{
+                "bankName":"Please enter Bank name",
+                "bankBranch":"Please enter bank branch",
+                "bankIfSc":"Please enter bank ifsc code",
+                "accountNo":"Please enter bank account number",
+                "underLedger":"Please select an under ledger",
+                "openingBalance":"Please enter opening balance"
             }
         }
     },
@@ -246,7 +277,8 @@
         "addNozzle":"Add Nozzle",
         "shiftMaster":"Shift Master",
         "accountHead":"Account head",
-        "accountLedger":"Account Ledger"
+        "accountLedger":"Account Ledger",
+        "bankAccounts":"Bank accounts"
     },
     "add":{
         "addUnitMaster":"Add unit",
@@ -257,7 +289,8 @@
         "addNozzle":"Add Nozzle",
         "shiftMaster":"Add shift master",
         "accountHead":"Add account head",
-        "accountLedger":"Add account ledger"
+        "accountLedger":"Add account ledger",
+        "addBankAccount":"Add bank account"
     },
     "edit":{
         "editUnitMaster":"Edit unit",
