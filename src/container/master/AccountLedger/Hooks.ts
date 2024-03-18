@@ -44,6 +44,8 @@ export const AccountLedgerHooks = () => {
         setOpeningDate(newValue || null)
         if (newValue === null) {
             setOpeningDateError('invalidDate')
+        }else{
+            setOpeningDateError(null)
         }
     }
 
@@ -52,6 +54,8 @@ export const AccountLedgerHooks = () => {
         setOpeningDateError(newError || null)
         if (openingDate === null) {
             setOpeningDateError('invalidDate')
+        }else{
+            setOpeningDateError(null)
         }
     }
 
