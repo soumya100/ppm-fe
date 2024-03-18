@@ -26,5 +26,6 @@ export const endPoints={
     postPumpMaster:`${createApi}master/AddPump`,
     getShiftMaster:(id: number)=>`${createApi}master/GetShift/${id}`,
     postShiftMaster:`${createApi}master/AddShift`,
+    getBankAccounts:(id: number)=>`${createApi}master/GetBankAcct/${id}`,
     logout:`${createApi}logout`
 }

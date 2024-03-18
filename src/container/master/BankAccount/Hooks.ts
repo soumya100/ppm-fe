@@ -5,13 +5,19 @@ import text from '@/languages/en_US.json'
 import { DateValidationError } from "@mui/x-date-pickers"
 import { Dayjs } from "dayjs"
 import getSessionStorageData from "@/utils/getSessionStorageData"
+import { getBankAccountApi } from "./BankAccountApis"
+import { useDispatch } from "react-redux"
+import { getBankAccountData } from "./BankAccountReducer"
+import toast from "react-hot-toast"
 
 export const BankAccountHooks = () => {
 
     const token=getSessionStorageData('token')
     const orgId=getSessionStorageData('orgId')
+    const dispatch=useDispatch()
 
     const [openBankAccountDrawer, setOpenBankAccountDrawer] = useState<boolean>(false)
+    const[loader, setLoader]=useState<boolean>(false)
 
     //date field state
     const [openingDate, setOpeningDate] = useState<Dayjs | null>(null)
@@ -95,6 +101,23 @@ export const BankAccountHooks = () => {
         }
     })
 
+    //bank account get api call
+    const getBankAccountApiCall = async (id: number) => {
+        setLoader(true)
+        getBankAccountApi(id).then((res: any) => {
+            if (res.messsage === 'Data Found') {
+                dispatch(getBankAccountData(res.Data))
+            } else {
+                dispatch(getBankAccountData([]))
+            }
+        }).catch((err: any) => {
+            console.log(err)
+            toast.error('Something went wrong')
+            dispatch(getBankAccountData([]))
+        }).finally(() => {
+            setLoader(false)
+        })
+    }
     return {
         token, 
         orgId,
@@ -105,6 +128,7 @@ export const BankAccountHooks = () => {
         handleOpeningDate,
         openingDate,
         handleOpeningDateError,
-        errorMessage
+        errorMessage,
+        getBankAccountApiCall
     }
 }

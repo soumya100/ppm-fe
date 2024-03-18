@@ -12,13 +12,14 @@ const BankAccountContainer = () => {
         handleOpeningDate,
         openingDate,
         handleOpeningDateError,
-        errorMessage, orgId, token } = BankAccountHooks()
+        errorMessage, orgId, token, getBankAccountApiCall } = BankAccountHooks()
 
     const { getAccountLedgerApiCall } = AccountLedgerHooks()
 
     useEffect(() => {
         if (token && orgId) {
             getAccountLedgerApiCall(orgId)
+            getBankAccountApiCall(orgId)
         }
     }, [token, orgId])
     return (<BankAccount AddBankAccountFormik={AddBankAccountFormik}

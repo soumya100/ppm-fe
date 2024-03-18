@@ -37,16 +37,16 @@ const BankAccountTable: FC<BankAccountTableProps> = ({loader, bankAccountData}) 
             {idx+1}
           </TableCell>
           <TableCell component="th" scope="row" align='center'>
-            {data.Item_Name}
+            {data.Bank_Name}
           </TableCell>
           <TableCell component="th" scope="row" align='center'>
-            {data.Unit_Name}
+            {data.Bank_Branch}
           </TableCell>
           <TableCell component="th" scope="row" align='center'>
-            {data.Unit_Name}
+            {data.Bank_Account_No}
           </TableCell>
           <TableCell component="th" scope="row" align='center'>
-            {data.Unit_Name}
+            {data.Acct_Name}
           </TableCell>
           <TableCell component="th" scope="row" align='right'>
             <ButtonFieldInput name={`edit`} buttonextracls={`capitalize`} 

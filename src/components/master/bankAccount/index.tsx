@@ -28,6 +28,7 @@ const BankAccount: FC<BankAccountProps> = ({ AddBankAccountFormik, errorMessage,
           value: ledgerData.Id
         }
       })
+      const bankAccountData = useSelector((state: any) => state.bankAccountData?.bankAccountsData)
     return <Box className={`min-h-[90vh]`}>
         <TableCommon
             title={text.tableTitles.bankAccounts}
@@ -44,7 +45,7 @@ const BankAccount: FC<BankAccountProps> = ({ AddBankAccountFormik, errorMessage,
                 loading={false}
             />}
             handleOpenButton={handleOpenBankAccountDrawer}
-            tableComponent={<BankAccountTable bankAccountData={[]}
+            tableComponent={<BankAccountTable bankAccountData={bankAccountData}
             loader={false}
             />}
         />
