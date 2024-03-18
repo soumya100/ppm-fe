@@ -260,7 +260,8 @@
         "editUnitMaster":"इकाई संपादित करें",
         "editItemCategory":"आइटम श्रेणी संपादित करें",
         "editItemMaster":"संपादित आइटम",
-        "editTankMaster":"टैंक संपादित करें"
+        "editTankMaster":"टैंक संपादित करें",
+        "editAccoutnHead":"खाता शीर्ष संपादित करें"
     },
     "addMsg": {
         "unitmaster":"यूनिट जोड़ने के लिए, कृपया यहां अपनी यूनिट दर्ज करें",

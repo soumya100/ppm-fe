@@ -262,7 +262,8 @@
         "editUnitMaster":"Edit unit",
         "editItemCategory":"Edit item Category",
         "editItemMaster":"Edit item",
-        "editTankMaster":"Edit tank"
+        "editTankMaster":"Edit tank",
+        "editAccoutnHead":"Edit account head"
     },
     "addMsg": {
         "unitmaster":"To add unit, please enter your unit here",

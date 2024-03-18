@@ -7,14 +7,17 @@ interface AccountHeadFormProps {
     formik: any,
     accountHeadMainDropDown: any
     postLoaders: boolean
+    editData: any
 }
 
 
-const AccountHeadForm: FC<AccountHeadFormProps> = ({ formik, accountHeadMainDropDown, postLoaders }) => {
+const AccountHeadForm: FC<AccountHeadFormProps> = ({ formik, accountHeadMainDropDown, postLoaders, editData }) => {
     return <form onSubmit={formik?.handleSubmit}>
         <FlexItemCenter className='h-[3rem]'>
             <p className='font-bold text-black text-lg px-5'>
-                {text.add.accountHead}
+                { editData && Object.keys(editData).length > 0 ? 
+                text.edit.editAccoutnHead : 
+                text.add.accountHead}
             </p>
         </FlexItemCenter>
         <Divider className='w-full m-0' />
@@ -90,7 +93,10 @@ const AccountHeadForm: FC<AccountHeadFormProps> = ({ formik, accountHeadMainDrop
         </Grid>
         <FlexItemCenter className='w-full mt-2 p-5'>
             <FlexBetween className='flex-row-reverse w-full'>
-                <ButtonFieldInput name={text.buttonNames.add}
+                <ButtonFieldInput name={
+                    editData && Object.keys(editData).length > 0 ?
+                    text.buttonNames.update : 
+                    text.buttonNames.add}
                     buttonextracls={`rounded-full bg-blue-500  capitalize`}
                     variant={`contained`} loading={postLoaders}
                      disabled={postLoaders}/>

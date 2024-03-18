@@ -151,6 +151,7 @@ export const AccountHeadHooks = () => {
         getAccountHeadApiCall,
         loader,
         postLoaders,
-        editAccountHead
+        editAccountHead,
+        editData
     }
 }

@@ -16,9 +16,10 @@ interface AccountHeadProps {
     loader: boolean
     postLoaders: boolean
     editAccountHead(data: any): any
+    editData: any
 }
 
-const AccountHead: FC<AccountHeadProps> = ({ addAccountHeadFormik, token, loader, postLoaders, editAccountHead }) => {
+const AccountHead: FC<AccountHeadProps> = ({ addAccountHeadFormik, token, loader, postLoaders, editAccountHead, editData }) => {
     const accountHeadMainDropDown = useSelector((state: any) => state.accountHeadData?.accountHeadMainData)?.map((data: any) => {
         return {
             name: data.Main_Head_Name,
@@ -47,7 +48,7 @@ const AccountHead: FC<AccountHeadProps> = ({ addAccountHeadFormik, token, loader
             <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
                 <Box className='shadow-md rounded-md border-t'>
                     <AccountHeadForm formik={addAccountHeadFormik}
-                     accountHeadMainDropDown={accountHeadMainDropDown} postLoaders={postLoaders}  />
+                     accountHeadMainDropDown={accountHeadMainDropDown} postLoaders={postLoaders} editData={editData}/>
                 </Box>
             </Grid>
         </Grid>

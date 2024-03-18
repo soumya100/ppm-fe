@@ -5,7 +5,7 @@ import { AccountHeadHooks } from './Hooks'
 
 const AccountHeadContainer = () => {
   const {AddAccountHeadFormik, getAccountHeadMainApiCall, 
-    orgId, token, getAccountHeadApiCall, loader,postLoaders, editAccountHead}= AccountHeadHooks()
+    orgId, token, getAccountHeadApiCall, loader,postLoaders, editAccountHead, editData}= AccountHeadHooks()
 
   useEffect(() => {
     if(token && orgId){
@@ -21,6 +21,7 @@ const AccountHeadContainer = () => {
      loader={loader}
      postLoaders={postLoaders}
      editAccountHead={editAccountHead}
+     editData={editData}
     />
   )
 }
