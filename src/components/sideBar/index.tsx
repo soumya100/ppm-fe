@@ -18,7 +18,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import styles from './sideBar.module.css'
 import SideBarSkeleton from './SideBarSkeleton';
 
-const drawerWidth = 320;
+const drawerWidth = 300;
 
 interface SideBarProps {
   logOutGetApiCall(): void
@@ -32,11 +32,14 @@ interface SideBarProps {
 export const SideBar: React.FC<SideBarProps> = ({ logOutGetApiCall, handleSubMenu,
   openMenuId, logOutLoader,
   handleSubMenuClose, loader }) => {
+
   const router = useRouter()
   const pathName=usePathname()
   const orgName = getSessionStorageData('orgName') || '--'
   const financialYear = useSelector((state: any) => state.sideBarData?.financialYear)
   const sideBarData = useSelector((state: any) => state.sideBarData?.sideBarData)
+
+
 // console.log(pathName, '* path')
   return (
     <ClickAwayListener onClickAway={handleSubMenuClose}>
@@ -70,7 +73,7 @@ export const SideBar: React.FC<SideBarProps> = ({ logOutGetApiCall, handleSubMen
                           {data?.Menue_Icon}
                         </Icon>
                       </ListItemIcon>
-                      <ListItemText primary={<Typography component={`p`} className='text-lg font-bold'>
+                      <ListItemText primary={<Typography component={`p`} className='text-sm font-bold'>
                         {data.Menue_Name}
                       </Typography>} />
                       {data?.SubMenue && data.SubMenue.length > 0 &&
@@ -90,7 +93,7 @@ export const SideBar: React.FC<SideBarProps> = ({ logOutGetApiCall, handleSubMen
                                 {subMenu.icon_class}
                               </Icon>
                             </ListItemIcon>
-                            <ListItemText primary={<Typography component={`p`} className='text-sm font-semibold'>
+                            <ListItemText primary={<Typography component={`p`} className='text-xs font-semibold'>
                               {subMenu.Menue_Name}
                             </Typography>
                             } />
