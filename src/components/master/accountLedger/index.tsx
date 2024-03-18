@@ -4,7 +4,7 @@ import { FC } from 'react'
 import text from '@/languages/en_US.json'
 import AccountLedgerForm from './AccountLedgerForm'
 import AccountLedgerTable from './AccountLedgerTable'
-import { Dayjs } from 'dayjs'
+import dayjs, { Dayjs } from 'dayjs'
 import { useSelector } from 'react-redux'
 
 interface AccountLedgerProps {
@@ -17,14 +17,21 @@ interface AccountLedgerProps {
   handleOpeningDateError(): void
   openingDate: Dayjs | null
   errorMessage: string
+  postLoaders: boolean
 }
 
 const AccountLedger: FC<AccountLedgerProps> = ({ accountLedgerFormik,
   handleCloseDrawer, handleOpenDrawer, openAccountLedgerForm, loader, handleOpeningDate,
   handleOpeningDateError,
-  openingDate, errorMessage }) => {
+  openingDate, errorMessage, postLoaders }) => {
 
-    const accountLedgerData= useSelector((state: any) => state.accountLedgerData?.accountLedgerData)
+  const accountLedgerData = useSelector((state: any) => state.accountLedgerData?.accountLedgerData)
+  const accountHeadData = useSelector((state: any) => state.accountHeadData?.accountHeadData)?.map((headData: any) => {
+    return {
+      name: headData.Head_Name,
+      value: headData.Id
+    }
+  })
 
   return <>
     <Box className={`min-h-[90vh]`}>
@@ -39,9 +46,11 @@ const AccountLedger: FC<AccountLedgerProps> = ({ accountLedgerFormik,
           errMessage={errorMessage}
           handleDateChange={handleOpeningDate}
           handleError={handleOpeningDateError}
+          accountHeadDropdownValue={accountHeadData}
+          postLoaders={postLoaders}
         />}
         handleOpenButton={handleOpenDrawer}
-        tableComponent={<AccountLedgerTable AccountLedgerData={accountLedgerData} loading={loader}/>}
+        tableComponent={<AccountLedgerTable AccountLedgerData={accountLedgerData} loading={loader} />}
       />
     </Box>
   </>

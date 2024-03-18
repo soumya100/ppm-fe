@@ -17,10 +17,11 @@ interface DatePickerProps {
   dateName?: string
   handleBlur?(): void
   color?: 'error' | 'info' | 'success' | 'primary'
+  format?: string
 }
 
 const DatePickerField: FC<DatePickerProps> = ({ extraCls, errorMessage, label, date, handleChange, 
-  clearable, sx, handleError, dateName, handleBlur, color }) => {
+  clearable, sx, handleError, dateName, handleBlur, color, format }) => {
   return <LocalizationProvider dateAdapter={AdapterDayjs}>
     <DatePicker
       slotProps={{
@@ -40,6 +41,7 @@ const DatePickerField: FC<DatePickerProps> = ({ extraCls, errorMessage, label, d
       onChange={handleChange}
       sx={sx}
       name={dateName}
+      format={format}
     />
   </LocalizationProvider>
 }

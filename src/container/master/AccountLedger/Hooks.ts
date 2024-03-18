@@ -5,10 +5,9 @@ import React, { useState } from "react"
 import dayjs, { Dayjs } from "dayjs"
 import { DateValidationError } from "@mui/x-date-pickers"
 import { useDispatch } from "react-redux"
-import { getAccountHeadData } from "../AccountHead/AccountHeadReducer"
 import toast from "react-hot-toast"
 import { getAccountLedgerData } from "./AccountLedgerReducer"
-import { getAccountLedgerApi } from "./AccountLedgerApis"
+import { getAccountLedgerApi, postAccountLedgerAPI } from "./AccountLedgerApis"
 import getSessionStorageData from "@/utils/getSessionStorageData"
 
 export const AccountLedgerHooks = () => {
@@ -21,6 +20,7 @@ export const AccountLedgerHooks = () => {
 
     const [openAccountLedger, setOpenAccountLedger] = useState<boolean>(false)
     const [loader, setLoader] = useState<boolean>(false)
+    const[postLoaders, setPostLoaders]=useState<boolean>(false)
     //date field state
     const [openingDate, setOpeningDate] = useState<Dayjs | null>(null)
     const [openingDateError, setOpeningDateError] = useState<DateValidationError | null>(null)
@@ -34,6 +34,8 @@ export const AccountLedgerHooks = () => {
     const handleCloseAccountLedger = () => {
         setOpenAccountLedger(false)
         AddAccountLedgerFormik.resetForm()
+        setOpeningDate(null)
+        setOpeningDateError(null)
     }
 
 
@@ -87,11 +89,11 @@ export const AccountLedgerHooks = () => {
                 .positive(text.errors.patternErrors.accountLedger.openingBalance)
                 .required(text.errors.requiredErrors.accountLedger.openingBalance)
         }),
-        onSubmit: (values, { resetForm }) => {
+        onSubmit: (values) => {
             if (openingDate !== null) {
-                console.log({ ...values, openingDate: openingDate }, '* account ledger')
-                resetForm()
-                setOpeningDate(null)
+              const data={ ...values, openingDate: dayjs(openingDate).format('YYYY-MM-DD') }
+              postAccountLedgerApiCall(orgId, data)
+                // setOpeningDate(null)
             } else {
                 setOpeningDateError('invalidDate')
             }
@@ -116,6 +118,36 @@ export const AccountLedgerHooks = () => {
         })
     }
 
+    //post api call for account ledger
+    const postAccountLedgerApiCall= async (orgId: number, item: any)=>{
+        setPostLoaders(true);
+        let bodyData = {
+            Acct_Name: item.ledgerName,
+            Acct_Code:item.ledgerCode,
+            Acct_Head:item.accountHead,
+            org_id: orgId,
+            Open_Bal: item.openingBalance,
+            Open_Date: item.openingDate
+        }
+        postAccountLedgerAPI(bodyData)
+            .then((res: any) => {
+                console.log(res, '* res')
+                if (res.Message==='Account Ledger Add Successful') {
+                    handleCloseAccountLedger()
+                    getAccountLedgerApiCall(orgId)
+                    toast.success('Account ledger created successfully')
+                } else {
+                    toast.error(res.Message)
+                }
+            })
+            .catch((err) => {
+                console.error(err)
+                toast.error('Something went wrong')
+            }).finally(()=>{
+                setPostLoaders(false)
+            })
+    }
+
     return {
         token,
         orgId,
@@ -129,5 +161,6 @@ export const AccountLedgerHooks = () => {
         handleOpeningDateError,
         openingDate,
         getAccountLedgerApiCall,
+        postLoaders
     }
 }

@@ -13,10 +13,12 @@ interface AccountLedgerFormProps {
   date: Dayjs | null
   handleError(): void
   errMessage: string
+  accountHeadDropdownValue: any
+  postLoaders: boolean
 }
 
 const AccountLedgerForm: FC<AccountLedgerFormProps> = ({ formik, handleCloseDrawer, openForm,
-  date, errMessage, handleDateChange, handleError }) => {
+  date, errMessage, handleDateChange, handleError, accountHeadDropdownValue, postLoaders }) => {
 
   const drawerWidth = 700
   const unit = [
@@ -26,10 +28,10 @@ const AccountLedgerForm: FC<AccountLedgerFormProps> = ({ formik, handleCloseDraw
     }
   ]
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log(date, '* date')
     console.log(errMessage, '* errMsg')
-  },[date, errMessage])
+  }, [date, errMessage])
   return <Drawer
     anchor={`right`}
     open={openForm}
@@ -110,7 +112,7 @@ const AccountLedgerForm: FC<AccountLedgerFormProps> = ({ formik, handleCloseDraw
               option={formik?.values?.accountHead}
               handleChange={formik?.handleChange}
               handleBlur={formik?.handleBlur}
-              selectOption={unit}
+              selectOption={accountHeadDropdownValue}
               error={
                 formik?.touched?.accountHead &&
                 Boolean(formik?.errors?.accountHead)
@@ -160,6 +162,7 @@ const AccountLedgerForm: FC<AccountLedgerFormProps> = ({ formik, handleCloseDraw
               extraCls={`w-full`}
               handleBlur={handleError}
               color={errMessage ? 'error' : 'success'}
+              format='DD-MM-YYYY'
               clearable
             />
           </Grid>
@@ -169,7 +172,8 @@ const AccountLedgerForm: FC<AccountLedgerFormProps> = ({ formik, handleCloseDraw
                 variant={'contained'}
                 name={text.buttonNames.add}
                 handleClick={date === null ? handleError : formik?.handleSubmit}
-              // loading={loading}
+              loading={postLoaders}
+              disabled={postLoaders}
               />
               <ButtonFieldInput buttonextracls={`rounded-full bg-[#BDBDBD] text-black capitalize`}
                 name={text.buttonNames.cancel} variant={'contained'} type={`button`}
