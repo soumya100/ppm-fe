@@ -78,6 +78,17 @@
             "posType":"Pos type",
             "linkBank":"Link Bank",
             "installationData":"Installation data"
+        },
+        "customer":{
+            "customerName":"Customer name",
+            "customerAddress":"Customer address",
+            "mobile":"Customer mobile",
+            "customerEmail":"Customer email",
+            "gstin":"Customer gstin",
+            "maxCredLimit":"Maximum credit limit",
+            "maxCredDays":"Maximum credit days",
+            "openingBalance":"Opening balance",
+            "underLedger":"Under ledger"
         }
     },
     "placeholders": {
@@ -129,6 +140,16 @@
         "cardPos":{
             "posName":"Enter pos name",
             "posProvider":"Enter pos provider"
+        },
+        "customer":{
+            "customerName": "Enter customer name",
+            "customerAddress":"Enter customer address",
+            "mobile":"Enter customer mobile number",
+            "customerEmail":"Enter customer email",
+            "gstin":"Enter GSTIN",
+            "maxCredLimit":"Enter max credit limit",
+            "maxCredDays":"Enter max credit days",
+            "openingBalance":"Enter opening balance"
         }
     },
     "rememberMe": "আমাকে মনে কর",
@@ -178,9 +199,16 @@
                     "positive":"একটি বৈধ নম্বর লিখুন",
                     "notDecimal":"দশমিক মান অনুমোদিত নয়"
                 },
-                "openingBalance":"খোলার ব্যালেন্স শূন্যের বেশি হওয়া উচিত"
+                "openingBalance":"খোলার ব্যালেন্স শূন্যের বেশি হওয়া উচিত",
+                "invalidDate":"একটি বৈধ খোলার তারিখ লিখুন"
             },
-            "invalidDate":"একটি বৈধ খোলার তারিখ লিখুন"
+            "customer":{
+                "email":"Please enter a valid email",
+                "maxCredLimit":"Max credit limit should be greater than zero",
+                "maxCredDays":"Max credit days should be greater than zero",
+                "openingBalance":"Opening balance should be greater than zero",
+                "mobileNo":"Please enter a valid mobile No"
+            }
         },
         "requiredErrors": {
             "email": "দয়া করে আপনার ইমেল ঠিকানা দিন",
@@ -201,48 +229,57 @@
                 "openingQnty": "অনুগ্রহ করে খোলার পরিমাণ লিখুন",
                 "openingRate": "অনুগ্রহ করে খোলার হার লিখুন",
                 "selectTank":"অনুগ্রহ করে ট্যাংক নির্বাচন করুন"
+            },
+            "addPumpMaster": {
+                "pumpName": "অনুগ্রহ করে পাম্পের নাম লিখুন",
+                "nozzleNumber": "অনুগ্রহ করে অগ্রভাগের সংখ্যা লিখুন",
+                "nozzleName": "অনুগ্রহ করে অগ্রভাগের নাম লিখুন"
+            },
+            "tankMaster":{
+                "tankName":"অনুগ্রহ করে ট্যাঙ্কের নাম লিখুন",
+                "product":"অনুগ্রহ করে পণ্য লিখুন",
+                "tankDiameter":"অনুগ্রহ করে ট্যাংক এর ব্যাস লিখুন",
+                "tankLength":"অনুগ্রহ করে ট্যাঙ্কের দৈর্ঘ্য লিখুন",
+                "maxVolume":"সর্বোচ্চ ভলিউম লিখুন দয়া করে"
+            },
+            "shiftMaster":{
+                "shiftName":"অনুগ্রহ করে শিফটের নাম লিখুন",
+                "startTime":"অনুগ্রহ করে শুরুর সময় লিখুন",
+                "endTime":"শেষ সময় লিখুন দয়া করে"
+            },
+            "addAccountHead":{
+                "headName":"অনুগ্রহ করে মাথার নাম লিখুন",
+                "headCode":"অনুগ্রহ করে হেড কোড লিখুন",
+                "mainHead":"অনুগ্রহ করে প্রধান প্রধান নির্বাচন করুন"
+            },
+            "accountLedger":{
+                "ledgerName":"অনুগ্রহ করে অ্যাকাউন্ট লেজারের নাম লিখুন",
+                "ledgerCode":"অনুগ্রহ করে লেজার কোড লিখুন",
+                "accountHead":"অনুগ্রহ করে একাউন্ট হেড লিখুন",
+                "openingBalance":"অনুগ্রহ করে খোলার ব্যালেন্স লিখুন"
+            },
+            "bankAccount":{
+                "bankName":"অনুগ্রহ করে ব্যাঙ্কের নাম লিখুন",
+                "bankBranch":"অনুগ্রহ করে ব্যাঙ্ক শাখা প্রবেশ করুন",
+                "bankIfSc":"অনুগ্রহ করে ব্যাঙ্কের আইএফএসসি কোড লিখুন",
+                "accountNo":"অনুগ্রহ করে ব্যাঙ্ক অ্যাকাউন্ট নম্বর লিখুন",
+                "underLedger":"অনুগ্রহ করে একটি আন্ডার লেজার নির্বাচন করুন",
+                "openingBalance":"অনুগ্রহ করে খোলার ব্যালেন্স লিখুন"
+            },
+            "cardPos":{
+                "posName":"Please enter pos name",
+                "posProvider":"Please enter pos provider",
+                "linkBank":"Please select bank"
+            },
+            "customer":{
+                "name":"Please enter customer name",
+                "address":"Please enter customer address",
+                "email":"Please enter customer email Id",
+                "maxCredLimit":"Please enter max credit limit",
+                "maxCredDays":"Please enter max credit days",
+                "openingBalance":"Please enter openning balance",
+                "underLedger":"Please select an underledger"
             }
-        },
-        "addPumpMaster": {
-            "pumpName": "অনুগ্রহ করে পাম্পের নাম লিখুন",
-            "nozzleNumber": "অনুগ্রহ করে অগ্রভাগের সংখ্যা লিখুন",
-            "nozzleName": "অনুগ্রহ করে অগ্রভাগের নাম লিখুন"
-        },
-        "tankMaster":{
-            "tankName":"অনুগ্রহ করে ট্যাঙ্কের নাম লিখুন",
-            "product":"অনুগ্রহ করে পণ্য লিখুন",
-            "tankDiameter":"অনুগ্রহ করে ট্যাংক এর ব্যাস লিখুন",
-            "tankLength":"অনুগ্রহ করে ট্যাঙ্কের দৈর্ঘ্য লিখুন",
-            "maxVolume":"সর্বোচ্চ ভলিউম লিখুন দয়া করে"
-        },
-        "shiftMaster":{
-            "shiftName":"অনুগ্রহ করে শিফটের নাম লিখুন",
-            "startTime":"অনুগ্রহ করে শুরুর সময় লিখুন",
-            "endTime":"শেষ সময় লিখুন দয়া করে"
-        },
-        "addAccountHead":{
-            "headName":"অনুগ্রহ করে মাথার নাম লিখুন",
-            "headCode":"অনুগ্রহ করে হেড কোড লিখুন",
-            "mainHead":"অনুগ্রহ করে প্রধান প্রধান নির্বাচন করুন"
-        },
-        "accountLedger":{
-            "ledgerName":"অনুগ্রহ করে অ্যাকাউন্ট লেজারের নাম লিখুন",
-            "ledgerCode":"অনুগ্রহ করে লেজার কোড লিখুন",
-            "accountHead":"অনুগ্রহ করে একাউন্ট হেড লিখুন",
-            "openingBalance":"অনুগ্রহ করে খোলার ব্যালেন্স লিখুন"
-        },
-        "bankAccount":{
-            "bankName":"অনুগ্রহ করে ব্যাঙ্কের নাম লিখুন",
-            "bankBranch":"অনুগ্রহ করে ব্যাঙ্ক শাখা প্রবেশ করুন",
-            "bankIfSc":"অনুগ্রহ করে ব্যাঙ্কের আইএফএসসি কোড লিখুন",
-            "accountNo":"অনুগ্রহ করে ব্যাঙ্ক অ্যাকাউন্ট নম্বর লিখুন",
-            "underLedger":"অনুগ্রহ করে একটি আন্ডার লেজার নির্বাচন করুন",
-            "openingBalance":"অনুগ্রহ করে খোলার ব্যালেন্স লিখুন"
-        },
-        "cardPos":{
-            "posName":"Please enter pos name",
-            "posProvider":"Please enter pos provider",
-            "linkBank":"Please select bank"
         }
     },
     "sideBarTexts": {
@@ -288,7 +325,8 @@
         "accountHead":"হিসাব প্রধান",
         "accountLedger":"অ্যাকাউন্ট লেজার",
         "bankAccounts":"ব্যাংক হিসাব",
-        "cardPos":"Card/Pos"
+        "cardPos":"Card/Pos",
+        "addCustomer":"Add customer"
     },
     "add": {
         "addUnitMaster": "আইটেম মাস্টার যোগ করুন",

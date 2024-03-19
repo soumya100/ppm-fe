@@ -77,6 +77,17 @@
             "posType":"Pos type",
             "linkBank":"Link Bank",
             "installationData":"Installation data"
+        },
+        "customer":{
+            "customerName":"Customer name",
+            "customerAddress":"Customer address",
+            "mobile":"Customer mobile",
+            "customerEmail":"Customer email",
+            "gstin":"Customer gstin",
+            "maxCredLimit":"Maximum credit limit",
+            "maxCredDays":"Maximum credit days",
+            "openingBalance":"Opening balance",
+            "underLedger":"Under ledger"
         }
     },
    "placeholders":{
@@ -136,6 +147,16 @@
         "cardPos":{
             "posName":"Enter pos name",
             "posProvider":"Enter pos provider"
+        },
+        "customer":{
+            "customerName": "Enter customer name",
+            "customerAddress":"Enter customer address",
+            "mobile":"Enter customer mobile number",
+            "customerEmail":"Enter customer email",
+            "gstin":"Enter GSTIN",
+            "maxCredLimit":"Enter max credit limit",
+            "maxCredDays":"Enter max credit days",
+            "openingBalance":"Enter opening balance"
         }
    },
    "rememberMe":"मुझे याद करो",
@@ -187,6 +208,13 @@
                 },
                 "openingBalance":"प्रारंभिक शेष शून्य से अधिक होना चाहिए",
                 "invalidDate":"कृपया एक वैध उद्घाटन तिथि दर्ज करें"
+            },
+            "customer":{
+                "email":"Please enter a valid email",
+                "maxCredLimit":"Max credit limit should be greater than zero",
+                "maxCredDays":"Max credit days should be greater than zero",
+                "openingBalance":"Opening balance should be greater than zero",
+                "mobileNo":"Please enter a valid mobile No"
             }
         },
         "requiredErrors":{
@@ -249,6 +277,15 @@
                 "posName":"Please enter pos name",
                 "posProvider":"Please enter pos provider",
                 "linkBank":"Please select bank"
+            },
+            "customer":{
+                "name":"Please enter customer name",
+                "address":"Please enter customer address",
+                "email":"Please enter customer email Id",
+                "maxCredLimit":"Please enter max credit limit",
+                "maxCredDays":"Please enter max credit days",
+                "openingBalance":"Please enter openning balance",
+                "underLedger":"Please select an underledger"
             }
         }
     },
@@ -295,7 +332,8 @@
         "accountHead":"खाता प्रमुख",
         "accountLedger":"खाता बही",
         "bankAccounts":"बैंक खाते",
-        "cardPos":"Card/Pos"
+        "cardPos":"Card/Pos",
+        "addCustomer":"Add customer"
     },
     "add":{
         "addUnitMaster":"यूनिट मास्टर जोड़ें",

@@ -78,6 +78,17 @@
             "posType":"Pos type",
             "linkBank":"Link Bank",
             "installationData":"Installation data"
+        },
+        "customer":{
+            "customerName":"Customer name",
+            "customerAddress":"Customer address",
+            "mobile":"Customer mobile",
+            "customerEmail":"Customer email",
+            "gstin":"Customer gstin",
+            "maxCredLimit":"Maximum credit limit",
+            "maxCredDays":"Maximum credit days",
+            "openingBalance":"Opening balance",
+            "underLedger":"Under ledger"
         }
     },
    "placeholders":{
@@ -137,6 +148,16 @@
         "cardPos":{
             "posName":"Enter pos name",
             "posProvider":"Enter pos provider"
+        },
+        "customer":{
+            "customerName": "Enter customer name",
+            "customerAddress":"Enter customer address",
+            "mobile":"Enter customer mobile number",
+            "customerEmail":"Enter customer email",
+            "gstin":"Enter GSTIN",
+            "maxCredLimit":"Enter max credit limit",
+            "maxCredDays":"Enter max credit days",
+            "openingBalance":"Enter opening balance"
         }
    },
    "rememberMe":"Remember me",
@@ -188,6 +209,13 @@
                 },
                 "openingBalance":"Opening balance should be greater than zero",
                 "invalidDate":"Please enter a valid opening date"
+            },
+            "customer":{
+                "email":"Please enter a valid email",
+                "maxCredLimit":"Max credit limit should be greater than zero",
+                "maxCredDays":"Max credit days should be greater than zero",
+                "openingBalance":"Opening balance should be greater than zero",
+                "mobileNo":"Please enter a valid mobile No"
             }
         },
         "requiredErrors":{
@@ -248,6 +276,15 @@
                 "posName":"Please enter pos name",
                 "posProvider":"Please enter pos provider",
                 "linkBank":"Please select bank"
+            },
+            "customer":{
+                "name":"Please enter customer name",
+                "address":"Please enter customer address",
+                "email":"Please enter customer email Id",
+                "maxCredLimit":"Please enter max credit limit",
+                "maxCredDays":"Please enter max credit days",
+                "openingBalance":"Please enter openning balance",
+                "underLedger":"Please select an underledger"
             }
         }
     },
@@ -295,7 +332,8 @@
         "accountHead":"Account head",
         "accountLedger":"Account Ledger",
         "bankAccounts":"Bank accounts",
-        "cardPos":"Card/Pos"
+        "cardPos":"Card/Pos",
+        "customer":"Customer"
     },
     "add":{
         "addUnitMaster":"Add unit",
@@ -308,7 +346,8 @@
         "accountHead":"Add account head",
         "accountLedger":"Add account ledger",
         "addBankAccount":"Add bank account",
-        "addCardPos":"Add Card/Pos"
+        "addCardPos":"Add Card/Pos",
+        "addCustomer":"Add customer"
     },
     "edit":{
         "editUnitMaster":"Edit unit",

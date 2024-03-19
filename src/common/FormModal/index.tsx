@@ -48,11 +48,11 @@ const FormModal: FC<FormModalCommon> = ({ dialogContent, handleAdd, handleClose,
         <DialogActions>
             <ButtonFieldInput handleClick={handleClose} name={text.buttonNames.cancel}
                 type={'button'}
-                variant={`outlined`} buttonextracls={` rounded-full capitalize`} />
+                variant={`outlined`} buttonextracls={`rounded-full capitalize`} />
             <ButtonFieldInput handleClick={handleAdd}
                 name={addTxt ?? text.buttonNames.add} variant={`outlined`}
                 buttonextracls={`rounded-full capitalize bg-green-500`} extraTextCls={`text-green-500`}
-                loading={loading}
+                loading={loading} disabled={loading}
                  />
         </DialogActions>
     </Dialog>

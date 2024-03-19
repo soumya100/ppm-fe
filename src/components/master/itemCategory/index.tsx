@@ -11,19 +11,19 @@ interface ItemCategoryProps {
   handleCloseModal(): void
   openAddItemModal: boolean
   AddItemCategoryFormik: any
-  handleEditData(data: any): void 
+  handleEditData(data: any): void
   loading: boolean
   postLoaders: boolean
   editData: any
   token: string
 }
 
-const ItemCategory: FC<ItemCategoryProps> = ({ handleCloseModal, handleOpenModal, 
+const ItemCategory: FC<ItemCategoryProps> = ({ handleCloseModal, handleOpenModal,
   openAddItemModal, AddItemCategoryFormik, handleEditData, loading, postLoaders, editData, token }) => {
-  
-  const ItemCategoryData= useSelector((state: any) => state.itemCategoryData?.itemCategoryData)
 
-  if(!token) return notFound()
+  const ItemCategoryData = useSelector((state: any) => state.itemCategoryData?.itemCategoryData)
+
+  if (!token) return notFound()
   return <Box className={`min-h-[90vh]`}>
     <TableCommon
       title={text.tableTitles.itemCategory}
@@ -32,10 +32,10 @@ const ItemCategory: FC<ItemCategoryProps> = ({ handleCloseModal, handleOpenModal
       titleCls='mb-5'
       addComponent={<ItemCategoryModal handleAdd={AddItemCategoryFormik.handleSubmit}
         handleClose={handleCloseModal} formik={AddItemCategoryFormik}
-        itemCategoryModalOpenState={openAddItemModal} 
-        loading={postLoaders } editData={editData} />}
+        itemCategoryModalOpenState={openAddItemModal}
+        loading={postLoaders} editData={editData} />}
       handleOpenButton={handleOpenModal}
-      tableComponent={<ItemCategoryTable itemDatas={ItemCategoryData} handleEditData={handleEditData} loading={loading}/>}
+      tableComponent={<ItemCategoryTable itemDatas={ItemCategoryData} handleEditData={handleEditData} loading={loading} />}
     />
   </Box>
 }

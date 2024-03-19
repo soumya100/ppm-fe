@@ -178,7 +178,7 @@ const TankMasterForm: FC<TankMasterProps> = ({ formik, openTankMasterDrawer, han
                         <ButtonFieldInput
                          name={editData && Object.keys(editData).length > 0 ? text.buttonNames.update : text.buttonNames.add}
                             buttonextracls={`rounded-full bg-blue-500 capitalize`}
-                            variant={`contained`} loading={loading}  
+                            variant={`contained`} loading={loading} disabled={loading}
                             />
                         <ButtonFieldInput name={text.buttonNames.cancel}
                             buttonextracls={`rounded-full bg-gray-400 capitalize`}

@@ -18,6 +18,7 @@ import NoContentPage from "./NoContentPage";
 import DatePickerField from "./FormFields/DatePickerField";
 import TimeRangePicker from "./FormFields/TimeRangePicker";
 import RadioGroupField from "./FormFields/RadioGroupField";
+import PhoneNumberInput from "./FormFields/PhoneNumberInput";
 
 export {
     FlexBetween,
@@ -38,5 +39,6 @@ export {
     NoContentPage,
     DatePickerField,
     TimeRangePicker,
-    RadioGroupField
+    RadioGroupField,
+    PhoneNumberInput
 }
