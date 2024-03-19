@@ -25,6 +25,9 @@ export const CardPosHooks = () => {
     //close drawer fucntion
     const handleCloseCardDrawer = () => {
         setOpenCardDrawer(false)
+        AddCardPosFormik.resetForm()
+        setInstallationDate(null)
+        setInstallationDateError(null)
     }
 
     //handle pos types 

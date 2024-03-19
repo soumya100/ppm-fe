@@ -15,10 +15,11 @@ interface CardPosFormProps {
     errMessage: string
     handlePosType(event?: React.ChangeEvent<HTMLInputElement>): void
     posType: string
+    postLoaders?: boolean
 }
 
 const CardPosForm: FC<CardPosFormProps> = ({ formik, handleCloseDrawer, openForm, date,
-    errMessage, handleDateChange, handleError, handlePosType, posType }) => {
+    errMessage, handleDateChange, handleError, handlePosType, posType, postLoaders }) => {
 
     const drawerWidth = 700
 
@@ -153,10 +154,10 @@ const CardPosForm: FC<CardPosFormProps> = ({ formik, handleCloseDrawer, openForm
                                     // editData && Object.keys(editData).length > 0 ? text.buttonNames.update :
                                     text.buttonNames.add}
                                 handleClick={
-                                    // date === null ? handleError : 
+                                    date === null ? handleError : 
                                     formik?.handleSubmit}
-                            // loading={postLoaders}
-                            // disabled={postLoaders}
+                            loading={postLoaders}
+                            disabled={postLoaders}
                             />
                             <ButtonFieldInput buttonextracls={`rounded-full bg-[#BDBDBD] text-black capitalize`}
                                 name={text.buttonNames.cancel} variant={'contained'} type={`button`}
