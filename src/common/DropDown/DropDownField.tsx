@@ -52,7 +52,7 @@ const DropDownField = (props: any) => {
                         {props?.selectOption?.map((item: any, idx: number) => (
                             <MenuItem
                                 key={idx}
-                                value={item.value ? item.value : props.placeholder}
+                                value={item.value}
                             // className={`w-max`}
                             >
                                 {props?.isTemplate ?

@@ -70,6 +70,13 @@
             "accountNo":"खाता नंबर",
             "openingBalance":"प्रारंभिक जमा",
             "itemType":"वस्तु का प्रकार"
+        },
+        "cardPos":{
+            "posName":"Pos Name",
+            "posProvider":"Pos provider",
+            "posType":"Pos type",
+            "linkBank":"Link Bank",
+            "installationData":"Installation data"
         }
     },
    "placeholders":{
@@ -125,6 +132,10 @@
             "bankIfsc":"बैंक ifsc दर्ज करें",
             "accountNo":"खाता संख्या दर्ज करें",
             "openingBalance":"आरंभिक शेष दर्ज करें"
+        },
+        "cardPos":{
+            "posName":"Enter pos name",
+            "posProvider":"Enter pos provider"
         }
    },
    "rememberMe":"मुझे याद करो",
@@ -233,6 +244,11 @@
                 "accountNo":"कृपया बैंक खाता संख्या दर्ज करें",
                 "underLedger":"कृपया एक अंडर लेजर का चयन करें",
                 "openingBalance":"कृपया आरंभिक शेष दर्ज करें"
+            },
+            "cardPos":{
+                "posName":"Please enter pos name",
+                "posProvider":"Please enter pos provider",
+                "linkBank":"Please select bank"
             }
         }
     },
@@ -278,7 +294,8 @@
         "shiftMaster":"शिफ्ट मास्टर",
         "accountHead":"खाता प्रमुख",
         "accountLedger":"खाता बही",
-        "bankAccounts":"बैंक खाते"
+        "bankAccounts":"बैंक खाते",
+        "cardPos":"Card/Pos"
     },
     "add":{
         "addUnitMaster":"यूनिट मास्टर जोड़ें",
@@ -289,7 +306,8 @@
         "addNozzle":"नोजल जोड़ें",
         "shiftMaster":"शिफ्ट मास्टर जोड़ें",
         "accountHead":"खाता प्रमुख जोड़ें",
-        "accountLedger":"खाता बही जोड़ें"
+        "accountLedger":"खाता बही जोड़ें",
+        "addCardPos":"Add Card/Pos"
     },
     "edit":{
         "editUnitMaster":"इकाई संपादित करें",

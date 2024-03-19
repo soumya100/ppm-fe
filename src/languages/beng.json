@@ -71,6 +71,13 @@
             "accountNo":"হিসাব নাম্বার",
             "openingBalance":"খোলার ব্যালেন্স",
             "underLedger":"খাতা অধীনে"
+        },
+        "cardPos":{
+            "posName":"Pos Name",
+            "posProvider":"Pos provider",
+            "posType":"Pos type",
+            "linkBank":"Link Bank",
+            "installationData":"Installation data"
         }
     },
     "placeholders": {
@@ -118,6 +125,10 @@
             "ledgerName":"খাতার নাম লিখুন",
             "ledgerCode":"লেজার কোড লিখুন",
             "openingBalance":"খোলার ব্যালেন্স লিখুন"
+        },
+        "cardPos":{
+            "posName":"Enter pos name",
+            "posProvider":"Enter pos provider"
         }
     },
     "rememberMe": "আমাকে মনে কর",
@@ -227,6 +238,11 @@
             "accountNo":"অনুগ্রহ করে ব্যাঙ্ক অ্যাকাউন্ট নম্বর লিখুন",
             "underLedger":"অনুগ্রহ করে একটি আন্ডার লেজার নির্বাচন করুন",
             "openingBalance":"অনুগ্রহ করে খোলার ব্যালেন্স লিখুন"
+        },
+        "cardPos":{
+            "posName":"Please enter pos name",
+            "posProvider":"Please enter pos provider",
+            "linkBank":"Please select bank"
         }
     },
     "sideBarTexts": {
@@ -271,7 +287,8 @@
         "shiftMaster":"শিফট মাস্টার",
         "accountHead":"হিসাব প্রধান",
         "accountLedger":"অ্যাকাউন্ট লেজার",
-        "bankAccounts":"ব্যাংক হিসাব"
+        "bankAccounts":"ব্যাংক হিসাব",
+        "cardPos":"Card/Pos"
     },
     "add": {
         "addUnitMaster": "আইটেম মাস্টার যোগ করুন",
@@ -282,7 +299,8 @@
         "addNozzle":"অগ্রভাগ যোগ করুন",
         "shiftMaster":"শিফট মাস্টার যোগ করুন",
         "accountHead":"অ্যাকাউন্ট প্রধান যোগ করুন",
-        "accountLedger":"অ্যাকাউন্ট লেজার যোগ করুন"
+        "accountLedger":"অ্যাকাউন্ট লেজার যোগ করুন",
+        "addCardPos":"Add Card/Pos"
     },
     "edit": {
         "editUnitMaster": "ইউনিট সম্পাদনা করুন",

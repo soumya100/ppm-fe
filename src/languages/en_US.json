@@ -71,6 +71,13 @@
             "accountNo":"Account no",
             "openingBalance":"Opening balance",
             "underLedger":"under ledger"
+        },
+        "cardPos":{
+            "posName":"Pos Name",
+            "posProvider":"Pos provider",
+            "posType":"Pos type",
+            "linkBank":"Link Bank",
+            "installationData":"Installation data"
         }
     },
    "placeholders":{
@@ -126,6 +133,10 @@
             "bankIfsc":"Enter bank ifsc",
             "accountNo":"Enter account no",
             "openingBalance":"Enter opening balance"
+        },
+        "cardPos":{
+            "posName":"Enter pos name",
+            "posProvider":"Enter pos provider"
         }
    },
    "rememberMe":"Remember me",
@@ -232,6 +243,11 @@
                 "accountNo":"Please enter bank account number",
                 "underLedger":"Please select an under ledger",
                 "openingBalance":"Please enter opening balance"
+            },
+            "cardPos":{
+                "posName":"Please enter pos name",
+                "posProvider":"Please enter pos provider",
+                "linkBank":"Please select bank"
             }
         }
     },
@@ -278,7 +294,8 @@
         "shiftMaster":"Shift Master",
         "accountHead":"Account head",
         "accountLedger":"Account Ledger",
-        "bankAccounts":"Bank accounts"
+        "bankAccounts":"Bank accounts",
+        "cardPos":"Card/Pos"
     },
     "add":{
         "addUnitMaster":"Add unit",
@@ -290,7 +307,8 @@
         "shiftMaster":"Add shift master",
         "accountHead":"Add account head",
         "accountLedger":"Add account ledger",
-        "addBankAccount":"Add bank account"
+        "addBankAccount":"Add bank account",
+        "addCardPos":"Add Card/Pos"
     },
     "edit":{
         "editUnitMaster":"Edit unit",
