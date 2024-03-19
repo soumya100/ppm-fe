@@ -39,7 +39,7 @@ const ShiftMasterTable: FC<ShiftMasterTableProps> = ({handleEditData, loading, s
                 {data.Shift_Name}
               </TableCell>
               <TableCell component="th" scope="row" align='center'>
-               {data.Shift_End_Time} - {data.Shift_End_Time}
+               {data.Shift_Start_Time} - {data.Shift_End_Time}
               </TableCell>
               <TableCell component="th" scope="row" align='right'>
                 <ButtonFieldInput name={`edit`} buttonextracls={`capitalize`}
