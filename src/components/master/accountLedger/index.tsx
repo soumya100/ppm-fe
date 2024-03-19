@@ -6,6 +6,7 @@ import AccountLedgerForm from './AccountLedgerForm'
 import AccountLedgerTable from './AccountLedgerTable'
 import dayjs, { Dayjs } from 'dayjs'
 import { useSelector } from 'react-redux'
+import { notFound } from 'next/navigation'
 
 interface AccountLedgerProps {
   loader?: boolean
@@ -20,11 +21,12 @@ interface AccountLedgerProps {
   postLoaders: boolean
   editAccountLedger(data: any): void
   editData: any
+  token: string
 }
 
 const AccountLedger: FC<AccountLedgerProps> = ({ accountLedgerFormik,
   handleCloseDrawer, handleOpenDrawer, openAccountLedgerForm, loader, handleOpeningDate,
-  handleOpeningDateError, editAccountLedger,
+  handleOpeningDateError, editAccountLedger, token,
   openingDate, errorMessage, postLoaders, editData }) => {
 
   const accountLedgerData = useSelector((state: any) => state.accountLedgerData?.accountLedgerData)
@@ -35,6 +37,7 @@ const AccountLedger: FC<AccountLedgerProps> = ({ accountLedgerFormik,
     }
   })
 
+  if(!token) return notFound()
   return <>
     <Box className={`min-h-[90vh]`}>
       <TableCommon

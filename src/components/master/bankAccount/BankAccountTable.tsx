@@ -6,9 +6,10 @@ import { FC } from 'react'
 interface BankAccountTableProps {
   loader: boolean
   bankAccountData: any
+  handleEditData(data: any): void
 }
 
-const BankAccountTable: FC<BankAccountTableProps> = ({loader, bankAccountData}) => {
+const BankAccountTable: FC<BankAccountTableProps> = ({loader, bankAccountData, handleEditData}) => {
     const headerCls=`text-white font-extrabold text-md`
   return  <TableContainer component={Paper}>
   <Table aria-label="simple table">
@@ -51,7 +52,7 @@ const BankAccountTable: FC<BankAccountTableProps> = ({loader, bankAccountData}) 
           <TableCell component="th" scope="row" align='right'>
             <ButtonFieldInput name={`edit`} buttonextracls={`capitalize`} 
             variant={`outlined`}
-            startIcon={<Edit />} handleClick={()=>{`edited`}}/>
+            startIcon={<Edit />} handleClick={()=>handleEditData(data)}/>
           </TableCell>
         </TableRow>
       ))

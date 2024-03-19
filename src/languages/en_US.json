@@ -70,7 +70,7 @@
             "bankIfsc":"Bank ifsc",
             "accountNo":"Account no",
             "openingBalance":"Opening balance",
-            "itemType":"Item type"
+            "underLedger":"under ledger"
         }
     },
    "placeholders":{
@@ -298,7 +298,8 @@
         "editItemMaster":"Edit item",
         "editTankMaster":"Edit tank",
         "editAccoutnHead":"Edit account head",
-        "editAccountLedger":"Edit account ledger"
+        "editAccountLedger":"Edit account ledger",
+        "editBankAccount":"Edit bank account"
     },
     "addMsg": {
         "unitmaster":"To add unit, please enter your unit here",

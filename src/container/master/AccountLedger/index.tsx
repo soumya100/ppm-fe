@@ -32,6 +32,7 @@ const AccountLedgerContainer = () => {
       postLoaders={postLoaders}
       editAccountLedger={editAccountLedger}
       editData={editData}
+      token={token}
     />
   )
 }

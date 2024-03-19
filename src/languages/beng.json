@@ -65,12 +65,12 @@
             "openingDate":"খোলার তারিখ"
         },
         "addBankAccount":{
-            "bankName":"Bank name",
-            "bankBranch":"Bank branch",
-            "bankIfsc":"Bank ifsc",
-            "accountNo":"Account no",
-            "openingBalance":"Opening balance",
-            "itemType":"ItemType"
+            "bankName":"ব্যাংকের নাম",
+            "bankBranch":"ব্যাংকের শাখা",
+            "bankIfsc":"ব্যাংক আইএফএসসি",
+            "accountNo":"হিসাব নাম্বার",
+            "openingBalance":"খোলার ব্যালেন্স",
+            "underLedger":"খাতা অধীনে"
         }
     },
     "placeholders": {
@@ -290,7 +290,8 @@
         "editItemMaster": "আইটেম সম্পাদনা করুন",
         "editTankMaster":"ট্যাঙ্ক সম্পাদনা করুন",
         "editAccoutnHead":"একাউন্ট হেড এডিট করুন",
-        "editAccountLedger":"অ্যাকাউন্ট লেজার সম্পাদনা করুন"
+        "editAccountLedger":"অ্যাকাউন্ট লেজার সম্পাদনা করুন",
+        "editBankAccount":"ব্যাঙ্ক অ্যাকাউন্ট সম্পাদনা করুন"
     },
     "addMsg": {
         "unitmaster": "ইউনিট যোগ করতে, এখানে আপনার ইউনিট লিখুন",

@@ -9,10 +9,11 @@ const BankAccountContainer = () => {
         openBankAccountDrawer,
         handleOpenBankAccountDrawer,
         handleCloseBankAccountDrawer,
-        handleOpeningDate,
-        openingDate,
-        handleOpeningDateError,
-        errorMessage, orgId, token, getBankAccountApiCall } = BankAccountHooks()
+        handleOpeningDate, loader,
+        openingDate, handleEditData,
+        handleOpeningDateError, editData,
+        errorMessage, orgId, postLoaders,
+        token, getBankAccountApiCall } = BankAccountHooks()
 
     const { getAccountLedgerApiCall } = AccountLedgerHooks()
 
@@ -31,6 +32,10 @@ const BankAccountContainer = () => {
         handleOpeningDateError={handleOpeningDateError}
         errorMessage={errorMessage}
         token={token}
+        handleEditData={handleEditData}
+        editData={editData}
+        loader={loader}
+        postLoader={postLoaders}
     />
     )
 }

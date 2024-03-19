@@ -6,6 +6,7 @@ import text from '@/languages/en_US.json'
 import BankAccountForm from './BankAccountForm'
 import BankAccountTable from './BankAccountTable'
 import { useSelector } from 'react-redux'
+import { notFound } from 'next/navigation'
 
 interface BankAccountProps {
     AddBankAccountFormik: any
@@ -17,18 +18,24 @@ interface BankAccountProps {
     handleOpeningDateError(): void
     errorMessage: string
     token: string
+    handleEditData(data: any): void
+    editData: any
+    loader: boolean
+    postLoader: boolean
 }
 
 const BankAccount: FC<BankAccountProps> = ({ AddBankAccountFormik, errorMessage, handleCloseBankAccountDrawer, handleOpenBankAccountDrawer,
-    handleOpeningDate, handleOpeningDateError, openBankAccountDrawer, openingDate
+    handleOpeningDate, handleOpeningDateError, openBankAccountDrawer, openingDate, handleEditData, editData, loader, postLoader,token
 }) => {
     const accountLedgerData = useSelector((state: any) => state.accountLedgerData?.accountLedgerData)?.map((ledgerData: any) => {
         return {
-          name:ledgerData.Acct_Name,
-          value: ledgerData.Id
+            name: ledgerData.Acct_Name,
+            value: ledgerData.Id
         }
-      })
-      const bankAccountData = useSelector((state: any) => state.bankAccountData?.bankAccountsData)
+    })
+    const bankAccountData = useSelector((state: any) => state.bankAccountData?.bankAccountsData)
+
+    if(!token) return notFound()
     return <Box className={`min-h-[90vh]`}>
         <TableCommon
             title={text.tableTitles.bankAccounts}
@@ -42,11 +49,12 @@ const BankAccount: FC<BankAccountProps> = ({ AddBankAccountFormik, errorMessage,
                 openingDate={openingDate}
                 handleOpeningDateError={handleOpeningDateError}
                 errorMessage={errorMessage}
-                loading={false}
+                loading={postLoader}
+                editData={editData}
             />}
             handleOpenButton={handleOpenBankAccountDrawer}
             tableComponent={<BankAccountTable bankAccountData={bankAccountData}
-            loader={false}
+                loader={loader} handleEditData={handleEditData}
             />}
         />
     </Box>

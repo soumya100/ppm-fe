@@ -15,9 +15,10 @@ interface BankAccountFormProps {
     formik: any
     loading: boolean
     underLedgerDropDownValue: any
+    editData: any
 }
 
-const BankAccountForm: FC<BankAccountFormProps> = ({ errorMessage, handleCloseBankAccountDrawer,
+const BankAccountForm: FC<BankAccountFormProps> = ({ errorMessage, handleCloseBankAccountDrawer, editData,
     handleOpeningDate, handleOpeningDateError, openBankAccountDrawer, openingDate, formik, loading, underLedgerDropDownValue
 }) => {
 
@@ -37,7 +38,7 @@ const BankAccountForm: FC<BankAccountFormProps> = ({ errorMessage, handleCloseBa
                 <KeyboardArrowLeft />
             </IconButton>
             <Typography component={`p`} className={`!font-bold text-2xl`}>
-                {text.add.addBankAccount}
+                {editData && Object.keys(editData).length > 0 ? text.edit.editBankAccount : text.add.addBankAccount}
             </Typography>
         </FlexItemCenter>
         <Divider />
@@ -135,20 +136,20 @@ const BankAccountForm: FC<BankAccountFormProps> = ({ errorMessage, handleCloseBa
                     </Grid>
                     <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                         <DropDownField
-                            name={`itemType`}
-                            dropdownLabel={text.label.addBankAccount.itemType}
-                            // placeholder={text.placeholders.addBankAccount.itemType}
+                            name={`underLedger`}
+                            dropdownLabel={text.label.addBankAccount.underLedger}
+                            // placeholder={text.placeholders.addBankAccount.underLedger}
                             color={`success`}
-                            option={formik?.values?.itemType}
+                            option={formik?.values?.underLedger}
                             handleChange={formik?.handleChange}
                             handleBlur={formik?.handleBlur}
                             selectOption={underLedgerDropDownValue}
                             error={
-                                formik?.touched?.itemType &&
-                                Boolean(formik?.errors?.itemType)
+                                formik?.touched?.underLedger &&
+                                Boolean(formik?.errors?.underLedger)
                             }
                             errorText={
-                                formik?.touched?.itemType && formik?.errors?.itemType
+                                formik?.touched?.underLedger && formik?.errors?.underLedger
                             }
                             fullWidthState
                         />
@@ -201,8 +202,11 @@ const BankAccountForm: FC<BankAccountFormProps> = ({ errorMessage, handleCloseBa
                         <FlexBetween className={`w-full items-center flex-row-reverse`}>
                             <ButtonFieldInput buttonextracls={`rounded-full bg-[#032974] text-white capitalize`}
                                 variant={'contained'}
-                                name={text.buttonNames.add}
+                                name={editData && Object.keys(editData).length > 0 ?
+                                    text.buttonNames.update :
+                                    text.buttonNames.add}
                                 loading={loading}
+                                disabled={loading}
                             />
                             <ButtonFieldInput buttonextracls={`rounded-full bg-[#BDBDBD] text-black capitalize`}
                                 name={text.buttonNames.cancel} variant={'contained'} type={`button`}

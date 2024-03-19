@@ -297,7 +297,8 @@
         "editItemMaster":"संपादित आइटम",
         "editTankMaster":"टैंक संपादित करें",
         "editAccoutnHead":"खाता शीर्ष संपादित करें",
-        "editAccountLedger":"खाता बही संपादित करें"
+        "editAccountLedger":"खाता बही संपादित करें",
+        "editBankAccount":"बैंक खाता संपादित करें"
     },
     "addMsg": {
         "unitmaster":"यूनिट जोड़ने के लिए, कृपया यहां अपनी यूनिट दर्ज करें",
