@@ -86,7 +86,7 @@ export const ItemCategoryHooks = () => {
         }
         postItemCategoryAPI(bodyData)
             .then((res: any) => {
-                console.log(res, '* res')
+                // console.log(res, '* res')
                 if (res.Message === 'Catagary Create Successful') {
                     setOpenAddItemModal(false)
                     getItemCategoryApiCall(orgId)

@@ -1,7 +1,7 @@
 import { ButtonFieldInput, DatePickerField, DropDownField, FlexBetween, FlexItemCenter, TextFieldInput } from '@/common'
 import { KeyboardArrowLeft } from '@mui/icons-material'
 import { Container, Divider, Drawer, Grid, IconButton, Typography } from '@mui/material'
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 import text from '@/languages/en_US.json'
 import { Dayjs } from 'dayjs'
 
@@ -22,17 +22,17 @@ const AccountLedgerForm: FC<AccountLedgerFormProps> = ({ formik, handleCloseDraw
   date, errMessage, handleDateChange, handleError, accountHeadDropdownValue, postLoaders, editData }) => {
 
   const drawerWidth = 700
-  const unit = [
-    {
-      name: 'data',
-      value: 'data'
-    }
-  ]
+  // const unit = [
+  //   {
+  //     name: 'data',
+  //     value: 'data'
+  //   }
+  // ]
 
-  useEffect(() => {
-    console.log(date, '* date')
-    console.log(errMessage, '* errMsg')
-  }, [date, errMessage])
+  // useEffect(() => {
+  //   console.log(date, '* date')
+  //   console.log(errMessage, '* errMsg')
+  // }, [date, errMessage])
   return <Drawer
     anchor={`right`}
     open={openForm}

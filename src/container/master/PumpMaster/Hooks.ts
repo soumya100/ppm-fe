@@ -61,7 +61,7 @@ export const PumpMasterHooks = () => {
             //     .required(text.errors.requiredErrors.addPumpMaster.nozzleName)
         }),
         onSubmit: (values, { resetForm }) => {
-            console.log(values, '* values')
+            // console.log(values, '* values')
             setPumpData({
                 nozzleNumber: values.nozzleNumber,
                 pumpName: values.pumpName

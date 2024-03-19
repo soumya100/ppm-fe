@@ -43,7 +43,7 @@ export const ShiftMasterHooks=()=>{
         }
         else{
             setTimeRangeError(newError || [null, null])
-            console.log(newError)
+            // console.log(newError)
         }
    }
 
@@ -126,7 +126,7 @@ export const ShiftMasterHooks=()=>{
             Shift_End: item.endTime,
             org_id:orgId
         }
-        console.table(bodyData)
+        // console.table(bodyData)
         postShiftMasterAPI(bodyData)
             .then((res: any) => {
                 console.log(res)

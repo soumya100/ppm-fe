@@ -27,7 +27,7 @@ export const AccountLedgerHooks = () => {
     const [openingDate, setOpeningDate] = useState<Dayjs | null>(null)
     const [openingDateError, setOpeningDateError] = useState<DateValidationError | null>(null)
 
-    console.log(openingDate, '* date')
+    // console.log(openingDate, '* date')
 /**************************************** Drawer functionalities *************************************************************/
     //handle account ledger form open
     const handleOpenAccountLedger = () => {
@@ -82,7 +82,7 @@ export const AccountLedgerHooks = () => {
 /************************************* Edit functionalities *******************************************/
 
 const editAccountLedger =(data: any)=>{
-    console.log(data)
+    // console.log(data)
     setEditData(data)
     setOpenAccountLedger(true)
     setOpeningDate(dayjs(data.Open_Date))
@@ -161,7 +161,7 @@ const editAccountLedger =(data: any)=>{
         }
         postAccountLedgerAPI(bodyData)
             .then((res: any) => {
-                console.log(res, '* res')
+                // console.log(res, '* res')
                 if (res.Message==='Account Ledger Add Successful') {
                     handleCloseAccountLedger()
                     getAccountLedgerApiCall(orgId)

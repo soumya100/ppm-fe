@@ -21,7 +21,7 @@ export const AccountHeadHooks = () => {
 
     //edit data function
     const editAccountHead = (data: any) => {
-        console.table(data)
+        // console.table(data)
         setEditData(data)
     }
 
@@ -94,7 +94,7 @@ export const AccountHeadHooks = () => {
         }
         postAccountHeadAPI(bodyData)
             .then((res: any) => {
-                console.log(res)
+                // console.log(res)
                 if (res.Message === "Account Head Add Successful") {
                     getAccountHeadApiCall(orgId)
                     toast.success('Account head created successfully')
@@ -126,7 +126,7 @@ export const AccountHeadHooks = () => {
         }
         updateAccountHeadAPI(bodyData)
             .then((res: any) => {
-                console.log(res)
+                // console.log(res)
                 if (res.Message === "Account Head Update Successful") {
                     getAccountHeadApiCall(orgId)
                     toast.success('Account head updated successfully')

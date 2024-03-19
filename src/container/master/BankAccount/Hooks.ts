@@ -97,7 +97,7 @@ export const BankAccountHooks = () => {
                 .required(text.errors.requiredErrors.bankAccount.openingBalance)
         }),
         onSubmit: (values) => {
-            console.log(values)
+            // console.log(values)
         }
     })
 
