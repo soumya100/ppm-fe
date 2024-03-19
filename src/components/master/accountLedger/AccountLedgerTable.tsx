@@ -6,10 +6,10 @@ import { FC } from 'react'
 interface AccountLedgerTableProps {
   loading?: boolean
   AccountLedgerData: any
-
+  editAccountLedger(data: any): void
 }
 
-const AccountLedgerTable: FC<AccountLedgerTableProps> = ({AccountLedgerData, loading}) => {
+const AccountLedgerTable: FC<AccountLedgerTableProps> = ({AccountLedgerData, loading, editAccountLedger}) => {
   const headerCls = `text-white font-extrabold text-md`
   return  <TableContainer component={Paper}>
   <Table aria-label="simple table">
@@ -44,7 +44,7 @@ const AccountLedgerTable: FC<AccountLedgerTableProps> = ({AccountLedgerData, loa
               <TableCell component="th" scope="row" align='right'>
                 <ButtonFieldInput name={`edit`} buttonextracls={`capitalize`}
                   variant={`outlined`}
-                  startIcon={<Edit />} handleClick={() =>{}} />
+                  startIcon={<Edit />} handleClick={() => editAccountLedger(data)} />
               </TableCell>
             </TableRow>
           ))

@@ -297,7 +297,8 @@
         "editItemCategory":"Edit item Category",
         "editItemMaster":"Edit item",
         "editTankMaster":"Edit tank",
-        "editAccoutnHead":"Edit account head"
+        "editAccoutnHead":"Edit account head",
+        "editAccountLedger":"Edit account ledger"
     },
     "addMsg": {
         "unitmaster":"To add unit, please enter your unit here",

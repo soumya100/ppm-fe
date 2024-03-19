@@ -8,8 +8,9 @@ const AccountLedgerContainer = () => {
   const { AddAccountLedgerFormik, handleCloseAccountLedger,
     handleOpenAccountLedger,
     openAccountLedger, handleOpeningDate,
-    handleOpeningDateError,
-    openingDate, errorMessage, getAccountLedgerApiCall, orgId, token,loader, postLoaders } = AccountLedgerHooks()
+    handleOpeningDateError, editData,
+    openingDate, errorMessage, getAccountLedgerApiCall, 
+    orgId, token,loader, postLoaders, editAccountLedger } = AccountLedgerHooks()
 
     const {getAccountHeadApiCall}=AccountHeadHooks()
     useEffect(()=>{
@@ -29,6 +30,8 @@ const AccountLedgerContainer = () => {
       errorMessage={errorMessage}
       loader={loader}
       postLoaders={postLoaders}
+      editAccountLedger={editAccountLedger}
+      editData={editData}
     />
   )
 }

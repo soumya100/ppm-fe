@@ -15,10 +15,11 @@ interface AccountLedgerFormProps {
   errMessage: string
   accountHeadDropdownValue: any
   postLoaders: boolean
+  editData: any
 }
 
 const AccountLedgerForm: FC<AccountLedgerFormProps> = ({ formik, handleCloseDrawer, openForm,
-  date, errMessage, handleDateChange, handleError, accountHeadDropdownValue, postLoaders }) => {
+  date, errMessage, handleDateChange, handleError, accountHeadDropdownValue, postLoaders, editData }) => {
 
   const drawerWidth = 700
   const unit = [
@@ -47,7 +48,7 @@ const AccountLedgerForm: FC<AccountLedgerFormProps> = ({ formik, handleCloseDraw
         <KeyboardArrowLeft />
       </IconButton>
       <Typography component={`p`} className={`!font-bold text-2xl`}>
-        {text.add.accountLedger}
+        {editData && Object.keys(editData).length > 0 ? text.edit.editAccountLedger : text.add.accountLedger}
       </Typography>
     </FlexItemCenter>
     <Divider />
@@ -170,7 +171,7 @@ const AccountLedgerForm: FC<AccountLedgerFormProps> = ({ formik, handleCloseDraw
             <FlexBetween className={`w-full items-center flex-row-reverse`}>
               <ButtonFieldInput buttonextracls={`rounded-full bg-[#032974] text-white capitalize`}
                 variant={'contained'}
-                name={text.buttonNames.add}
+                name={editData && Object.keys(editData).length > 0 ? text.buttonNames.update : text.buttonNames.add}
                 handleClick={date === null ? handleError : formik?.handleSubmit}
               loading={postLoaders}
               disabled={postLoaders}

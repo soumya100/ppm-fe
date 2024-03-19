@@ -7,7 +7,7 @@ import { DateValidationError } from "@mui/x-date-pickers"
 import { useDispatch } from "react-redux"
 import toast from "react-hot-toast"
 import { getAccountLedgerData } from "./AccountLedgerReducer"
-import { getAccountLedgerApi, postAccountLedgerAPI } from "./AccountLedgerApis"
+import { getAccountLedgerApi, postAccountLedgerAPI, updateAccountLedgerAPI } from "./AccountLedgerApis"
 import getSessionStorageData from "@/utils/getSessionStorageData"
 
 export const AccountLedgerHooks = () => {
@@ -21,10 +21,14 @@ export const AccountLedgerHooks = () => {
     const [openAccountLedger, setOpenAccountLedger] = useState<boolean>(false)
     const [loader, setLoader] = useState<boolean>(false)
     const[postLoaders, setPostLoaders]=useState<boolean>(false)
+    const[editData, setEditData]=useState<any>(null)
+
     //date field state
     const [openingDate, setOpeningDate] = useState<Dayjs | null>(null)
     const [openingDateError, setOpeningDateError] = useState<DateValidationError | null>(null)
 
+    console.log(openingDate, '* date')
+/**************************************** Drawer functionalities *************************************************************/
     //handle account ledger form open
     const handleOpenAccountLedger = () => {
         setOpenAccountLedger(true)
@@ -36,9 +40,11 @@ export const AccountLedgerHooks = () => {
         AddAccountLedgerFormik.resetForm()
         setOpeningDate(null)
         setOpeningDateError(null)
+        setEditData(null)
     }
+/******************************************** Drawer functionalities ends ***************************************************/
 
-
+/*******************************************  Date field functionalities ***************************************************/
     //handle opening date 
     const handleOpeningDate = (newValue?: Dayjs) => {
         setOpeningDate(newValue || null)
@@ -71,14 +77,28 @@ export const AccountLedgerHooks = () => {
         }
     }, [openingDateError]);
 
-    // item category add formik
+/************************************** Date field functionalities ends *****************************************************/
+
+/************************************* Edit functionalities *******************************************/
+
+const editAccountLedger =(data: any)=>{
+    console.log(data)
+    setEditData(data)
+    setOpenAccountLedger(true)
+    setOpeningDate(dayjs(data.Open_Date))
+}
+
+/************************************* Edit functionality ends **************************************/
+
+/************************************** Formik starts********************************* */
+// item category add formik
     const AddAccountLedgerFormik = useFormik({
         enableReinitialize: true,
         initialValues: {
-            ledgerName: '',
-            ledgerCode: 0,
-            accountHead: '',
-            openingBalance: 0
+            ledgerName: editData && Object.keys(editData).length > 0 ? editData.Acct_Name :  '',
+            ledgerCode:editData && Object.keys(editData).length > 0 ? editData.Account_Code :  0,
+            accountHead:editData && Object.keys(editData).length > 0 ? editData.Acct_Head : '',
+            openingBalance:editData && Object.keys(editData).length > 0 ? editData.Open_Bal : 0
         },
         validationSchema: Yup.object().shape({
             ledgerName: Yup.string()
@@ -96,14 +116,20 @@ export const AccountLedgerHooks = () => {
         onSubmit: (values) => {
             if (openingDate !== null) {
               const data={ ...values, openingDate: dayjs(openingDate).format('YYYY-MM-DD') }
-              postAccountLedgerApiCall(orgId, data)
+              if(editData && Object.keys(editData).length > 0){
+                editAccountLedgerApiCall(editData.Id, orgId, data)
+              }else{
+                  postAccountLedgerApiCall(orgId, data)
+              }
                 // setOpeningDate(null)
             } else {
                 setOpeningDateError('invalidDate')
             }
         }
     })
+/********************************************* Formik ends ************************************************************/
 
+/********************************************* Api calls starts *****************************************************/
     //get api call for account ledger
     const getAccountLedgerApiCall = async (id: number) => {
         setLoader(true)
@@ -152,6 +178,35 @@ export const AccountLedgerHooks = () => {
             })
     }
 
+    //edit api call for account ledger
+    const editAccountLedgerApiCall= async (acctId: number, orgId: number, item: any)=>{
+            setPostLoaders(true)
+            let bodyData = {
+                Acct_Id:acctId,
+                Acct_Name:item.ledgerName,
+                Acct_Code:item.ledgerCode,
+                Acct_Head:item.accountHead,
+                Open_Bal:item.openingBalance,
+                Open_Date:item.openingDate,
+                org_id: orgId
+            }
+        updateAccountLedgerAPI(bodyData).then((res: any)=>{
+            if(res.Message === 'Account Ledger Update Successful'){
+                getAccountLedgerApiCall(orgId)
+                toast.success('Account ledger updated successfully')
+                handleCloseAccountLedger()
+                setEditData(null)
+            }else{
+                toast.error(res.Message)   
+            }
+        }).catch((err)=>{
+            toast.error('Something went wrong')
+            console.log(err)
+        }).finally(()=>{
+            setPostLoaders(false)
+        })
+    }
+
     return {
         token,
         orgId,
@@ -165,6 +220,8 @@ export const AccountLedgerHooks = () => {
         handleOpeningDateError,
         openingDate,
         getAccountLedgerApiCall,
-        postLoaders
+        postLoaders,
+        editAccountLedger,
+        editData
     }
 }

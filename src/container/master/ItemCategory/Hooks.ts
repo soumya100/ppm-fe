@@ -13,13 +13,13 @@ export const ItemCategoryHooks = () => {
     const dispatch = useDispatch()
     const [loading, setLoading] = useState(false)
     const [postLoaders, setPostLoaders] = useState(false)
-    const [editData, setEditData]=useState<any>(null)
+    const [editData, setEditData] = useState<any>(null)
     const [openAddItemModal, setOpenAddItemModal] = useState(false)
 
     const orgId = getSessionStorageData('orgId')
-    
+
     //edit functionality
-    const handleEditData=(data: any)=>{
+    const handleEditData = (data: any) => {
         setOpenAddItemModal(true)
         setEditData(data)
     }
@@ -29,7 +29,7 @@ export const ItemCategoryHooks = () => {
     const AddItemCategoryFormik = useFormik({
         enableReinitialize: true,
         initialValues: {
-            itemCategory: editData && Object.keys(editData)?.length > 0 ? editData.Catagary_Name :  ''
+            itemCategory: editData && Object.keys(editData)?.length > 0 ? editData.Catagary_Name : ''
         },
         validationSchema: Yup.object().shape({
             itemCategory: Yup.string()
@@ -37,13 +37,12 @@ export const ItemCategoryHooks = () => {
 
         }),
         onSubmit: (values, { resetForm }) => {
-            if(editData && Object.keys(editData)?.length > 0)
-            {
+            if (editData && Object.keys(editData)?.length > 0) {
                 updateItemCategoryApiCall(editData.Id, values, resetForm)
-            }else{
+            } else {
                 postItemCategoryApiCall(values, resetForm)
             }
-            
+
         }
     })
 
@@ -63,17 +62,17 @@ export const ItemCategoryHooks = () => {
     //get api call for item category
     const getItemCategoryApiCall = async (id: number) => {
         setLoading(true)
-        getItemCategoryDataAPI(id).then((res: any)=>{
+        getItemCategoryDataAPI(id).then((res: any) => {
             if (res.messsage === 'Data Found') {
                 dispatch(getItemCategoryData(res.Data))
             } else {
                 dispatch(getItemCategoryData([]))
             }
-        }).catch((err)=>{
+        }).catch((err) => {
             console.log(err)
             toast.error('Something went wrong')
             dispatch(getItemCategoryData([]))
-        }).finally(()=>{
+        }).finally(() => {
             setLoading(false)
         })
     }
@@ -102,7 +101,7 @@ export const ItemCategoryHooks = () => {
                 console.error(err)
                 toast.error('Something went wrong')
                 setPostLoaders(false)
-            }).finally(()=>{
+            }).finally(() => {
                 setPostLoaders(false)
             })
     }
@@ -115,23 +114,23 @@ export const ItemCategoryHooks = () => {
             cat_name: item.itemCategory,
             org_id: orgId,
         }
-    updateItemCategoryAPI(bodyData).then((res: any)=>{
-        if(res.Message === 'Catagary Update Successful'){
-            getItemCategoryApiCall(orgId)
-            toast.success('Item category edited successfully')
-            handleCloseModal()
-            setEditData(null)
-            resetForm()
-        }else{
-            toast.error(res.Message)
-            
-        }
-    }).catch((err)=>{
-        toast.error('Something went wrong')
-        console.log(err)
-    }).finally(()=>{
-        setPostLoaders(false)
-    })
+        updateItemCategoryAPI(bodyData).then((res: any) => {
+            if (res.Message === 'Catagary Update Successful') {
+                getItemCategoryApiCall(orgId)
+                toast.success('Item category edited successfully')
+                handleCloseModal()
+                setEditData(null)
+                resetForm()
+            } else {
+                toast.error(res.Message)
+
+            }
+        }).catch((err) => {
+            toast.error('Something went wrong')
+            console.log(err)
+        }).finally(() => {
+            setPostLoaders(false)
+        })
     }
 
     return {

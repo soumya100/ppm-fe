@@ -20,6 +20,7 @@ export const endPoints={
     getAccountHead:(id: number)=>`${createApi}master/GetAcctHead/${id}`,
     getAccountLedger:(id: number)=>`${createApi}master/GetAcctLedg/${id}`,
     postAccountLedger:`${createApi}master/AddAcctLedg`,
+    updateAccountLedger:`${createApi}master/UpdateAcctLedg`,
     postAccountHead:`${createApi}master/AddAcctHead`,
     updateAccountHead:`${createApi}master/UpdateAcctHead`,
     getPumpList:(id: number)=>`${createApi}master/GetPumpList/${id}`,

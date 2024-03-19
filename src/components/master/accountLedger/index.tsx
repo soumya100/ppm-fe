@@ -18,12 +18,14 @@ interface AccountLedgerProps {
   openingDate: Dayjs | null
   errorMessage: string
   postLoaders: boolean
+  editAccountLedger(data: any): void
+  editData: any
 }
 
 const AccountLedger: FC<AccountLedgerProps> = ({ accountLedgerFormik,
   handleCloseDrawer, handleOpenDrawer, openAccountLedgerForm, loader, handleOpeningDate,
-  handleOpeningDateError,
-  openingDate, errorMessage, postLoaders }) => {
+  handleOpeningDateError, editAccountLedger,
+  openingDate, errorMessage, postLoaders, editData }) => {
 
   const accountLedgerData = useSelector((state: any) => state.accountLedgerData?.accountLedgerData)
   const accountHeadData = useSelector((state: any) => state.accountHeadData?.accountHeadData)?.map((headData: any) => {
@@ -48,9 +50,10 @@ const AccountLedger: FC<AccountLedgerProps> = ({ accountLedgerFormik,
           handleError={handleOpeningDateError}
           accountHeadDropdownValue={accountHeadData}
           postLoaders={postLoaders}
+          editData={editData}
         />}
         handleOpenButton={handleOpenDrawer}
-        tableComponent={<AccountLedgerTable AccountLedgerData={accountLedgerData} loading={loader} />}
+        tableComponent={<AccountLedgerTable AccountLedgerData={accountLedgerData} loading={loader} editAccountLedger={editAccountLedger}/>}
       />
     </Box>
   </>
