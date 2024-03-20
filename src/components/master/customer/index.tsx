@@ -15,10 +15,12 @@ interface CustomerProps {
   customerMobile: string
   handleMobileChange(numebr: string): void
   token: string
+  loader: boolean
+  handleEditData(data: any): void
 }
 
 const Customer: FC<CustomerProps> = ({AddCustomerFormik, handleCloseCustomerDrawer, customerDrawerOpen, handleMobileChange, 
-  handleOpenCustomerDrawer, customerMobile, token}) => {
+  handleOpenCustomerDrawer, customerMobile, token, loader, handleEditData}) => {
 
     const accountLedgerData = useSelector((state: any) => state.accountLedgerData?.accountLedgerData)?.map((ledgerData: any) => {
       return {
@@ -26,6 +28,10 @@ const Customer: FC<CustomerProps> = ({AddCustomerFormik, handleCloseCustomerDraw
           value: ledgerData.Id
       }
   })
+
+  const customerData = useSelector((state: any) => state.customer?.CustomerData)
+
+
 
   if(!token) return notFound()
 
@@ -43,8 +49,9 @@ const Customer: FC<CustomerProps> = ({AddCustomerFormik, handleCloseCustomerDraw
     // editData={editData}
     />}
     handleOpenButton={handleOpenCustomerDrawer}
-    tableComponent={<CustomerTable customerTableData={[]} 
-    // loading={loader} handleEditData={handleEditData}
+    tableComponent={<CustomerTable customerTableData={customerData} 
+    loading={loader}
+     handleEditData={handleEditData}
     />
   }
   />

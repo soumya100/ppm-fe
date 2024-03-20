@@ -34,5 +34,8 @@ export const endPoints = {
     getBankPos:(id: number)=>`${createApi}master/GetBankPos/${id}`,
     postCardPos: `${createApi}master/AddCardPos`,
     updateCardPos:`${createApi}master/UpdateCardPos`,
+    getCustomer:(id: number)=>`${createApi}master/GetCustomer/${id}`,
+    postCustomer:`${createApi}master/`,
+    updateCustomer:`${createApi}master/UpdateCustomer`,
     logout: `${createApi}logout`
 }

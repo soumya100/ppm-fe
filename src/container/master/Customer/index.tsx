@@ -12,8 +12,9 @@ const CustomerContainer = () => {
     AddCustomerFormik,
     handleMobileChange,
     customerMobile,
-    token,
-    orgId
+    token, orgId, loader,
+    getCustomerApiCall,
+    handleEditData
   } = CustomerHooks()
 
   const { getAccountLedgerApiCall } = AccountLedgerHooks()
@@ -21,6 +22,7 @@ const CustomerContainer = () => {
   useEffect(() => {
     if (token && orgId) {
       getAccountLedgerApiCall(orgId)
+      getCustomerApiCall(orgId)
     }
   }, [token, orgId])
 
@@ -31,7 +33,8 @@ const CustomerContainer = () => {
       AddCustomerFormik={AddCustomerFormik}
       handleMobileChange={handleMobileChange}
       customerMobile={customerMobile}
-      token={token}
+      token={token} loader={loader}
+      handleEditData={handleEditData}
     />
   )
 }

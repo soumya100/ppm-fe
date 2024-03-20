@@ -14,6 +14,7 @@ import AccountHeadSlice from '@/container/master/AccountHead/AccountHeadReducer'
 import AccountLedgerSlice from '@/container/master/AccountLedger/AccountLedgerReducer'
 import BankAccountSlice from '@/container/master/BankAccount/BankAccountReducer'
 import CardPosSlice from '@/container/master/CardPos/CardPosAccountReducer'
+import CustomerSlice from '@/container/master/Customer/CustomerReducer'
 
 export const store = configureStore({
     reducer: {
@@ -29,7 +30,8 @@ export const store = configureStore({
         accountHeadData: AccountHeadSlice,
         accountLedgerData: AccountLedgerSlice,
         bankAccountData: BankAccountSlice,
-        cardPos: CardPosSlice
+        cardPos: CardPosSlice,
+        customer: CustomerSlice
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });

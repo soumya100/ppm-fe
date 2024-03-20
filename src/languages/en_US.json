@@ -171,6 +171,7 @@
             "mobile": "Enter customer mobile number",
             "customerEmail": "Enter customer email",
             "gstin": "Enter GSTIN",
+            "maxCredLimit": "Enter max credit limit",
             "maxCredDays": "Enter max credit days",
             "openingBalance": "Enter opening balance"
         },
@@ -180,7 +181,6 @@
             "mobile": "Enter supplier mobile number",
             "supplierEmail": "Enter supplier email",
             "gstin": "Enter GSTIN",
-            "maxCredLimit": "Enter max credit limit",
             "maxCredDays": "Enter max credit days",
             "openingBalance": "Enter opening balance"
         },

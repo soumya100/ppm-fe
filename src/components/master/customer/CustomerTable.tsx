@@ -6,9 +6,10 @@ import { FC } from 'react'
 interface CustomerTableProps {
   loading?: boolean
   customerTableData: any
+  handleEditData(data: any): void
 }
 
-const CustomerTable: FC<CustomerTableProps> = ({customerTableData, loading}) => {
+const CustomerTable: FC<CustomerTableProps> = ({customerTableData, loading, handleEditData}) => {
   const headerCls = `text-white font-extrabold text-md`
   return  <TableContainer component={Paper}>
   <Table aria-label="simple table">
@@ -37,21 +38,21 @@ const CustomerTable: FC<CustomerTableProps> = ({customerTableData, loading}) => 
                 {idx+1}
               </TableCell>
               <TableCell component="th" scope="row" align='center'>
-                {data.Catagary_Name}
+                {data.Acct_Name}
               </TableCell>
               <TableCell component="th" scope="row" align='center'>
-                {data.Catagary_Name}
+                {data.Cust_Mobile}
               </TableCell>
               <TableCell component="th" scope="row" align='center'>
-                {data.Catagary_Name}
+                {data.Cust_GSTIN}
               </TableCell>
               <TableCell component="th" scope="row" align='center'>
-                {data.Catagary_Name}
+                {data.Acct_Name}
               </TableCell>
               <TableCell component="th" scope="row" align='right'>
                 <ButtonFieldInput name={`edit`} buttonextracls={`capitalize`}
                   variant={`outlined`}
-                  startIcon={<Edit />} handleClick={() => console.log(data)} />
+                  startIcon={<Edit />} handleClick={() => handleEditData(data)} />
               </TableCell>
             </TableRow>
           ))
