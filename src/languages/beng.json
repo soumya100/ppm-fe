@@ -99,6 +99,12 @@
             "maxCredDays":"Maximum credit days",
             "openingBalance":"Opening balance",
             "underLedger":"Under ledger"
+        },
+        "tanker":{
+            "tankerName":"Tanker name",
+            "vehicleName":"Vehicle name",
+            "vehicleNumber":"Vehicle number",
+            "capacity":"Capacity"
         }
     },
     "placeholders": {
@@ -169,6 +175,12 @@
             "gstin":"Enter GSTIN",
             "maxCredDays":"Enter max credit days",
             "openingBalance":"Enter opening balance"
+        },
+        "tanker": {
+            "tankerName":"Enter tanker name",
+            "vehicleName":"Enter vehicle name",
+            "vehicleNumber":"Enter vehicle number",
+            "capacity":"Enter capacity"
         }
     },
     "rememberMe": "আমাকে মনে কর",
@@ -234,6 +246,9 @@
                 "maxCredDays":"Max credit days should be greater than zero",
                 "openingBalance":"Opening balance should be greater than zero",
                 "mobileNo":"Please enter a valid mobile No"
+            },
+            "tanker":{
+                "capacity":"Capacity should be greater than zero"
             }
         },
         "requiredErrors": {
@@ -314,6 +329,12 @@
                 "openingBalance":"Please enter openning balance",
                 "underLedger":"Please select an underledger",
                 "gstin":"Please enter gstIn"
+            },
+            "tanker":{
+                "tankerName":"Please enter tanker name",
+                "vehicleName":"Please enter vehicle name",
+                "vehicleNumber":"Please enter vehicle number",
+                "capacity":"Please enter capacity"
             }
         }
     },
@@ -362,7 +383,8 @@
         "bankAccounts":"ব্যাংক হিসাব",
         "cardPos":"Card/Pos",
         "customer":"Add customers",
-        "supplier":"Suppliers"
+        "supplier":"Suppliers",
+        "tanker":"tankers"
     },
     "add": {
         "addUnitMaster": "আইটেম মাস্টার যোগ করুন",

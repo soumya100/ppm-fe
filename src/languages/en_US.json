@@ -1,412 +1,435 @@
 {
-    "loginRedirection":"Please wait...",
-    "companyDetails":{
-        "companyName":"Priority Solutions",
-        "description":"A Petrol Pump Accounting and Inventory management software Developed under the guidance of RPDA",
-        "estd":"2024"
+    "loginRedirection": "Please wait...",
+    "companyDetails": {
+        "companyName": "Priority Solutions",
+        "description": "A Petrol Pump Accounting and Inventory management software Developed under the guidance of RPDA",
+        "estd": "2024"
     },
-     "welcomeTo": "Welcome to",
-    "rightsReserved":"All Rights Reserved",
+    "welcomeTo": "Welcome to",
+    "rightsReserved": "All Rights Reserved",
     "copyrightBy": "Copyright",
-    "signUptext":{
-        "msg":"Don't have an account yet?",
-        "signUp":"Sign Up!"
+    "signUptext": {
+        "msg": "Don't have an account yet?",
+        "signUp": "Sign Up!"
     },
-    "loginText":{
-        "msg":"If you are Customer, Please Click here",
-        "customerLogin":"Customer Login!",
-        "login":"Login"
+    "loginText": {
+        "msg": "If you are Customer, Please Click here",
+        "customerLogin": "Customer Login!",
+        "login": "Login"
     },
-    "label":{
+    "label": {
         "email": "Email",
-        "password":"Password",
-        "addItemMaster":{
-            "itemName":"Item name",
-            "itemShortName":"Item short name",
-            "itemType":"Item type",
-            "unitValue":"Unit value",
-            "unit":"Unit",
-            "cst":"CST",
-            "sgst":"SGST",
-            "igst":"IGST",
-            "basicSaleRate":"Basic sale rate",
-            "rememberQnty":"Remember quantity",
-            "openingQnty":"Opening quantity",
-            "openingRate":"Opening rate"
+        "password": "Password",
+        "addItemMaster": {
+            "itemName": "Item name",
+            "itemShortName": "Item short name",
+            "itemType": "Item type",
+            "unitValue": "Unit value",
+            "unit": "Unit",
+            "cst": "CST",
+            "sgst": "SGST",
+            "igst": "IGST",
+            "basicSaleRate": "Basic sale rate",
+            "rememberQnty": "Remember quantity",
+            "openingQnty": "Opening quantity",
+            "openingRate": "Opening rate"
         },
-        "addPumpMaster":{
-            "pumpName":"Pump name",
-            "nozzleNumber":"Number of nozzles",
-            "nozzleName":"Nozzle name",
-            "selectTank":"Select tank"
+        "addPumpMaster": {
+            "pumpName": "Pump name",
+            "nozzleNumber": "Number of nozzles",
+            "nozzleName": "Nozzle name",
+            "selectTank": "Select tank"
         },
-        "tankMaster":{
-            "tankName":"Tank name",
-            "product":"Product",
-            "tankDiameter":"Tank diameter (in cm)",
-            "tankLength":"Tank length (in cm)",
-            "maxVolume":"Maximum volume"
+        "tankMaster": {
+            "tankName": "Tank name",
+            "product": "Product",
+            "tankDiameter": "Tank diameter (in cm)",
+            "tankLength": "Tank length (in cm)",
+            "maxVolume": "Maximum volume"
         },
-        "addShiftMaster":{
-            "shiftName":"Shift name",
-            "startTime":"Start time",
-            "endTime":"End time"
+        "addShiftMaster": {
+            "shiftName": "Shift name",
+            "startTime": "Start time",
+            "endTime": "End time"
         },
-        "addAccountHead":{
-            "headName":"Head name",
-            "headCode":"Head code",
-            "mainHead":"Main head"
+        "addAccountHead": {
+            "headName": "Head name",
+            "headCode": "Head code",
+            "mainHead": "Main head"
         },
-        "accountLedger":{
-            "ledgerName":"Ledger name",
-            "ledgerCode":"Ledger Code",
-            "accountHead":"Account head",
-            "openingBalance":"Opening balance",
-            "openingDate":"Opening date"
+        "accountLedger": {
+            "ledgerName": "Ledger name",
+            "ledgerCode": "Ledger Code",
+            "accountHead": "Account head",
+            "openingBalance": "Opening balance",
+            "openingDate": "Opening date"
         },
-        "addBankAccount":{
-            "bankName":"Bank name",
-            "bankBranch":"Bank branch",
-            "bankIfsc":"Bank ifsc",
-            "accountNo":"Account no",
-            "openingBalance":"Opening balance",
-            "underLedger":"under ledger"
+        "addBankAccount": {
+            "bankName": "Bank name",
+            "bankBranch": "Bank branch",
+            "bankIfsc": "Bank ifsc",
+            "accountNo": "Account no",
+            "openingBalance": "Opening balance",
+            "underLedger": "under ledger"
         },
-        "cardPos":{
-            "posName":"Pos Name",
-            "posProvider":"Pos provider",
-            "posType":"Pos type",
-            "linkBank":"Link Bank",
-            "installationData":"Installation data"
+        "cardPos": {
+            "posName": "Pos Name",
+            "posProvider": "Pos provider",
+            "posType": "Pos type",
+            "linkBank": "Link Bank",
+            "installationData": "Installation data"
         },
-        "customer":{
-            "customerName":"Customer name",
-            "customerAddress":"Customer address",
-            "mobile":"Customer mobile",
-            "customerEmail":"Customer email",
-            "gstin":"Customer gstin",
-            "maxCredLimit":"Maximum credit limit",
-            "maxCredDays":"Maximum credit days",
-            "openingBalance":"Opening balance",
-            "underLedger":"Under ledger"
+        "customer": {
+            "customerName": "Customer name",
+            "customerAddress": "Customer address",
+            "mobile": "Customer mobile",
+            "customerEmail": "Customer email",
+            "gstin": "Customer gstin",
+            "maxCredLimit": "Maximum credit limit",
+            "maxCredDays": "Maximum credit days",
+            "openingBalance": "Opening balance",
+            "underLedger": "Under ledger"
         },
-        "supplier":{
-            "supplierName":"Supplier name",
-            "supplierAddress":"Supplier address",
-            "mobile":"Supplier mobile",
-            "supplierEmail":"Supplier email",
-            "gstin":"Supplier gstin",
-            "maxCredDays":"Maximum credit days",
-            "openingBalance":"Opening balance",
-            "underLedger":"Under ledger"
+        "supplier": {
+            "supplierName": "Supplier name",
+            "supplierAddress": "Supplier address",
+            "mobile": "Supplier mobile",
+            "supplierEmail": "Supplier email",
+            "gstin": "Supplier gstin",
+            "maxCredDays": "Maximum credit days",
+            "openingBalance": "Opening balance",
+            "underLedger": "Under ledger"
+        },
+        "tanker":{
+            "tankerName":"Tanker name",
+            "vehicleName":"Vehicle name",
+            "vehicleNumber":"Vehicle number",
+            "capacity":"Capacity"
         }
     },
-   "placeholders":{
-        "email":"Enter your email",
-        "password":"Enter your password",
-        "search":"Search",
-        "addUnitMaster":"Enter unit",
-        "addItemCategory":"Enter item category",
-        "addItemMaster":{
-            "itemName":"Enter item name",
-            "itemShortName":"Enter item short name",
-            "itemType":"Select item type",
-            "unitValue":"Enter unit value",
-            "unit":"Select unit",
-            "cst":"Enter CST",
-            "sgst":"Enter SGST",
-            "igst":"Enter IGST",
-            "basicSaleRate":"Enter basic sale rate",
-            "rememberQnty":"Enter remember quantity",
-            "openingQnty":"Enter opening quantity",
-            "openingRate":"Enter opening rate"
+    "placeholders": {
+        "email": "Enter your email",
+        "password": "Enter your password",
+        "search": "Search",
+        "addUnitMaster": "Enter unit",
+        "addItemCategory": "Enter item category",
+        "addItemMaster": {
+            "itemName": "Enter item name",
+            "itemShortName": "Enter item short name",
+            "itemType": "Select item type",
+            "unitValue": "Enter unit value",
+            "unit": "Select unit",
+            "cst": "Enter CST",
+            "sgst": "Enter SGST",
+            "igst": "Enter IGST",
+            "basicSaleRate": "Enter basic sale rate",
+            "rememberQnty": "Enter remember quantity",
+            "openingQnty": "Enter opening quantity",
+            "openingRate": "Enter opening rate"
         },
-        "addPumpMaster":{
-            "pumpName":"Enter pump name",
-            "nozzleNumber":"Enter number of nozzles",
-            "nozzleName":"Enter name of the nozzle",
-            "selectTank":"Select tank"
+        "addPumpMaster": {
+            "pumpName": "Enter pump name",
+            "nozzleNumber": "Enter number of nozzles",
+            "nozzleName": "Enter name of the nozzle",
+            "selectTank": "Select tank"
         },
-        "tankMaster":{
-            "tankName":"Enter tank name",
-            "product":"Enter product",
-            "tankDiameter":"Enter tank diameter (in cm)",
-            "tankLength":"Enter tank length (in cm)",
-            "maxVolume":"Enter maximum volume"
+        "tankMaster": {
+            "tankName": "Enter tank name",
+            "product": "Enter product",
+            "tankDiameter": "Enter tank diameter (in cm)",
+            "tankLength": "Enter tank length (in cm)",
+            "maxVolume": "Enter maximum volume"
         },
-        "addShiftMaster":{
-            "shiftName":"Enter shift name",
-            "startTime":"Enter start time",
-            "endTime":"Enter end time"
+        "addShiftMaster": {
+            "shiftName": "Enter shift name",
+            "startTime": "Enter start time",
+            "endTime": "Enter end time"
         },
-        "addAccountHead":{
-            "headName":"Enter head name",
-            "headCode":"Enter head code"
+        "addAccountHead": {
+            "headName": "Enter head name",
+            "headCode": "Enter head code"
         },
-        "accountLedger":{
-            "ledgerName":"Enter ledger name",
-            "ledgerCode":"Enter ledger code",
-            "openingBalance":"Enter opening balance"
+        "accountLedger": {
+            "ledgerName": "Enter ledger name",
+            "ledgerCode": "Enter ledger code",
+            "openingBalance": "Enter opening balance"
         },
-        "addBankAccount":{
-            "bankName":"Enter bank name",
-            "bankBranch":"Enter bank branch",
-            "bankIfsc":"Enter bank ifsc",
-            "accountNo":"Enter account no",
-            "openingBalance":"Enter opening balance"
+        "addBankAccount": {
+            "bankName": "Enter bank name",
+            "bankBranch": "Enter bank branch",
+            "bankIfsc": "Enter bank ifsc",
+            "accountNo": "Enter account no",
+            "openingBalance": "Enter opening balance"
         },
-        "cardPos":{
-            "posName":"Enter pos name",
-            "posProvider":"Enter pos provider"
+        "cardPos": {
+            "posName": "Enter pos name",
+            "posProvider": "Enter pos provider"
         },
-        "customer":{
+        "customer": {
             "customerName": "Enter customer name",
-            "customerAddress":"Enter customer address",
-            "mobile":"Enter customer mobile number",
-            "customerEmail":"Enter customer email",
-            "gstin":"Enter GSTIN",
-            "maxCredDays":"Enter max credit days",
-            "openingBalance":"Enter opening balance"
+            "customerAddress": "Enter customer address",
+            "mobile": "Enter customer mobile number",
+            "customerEmail": "Enter customer email",
+            "gstin": "Enter GSTIN",
+            "maxCredDays": "Enter max credit days",
+            "openingBalance": "Enter opening balance"
         },
-        "supplier":{
+        "supplier": {
             "supplierName": "Enter supplier name",
-            "supplierAddress":"Enter supplier address",
-            "mobile":"Enter supplier mobile number",
-            "supplierEmail":"Enter supplier email",
-            "gstin":"Enter GSTIN",
-            "maxCredLimit":"Enter max credit limit",
-            "maxCredDays":"Enter max credit days",
-            "openingBalance":"Enter opening balance"
+            "supplierAddress": "Enter supplier address",
+            "mobile": "Enter supplier mobile number",
+            "supplierEmail": "Enter supplier email",
+            "gstin": "Enter GSTIN",
+            "maxCredLimit": "Enter max credit limit",
+            "maxCredDays": "Enter max credit days",
+            "openingBalance": "Enter opening balance"
+        },
+        "tanker": {
+            "tankerName":"Enter tanker name",
+            "vehicleName":"Enter vehicle name",
+            "vehicleNumber":"Enter vehicle number",
+            "capacity":"Enter capacity"
         }
-   },
-   "rememberMe":"Remember me",
-   "forgetPassword":"Forgot password?",
-   "signIn":"Sign in",
-   "support":"Support",
-    "phoneNumbers":{
-        "numberOne":"1234567890",
-        "numberTwo":"1234567890"
     },
-    "whatsAppNumber":"1234567890",
-    "errors":{
-        "patternErrors":{
-            "email":"Please enter a valid email",
-            "password":"Password must contain an uppercase, lowercase, number, symbol and minimum 8 characters",
-            "addItemMaster":{
-                "unitValue":"Unit master should contain a number more than zero",
-                "cst":"CST should contain a number greater than zero",
-                "sgst":"SGST should contain a number greater than zero",
-                "igst":"IGST should contain a number greater than zero",
-                "basicSaleRate":"Basic sale rate should contain a number greater than zero",
-                "rememberQnty":"Remember quantity should contain a number greater than zero",
-                "openingQnty":"Opening quantity should contain a number greater than zero",
-                "openingRate":"Opening rate should contain a number greater than zero"
+    "rememberMe": "Remember me",
+    "forgetPassword": "Forgot password?",
+    "signIn": "Sign in",
+    "support": "Support",
+    "phoneNumbers": {
+        "numberOne": "1234567890",
+        "numberTwo": "1234567890"
+    },
+    "whatsAppNumber": "1234567890",
+    "errors": {
+        "patternErrors": {
+            "email": "Please enter a valid email",
+            "password": "Password must contain an uppercase, lowercase, number, symbol and minimum 8 characters",
+            "addItemMaster": {
+                "unitValue": "Unit master should contain a number more than zero",
+                "cst": "CST should contain a number greater than zero",
+                "sgst": "SGST should contain a number greater than zero",
+                "igst": "IGST should contain a number greater than zero",
+                "basicSaleRate": "Basic sale rate should contain a number greater than zero",
+                "rememberQnty": "Remember quantity should contain a number greater than zero",
+                "openingQnty": "Opening quantity should contain a number greater than zero",
+                "openingRate": "Opening rate should contain a number greater than zero"
             },
-            "addPumpMaster":{
-                "nozzleNumber":"Number of nozzles should be greater than zero"
+            "addPumpMaster": {
+                "nozzleNumber": "Number of nozzles should be greater than zero"
             },
-            "tankMaster":{
-                "tankDiameter":"Tank diameter should be greater than zero",
-                "tankLength":"Tank length should be greater than zero",
-                "maxVolume":"Maximum volume should be greater than zero"
+            "tankMaster": {
+                "tankDiameter": "Tank diameter should be greater than zero",
+                "tankLength": "Tank length should be greater than zero",
+                "maxVolume": "Maximum volume should be greater than zero"
             },
-            "addAccountHead":{
-                "headCode":"Head code should be greater than zero"
+            "addAccountHead": {
+                "headCode": "Head code should be greater than zero"
             },
-            "shiftMaster":{
-                "invalidTime":"Please enter a valid time"
+            "shiftMaster": {
+                "invalidTime": "Please enter a valid time"
             },
-            "accountLedger":{
-                "ledgerCode":"Ledger code should be greater than zero",
-                "openingBalance":"opening balance should be greater than zero",
-                "invalidDate":"Please enter a valid date"
+            "accountLedger": {
+                "ledgerCode": "Ledger code should be greater than zero",
+                "openingBalance": "opening balance should be greater than zero",
+                "invalidDate": "Please enter a valid date"
             },
-            "bankAccount":{
-                "accountNo":{
-                    "positive":"Please enter a valid number",
-                    "notDecimal":"Decimal value is not allowed"
+            "bankAccount": {
+                "accountNo": {
+                    "positive": "Please enter a valid number",
+                    "notDecimal": "Decimal value is not allowed"
                 },
-                "openingBalance":"Opening balance should be greater than zero",
-                "invalidDate":"Please enter a valid opening date"
+                "openingBalance": "Opening balance should be greater than zero",
+                "invalidDate": "Please enter a valid opening date"
             },
-            "customer":{
-                "email":"Please enter a valid email",
-                "maxCredLimit":"Max credit limit should be greater than zero",
-                "maxCredDays":"Max credit days should be greater than zero",
-                "openingBalance":"Opening balance should be greater than zero",
-                "mobileNo":"Please enter a valid mobile No"
+            "customer": {
+                "email": "Please enter a valid email",
+                "maxCredLimit": "Max credit limit should be greater than zero",
+                "maxCredDays": "Max credit days should be greater than zero",
+                "openingBalance": "Opening balance should be greater than zero",
+                "mobileNo": "Please enter a valid mobile No"
             },
-            "supplier":{
-                "email":"Please enter a valid email",
-                "maxCredLimit":"Max credit limit should be greater than zero",
-                "maxCredDays":"Max credit days should be greater than zero",
-                "openingBalance":"Opening balance should be greater than zero",
-                "mobileNo":"Please enter a valid mobile No"
+            "supplier": {
+                "email": "Please enter a valid email",
+                "maxCredLimit": "Max credit limit should be greater than zero",
+                "maxCredDays": "Max credit days should be greater than zero",
+                "openingBalance": "Opening balance should be greater than zero",
+                "mobileNo": "Please enter a valid mobile No"
+            },
+            "tanker": {
+                "capacity": "Capacity should be greater than zero"
             }
         },
-        "requiredErrors":{
-            "email":"Please enter your email",
-            "password":"Please enter your password",
+        "requiredErrors": {
+            "email": "Please enter your email",
+            "password": "Please enter your password",
             "unitMaster": "Please enter unit",
             "itemCategory": "Please enter item category",
-            "addItemMaster":{
-                "itemName":"Please enter item name",
-                "itemShortName":"Please enter item short name",
-                "itemType":"Please Select item type",
-                "unitValue":"Please enter unit value",
-                "unit":"Please select unit",
-                "cst":"Please enter CST",
-                "sgst":"Please enter SGST",
-                "igst":"Please enter IGST",
-                "basicSaleRate":"Please enter basic sale rate",
-                "rememberQnty":"Please enter remember quantity",
-                "openingQnty":"Please enter opening quantity",
-                "openingRate":"Please enter opening rate"
+            "addItemMaster": {
+                "itemName": "Please enter item name",
+                "itemShortName": "Please enter item short name",
+                "itemType": "Please Select item type",
+                "unitValue": "Please enter unit value",
+                "unit": "Please select unit",
+                "cst": "Please enter CST",
+                "sgst": "Please enter SGST",
+                "igst": "Please enter IGST",
+                "basicSaleRate": "Please enter basic sale rate",
+                "rememberQnty": "Please enter remember quantity",
+                "openingQnty": "Please enter opening quantity",
+                "openingRate": "Please enter opening rate"
             },
-            "addPumpMaster":{
-                "pumpName":"Please enter pump name",
-                "nozzleNumber":"Please enter number of nozzles",
-                "nozzleName":"Please enter name of the nozzle",
-                "selectTank":"Please select tank"
+            "addPumpMaster": {
+                "pumpName": "Please enter pump name",
+                "nozzleNumber": "Please enter number of nozzles",
+                "nozzleName": "Please enter name of the nozzle",
+                "selectTank": "Please select tank"
             },
-            "tankMaster":{
-                "tankName":"Please enter tank name",
-                "product":"Please enter product",
-                "tankDiameter":"Please enter tank diameter",
-                "tankLength":"Please enter tank length",
-                "maxVolume":"Please enter maximum volume"
+            "tankMaster": {
+                "tankName": "Please enter tank name",
+                "product": "Please enter product",
+                "tankDiameter": "Please enter tank diameter",
+                "tankLength": "Please enter tank length",
+                "maxVolume": "Please enter maximum volume"
             },
-            "shiftMaster":{
-                "shiftName":"Please enter shift name"
+            "shiftMaster": {
+                "shiftName": "Please enter shift name"
             },
-            "addAccountHead":{
-                "headName":"Please enter head name",
-                "headCode":"Please enter head code",
-                "mainHead":"Please select main head"
+            "addAccountHead": {
+                "headName": "Please enter head name",
+                "headCode": "Please enter head code",
+                "mainHead": "Please select main head"
             },
-            "accountLedger":{
-                "ledgerName":"Please enter account ledger name",
-                "ledgerCode":"Please enter ledger code",
-                "accountHead":"Please enter account head",
-                "openingBalance":"Please enter opening balance"
+            "accountLedger": {
+                "ledgerName": "Please enter account ledger name",
+                "ledgerCode": "Please enter ledger code",
+                "accountHead": "Please enter account head",
+                "openingBalance": "Please enter opening balance"
             },
-            "bankAccount":{
-                "bankName":"Please enter Bank name",
-                "bankBranch":"Please enter bank branch",
-                "bankIfSc":"Please enter bank ifsc code",
-                "accountNo":"Please enter bank account number",
-                "underLedger":"Please select an under ledger",
-                "openingBalance":"Please enter opening balance"
+            "bankAccount": {
+                "bankName": "Please enter Bank name",
+                "bankBranch": "Please enter bank branch",
+                "bankIfSc": "Please enter bank ifsc code",
+                "accountNo": "Please enter bank account number",
+                "underLedger": "Please select an under ledger",
+                "openingBalance": "Please enter opening balance"
             },
-            "cardPos":{
-                "posName":"Please enter pos name",
-                "posProvider":"Please enter pos provider",
-                "linkBank":"Please select bank"
+            "cardPos": {
+                "posName": "Please enter pos name",
+                "posProvider": "Please enter pos provider",
+                "linkBank": "Please select bank"
             },
-            "customer":{
-                "name":"Please enter customer name",
-                "address":"Please enter customer address",
-                "email":"Please enter customer email Id",
-                "maxCredLimit":"Please enter max credit limit",
-                "maxCredDays":"Please enter max credit days",
-                "openingBalance":"Please enter openning balance",
-                "underLedger":"Please select an underledger"
+            "customer": {
+                "name": "Please enter customer name",
+                "address": "Please enter customer address",
+                "email": "Please enter customer email Id",
+                "maxCredLimit": "Please enter max credit limit",
+                "maxCredDays": "Please enter max credit days",
+                "openingBalance": "Please enter openning balance",
+                "underLedger": "Please select an underledger"
             },
-            "supplier":{
-                "name":"Please enter supplier name",
-                "address":"Please enter supplier address",
-                "email":"Please enter supplier email Id",
-                "maxCredDays":"Please enter max credit days",
-                "openingBalance":"Please enter openning balance",
-                "underLedger":"Please select an underledger",
-                "gstin":"Please enter gstIn"
+            "supplier": {
+                "name": "Please enter supplier name",
+                "address": "Please enter supplier address",
+                "email": "Please enter supplier email Id",
+                "maxCredDays": "Please enter max credit days",
+                "openingBalance": "Please enter openning balance",
+                "underLedger": "Please select an underledger",
+                "gstin": "Please enter gstIn"
+            },
+            "tanker": {
+                "tankerName": "Please enter tanker name",
+                "vehicleName": "Please enter vehicle name",
+                "vehicleNumber": "Please enter vehicle number",
+                "capacity": "Please enter capacity"
             }
         }
     },
-    "sideBarTexts":{
-        "dashboard":"Dashboard",
-        "pump":"Pump",
-        "accounts":"Accounts",
-        "hr":"HR",
-        "reports":"Reports",
-        "utility":"Utility",
-        "register":"Register",
-        "aboutUs":"About Us",
-        "help":"Help"
+    "sideBarTexts": {
+        "dashboard": "Dashboard",
+        "pump": "Pump",
+        "accounts": "Accounts",
+        "hr": "HR",
+        "reports": "Reports",
+        "utility": "Utility",
+        "register": "Register",
+        "aboutUs": "About Us",
+        "help": "Help"
     },
-    "dashboardHeader":{
-        "meterReading":"Meter Reading",
-        "lubricantSale":"Lubricant Sale",
-        "creditSale":"Credit Sale",
-        "voucherEntry":"Voucher Entry",
-        "dayBook":"DayBook",
-        "purchaseInvoice":"Purchase Invoice"
+    "dashboardHeader": {
+        "meterReading": "Meter Reading",
+        "lubricantSale": "Lubricant Sale",
+        "creditSale": "Credit Sale",
+        "voucherEntry": "Voucher Entry",
+        "dayBook": "DayBook",
+        "purchaseInvoice": "Purchase Invoice"
     },
-    "dashboardMainTitles":{
-        "purchaseReports":"Monthwise purchase reports",
-        "saleReports":"Monthwise sale reports"
+    "dashboardMainTitles": {
+        "purchaseReports": "Monthwise purchase reports",
+        "saleReports": "Monthwise sale reports"
     },
-    "dashboardCardTitles":{
-        "availableStock":"Available Stock",
-        "outStandingList":"List of OutStanding"
+    "dashboardCardTitles": {
+        "availableStock": "Available Stock",
+        "outStandingList": "List of OutStanding"
     },
-    "NavbarData":{
-        "myProfile":"My Profile",
-        "notifications":"Notifications",
-        "callSupport":"Support",
-        "logout":"Logout"
+    "NavbarData": {
+        "myProfile": "My Profile",
+        "notifications": "Notifications",
+        "callSupport": "Support",
+        "logout": "Logout"
     },
-    "tableTitles":{
-        "unitMaster":"Unit Master",
-        "itemCategory":"Item Category",
-        "itemMaster":"Item Master",
-        "tankMaster":"Tank Master",
-        "pumpMaster":"Pump Master",
-        "addNozzle":"Add Nozzle",
-        "shiftMaster":"Shift Master",
-        "accountHead":"Account head",
-        "accountLedger":"Account Ledger",
-        "bankAccounts":"Bank accounts",
-        "cardPos":"Card/Pos",
-        "customer":"Customers",
-        "supplier":"Suppliers"
+    "tableTitles": {
+        "unitMaster": "Unit Master",
+        "itemCategory": "Item Category",
+        "itemMaster": "Item Master",
+        "tankMaster": "Tank Master",
+        "pumpMaster": "Pump Master",
+        "addNozzle": "Add Nozzle",
+        "shiftMaster": "Shift Master",
+        "accountHead": "Account head",
+        "accountLedger": "Account Ledger",
+        "bankAccounts": "Bank accounts",
+        "cardPos": "Card/Pos",
+        "customer": "Customers",
+        "supplier": "Suppliers",
+        "tanker": "Tankers"
     },
-    "add":{
-        "addUnitMaster":"Add unit",
-        "addItemCategory":"Add item Category",
-        "addItemMaster":"Add item",
-        "addTank":"Add tank",
-        "addPump":"Add Pump",
-        "addNozzle":"Add Nozzle",
-        "shiftMaster":"Add shift master",
-        "accountHead":"Add account head",
-        "accountLedger":"Add account ledger",
-        "addBankAccount":"Add bank account",
-        "addCardPos":"Add Card/Pos",
-        "addCustomer":"Add customer",
-        "addSupplier":"Add supplier"
+    "add": {
+        "addUnitMaster": "Add unit",
+        "addItemCategory": "Add item Category",
+        "addItemMaster": "Add item",
+        "addTank": "Add tank",
+        "addPump": "Add Pump",
+        "addNozzle": "Add Nozzle",
+        "shiftMaster": "Add shift master",
+        "accountHead": "Add account head",
+        "accountLedger": "Add account ledger",
+        "addBankAccount": "Add bank account",
+        "addCardPos": "Add Card/Pos",
+        "addCustomer": "Add customer",
+        "addSupplier": "Add supplier",
+        "addTanker": "Add tanker"
     },
-    "edit":{
-        "editUnitMaster":"Edit unit",
-        "editItemCategory":"Edit item Category",
-        "editItemMaster":"Edit item",
-        "editTankMaster":"Edit tank",
-        "editAccoutnHead":"Edit account head",
-        "editAccountLedger":"Edit account ledger",
-        "editBankAccount":"Edit bank account"
+    "edit": {
+        "editUnitMaster": "Edit unit",
+        "editItemCategory": "Edit item Category",
+        "editItemMaster": "Edit item",
+        "editTankMaster": "Edit tank",
+        "editAccoutnHead": "Edit account head",
+        "editAccountLedger": "Edit account ledger",
+        "editBankAccount": "Edit bank account"
     },
     "addMsg": {
-        "unitmaster":"To add unit, please enter your unit here",
-        "itemCategory":"To add item category, please enter your item category here"
+        "unitmaster": "To add unit, please enter your unit here",
+        "itemCategory": "To add item category, please enter your item category here"
     },
-    "editMsg":{
-        "unitmaster":"To update unit, please enter your update unit here",
-        "itemCategory":"To update item category, please your update item category here"
+    "editMsg": {
+        "unitmaster": "To update unit, please enter your update unit here",
+        "itemCategory": "To update item category, please your update item category here"
     },
-    "buttonNames":{
-        "cancel":"Cancel",
-        "add":"Add",
-        "update":"Update"
+    "buttonNames": {
+        "cancel": "Cancel",
+        "add": "Add",
+        "update": "Update"
     },
-    "noContentPage":"No Content found"
+    "noContentPage": "No Content found"
 }
