@@ -102,7 +102,7 @@ export const ItemMasterHooks = () => {
     //item master dropdown category 
     const getItemMasterCategoryApiCall = async (id: number) => {
         getItemMasterDropDownAPI(id, 'category').then((res: any) => {
-            if (res.message === 'Data Found') {
+            if (res.status === 200) {
                 dispatch(getItemMasterCategory(res.Data))
             } else {
                 dispatch(getItemMasterCategory([]))
@@ -118,7 +118,7 @@ export const ItemMasterHooks = () => {
     const getItemApiCall = async (id: number) => {
         setLoader(true)
         getItemMasterDropDownAPI(id, 'item').then((res: any) => {
-            if (res.messsage === 'Data Found') {
+            if (res.status === 200) {
                 dispatch(getItemMaster(res.Data))
             } else {
                 dispatch(getItemMaster([]))
@@ -152,7 +152,7 @@ export const ItemMasterHooks = () => {
         }
         postItemMasterAPI(bodyData)
             .then((res: any) => {
-                if (res.Message === 'Item Create Successful') {
+                if (res.status === 200) {
                    setOpenItemMaster(false)
                    getItemApiCall(orgId)
                     toast.success('Item category created successfully')

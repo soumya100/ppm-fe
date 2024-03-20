@@ -126,7 +126,7 @@ export const PumpMasterHooks = () => {
         setLoader(true)
         getPumpListAPI(id).then((res: any) => {
             // console.log(res)
-            if (res.messsage === 'Data Found') {
+            if (res.status === 200) {
                 dispatch(getPumpMasterData(res.Data))
             } else {
                 dispatch(getPumpMasterData([]))
@@ -185,7 +185,7 @@ export const PumpMasterHooks = () => {
         postPumpMasterAPI(bodyData)
             .then((res: any) => {
                 // console.log(res)
-                if (res.Message === 'Pump Add Successful') {
+                if (res.status === 200) {
                     setShowNozzleForm(false)
                     setNozzleNumberError('')
                     setAddNozzleData([])

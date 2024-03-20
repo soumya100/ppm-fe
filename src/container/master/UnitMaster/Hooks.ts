@@ -69,7 +69,7 @@ export const UnitMasterHooks = () => {
      const getUnitMasterDataApiCall= async (id: number)=>{
         setLoading(true)
      getUnitMasterDataAPI(id).then((res: any)=>{
-         if(res.messsage === 'Data Found'){
+         if(res.status === 200){
              dispatch(getUnitMasterData(res.Data))
          }else{
              dispatch(getUnitMasterData([]))
@@ -93,7 +93,7 @@ export const UnitMasterHooks = () => {
         }
      postUnitMasterAPI(bodyData)
             .then((res: any) => {
-                if(res.Message === 'Unit Create Successful'){
+                if(res.status === 200){
                     setOpenFormDialog(false)
                     getUnitMasterDataApiCall(orgId)
                     toast.success('Unit created successfully')
@@ -121,7 +121,7 @@ export const UnitMasterHooks = () => {
             org_id: orgId,
         }
      updateUnitMasterAPI(bodyData).then((res: any)=>{
-         if(res.Message === 'Unit Update Successful'){
+         if(res.status === 200){
              getUnitMasterDataApiCall(orgId)
              toast.success('Unit edited successfully')
              handleCloseModal()

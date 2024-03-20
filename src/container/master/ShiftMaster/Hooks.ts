@@ -103,7 +103,7 @@ export const ShiftMasterHooks=()=>{
         setLoader(true)
         getShiftMasterAPI(id).then((res: any) => {
             // console.log(res)
-            if (res.messsage === 'Data Found') {
+            if (res.status === 200) {
                 dispatch(getShiftMaster(res.Data))
             } else {
                 dispatch(getShiftMaster([]))
@@ -129,8 +129,8 @@ export const ShiftMasterHooks=()=>{
         // console.table(bodyData)
         postShiftMasterAPI(bodyData)
             .then((res: any) => {
-                console.log(res)
-                if (res.Message === 'Shift Add Successful') {
+                // console.log(res)
+                if (res.status === 200) {
                    getShiftApiCall(orgId)
                     toast.success('Shift Added successfully')
                     // setEditData(null)

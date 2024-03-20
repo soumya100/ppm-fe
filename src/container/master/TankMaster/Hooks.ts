@@ -76,7 +76,7 @@ export const TankMasterHooks = () => {
         setLoader(true)
         getTankDataAPI(id).then((res: any) => {
             // console.log(res)
-            if (res.messsage === 'Data Found') {
+            if (res.status === 200) {
                 dispatch(getTankMasterData(res.Data))
             } else {
                 dispatch(getTankMasterData([]))
@@ -103,7 +103,7 @@ export const TankMasterHooks = () => {
         }
         postTankDataAPI(bodyData)
             .then((res: any) => {
-                if (res.Message === 'Tank Added Successful') {
+                if (res.status === 200) {
                     handleCloseDrawer()
                     getTankApiCall(orgId)
                     toast.success('Tank created successfully')
@@ -135,7 +135,7 @@ export const TankMasterHooks = () => {
             org_id: orgId
         }
         updatetankDataAPI(bodyData).then((res: any) => {
-            if (res.Message === 'Tank Update Successful') {
+            if (res.status === 200) {
                 getTankApiCall(orgId)
                 toast.success('Tank edited successfully')
                 handleCloseDrawer()

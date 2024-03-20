@@ -69,7 +69,7 @@ export const AccountHeadHooks = () => {
     const getAccountHeadApiCall = async (id: number) => {
         setLoader(true)
         getAccountHeadDataAPI(id, 'head').then((res: any) => {
-            if (res.messsage === 'Data Found') {
+            if (res.status === 200) {
                 dispatch(getAccountHeadData(res.Data))
             } else {
                 dispatch(getAccountHeadData([]))
@@ -95,7 +95,7 @@ export const AccountHeadHooks = () => {
         postAccountHeadAPI(bodyData)
             .then((res: any) => {
                 // console.log(res)
-                if (res.Message === "Account Head Add Successful") {
+                if (res.status === 200) {
                     getAccountHeadApiCall(orgId)
                     toast.success('Account head created successfully')
                     // setEditData(null)
@@ -127,7 +127,7 @@ export const AccountHeadHooks = () => {
         updateAccountHeadAPI(bodyData)
             .then((res: any) => {
                 // console.log(res)
-                if (res.Message === "Account Head Update Successful") {
+                if (res.status === 200) {
                     getAccountHeadApiCall(orgId)
                     toast.success('Account head updated successfully')
                     setEditData(null)

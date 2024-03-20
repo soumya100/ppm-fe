@@ -134,7 +134,7 @@ const editAccountLedger =(data: any)=>{
     const getAccountLedgerApiCall = async (id: number) => {
         setLoader(true)
         getAccountLedgerApi(id).then((res: any) => {
-            if (res.messsage === 'Data Found') {
+            if (res.status === 200) {
                 dispatch(getAccountLedgerData(res.Data))
             } else {
                 dispatch(getAccountLedgerData([]))
@@ -162,7 +162,7 @@ const editAccountLedger =(data: any)=>{
         postAccountLedgerAPI(bodyData)
             .then((res: any) => {
                 // console.log(res, '* res')
-                if (res.Message==='Account Ledger Add Successful') {
+                if (res.status === 200) {
                     handleCloseAccountLedger()
                     getAccountLedgerApiCall(orgId)
                     toast.success('Account ledger created successfully')
@@ -191,7 +191,7 @@ const editAccountLedger =(data: any)=>{
                 org_id: orgId
             }
         updateAccountLedgerAPI(bodyData).then((res: any)=>{
-            if(res.Message === 'Account Ledger Update Successful'){
+            if(res.status === 200){
                 getAccountLedgerApiCall(orgId)
                 toast.success('Account ledger updated successfully')
                 handleCloseAccountLedger()

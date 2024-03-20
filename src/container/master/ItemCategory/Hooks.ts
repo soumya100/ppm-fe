@@ -63,7 +63,7 @@ export const ItemCategoryHooks = () => {
     const getItemCategoryApiCall = async (id: number) => {
         setLoading(true)
         getItemCategoryDataAPI(id).then((res: any) => {
-            if (res.messsage === 'Data Found') {
+            if (res.status === 200) {
                 dispatch(getItemCategoryData(res.Data))
             } else {
                 dispatch(getItemCategoryData([]))
@@ -87,7 +87,7 @@ export const ItemCategoryHooks = () => {
         postItemCategoryAPI(bodyData)
             .then((res: any) => {
                 // console.log(res, '* res')
-                if (res.Message === 'Catagary Create Successful') {
+                if (res.status === 200) {
                     setOpenAddItemModal(false)
                     getItemCategoryApiCall(orgId)
                     toast.success('Item category created successfully')
@@ -115,7 +115,7 @@ export const ItemCategoryHooks = () => {
             org_id: orgId,
         }
         updateItemCategoryAPI(bodyData).then((res: any) => {
-            if (res.Message === 'Catagary Update Successful') {
+            if (res.status === 200) {
                 getItemCategoryApiCall(orgId)
                 toast.success('Item category edited successfully')
                 handleCloseModal()

@@ -133,7 +133,7 @@ export const BankAccountHooks = () => {
     const getBankAccountApiCall = async (id: number) => {
         setLoader(true)
         getBankAccountApi(id).then((res: any) => {
-            if (res.messsage === 'Data Found') {
+            if (res.status === 200) {
                 dispatch(getBankAccountData(res.Data))
             } else {
                 dispatch(getBankAccountData([]))
@@ -164,7 +164,7 @@ export const BankAccountHooks = () => {
         postBankAccountAPI(bodyData)
             .then((res: any) => {
                 // console.log(res, '* res')
-                if (res.Message === 'Bank Account Add Successful') {
+                if (res.status === 200) {
                     handleCloseBankAccountDrawer()
                     getBankAccountApiCall(orgId)
                     toast.success('Bank account added successfully')
@@ -195,7 +195,7 @@ export const BankAccountHooks = () => {
             org_id: orgId
         }
         updateBankAccountAPI(bodyData).then((res: any) => {
-            if (res.Message === 'Bank Account Update Successful') {
+            if (res.status === 200) {
                 getBankAccountApiCall(orgId)
                 toast.success('Bank account updated successfully')
                 handleCloseBankAccountDrawer()
