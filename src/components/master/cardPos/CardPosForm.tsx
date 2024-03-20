@@ -16,25 +16,26 @@ interface CardPosFormProps {
     handlePosType(event?: React.ChangeEvent<HTMLInputElement>): void
     posType: string
     postLoaders?: boolean
+    bankData: any
 }
 
 const CardPosForm: FC<CardPosFormProps> = ({ formik, handleCloseDrawer, openForm, date,
-    errMessage, handleDateChange, handleError, handlePosType, posType, postLoaders }) => {
+    errMessage, handleDateChange, handleError, handlePosType, posType, postLoaders, bankData }) => {
 
     const drawerWidth = 700
 
     const radioData = [
         {
-            value: 'card',
+            value: "1",
             label: 'Card'
         },
         {
-            value: 'qr',
+            value: "2",
             label: 'QR'
         }
     ]
 
-    const drpdummyData =[
+    const drpdummyData = [
         {
             value: 'data',
             name: 'data'
@@ -108,9 +109,9 @@ const CardPosForm: FC<CardPosFormProps> = ({ formik, handleCloseDrawer, openForm
                     <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                         <RadioGroupField handleChange={handlePosType}
                             radioData={radioData}
-                            value={posType} label={text.label.cardPos.posType} 
+                            value={posType} label={text.label.cardPos.posType}
                             color='success'
-                            />
+                        />
                     </Grid>
                     <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                         <DropDownField
@@ -121,7 +122,7 @@ const CardPosForm: FC<CardPosFormProps> = ({ formik, handleCloseDrawer, openForm
                             option={formik?.values?.linkBank}
                             handleChange={formik?.handleChange}
                             handleBlur={formik?.handleBlur}
-                            selectOption={drpdummyData}
+                            selectOption={bankData}
                             error={
                                 formik?.touched?.linkBank &&
                                 Boolean(formik?.errors?.linkBank)
@@ -154,10 +155,10 @@ const CardPosForm: FC<CardPosFormProps> = ({ formik, handleCloseDrawer, openForm
                                     // editData && Object.keys(editData).length > 0 ? text.buttonNames.update :
                                     text.buttonNames.add}
                                 handleClick={
-                                    date === null ? handleError : 
-                                    formik?.handleSubmit}
-                            loading={postLoaders}
-                            disabled={postLoaders}
+                                    date === null ? handleError :
+                                        formik?.handleSubmit}
+                                loading={postLoaders}
+                                disabled={postLoaders}
                             />
                             <ButtonFieldInput buttonextracls={`rounded-full bg-[#BDBDBD] text-black capitalize`}
                                 name={text.buttonNames.cancel} variant={'contained'} type={`button`}

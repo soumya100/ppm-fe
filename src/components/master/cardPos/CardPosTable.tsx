@@ -6,17 +6,20 @@ import { FC } from 'react'
 interface CardPosTableProps {
   loading?: boolean
   cardPosData: any
+  handleEditPosData(editData: any): void
 }
 
-const CardPosTable: FC<CardPosTableProps> = ({cardPosData, loading}) => {
+const CardPosTable: FC<CardPosTableProps> = ({cardPosData, loading, handleEditPosData}) => {
     const headerCls = `text-white font-extrabold text-md`
   return <TableContainer component={Paper}>
   <Table aria-label="simple table">
     <TableHead className='bg-gradient-to-tr from-indigo-500 via-purple-400 to-blue-500'>
       <TableRow className={`text-white font-bold`}>
         <TableCell className={headerCls}>Serial No.</TableCell>
-        <TableCell className={headerCls} align='center'>Tank name</TableCell>
-        <TableCell className={headerCls} align='center'>Product</TableCell>
+        <TableCell className={headerCls} align='center'>POS name</TableCell>
+        <TableCell className={headerCls} align='center'>POS provider</TableCell>
+        <TableCell className={headerCls} align='center'>POS type</TableCell>
+        <TableCell className={headerCls} align='center'>Link Bank</TableCell>
         <TableCell className={headerCls} align='right'>Actions</TableCell>
       </TableRow>
     </TableHead>
@@ -35,15 +38,21 @@ const CardPosTable: FC<CardPosTableProps> = ({cardPosData, loading}) => {
                 {idx+1}
               </TableCell>
               <TableCell component="th" scope="row" align='center'>
-                {data.Tank_Name}
+                {data.Pos_Name}
               </TableCell>
               <TableCell component="th" scope="row" align='center'>
-                {data.Item_Name}
+                {data.Pos_Provider}
+              </TableCell>
+              <TableCell component="th" scope="row" align='center'>
+                {data.Pos_Type === 1  ? 'Card' : 'QR'}
+              </TableCell>
+              <TableCell component="th" scope="row" align='center'>
+                {data.bank_name}
               </TableCell>
               <TableCell component="th" scope="row" align='right'>
                 <ButtonFieldInput name={`edit`} buttonextracls={`capitalize`}
                   variant={`outlined`}
-                  startIcon={<Edit />} handleClick={() => {}} />
+                  startIcon={<Edit />} handleClick={() => handleEditPosData(data)} />
               </TableCell>
             </TableRow>
           ))

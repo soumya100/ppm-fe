@@ -1,6 +1,6 @@
 "use client"
 import CardPos from '@/components/master/cardPos'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { CardPosHooks } from './Hooks'
 
 const CardPosContainer = () => {
@@ -13,8 +13,19 @@ const CardPosContainer = () => {
         errorMessage,
         handleInstallationDate,
         handleInstallationDateError,
-        installationDate
+        installationDate, getBankPosApiCall,
+        token, orgId, getCardPosApiCall,
+        loader, postLoaders,
+        handleEditPosData
     } = CardPosHooks()
+
+    useEffect(() => {
+      if(token && orgId){
+        getCardPosApiCall(orgId)
+        getBankPosApiCall(orgId)
+      }
+    }, [token , orgId])
+    
     return (
         <CardPos handleCloseCardDrawer={handleCloseCardDrawer}
             handleOpenCardDrawer={handleOpenCardDrawer}
@@ -26,6 +37,9 @@ const CardPosContainer = () => {
             handleInstallationDate={handleInstallationDate}
             handleInstallationDateError={handleInstallationDateError}
             installationDate={installationDate}
+            loader={loader}
+            postLoaders={postLoaders}
+            handleEditPosData={handleEditPosData}
         />
     )
 }

@@ -13,6 +13,7 @@ import pumpMasterSlice from '@/container/master/PumpMaster/PumpMasterReducer'
 import AccountHeadSlice from '@/container/master/AccountHead/AccountHeadReducer'
 import AccountLedgerSlice from '@/container/master/AccountLedger/AccountLedgerReducer'
 import BankAccountSlice from '@/container/master/BankAccount/BankAccountReducer'
+import CardPosSlice from '@/container/master/CardPos/CardPosAccountReducer'
 
 export const store = configureStore({
     reducer: {
@@ -27,7 +28,8 @@ export const store = configureStore({
         pumpMasterData: pumpMasterSlice,
         accountHeadData: AccountHeadSlice,
         accountLedgerData: AccountLedgerSlice,
-        bankAccountData: BankAccountSlice
+        bankAccountData: BankAccountSlice,
+        cardPos: CardPosSlice
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });

@@ -3,13 +3,13 @@ import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mu
 import { FC } from 'react'
 
 interface RadioData {
-  value: string
+  value: string | number
   label: string
 }
 interface RadioGroupProps {
   labelCls?: string
   label?: string
-  value: string
+  value: string 
   handleChange(): void
   radioData: RadioData[]
   color?: 'success' | 'error' | 'warning' | 'info'
