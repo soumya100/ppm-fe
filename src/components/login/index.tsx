@@ -1,4 +1,4 @@
-import { ButtonFieldInput, CheckBox, FlexBetween, FlexBox, FlexCenter, FlexItemCenter, PasswordFieldInput, TextFieldInput } from '@/common'
+import { ButtonFieldInput, CheckBox, FlexBetween, FlexBox, FlexCenter, FlexContentCenter, FlexItemCenter, PasswordFieldInput, TextFieldInput } from '@/common'
 import { Box, Grid, Typography } from '@mui/material'
 import { FC } from 'react'
 import text from '@/languages/en_US.json'
@@ -109,39 +109,39 @@ const Login: FC<LoginProps> = ({ loginFormik, handleRememberMe, remember, loadin
             }
             clickEnter={loginFormik?.handleSubmit}
           />
-          <FlexBetween gap={1}>
-            <FlexItemCenter className={`!text-xs`}>
-              <CheckBox checked={remember} handleBoxChange={handleRememberMe} />
-              <Typography component={`p`} className={`!text-sm !font-semibold !text-slate-500 md:!text-xs`}>
-                {text.rememberMe}
-              </Typography>
-            </FlexItemCenter>
-            <Typography component={`p`} className={` !text-sm !font-semibold !text-slate-500 md:!text-xs cursor-pointer hover:!text-blue-400 hover:underline`}>
-              {text.forgetPassword}
-            </Typography>
-          </FlexBetween>
             <ButtonFieldInput name={text.signIn}
-              buttonextracls={`!rounded-sm !shadow !bg-sky-400 !p-3 !text-sm !capitalize`}
+              buttonextracls={`!rounded-sm !shadow !bg-sky-400 !p-3 !text-sm !capitalize rounded-full hover:bg-blue-400`}
               variant={`contained`}
               type={'submit'}
               loading={loading}
               disabled={loading}
             />
+          <FlexContentCenter className='w-full'>
+            {/* <FlexItemCenter className={`!text-xs`}>
+              <CheckBox checked={remember} handleBoxChange={handleRememberMe} />
+              <Typography component={`p`} className={`!text-sm !font-semibold !text-slate-500 md:!text-xs`}>
+                {text.rememberMe}
+              </Typography>
+            </FlexItemCenter> */}
+            <Typography component={`p`} className={`text-sm font-semibold text-slate-500 md:text-xs cursor-pointer hover:text-blue-400 hover:underline`}>
+              {text.forgetPassword}
+            </Typography>
+          </FlexContentCenter>
         </form>
         <FlexItemCenter>
           <Typography component={`p`} className={`!text-sm !font-semibold`}>
             {text.support} &#58;&nbsp;
           </Typography>
-          <Typography component={`span`} className={`!font-bold !text-sm !text-sky-500`}>
+          <Typography component={`span`} className={`!font-bold !text-sm !text-sky-500 cursor-pointer`}>
             {text.phoneNumbers.numberOne}&#44;&nbsp;
           </Typography>
-          <Typography component={`span`} className={`!font-bold !text-sm !text-sky-500`}>
+          <Typography component={`span`} className={`!font-bold !text-sm !text-sky-500 cursor-pointer`}>
             {text.phoneNumbers.numberOne}&nbsp;
           </Typography>
         </FlexItemCenter>
         <FlexItemCenter gap={2}>
-          <WhatsApp color='success' />
-          <Typography component={`span`} className={`!font-bold !text-sm !text-green-400`}>
+          <WhatsApp color='success' height={5}/>
+          <Typography component={`span`} className={`!font-bold !text-sm !text-green-400 cursor-pointer`}>
             {text.whatsAppNumber}
           </Typography>
         </FlexItemCenter>
