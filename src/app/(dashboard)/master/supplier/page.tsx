@@ -1,10 +1,9 @@
+import SupplierContainer from '@/container/master/Supplier'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>
-      
-    </div>
+    <SupplierContainer />
   )
 }
 

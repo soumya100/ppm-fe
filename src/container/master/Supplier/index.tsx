@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect } from 'react'
 import { SupplierHooks } from './Hooks'
 import Supplier from '@/components/master/Supplier'
