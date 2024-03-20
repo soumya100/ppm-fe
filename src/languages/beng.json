@@ -89,6 +89,16 @@
             "maxCredDays":"Maximum credit days",
             "openingBalance":"Opening balance",
             "underLedger":"Under ledger"
+        },
+        "supplier":{
+            "supplierName":"Supplier name",
+            "supplierAddress":"Supplier address",
+            "mobile":"Supplier mobile",
+            "supplierEmail":"Supplier email",
+            "gstin":"Supplier gstin",
+            "maxCredDays":"Maximum credit days",
+            "openingBalance":"Opening balance",
+            "underLedger":"Under ledger"
         }
     },
     "placeholders": {
@@ -150,6 +160,15 @@
             "maxCredLimit":"Enter max credit limit",
             "maxCredDays":"Enter max credit days",
             "openingBalance":"Enter opening balance"
+        },
+        "supplier":{
+            "supplierName": "Enter supplier name",
+            "supplierAddress":"Enter supplier address",
+            "mobile":"Enter supplier mobile number",
+            "supplierEmail":"Enter supplier email",
+            "gstin":"Enter GSTIN",
+            "maxCredDays":"Enter max credit days",
+            "openingBalance":"Enter opening balance"
         }
     },
     "rememberMe": "আমাকে মনে কর",
@@ -203,6 +222,13 @@
                 "invalidDate":"একটি বৈধ খোলার তারিখ লিখুন"
             },
             "customer":{
+                "email":"Please enter a valid email",
+                "maxCredLimit":"Max credit limit should be greater than zero",
+                "maxCredDays":"Max credit days should be greater than zero",
+                "openingBalance":"Opening balance should be greater than zero",
+                "mobileNo":"Please enter a valid mobile No"
+            }, 
+            "supplier":{
                 "email":"Please enter a valid email",
                 "maxCredLimit":"Max credit limit should be greater than zero",
                 "maxCredDays":"Max credit days should be greater than zero",
@@ -279,6 +305,15 @@
                 "maxCredDays":"Please enter max credit days",
                 "openingBalance":"Please enter openning balance",
                 "underLedger":"Please select an underledger"
+            },
+            "supplier":{
+                "name":"Please enter supplier name",
+                "address":"Please enter supplier address",
+                "email":"Please enter supplier email Id",
+                "maxCredDays":"Please enter max credit days",
+                "openingBalance":"Please enter openning balance",
+                "underLedger":"Please select an underledger",
+                "gstin":"Please enter gstIn"
             }
         }
     },
@@ -326,7 +361,8 @@
         "accountLedger":"অ্যাকাউন্ট লেজার",
         "bankAccounts":"ব্যাংক হিসাব",
         "cardPos":"Card/Pos",
-        "addCustomer":"Add customer"
+        "customer":"Add customers",
+        "supplier":"Suppliers"
     },
     "add": {
         "addUnitMaster": "আইটেম মাস্টার যোগ করুন",
@@ -338,7 +374,9 @@
         "shiftMaster":"শিফট মাস্টার যোগ করুন",
         "accountHead":"অ্যাকাউন্ট প্রধান যোগ করুন",
         "accountLedger":"অ্যাকাউন্ট লেজার যোগ করুন",
-        "addCardPos":"Add Card/Pos"
+        "addCardPos":"Add Card/Pos",
+        "addCustomer":"Add customers",
+        "addSupplier":"Add supplier"
     },
     "edit": {
         "editUnitMaster": "ইউনিট সম্পাদনা করুন",

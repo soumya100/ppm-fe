@@ -5,6 +5,7 @@ import CustomerForm from './CustomerForm'
 import CustomerTable from './CustomerTable'
 import text from '@/languages/en_US.json'
 import { useSelector } from 'react-redux'
+import { notFound } from 'next/navigation'
 
 interface CustomerProps {
   customerDrawerOpen: boolean
@@ -13,10 +14,11 @@ interface CustomerProps {
   AddCustomerFormik: any
   customerMobile: string
   handleMobileChange(numebr: string): void
+  token: string
 }
 
 const Customer: FC<CustomerProps> = ({AddCustomerFormik, handleCloseCustomerDrawer, customerDrawerOpen, handleMobileChange, 
-  handleOpenCustomerDrawer, customerMobile}) => {
+  handleOpenCustomerDrawer, customerMobile, token}) => {
 
     const accountLedgerData = useSelector((state: any) => state.accountLedgerData?.accountLedgerData)?.map((ledgerData: any) => {
       return {
@@ -24,6 +26,8 @@ const Customer: FC<CustomerProps> = ({AddCustomerFormik, handleCloseCustomerDraw
           value: ledgerData.Id
       }
   })
+
+  if(!token) return notFound()
 
   return  <Box className={`min-h-[90vh]`}>
   <TableCommon

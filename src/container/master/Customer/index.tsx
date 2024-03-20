@@ -31,6 +31,7 @@ const CustomerContainer = () => {
       AddCustomerFormik={AddCustomerFormik}
       handleMobileChange={handleMobileChange}
       customerMobile={customerMobile}
+      token={token}
     />
   )
 }

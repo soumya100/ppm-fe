@@ -89,6 +89,16 @@
             "maxCredDays":"Maximum credit days",
             "openingBalance":"Opening balance",
             "underLedger":"Under ledger"
+        },
+        "supplier":{
+            "supplierName":"Supplier name",
+            "supplierAddress":"Supplier address",
+            "mobile":"Supplier mobile",
+            "supplierEmail":"Supplier email",
+            "gstin":"Supplier gstin",
+            "maxCredDays":"Maximum credit days",
+            "openingBalance":"Opening balance",
+            "underLedger":"Under ledger"
         }
     },
    "placeholders":{
@@ -155,6 +165,15 @@
             "mobile":"Enter customer mobile number",
             "customerEmail":"Enter customer email",
             "gstin":"Enter GSTIN",
+            "maxCredDays":"Enter max credit days",
+            "openingBalance":"Enter opening balance"
+        },
+        "supplier":{
+            "supplierName": "Enter supplier name",
+            "supplierAddress":"Enter supplier address",
+            "mobile":"Enter supplier mobile number",
+            "supplierEmail":"Enter supplier email",
+            "gstin":"Enter GSTIN",
             "maxCredLimit":"Enter max credit limit",
             "maxCredDays":"Enter max credit days",
             "openingBalance":"Enter opening balance"
@@ -211,6 +230,13 @@
                 "invalidDate":"Please enter a valid opening date"
             },
             "customer":{
+                "email":"Please enter a valid email",
+                "maxCredLimit":"Max credit limit should be greater than zero",
+                "maxCredDays":"Max credit days should be greater than zero",
+                "openingBalance":"Opening balance should be greater than zero",
+                "mobileNo":"Please enter a valid mobile No"
+            },
+            "supplier":{
                 "email":"Please enter a valid email",
                 "maxCredLimit":"Max credit limit should be greater than zero",
                 "maxCredDays":"Max credit days should be greater than zero",
@@ -285,6 +311,15 @@
                 "maxCredDays":"Please enter max credit days",
                 "openingBalance":"Please enter openning balance",
                 "underLedger":"Please select an underledger"
+            },
+            "supplier":{
+                "name":"Please enter supplier name",
+                "address":"Please enter supplier address",
+                "email":"Please enter supplier email Id",
+                "maxCredDays":"Please enter max credit days",
+                "openingBalance":"Please enter openning balance",
+                "underLedger":"Please select an underledger",
+                "gstin":"Please enter gstIn"
             }
         }
     },
@@ -333,7 +368,8 @@
         "accountLedger":"Account Ledger",
         "bankAccounts":"Bank accounts",
         "cardPos":"Card/Pos",
-        "customer":"Customer"
+        "customer":"Customers",
+        "supplier":"Suppliers"
     },
     "add":{
         "addUnitMaster":"Add unit",
@@ -347,7 +383,8 @@
         "accountLedger":"Add account ledger",
         "addBankAccount":"Add bank account",
         "addCardPos":"Add Card/Pos",
-        "addCustomer":"Add customer"
+        "addCustomer":"Add customer",
+        "addSupplier":"Add supplier"
     },
     "edit":{
         "editUnitMaster":"Edit unit",
