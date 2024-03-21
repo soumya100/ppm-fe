@@ -6,9 +6,10 @@ import text from '@/languages/en_US.json'
 interface TankerFormProps {
     formik: any
     postLoaders?: boolean
+    handleResetForm(): void
 }
 
-const TankerForm: FC<TankerFormProps> = ({ formik, postLoaders }) => {
+const TankerForm: FC<TankerFormProps> = ({ formik, postLoaders, handleResetForm }) => {
     return <form onSubmit={formik?.handleSubmit}>
         <FlexItemCenter className='h-[3rem]'>
             <p className='font-bold text-black text-lg px-5'>
@@ -117,7 +118,9 @@ const TankerForm: FC<TankerFormProps> = ({ formik, postLoaders }) => {
                 />
                 <ButtonFieldInput name={text.buttonNames.cancel}
                     buttonextracls={`rounded-full bg-gray-400 capitalize`}
-                    variant={`contained`} type={`button`} />
+                    variant={`contained`} type={`button`} 
+                    handleClick={handleResetForm} 
+                    />
             </FlexBetween>
         </FlexItemCenter>
     </form>

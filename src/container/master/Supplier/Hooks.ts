@@ -140,7 +140,7 @@ export const SupplierHooks = () => {
                 if (res.status === 200) {
                     getSupplierApiCall(orgId)
                     handleCloseSupplierDrawer()
-                    toast.success('Supplier updated successfully')
+                    toast.success('Supplier added successfully')
 
                 } else {
                     toast.error(res.message)

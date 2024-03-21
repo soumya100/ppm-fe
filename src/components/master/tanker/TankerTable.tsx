@@ -12,11 +12,11 @@ import { Edit } from '@mui/icons-material';
 
 interface TankerTableProps {
   tankerData: any,
-//   handleEditData(data: any): void,
+  handleEditData(data: any): void,
   loading?: boolean
 }
 
-const TankerTable: FC<TankerTableProps> = ({ tankerData, loading }) => {
+const TankerTable: FC<TankerTableProps> = ({ tankerData, loading, handleEditData }) => {
 
   const headerCls = `text-white font-extrabold text-md`
   return (
@@ -25,7 +25,9 @@ const TankerTable: FC<TankerTableProps> = ({ tankerData, loading }) => {
         <TableHead className='bg-gradient-to-tr from-indigo-500 via-purple-400 to-blue-500'>
           <TableRow className={`text-white font-bold`}>
             <TableCell className={headerCls}>Serial No.</TableCell>
-            <TableCell className={headerCls} align='center'>Category Name</TableCell>
+            <TableCell className={headerCls} align='center'>Tanker Name</TableCell>
+            <TableCell className={headerCls} align='center'>Vehicle Number</TableCell>
+            <TableCell className={headerCls} align='center'>Capacity</TableCell>
             <TableCell className={headerCls} align='right'>Actions</TableCell>
           </TableRow>
         </TableHead>
@@ -44,12 +46,18 @@ const TankerTable: FC<TankerTableProps> = ({ tankerData, loading }) => {
                     {idx+1}
                   </TableCell>
                   <TableCell component="th" scope="row" align='center'>
-                    {data.Catagary_Name}
+                    {data.Tanker_Name}
+                  </TableCell>
+                  <TableCell component="th" scope="row" align='center'>
+                    {data.Vechle_Name}
+                  </TableCell>
+                  <TableCell component="th" scope="row" align='center'>
+                    {data.Capacity}
                   </TableCell>
                   <TableCell component="th" scope="row" align='right'>
                     <ButtonFieldInput name={`edit`} buttonextracls={`capitalize`}
                       variant={`outlined`}
-                      startIcon={<Edit />} handleClick={() => {}} />
+                      startIcon={<Edit />} handleClick={() => handleEditData(data)} />
                   </TableCell>
                 </TableRow>
               ))

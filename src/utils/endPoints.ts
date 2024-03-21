@@ -40,5 +40,8 @@ export const endPoints = {
     getSupplier:(id: number)=>`${createApi}master/GetSupplier/${id}`,
     postSupplier:`${createApi}master/AddSupplier`,
     updateSupplier:`${createApi}master/UpdateSupplier`,
+    getTanker:(id: number)=>`${createApi}master/GetTanker/${id}`,
+    postTanker:`${createApi}master/AddTanker`,
+    updateTanker:`${createApi}master/UpdateTanker`,
     logout: `${createApi}logout`
 }

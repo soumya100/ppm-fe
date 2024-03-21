@@ -34,6 +34,7 @@ const SupplierContainer = () => {
        supplierMobile={supplierMobile} 
        loader={loader} handleEditData={handleEditData}
        postLoaders={postLoaders} editData={editData}
+       token={token}
        />
     )
 }

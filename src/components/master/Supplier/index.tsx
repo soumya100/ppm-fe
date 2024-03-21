@@ -5,6 +5,7 @@ import SupplierForm from './SupplierForm'
 import SupplierTable from './SupplierTable'
 import text from '@/languages/en_US.json'
 import { useSelector } from 'react-redux'
+import { notFound } from 'next/navigation'
 
 interface SupplierProps {
   supplierDrawer: boolean
@@ -17,10 +18,11 @@ interface SupplierProps {
   postLoaders: boolean
   handleEditData(data: any): void
   editData: any
+  token: string
 }
 
 const Supplier: FC<SupplierProps> = ({ AddSupplierFormik, handleCloseSupplierDrawer, handleMobileChange, handleOpenSupplierDrawer,
-  supplierDrawer, supplierMobile, loader, postLoaders, handleEditData, editData }) => {
+  supplierDrawer, supplierMobile, loader, postLoaders, handleEditData, editData, token }) => {
 
   const accountLedgerData = useSelector((state: any) => state.accountLedgerData?.accountLedgerData)?.map((ledgerData: any) => {
     return {
@@ -30,6 +32,8 @@ const Supplier: FC<SupplierProps> = ({ AddSupplierFormik, handleCloseSupplierDra
   })
 
   const supplierData = useSelector((state: any) => state.supplier?.supplierData)
+
+  if(!token) return notFound()
 
   return <Box className={`min-h-[90vh]`}>
     <TableCommon
