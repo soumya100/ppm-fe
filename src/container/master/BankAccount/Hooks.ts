@@ -169,7 +169,7 @@ export const BankAccountHooks = () => {
                     getBankAccountApiCall(orgId)
                     toast.success('Bank account added successfully')
                 } else {
-                    toast.error(res.Message)
+                    toast.error(res.message)
                 }
             })
             .catch((err) => {
@@ -200,7 +200,7 @@ export const BankAccountHooks = () => {
                 toast.success('Bank account updated successfully')
                 handleCloseBankAccountDrawer()
             } else {
-                toast.error(res.Message)
+                toast.error(res.message)
             }
         }).catch((err) => {
             toast.error('Something went wrong')

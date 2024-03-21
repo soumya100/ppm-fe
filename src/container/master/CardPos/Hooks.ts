@@ -179,7 +179,7 @@ export const CardPosHooks = () => {
                     getCardPosApiCall(orgId)
                     toast.success('Card/Pos added successfully')
                 } else {
-                    toast.error(res.Message)
+                    toast.error(res.message)
                 }
             })
             .catch((err) => {
@@ -208,7 +208,7 @@ export const CardPosHooks = () => {
                 toast.success('Card/Pos updated successfully')
                 handleCloseCardDrawer()
             } else {
-                toast.error(res.Message)
+                toast.error(res.message)
             }
         }).catch((err) => {
             toast.error('Something went wrong')

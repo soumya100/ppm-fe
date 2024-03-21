@@ -138,7 +138,7 @@ export const ShiftMasterHooks=()=>{
                     setTimeRangeError([null, null])
                     setTimeRange([null, null])
                 } else {
-                    toast.error(res.Message)
+                    toast.error(res.message)
                 }
             })
             .catch((err) => {

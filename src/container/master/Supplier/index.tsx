@@ -13,7 +13,7 @@ const SupplierContainer = () => {
         handleMobileChange,
         supplierMobile,
         token,
-        orgId
+        orgId, getSupplierApiCall
     } = SupplierHooks()
 
     const { getAccountLedgerApiCall } = AccountLedgerHooks()
@@ -21,6 +21,7 @@ const SupplierContainer = () => {
   useEffect(() => {
     if (token && orgId) {
       getAccountLedgerApiCall(orgId)
+      getSupplierApiCall(orgId)
     }
   }, [token, orgId])
 

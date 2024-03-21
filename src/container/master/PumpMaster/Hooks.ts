@@ -192,7 +192,7 @@ export const PumpMasterHooks = () => {
                     getPumpMasterApiCall(orgId)
                     toast.success('Pump added successfully')
                 } else {
-                    toast.error(res.Message)
+                    toast.error(res.message)
                 }
             })
             .catch((err) => {

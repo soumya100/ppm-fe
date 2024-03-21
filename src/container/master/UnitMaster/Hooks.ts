@@ -100,7 +100,7 @@ export const UnitMasterHooks = () => {
                     setEditData(null)
                     resetForm()
                 }else{
-                    toast.error(res.Message)
+                    toast.error(res.message)
                 }
             })
             .catch((err) => {
@@ -129,7 +129,7 @@ export const UnitMasterHooks = () => {
              resetForm()
             //  setPostLoaders(false)
          }else{
-             toast.error(res.Message)
+             toast.error(res.message)
             //  setPostLoaders(false)
          }
      }).catch((err)=>{

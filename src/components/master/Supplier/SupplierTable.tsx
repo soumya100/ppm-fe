@@ -37,16 +37,16 @@ const SupplierTable: FC<SupplierTableProps> = ({supplierTableData, loading}) => 
                 {idx+1}
               </TableCell>
               <TableCell component="th" scope="row" align='center'>
-                {data.Catagary_Name}
+                {data.Supp_Name}
               </TableCell>
               <TableCell component="th" scope="row" align='center'>
-                {data.Catagary_Name}
+                {data.Supp_Mobile}
               </TableCell>
               <TableCell component="th" scope="row" align='center'>
-                {data.Catagary_Name}
+                {data.Supp_GSTIN}
               </TableCell>
               <TableCell component="th" scope="row" align='center'>
-                {data.Catagary_Name}
+                {data.Acct_Name}
               </TableCell>
               <TableCell component="th" scope="row" align='right'>
                 <ButtonFieldInput name={`edit`} buttonextracls={`capitalize`}

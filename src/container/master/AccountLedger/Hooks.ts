@@ -167,7 +167,7 @@ const editAccountLedger =(data: any)=>{
                     getAccountLedgerApiCall(orgId)
                     toast.success('Account ledger created successfully')
                 } else {
-                    toast.error(res.Message)
+                    toast.error(res.message)
                 }
             })
             .catch((err) => {
@@ -197,7 +197,7 @@ const editAccountLedger =(data: any)=>{
                 handleCloseAccountLedger()
                 setEditData(null)
             }else{
-                toast.error(res.Message)   
+                toast.error(res.message)   
             }
         }).catch((err)=>{
             toast.error('Something went wrong')

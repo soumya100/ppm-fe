@@ -25,6 +25,8 @@ supplierDrawer, supplierMobile}) => {
         }
     })
 
+    const supplierData = useSelector((state: any) => state.supplier?.supplierData)
+
   return <Box className={`min-h-[90vh]`}>
   <TableCommon
     title={text.tableTitles.supplier}
@@ -39,7 +41,7 @@ supplierDrawer, supplierMobile}) => {
     // editData={editData}
     />}
     handleOpenButton={handleOpenSupplierDrawer}
-    tableComponent={<SupplierTable supplierTableData={[]} 
+    tableComponent={<SupplierTable supplierTableData={supplierData} 
     // loading={loader} handleEditData={handleEditData}
     />
   }

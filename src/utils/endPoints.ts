@@ -37,5 +37,8 @@ export const endPoints = {
     getCustomer:(id: number)=>`${createApi}master/GetCustomer/${id}`,
     postCustomer:`${createApi}master/AddCustomer`,
     updateCustomer:`${createApi}master/UpdateCustomer`,
+    getSupplier:(id: number)=>`${createApi}master/GetSupplier/${id}`,
+    postSupplier:`${createApi}master/AddSupplier`,
+    updateSupplier:`${createApi}master/UpdateSupplier`,
     logout: `${createApi}logout`
 }

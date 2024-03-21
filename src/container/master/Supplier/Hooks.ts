@@ -5,10 +5,20 @@ import * as Yup from 'yup'
 import text from '@/languages/en_US.json'
 import { EMAIL_REGEX } from "@/utils/constants"
 import { matchIsValidTel } from "mui-tel-input"
+import { useDispatch } from "react-redux"
+import { getSupplierAPI, postSupplierAPI } from "./SupplierApis"
+import { getSupplierData } from "./SupplierReducer"
+import toast from "react-hot-toast"
 
 export const SupplierHooks = () => {
+
+    const dispatch = useDispatch()
     const token = getSessionStorageData('token')
     const orgId = getSessionStorageData('orgId')
+
+    //loader states
+    const [loader, setLoader] = useState<boolean>(false)
+    const [postLoaders, setPostLoaders] = useState<boolean>(false)
 
     //supplier mobile states
     const [supplierMobile, setSupplierMobile] = useState<string>('')
@@ -24,6 +34,8 @@ export const SupplierHooks = () => {
     //handle close supplier drawer 
     const handleCloseSupplierDrawer = () => {
         setSupplierDrawer(false)
+        AddSupplierFormik.resetForm()
+        setSupplierMobile('')
     }
 
     //handle mobile number change
@@ -67,10 +79,64 @@ export const SupplierHooks = () => {
                 const data = {
                     ...values, supplierMobile
                 }
-                console.log(data, '*supplier form data')
+                postSupplierApiCall(orgId, data)
             }
         }
     })
+
+    //supplier get api
+    const getSupplierApiCall = async (id: number) => {
+        setLoader(true)
+        getSupplierAPI(id).then((res: any) => {
+            // console.log(res)
+            if (res.status === 200) {
+                dispatch(getSupplierData(res.Data))
+            } else {
+                dispatch(getSupplierData([]))
+            }
+        }).catch((err: any) => {
+            toast.error(err)
+            toast.error('Something went wrong')
+            dispatch(getSupplierData([]))
+        }).finally(() => {
+            setLoader(false)
+        })
+    }
+
+    //post supplier api call
+    const postSupplierApiCall = (orgId: number, item: any) => {
+        setPostLoaders(true);
+        let bodyData = {
+            Suppl_Name: item.supplierName,
+            Suppl_Addr: item.supplierAddress,
+            Suppl_Mob: item.supplierMobile,
+            Suppl_Mail: item.supplierEmail,
+            Suppl_GSTIN: item.gstin,
+            Max_Crd_Days: item.maxCredDays,
+            Open_Bal: item.openingBalance,
+            Link_Gl: item.underLedger,
+            org_id: orgId
+        }
+        // console.table(bodyData)
+        postSupplierAPI(bodyData)
+            .then((res: any) => {
+                // console.log(res)
+                if (res.Status === 200) {
+                    getSupplierApiCall(orgId)
+                    handleCloseSupplierDrawer()
+                    toast.success('Supplier Added successfully')
+
+                } else {
+                    toast.error(res.message)
+                }
+            })
+            .catch((err) => {
+                console.error(err)
+                toast.error('Something went wrong')
+            }).finally(() => {
+                setPostLoaders(false)
+            })
+    }
 
     return {
         supplierDrawer,
@@ -80,6 +146,6 @@ export const SupplierHooks = () => {
         handleMobileChange,
         supplierMobile,
         token,
-        orgId
+        orgId, getSupplierApiCall
     }
 }

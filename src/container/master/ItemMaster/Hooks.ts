@@ -159,7 +159,7 @@ export const ItemMasterHooks = () => {
                     // setEditData(null)
                     resetForm()
                 } else {
-                    toast.error(res.Message)
+                    toast.error(res.message)
                 }
             })
             .catch((err) => {
