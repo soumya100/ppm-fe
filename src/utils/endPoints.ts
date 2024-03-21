@@ -1,4 +1,4 @@
-const createApi = `http://115.187.40.33/api/`
+const createApi = `${process.env.NEXT_PUBLIC_BASE_API_URL}/api/`
 export const endPoints = {
     login: `${createApi}admin/login`,
     finYear: (id: number) => `${createApi}admin/finyear/${id}`,
