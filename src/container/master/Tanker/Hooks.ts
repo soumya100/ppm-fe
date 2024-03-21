@@ -21,7 +21,7 @@ export const TankerHooks = () => {
                 .required(text.errors.requiredErrors.tanker.tankerName),
             vehicleName: Yup.string()
                 .required(text.errors.requiredErrors.tanker.vehicleName),
-            vehicleNumber: Yup.number()
+            vehicleNumber: Yup.string()
                 .required(text.errors.requiredErrors.tanker.vehicleNumber),
             capacity: Yup.number()
                 .positive(text.errors.patternErrors.tanker.capacity)
