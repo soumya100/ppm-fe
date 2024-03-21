@@ -93,7 +93,7 @@ export const ItemMasterHooks = () => {
                 dispatch(getItemMasterUnit([]))
             }
         }).catch((err: any) => {
-            console.log(err)
+            console.error(err)
             toast.error('Something went wrong')
             dispatch(getItemMasterUnit([]))
         })
@@ -108,7 +108,7 @@ export const ItemMasterHooks = () => {
                 dispatch(getItemMasterCategory([]))
             }
         }).catch((err: any) => {
-            console.log(err)
+            console.error(err)
             toast.error('Something went wrong')
             dispatch(getItemMasterCategory([]))
         })
@@ -124,7 +124,7 @@ export const ItemMasterHooks = () => {
                 dispatch(getItemMaster([]))
             }
         }).catch((err: any) => {
-            console.log(err)
+            console.error(err)
             toast.error('Something went wrong')
             dispatch(getItemMaster([]))
         }).finally(()=>{

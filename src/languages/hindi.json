@@ -416,7 +416,8 @@
         "editAccountLedger":"खाता बही संपादित करें",
         "editBankAccount":"बैंक खाता संपादित करें",
         "editcardPos":"Edit Pos/Card",
-        "editCustomer":"Edit customer"
+        "editCustomer":"Edit customer",
+        "editSupplier":"Edit supplier"
     },
     "addMsg": {
         "unitmaster":"यूनिट जोड़ने के लिए, कृपया यहां अपनी यूनिट दर्ज करें",

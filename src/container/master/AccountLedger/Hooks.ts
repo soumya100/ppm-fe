@@ -140,7 +140,7 @@ const editAccountLedger =(data: any)=>{
                 dispatch(getAccountLedgerData([]))
             }
         }).catch((err: any) => {
-            console.log(err)
+            console.error(err)
             toast.error('Something went wrong')
             dispatch(getAccountLedgerData([]))
         }).finally(() => {
@@ -201,7 +201,7 @@ const editAccountLedger =(data: any)=>{
             }
         }).catch((err)=>{
             toast.error('Something went wrong')
-            console.log(err)
+            console.error(err)
         }).finally(()=>{
             setPostLoaders(false)
         })

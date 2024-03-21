@@ -22,7 +22,7 @@ export const SideBarHooks = () => {
              dispatch(getFinancialYear([]))
          }
      }).catch((err)=>{
-        console.log(err)
+        console.error(err)
         toast.error('Something went wrong')
         dispatch(getFinancialYear([]))
      })
@@ -41,7 +41,7 @@ export const SideBarHooks = () => {
          }
      }).catch((err: any)=>{
         toast.error('Something went wrong')
-        console.log(err)
+        console.error(err)
     }).finally(()=>{
         setLogOutLoader(false)
      })
@@ -57,7 +57,7 @@ export const SideBarHooks = () => {
                 dispatch(getSideBarData([]))
             }
         }).catch((err: any)=>{
-            console.log(err)
+            console.error(err)
             toast.error('Something went wrong')
             dispatch(getSideBarData([]))
         }).finally(()=>{

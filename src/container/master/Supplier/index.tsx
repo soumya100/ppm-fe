@@ -11,9 +11,9 @@ const SupplierContainer = () => {
         handleCloseSupplierDrawer,
         AddSupplierFormik,
         handleMobileChange,
-        supplierMobile,
-        token,
-        orgId, getSupplierApiCall
+        supplierMobile, postLoaders,
+        token, loader, handleEditData,
+        orgId, getSupplierApiCall, editData
     } = SupplierHooks()
 
     const { getAccountLedgerApiCall } = AccountLedgerHooks()
@@ -31,7 +31,10 @@ const SupplierContainer = () => {
        handleCloseSupplierDrawer={handleCloseSupplierDrawer}
        AddSupplierFormik={AddSupplierFormik}
        handleMobileChange={handleMobileChange}
-       supplierMobile={supplierMobile} />
+       supplierMobile={supplierMobile} 
+       loader={loader} handleEditData={handleEditData}
+       postLoaders={postLoaders} editData={editData}
+       />
     )
 }
 

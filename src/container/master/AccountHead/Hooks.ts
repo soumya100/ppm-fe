@@ -59,7 +59,7 @@ export const AccountHeadHooks = () => {
                 dispatch(getAccountHeadMainData([]))
             }
         }).catch((err: any) => {
-            console.log(err)
+            console.error(err)
             toast.error('Something went wrong')
             dispatch(getAccountHeadMainData([]))
         })
@@ -75,7 +75,7 @@ export const AccountHeadHooks = () => {
                 dispatch(getAccountHeadData([]))
             }
         }).catch((err: any) => {
-            console.log(err)
+            console.error(err)
             toast.error('Something went wrong')
             dispatch(getAccountHeadData([]))
         }).finally(() => {

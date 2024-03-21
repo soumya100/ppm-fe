@@ -6,9 +6,10 @@ import { FC } from 'react'
 interface SupplierTableProps {
   loading?: boolean
   supplierTableData: any
+  handleEditData(data: any): void
 }
 
-const SupplierTable: FC<SupplierTableProps> = ({supplierTableData, loading}) => {
+const SupplierTable: FC<SupplierTableProps> = ({supplierTableData, loading, handleEditData}) => {
   const headerCls = `text-white font-extrabold text-md`
   return  <TableContainer component={Paper}>
   <Table aria-label="simple table">
@@ -51,7 +52,7 @@ const SupplierTable: FC<SupplierTableProps> = ({supplierTableData, loading}) => 
               <TableCell component="th" scope="row" align='right'>
                 <ButtonFieldInput name={`edit`} buttonextracls={`capitalize`}
                   variant={`outlined`}
-                  startIcon={<Edit />} handleClick={() => console.log(data)} />
+                  startIcon={<Edit />} handleClick={() => handleEditData(data)} />
               </TableCell>
             </TableRow>
           ))

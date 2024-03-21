@@ -69,7 +69,7 @@ export const ItemCategoryHooks = () => {
                 dispatch(getItemCategoryData([]))
             }
         }).catch((err) => {
-            console.log(err)
+            console.error(err)
             toast.error('Something went wrong')
             dispatch(getItemCategoryData([]))
         }).finally(() => {
@@ -127,7 +127,7 @@ export const ItemCategoryHooks = () => {
             }
         }).catch((err) => {
             toast.error('Something went wrong')
-            console.log(err)
+            console.error(err)
         }).finally(() => {
             setPostLoaders(false)
         })

@@ -127,14 +127,14 @@ export const CardPosHooks = () => {
     const getCardPosApiCall = async (id: number) => {
         setLoader(true)
         getCardPosApi(id, 'card').then((res: any) => {
-            console.log(res)
+            // console.log(res)
             if (res.status === 200) {
                 dispatch(getCardPosData(res.Data))
             } else {
                 dispatch(getCardPosData([]))
             }
         }).catch((err: any) => {
-            console.log(err)
+            console.error(err)
             toast.error('Something went wrong')
             dispatch(getCardPosData([]))
         }).finally(() => {
@@ -151,7 +151,7 @@ export const CardPosHooks = () => {
                 dispatch(getBankPosData([]))
             }
         }).catch((err: any) => {
-            console.log(err)
+            console.error(err)
             toast.error('Something went wrong')
             dispatch(getBankPosData([]))
         }).finally(() => {
@@ -174,7 +174,7 @@ export const CardPosHooks = () => {
         postCardPosAPI(bodyData)
             .then((res: any) => {
                 // console.log(res, '* res')
-                if (res.Status === 200) {
+                if (res.status === 200) {
                     handleCloseCardDrawer()
                     getCardPosApiCall(orgId)
                     toast.success('Card/Pos added successfully')
@@ -203,7 +203,7 @@ export const CardPosHooks = () => {
             org_id: orgId
         }
         updateCardPosAPI(bodyData).then((res: any) => {
-            if (res.Status === 200) {
+            if (res.status === 200) {
                 getCardPosApiCall(orgId)
                 toast.success('Card/Pos updated successfully')
                 handleCloseCardDrawer()
@@ -212,7 +212,7 @@ export const CardPosHooks = () => {
             }
         }).catch((err) => {
             toast.error('Something went wrong')
-            console.log(err)
+            console.error(err)
         }).finally(() => {
             setPostLoaders(false)
         })

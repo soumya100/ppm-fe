@@ -418,7 +418,8 @@
         "editAccountLedger": "Edit account ledger",
         "editBankAccount": "Edit bank account",
         "editcardPos":"Edit Pos/Card",
-        "editCustomer":"Edit customer"
+        "editCustomer":"Edit customer",
+        "editSupplier":"Edit supplier"
     },
     "addMsg": {
         "unitmaster": "To add unit, please enter your unit here",

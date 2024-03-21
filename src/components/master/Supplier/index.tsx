@@ -7,46 +7,51 @@ import text from '@/languages/en_US.json'
 import { useSelector } from 'react-redux'
 
 interface SupplierProps {
-    supplierDrawer: boolean
-    handleCloseSupplierDrawer(): void
-    handleOpenSupplierDrawer(): void
-    AddSupplierFormik: any
-    supplierMobile: string
-    handleMobileChange(numebr: string): void
+  supplierDrawer: boolean
+  handleCloseSupplierDrawer(): void
+  handleOpenSupplierDrawer(): void
+  AddSupplierFormik: any
+  supplierMobile: string
+  handleMobileChange(numebr: string): void
+  loader: boolean
+  postLoaders: boolean
+  handleEditData(data: any): void
+  editData: any
 }
 
-const Supplier: FC<SupplierProps> = ({AddSupplierFormik, handleCloseSupplierDrawer, handleMobileChange, handleOpenSupplierDrawer,
-supplierDrawer, supplierMobile}) => {
+const Supplier: FC<SupplierProps> = ({ AddSupplierFormik, handleCloseSupplierDrawer, handleMobileChange, handleOpenSupplierDrawer,
+  supplierDrawer, supplierMobile, loader, postLoaders, handleEditData, editData }) => {
 
-    const accountLedgerData = useSelector((state: any) => state.accountLedgerData?.accountLedgerData)?.map((ledgerData: any) => {
-        return {
-            name: ledgerData.Acct_Name,
-            value: ledgerData.Id
-        }
-    })
+  const accountLedgerData = useSelector((state: any) => state.accountLedgerData?.accountLedgerData)?.map((ledgerData: any) => {
+    return {
+      name: ledgerData.Acct_Name,
+      value: ledgerData.Id
+    }
+  })
 
-    const supplierData = useSelector((state: any) => state.supplier?.supplierData)
+  const supplierData = useSelector((state: any) => state.supplier?.supplierData)
 
   return <Box className={`min-h-[90vh]`}>
-  <TableCommon
-    title={text.tableTitles.supplier}
-    btnName={text.add.addSupplier}
-    titleTextCls={`font-bold text-black text-3xl`}
-    titleCls='mb-5'
-    addComponent={<SupplierForm handleCloseDrawer={handleCloseSupplierDrawer}
-      openSupplierDrawer={supplierDrawer} formik={AddSupplierFormik}
-      supplierMobile={supplierMobile} handleSupplierMobile={handleMobileChange}
-      underLedgerOptions={accountLedgerData}
-    // loading={postLoaders}
-    // editData={editData}
-    />}
-    handleOpenButton={handleOpenSupplierDrawer}
-    tableComponent={<SupplierTable supplierTableData={supplierData} 
-    // loading={loader} handleEditData={handleEditData}
+    <TableCommon
+      title={text.tableTitles.supplier}
+      btnName={text.add.addSupplier}
+      titleTextCls={`font-bold text-black text-3xl`}
+      titleCls='mb-5'
+      addComponent={<SupplierForm handleCloseDrawer={handleCloseSupplierDrawer}
+        openSupplierDrawer={supplierDrawer} formik={AddSupplierFormik}
+        supplierMobile={supplierMobile} handleSupplierMobile={handleMobileChange}
+        underLedgerOptions={accountLedgerData}
+      loading={postLoaders}
+      editData={editData}
+      />}
+      handleOpenButton={handleOpenSupplierDrawer}
+      tableComponent={<SupplierTable supplierTableData={supplierData}
+      loading={loader} 
+      handleEditData={handleEditData}
+      />
+      }
     />
-  }
-  />
-</Box>
+  </Box>
 }
 
 export default Supplier

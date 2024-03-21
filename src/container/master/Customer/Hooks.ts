@@ -50,7 +50,7 @@ export const CustomerHooks = () => {
 
     //handle Edit
     const handleEditData=(data: any)=>{
-        console.log(data)
+        // console.log(data)
         setEditData(data)
         setCustomerMobile(data.Cust_Mobile)
         handleOpenCustomerDrawer()
@@ -108,14 +108,14 @@ export const CustomerHooks = () => {
     const getCustomerApiCall = async (id: number) => {
         setLoader(true)
         getCustomerAPI(id).then((res: any) => {
-            console.log(res)
+            // console.log(res)
             if (res.status === 200) {
                 dispatch(getCustomerData(res.Data))
             } else {
                 dispatch(getCustomerData([]))
             }
         }).catch((err: any) => {
-            console.log(err)
+            console.error(err)
             toast.error('Something went wrong')
             dispatch(getCustomerData([]))
         }).finally(() => {
@@ -142,7 +142,7 @@ export const CustomerHooks = () => {
         postCustomerAPI(bodyData)
             .then((res: any) => {
                 // console.log(res, '* res')
-                if (res.Status === 200) {
+                if (res.status === 200) {
                     handleCloseCustomerDrawer()
                     getCustomerApiCall(orgId)
                     toast.success('Customer added successfully')
@@ -175,7 +175,7 @@ export const CustomerHooks = () => {
             Link_Gl: item.underLedger
         }
         updateCustomerAPI(bodyData).then((res: any) => {
-            if (res.Status === 200) {
+            if (res.status === 200) {
                 getCustomerApiCall(orgId)
                 toast.success('Customer updated successfully')
                 handleCloseCustomerDrawer()
@@ -184,7 +184,7 @@ export const CustomerHooks = () => {
             }
         }).catch((err) => {
             toast.error('Something went wrong')
-            console.log(err)
+            console.error(err)
         }).finally(() => {
             setPostLoaders(false)
         })

@@ -139,7 +139,7 @@ export const BankAccountHooks = () => {
                 dispatch(getBankAccountData([]))
             }
         }).catch((err: any) => {
-            console.log(err)
+            console.error(err)
             toast.error('Something went wrong')
             dispatch(getBankAccountData([]))
         }).finally(() => {
@@ -204,7 +204,7 @@ export const BankAccountHooks = () => {
             }
         }).catch((err) => {
             toast.error('Something went wrong')
-            console.log(err)
+            console.error(err)
         }).finally(() => {
             setPostLoaders(false)
         })

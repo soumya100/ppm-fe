@@ -6,7 +6,7 @@ import text from '@/languages/en_US.json'
 import { EMAIL_REGEX } from "@/utils/constants"
 import { matchIsValidTel } from "mui-tel-input"
 import { useDispatch } from "react-redux"
-import { getSupplierAPI, postSupplierAPI } from "./SupplierApis"
+import { getSupplierAPI, postSupplierAPI, updateSupplierAPI } from "./SupplierApis"
 import { getSupplierData } from "./SupplierReducer"
 import toast from "react-hot-toast"
 
@@ -23,8 +23,11 @@ export const SupplierHooks = () => {
     //supplier mobile states
     const [supplierMobile, setSupplierMobile] = useState<string>('')
 
-    //supplier drawer stated
+    //supplier drawer states
     const [supplierDrawer, setSupplierDrawer] = useState<boolean>(false)
+
+    //edit data states
+    const[editData, setEditData]=useState<any>(null)
 
     //handle open supplier drawer
     const handleOpenSupplierDrawer = () => {
@@ -36,6 +39,7 @@ export const SupplierHooks = () => {
         setSupplierDrawer(false)
         AddSupplierFormik.resetForm()
         setSupplierMobile('')
+        setEditData(null)
     }
 
     //handle mobile number change
@@ -43,17 +47,25 @@ export const SupplierHooks = () => {
         setSupplierMobile(number)
     }
 
+    //handle edit data
+    const handleEditData=(data: any)=>{
+        // console.log(data)
+        setEditData(data)
+        setSupplierMobile(data.Supp_Mobile)
+        handleOpenSupplierDrawer()
+    }
+
     //add supplier formik
     const AddSupplierFormik = useFormik({
         enableReinitialize: true,
         initialValues: {
-            supplierName: '',
-            supplierAddress: '',
-            supplierEmail: '',
-            gstin: '',
-            maxCredDays: 0,
-            openingBalance: 0,
-            underLedger: ''
+            supplierName: editData && Object.keys(editData).length> 0 ? editData.Supp_Name : '',
+            supplierAddress:  editData && Object.keys(editData).length> 0 ? editData.Supp_Add : '',
+            supplierEmail:  editData && Object.keys(editData).length> 0 ? editData.Supp_Mail : '',
+            gstin:  editData && Object.keys(editData).length> 0 ? editData.Supp_GSTIN : '',
+            maxCredDays:  editData && Object.keys(editData).length> 0 ? editData.Max_Days : 0,
+            openingBalance:  editData && Object.keys(editData).length> 0 ? editData.Open_Bal : 0,
+            underLedger:  editData && Object.keys(editData).length> 0 ? editData.Link_Gl : ''
         },
         validationSchema: Yup.object().shape({
             supplierName: Yup.string()
@@ -79,7 +91,11 @@ export const SupplierHooks = () => {
                 const data = {
                     ...values, supplierMobile
                 }
-                postSupplierApiCall(orgId, data)
+                if(editData && Object.keys(editData).length> 0){
+                    editSupplierApiCall(editData.Id, orgId ,data)
+                }else{
+                    postSupplierApiCall(orgId, data)
+                }
             }
         }
     })
@@ -121,10 +137,10 @@ export const SupplierHooks = () => {
         postSupplierAPI(bodyData)
             .then((res: any) => {
                 // console.log(res)
-                if (res.Status === 200) {
+                if (res.status === 200) {
                     getSupplierApiCall(orgId)
                     handleCloseSupplierDrawer()
-                    toast.success('Supplier Added successfully')
+                    toast.success('Supplier updated successfully')
 
                 } else {
                     toast.error(res.message)
@@ -138,14 +154,47 @@ export const SupplierHooks = () => {
             })
     }
 
+    //edit api call for card pos
+    const editSupplierApiCall = async (supplierId: number, orgId: number, item: any) => {
+        setPostLoaders(true)
+        let bodyData = {
+            Suppl_Name: item.supplierName,
+            Suppl_Addr: item.supplierAddress,
+            Suppl_Mob: item.supplierMobile,
+            Suppl_Mail: item.supplierEmail,
+            Suppl_GSTIN: item.gstin,
+            Max_Crd_Days: item.maxCredDays,
+            Open_Bal: item.openingBalance,
+            Link_Gl: item.underLedger,
+            org_id: orgId,
+            Suppl_Id: supplierId
+        }
+        updateSupplierAPI(bodyData).then((res: any) => {
+            if (res.status === 200) {
+                getSupplierApiCall(orgId)
+                toast.success('Supplier updated successfully')
+                handleCloseSupplierDrawer()
+            } else {
+                toast.error(res.message)
+            }
+        }).catch((err) => {
+            toast.error('Something went wrong')
+            console.log(err)
+        }).finally(() => {
+            setPostLoaders(false)
+        })
+    }
+
     return {
         supplierDrawer,
         handleOpenSupplierDrawer,
         handleCloseSupplierDrawer,
         AddSupplierFormik,
         handleMobileChange,
-        supplierMobile,
-        token,
-        orgId, getSupplierApiCall
+        supplierMobile, loader,
+        token, postLoaders,
+        orgId, getSupplierApiCall,
+        handleEditData,
+        editData
     }
 }
