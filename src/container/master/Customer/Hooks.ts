@@ -95,7 +95,11 @@ export const CustomerHooks = () => {
                 const data = {
                     ...values, customerMobile
                 }
-                console.log(data, '*customer form data')
+               if(editData && Object.keys(editData).length > 0){
+                editCustomerApiCall(editData.Id, orgId, data)
+               }else{
+                postCustomerApiCall(orgId, data)
+               }
             }
         }
     })
@@ -143,7 +147,7 @@ export const CustomerHooks = () => {
                     getCustomerApiCall(orgId)
                     toast.success('Customer added successfully')
                 } else {
-                    toast.error(res.Message)
+                    toast.error(res.message)
                 }
             })
             .catch((err) => {
@@ -176,7 +180,7 @@ export const CustomerHooks = () => {
                 toast.success('Customer updated successfully')
                 handleCloseCustomerDrawer()
             } else {
-                toast.error(res.Message)
+                toast.error(res.message)
             }
         }).catch((err) => {
             toast.error('Something went wrong')
@@ -193,8 +197,8 @@ export const CustomerHooks = () => {
         AddCustomerFormik,
         handleMobileChange,
         customerMobile,
-        token, loader,
+        token, loader, postLoaders,
         orgId, handleEditData,
-        getCustomerApiCall
+        getCustomerApiCall, editData
     }
 }

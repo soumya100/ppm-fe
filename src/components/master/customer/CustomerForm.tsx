@@ -12,10 +12,12 @@ interface CustomerFormProps {
   handleCustomerMobile(numebr: string): void
   customerMobile: string
   underLedgerOptions: any
+  loading: boolean
+  editData: any
 }
 
 const CustomerForm: FC<CustomerFormProps> = ({ handleCloseDrawer, openCustomerDrawer, formik, 
-  customerMobile, handleCustomerMobile, underLedgerOptions }) => {
+  customerMobile, handleCustomerMobile, underLedgerOptions, loading, editData }) => {
   const drawerWidth = 700
   return <Drawer
     open={openCustomerDrawer}
@@ -32,7 +34,8 @@ const CustomerForm: FC<CustomerFormProps> = ({ handleCloseDrawer, openCustomerDr
         <KeyboardArrowLeft />
       </IconButton>
       <Typography component={`p`} className={`!font-bold text-2xl`}>
-        {text.add.addCustomer}
+        {  editData && Object.keys(editData).length > 0 ? text.edit.editCustomer :
+        text.add.addCustomer}
       </Typography>
     </FlexItemCenter>
     <Divider />
@@ -246,12 +249,12 @@ const CustomerForm: FC<CustomerFormProps> = ({ handleCloseDrawer, openCustomerDr
       <FlexItemCenter className='w-full h-[5rem]'>
         <FlexBetween className='flex-row-reverse w-full'>
           <ButtonFieldInput
-            name={text.buttonNames.add}
+            name={ editData && Object.keys(editData).length > 0 ? text.buttonNames.update : text.buttonNames.add}
             buttonextracls={`rounded-full bg-blue-500 capitalize`}
             variant={`contained`}
             handleClick={matchIsValidTel(customerMobile) ? formik?.handleSubmit : ()=>{}}
-            //  loading={loading}
-            // disabled={loading}
+             loading={loading}
+            disabled={loading}
           />
           <ButtonFieldInput name={text.buttonNames.cancel}
             buttonextracls={`rounded-full bg-gray-400 capitalize`}

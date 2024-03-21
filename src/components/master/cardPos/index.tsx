@@ -21,11 +21,12 @@ interface CardPosProps {
     loader: boolean
     postLoaders: boolean
     handleEditPosData(data: any): void
+    editData: any
 }
 
 const CardPos: FC<CardPosProps> = ({ handleCloseCardDrawer, handleOpenCardDrawer, handleInstallationDateError, loader,
     openCardDrawer, handlePosTypes, posType, AddCardPosFormik, errorMessage, handleInstallationDate,
-     installationDate, postLoaders, handleEditPosData }) => {
+     installationDate, postLoaders, handleEditPosData, editData }) => {
 
     const bankPosData = useSelector((state: any) => state.cardPos?.bankPosData)?.map((bankData: any) => {
         return {
@@ -50,7 +51,7 @@ const CardPos: FC<CardPosProps> = ({ handleCloseCardDrawer, handleOpenCardDrawer
                 posType={posType}
                 bankData={bankPosData}
                 postLoaders={postLoaders}
-            // editData={editData}
+            editData={editData}
             />}
             handleOpenButton={handleOpenCardDrawer}
             tableComponent={<CardPosTable cardPosData={cardPosData}

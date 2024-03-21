@@ -16,7 +16,8 @@ const CardPosContainer = () => {
         installationDate, getBankPosApiCall,
         token, orgId, getCardPosApiCall,
         loader, postLoaders,
-        handleEditPosData
+        handleEditPosData,
+         editData
     } = CardPosHooks()
 
     useEffect(() => {
@@ -40,6 +41,7 @@ const CardPosContainer = () => {
             loader={loader}
             postLoaders={postLoaders}
             handleEditPosData={handleEditPosData}
+            editData={editData}
         />
     )
 }

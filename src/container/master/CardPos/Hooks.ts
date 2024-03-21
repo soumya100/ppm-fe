@@ -233,8 +233,9 @@ export const CardPosHooks = () => {
         orgId,
         getBankPosApiCall,
         getCardPosApiCall,
-        loader,
+        loader, 
         postLoaders,
-        handleEditPosData
+        handleEditPosData,
+        editData
     }
 }

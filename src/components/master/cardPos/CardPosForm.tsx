@@ -17,9 +17,10 @@ interface CardPosFormProps {
     posType: string
     postLoaders?: boolean
     bankData: any
+    editData: any
 }
 
-const CardPosForm: FC<CardPosFormProps> = ({ formik, handleCloseDrawer, openForm, date,
+const CardPosForm: FC<CardPosFormProps> = ({ formik, handleCloseDrawer, openForm, date, editData,
     errMessage, handleDateChange, handleError, handlePosType, posType, postLoaders, bankData }) => {
 
     const drawerWidth = 700
@@ -32,13 +33,6 @@ const CardPosForm: FC<CardPosFormProps> = ({ formik, handleCloseDrawer, openForm
         {
             value: "2",
             label: 'QR'
-        }
-    ]
-
-    const drpdummyData = [
-        {
-            value: 'data',
-            name: 'data'
         }
     ]
 
@@ -58,7 +52,7 @@ const CardPosForm: FC<CardPosFormProps> = ({ formik, handleCloseDrawer, openForm
             </IconButton>
             <Typography component={`p`} className={`!font-bold text-2xl`}>
                 {
-                    //   editData && Object.keys(editData).length > 0 ? text.edit.editcardPos :
+                      editData && Object.keys(editData).length > 0 ? text.edit.editcardPos :
                     text.add.addCardPos}
             </Typography>
         </FlexItemCenter>
@@ -152,7 +146,7 @@ const CardPosForm: FC<CardPosFormProps> = ({ formik, handleCloseDrawer, openForm
                             <ButtonFieldInput buttonextracls={`rounded-full bg-[#032974] text-white capitalize`}
                                 variant={'contained'}
                                 name={
-                                    // editData && Object.keys(editData).length > 0 ? text.buttonNames.update :
+                                    editData && Object.keys(editData).length > 0 ? text.buttonNames.update :
                                     text.buttonNames.add}
                                 handleClick={
                                     date === null ? handleError :

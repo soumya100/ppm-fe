@@ -13,8 +13,8 @@ const CustomerContainer = () => {
     handleMobileChange,
     customerMobile,
     token, orgId, loader,
-    getCustomerApiCall,
-    handleEditData
+    getCustomerApiCall, editData,
+    handleEditData, postLoaders
   } = CustomerHooks()
 
   const { getAccountLedgerApiCall } = AccountLedgerHooks()
@@ -35,6 +35,8 @@ const CustomerContainer = () => {
       customerMobile={customerMobile}
       token={token} loader={loader}
       handleEditData={handleEditData}
+      postLoaders={postLoaders}
+      editData={editData}
     />
   )
 }

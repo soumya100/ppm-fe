@@ -407,7 +407,9 @@
         "editTankMaster":"ট্যাঙ্ক সম্পাদনা করুন",
         "editAccoutnHead":"একাউন্ট হেড এডিট করুন",
         "editAccountLedger":"অ্যাকাউন্ট লেজার সম্পাদনা করুন",
-        "editBankAccount":"ব্যাঙ্ক অ্যাকাউন্ট সম্পাদনা করুন"
+        "editBankAccount":"ব্যাঙ্ক অ্যাকাউন্ট সম্পাদনা করুন", 
+        "editcardPos":"Edit Pos/Card",
+        "editCustomer":"Edit customer"
     },
     "addMsg": {
         "unitmaster": "ইউনিট যোগ করতে, এখানে আপনার ইউনিট লিখুন",

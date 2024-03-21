@@ -416,7 +416,9 @@
         "editTankMaster": "Edit tank",
         "editAccoutnHead": "Edit account head",
         "editAccountLedger": "Edit account ledger",
-        "editBankAccount": "Edit bank account"
+        "editBankAccount": "Edit bank account",
+        "editcardPos":"Edit Pos/Card",
+        "editCustomer":"Edit customer"
     },
     "addMsg": {
         "unitmaster": "To add unit, please enter your unit here",
