@@ -45,14 +45,14 @@ export const ItemMasterHooks = () => {
                 .required(text.errors.requiredErrors.addItemMaster.unitValue),
             unit: Yup.string()
                 .required(text.errors.requiredErrors.addItemMaster.unit),
-            cst: Yup.number()
-                .positive(text.errors.patternErrors.addItemMaster.cst)
-                .required(text.errors.requiredErrors.addItemMaster.cst),
-            sgst: Yup.number()
-                .positive(text.errors.patternErrors.addItemMaster.sgst)
-                .required(text.errors.requiredErrors.addItemMaster.sgst),
-            igst: Yup.number()
-                .positive(text.errors.patternErrors.addItemMaster.igst),
+            cst: Yup.number(),
+                // .positive(text.errors.patternErrors.addItemMaster.cst)
+                // .required(text.errors.requiredErrors.addItemMaster.cst),
+            sgst: Yup.number(),
+                // .positive(text.errors.patternErrors.addItemMaster.sgst)
+                // .required(text.errors.requiredErrors.addItemMaster.sgst),
+            igst: Yup.number(),
+                // .positive(text.errors.patternErrors.addItemMaster.igst),
                 // .required(text.errors.patternErrors.addItemMaster.igst),
             basicSaleRate: Yup.number()
                 .positive(text.errors.patternErrors.addItemMaster.basicSaleRate)
