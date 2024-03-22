@@ -18,6 +18,7 @@ export const ItemMasterHooks = () => {
 
     // item master add formik
     const AddItemMasterFormik = useFormik({
+        enableReinitialize: true,
         initialValues: {
             itemName: '',
             itemShortName: '',

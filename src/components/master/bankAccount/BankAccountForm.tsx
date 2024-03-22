@@ -202,6 +202,7 @@ const BankAccountForm: FC<BankAccountFormProps> = ({ errorMessage, handleCloseBa
                         <FlexBetween className={`w-full items-center flex-row-reverse`}>
                             <ButtonFieldInput buttonextracls={`rounded-full bg-[#032974] text-white capitalize`}
                                 variant={'contained'}
+                                handleClick={openingDate === null ? handleOpeningDateError : formik?.handleSubmit}
                                 name={editData && Object.keys(editData).length > 0 ?
                                     text.buttonNames.update :
                                     text.buttonNames.add}

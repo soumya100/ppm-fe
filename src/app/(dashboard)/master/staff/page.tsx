@@ -1,10 +1,9 @@
+import StaffContainer from '@/container/master/Staff'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>
-      
-    </div>
+    <StaffContainer />
   )
 }
 

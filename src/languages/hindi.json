@@ -104,6 +104,21 @@
             "vehicleName":"Vehicle name",
             "vehicleNumber":"Vehicle number",
             "capacity":"Capacity"
+        },
+        "addStaffMaster":{
+            "staffName":"Staff name",
+            "staffAddress":"Staff address",
+            "mobile":"Staff mobile",
+            "staffEmail":"Staff mobile",
+            "staffType":"Staff type",
+            "designation":"Staff designation",
+            "joiningDate": "Staff joining date",
+            "basic":"Staff basic",
+            "da":"Staff DA",
+            "hra":"Staff HRA",
+            "ta":"Staff TA",
+            "misc":"Staff misc.",
+            "pf":"Staff PF"
         }
     },
    "placeholders":{
@@ -188,6 +203,18 @@
             "vehicleName":"Enter vehicle name",
             "vehicleNumber":"Enter vehicle number",
             "capacity":"Enter capacity"
+        },
+        "addStaffMaster":{
+            "staffName":"Enter staff name",
+            "staffAddress":"Enter staff address",
+            "mobile":"Enter staff mobile",
+            "staffEmail":"Enter staff email",
+            "basic":"Enter staff basic",
+            "da":"Enter staff da",
+            "hra":"Enter staff hra",
+            "ta":"Enter staff ta",
+            "misc":"Enter staff misc.",
+            "pf":"Enter staff pf"
         }
    },
    "rememberMe":"मुझे याद करो",
@@ -256,6 +283,16 @@
             },
             "tanker":{
                 "capacity":"Capacity should be greater than zero"
+            },
+            "addStaffMaster":{
+                "staffEmail":"Please enter a valid email",
+                "basic":"Staff basic should be greater than zero",
+                "da":"Staff DA should be greater than zero",
+                "hra":"Staff HRA should be greater than zero",
+                "ta":"Staff TA should be greater than zero",
+                "misc":"Staff misc. should be greater than zero",
+                "pf":"Staff PF should be greater than zero",
+                "mobileNo":"Please enter a valid mobile no"
             }
         },
         "requiredErrors":{
@@ -342,6 +379,19 @@
                 "vehicleName":"Please enter vehicle name",
                 "vehicleNumber":"Please enter vehicle number",
                 "capacity":"Please enter capacity"
+            },
+            "addStaffMaster":{
+                "staffName":"Please enter staff name",
+                "staffAddress":"Please enter staff address",
+                "staffEmail":"Please enter staff email",
+                "staffType":"Please select staff type",
+                "designation":"Please  select staff designation",
+                "basic":"Please enter staff basic",
+                "da":"Please enter staff DA",
+                "hra":"Please enter staff HRA",
+                "ta":"Please enter staff TA",
+                "misc":"Please enter staff misc.",
+                "pf":"Please enter staff PF"
             }
         }
     },
@@ -391,7 +441,8 @@
         "cardPos":"Card/Pos",
         "customer":"Customers",
         "supplier":"Suppliers",
-        "tanker":"tankers"
+        "tanker":"tankers",
+        "staffMaster":"Staffs"
     },
     "add":{
         "addUnitMaster":"यूनिट मास्टर जोड़ें",
@@ -405,7 +456,8 @@
         "accountLedger":"खाता बही जोड़ें",
         "addCardPos":"Add Card/Pos",
         "addCustomer":"Add Customer",
-        "addSupplier":"Add supplier"
+        "addSupplier":"Add supplier",
+        "addStaffMaster":"addStaffMaster"
     },
     "edit":{
         "editUnitMaster":"इकाई संपादित करें",

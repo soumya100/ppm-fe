@@ -1,4 +1,4 @@
-import { LocalizationProvider } from '@mui/x-date-pickers'
+import { DateValidationError, LocalizationProvider } from '@mui/x-date-pickers'
 import { FC } from 'react'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { DatePicker } from '@mui/x-date-pickers'

@@ -43,5 +43,10 @@ export const endPoints = {
     getTanker:(id: number)=>`${createApi}master/GetTanker/${id}`,
     postTanker:`${createApi}master/AddTanker`,
     updateTanker:`${createApi}master/UpdateTanker`,
+    getStaffType:(id: number)=>`${createApi}master/GetStaffType/${id}`,
+    getStaffDesignation:(id: number)=>`${createApi}master/GetStaffDesignation/${id}`,
+    getStaff:(id: number)=>`${createApi}master/GetStaff/${id}`,
+    postStaff:`${createApi}master/AddStaff`,
+    updateStaff:`${createApi}master/UpdateStaff`,
     logout: `${createApi}logout`
 }
