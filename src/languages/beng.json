@@ -120,6 +120,11 @@
             "ta":"Staff TA",
             "misc":"Staff misc.",
             "pf":"Staff PF"
+        },
+        "rateMaster":{
+            "item":"Item",
+            "itemRate":"Item rate",
+            "rateDate":"Rate date"
         }
     },
     "placeholders": {
@@ -208,6 +213,9 @@
             "ta":"Enter staff ta",
             "misc":"Enter staff misc.",
             "pf":"Enter staff pf"
+        },
+        "rateMaster":{
+            "itemRate":"Enter item rate"
         }
     },
     "rememberMe": "আমাকে মনে কর",
@@ -286,6 +294,10 @@
                 "misc":"Staff misc. should be greater than zero",
                 "pf":"Staff PF should be greater than zero",
                 "mobileNo":"Please enter a valid mobile no"
+            },
+            "rateMaster":{
+                "itemRate":"Item rate should be greater than zero",
+                "invalidDate":"Please select a valid date"
             }
         },
         "requiredErrors": {
@@ -385,6 +397,10 @@
                 "ta":"Please enter staff TA",
                 "misc":"Please enter staff misc.",
                 "pf":"Please enter staff PF"
+            },
+            "rateMaster":{
+                "item":"Please select item",
+                "itemRate":"Please enter item rate"
             }
         }
     },
@@ -435,7 +451,8 @@
         "customer":"Add customers",
         "supplier":"Suppliers",
         "tanker":"tankers",
-        "staffMaster":"Staffs"
+        "staffMaster":"Staffs",
+        "rateMaster":"Rates"
     },
     "add": {
         "addUnitMaster": "আইটেম মাস্টার যোগ করুন",
@@ -449,8 +466,9 @@
         "accountLedger":"অ্যাকাউন্ট লেজার যোগ করুন",
         "addCardPos":"Add Card/Pos",
         "addCustomer":"Add customers",
-        "addSupplier":"Add supplier",
-        "addStaffMaster":"addStaffMaster"
+        "addSupplier":"Add Supplier",
+        "addStaffMaster":"add staff",
+        "rateMaster":"Add Rate"
     },
     "edit": {
         "editUnitMaster": "ইউনিট সম্পাদনা করুন",
@@ -462,7 +480,8 @@
         "editBankAccount":"ব্যাঙ্ক অ্যাকাউন্ট সম্পাদনা করুন", 
         "editcardPos":"Edit Pos/Card",
         "editCustomer":"Edit customer",
-        "editSupplier":"Edit supplier"
+        "editSupplier":"Edit supplier",
+        "editRate":"Edit Rate"
     },
     "addMsg": {
         "unitmaster": "ইউনিট যোগ করতে, এখানে আপনার ইউনিট লিখুন",

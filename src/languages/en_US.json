@@ -120,6 +120,11 @@
             "ta":"Staff TA",
             "misc":"Staff misc.",
             "pf":"Staff PF"
+        },
+        "rateMaster":{
+            "item":"Item",
+            "itemRate":"Item rate",
+            "rateDate":"Rate date"
         }
     },
     "placeholders": {
@@ -216,6 +221,9 @@
             "ta":"Enter staff ta",
             "misc":"Enter staff misc.",
             "pf":"Enter staff pf"
+        },
+        "rateMaster":{
+            "itemRate":"Enter item rate"
         }
     },
     "rememberMe": "Remember me",
@@ -294,6 +302,10 @@
                 "misc":"Staff misc. should be greater than zero",
                 "pf":"Staff PF should be greater than zero",
                 "mobileNo":"Please enter a valid mobile no"
+            },
+            "rateMaster":{
+                "itemRate":"Item rate should be greater than zero",
+                "invalidDate":"Please select a valid date"
             }
         },
         "requiredErrors": {
@@ -391,6 +403,10 @@
                 "ta":"Please enter staff TA",
                 "misc":"Please enter staff misc.",
                 "pf":"Please enter staff PF"
+            },
+            "rateMaster":{
+                "item":"Please select item",
+                "itemRate":"Please enter item rate"
             }
         }
     },
@@ -442,24 +458,26 @@
         "customer": "Customers",
         "supplier": "Suppliers",
         "tanker": "Tankers",
-        "staffMaster":"Staffs"
+        "staffMaster":"Staffs",
+        "rateMaster":"Rates"
     },
     "add": {
-        "addUnitMaster": "Add unit",
-        "addItemCategory": "Add item Category",
-        "addItemMaster": "Add item",
-        "addTank": "Add tank",
+        "addUnitMaster": "Add Unit",
+        "addItemCategory": "Add Item Category",
+        "addItemMaster": "Add Item",
+        "addTank": "Add Tank",
         "addPump": "Add Pump",
         "addNozzle": "Add Nozzle",
-        "shiftMaster": "Add shift master",
-        "accountHead": "Add account head",
-        "accountLedger": "Add account ledger",
-        "addBankAccount": "Add bank account",
+        "shiftMaster": "Add Shift Master",
+        "accountHead": "Add Account Head",
+        "accountLedger": "Add Account Ledger",
+        "addBankAccount": "Add Bank Account",
         "addCardPos": "Add Card/Pos",
-        "addCustomer": "Add customer",
-        "addSupplier": "Add supplier",
-        "addTanker": "Add tanker",
-        "addStaffMaster":"addStaffMaster"
+        "addCustomer": "Add Customer",
+        "addSupplier": "Add Supplier",
+        "addTanker": "Add Tanker",
+        "addStaffMaster":"Add Staff",
+        "rateMaster":"Add Rate"
     },
     "edit": {
         "editUnitMaster": "Edit unit",
@@ -471,7 +489,8 @@
         "editBankAccount": "Edit bank account",
         "editcardPos":"Edit Pos/Card",
         "editCustomer":"Edit customer",
-        "editSupplier":"Edit supplier"
+        "editSupplier":"Edit supplier",
+        "editRate":"Edit Rate"
     },
     "addMsg": {
         "unitmaster": "To add unit, please enter your unit here",

@@ -48,5 +48,8 @@ export const endPoints = {
     getStaff:(id: number)=>`${createApi}master/GetStaff/${id}`,
     postStaff:`${createApi}master/AddStaff`,
     updateStaff:`${createApi}master/UpdateStaff`,
+    getRate:(id: number)=>`${createApi}master/GetItemRate/${id}`,
+    postRate:`${createApi}master/AddItemRate`,
+    updateRate:`${createApi}master/UpdateItemRate`,
     logout: `${createApi}logout`
 }

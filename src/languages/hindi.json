@@ -119,6 +119,11 @@
             "ta":"Staff TA",
             "misc":"Staff misc.",
             "pf":"Staff PF"
+        },
+        "rateMaster":{
+            "item":"Item",
+            "itemRate":"Item rate",
+            "rateDate":"Rate date"
         }
     },
    "placeholders":{
@@ -215,6 +220,9 @@
             "ta":"Enter staff ta",
             "misc":"Enter staff misc.",
             "pf":"Enter staff pf"
+        },
+        "rateMaster":{
+            "itemRate":"Enter item rate"
         }
    },
    "rememberMe":"मुझे याद करो",
@@ -293,6 +301,10 @@
                 "misc":"Staff misc. should be greater than zero",
                 "pf":"Staff PF should be greater than zero",
                 "mobileNo":"Please enter a valid mobile no"
+            },
+            "rateMaster":{
+                "itemRate":"Item rate should be greater than zero",
+                "invalidDate":"Please select a valid date"
             }
         },
         "requiredErrors":{
@@ -392,6 +404,10 @@
                 "ta":"Please enter staff TA",
                 "misc":"Please enter staff misc.",
                 "pf":"Please enter staff PF"
+            },
+            "rateMaster":{
+                "item":"Please select item",
+                "itemRate":"Please enter item rate"
             }
         }
     },
@@ -442,7 +458,8 @@
         "customer":"Customers",
         "supplier":"Suppliers",
         "tanker":"tankers",
-        "staffMaster":"Staffs"
+        "staffMaster":"Staffs",
+        "rateMaster":"Rates"
     },
     "add":{
         "addUnitMaster":"यूनिट मास्टर जोड़ें",
@@ -457,7 +474,8 @@
         "addCardPos":"Add Card/Pos",
         "addCustomer":"Add Customer",
         "addSupplier":"Add supplier",
-        "addStaffMaster":"addStaffMaster"
+        "addStaffMaster":"add staff",
+        "rateMaster":"Add rate"
     },
     "edit":{
         "editUnitMaster":"इकाई संपादित करें",
@@ -469,7 +487,8 @@
         "editBankAccount":"बैंक खाता संपादित करें",
         "editcardPos":"Edit Pos/Card",
         "editCustomer":"Edit customer",
-        "editSupplier":"Edit supplier"
+        "editSupplier":"Edit supplier",
+        "editRate":"Edit Rate"
     },
     "addMsg": {
         "unitmaster":"यूनिट जोड़ने के लिए, कृपया यहां अपनी यूनिट दर्ज करें",
