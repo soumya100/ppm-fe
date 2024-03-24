@@ -125,6 +125,12 @@
             "item":"Item",
             "itemRate":"Item rate",
             "rateDate":"Rate date"
+        },
+        "addMeterOpening":{
+            "pump":"Pump",
+            "nozzle":"Nozzle",
+            "openingReading":"Opening reading",
+            "openingDate":"Opening date"
         }
     },
     "placeholders": {
@@ -224,6 +230,9 @@
         },
         "rateMaster":{
             "itemRate":"Enter item rate"
+        },
+        "addMeterOpening":{
+            "openingReading": "Enter opening date"
         }
     },
     "rememberMe": "Remember me",
@@ -305,6 +314,10 @@
             },
             "rateMaster":{
                 "itemRate":"Item rate should be greater than zero",
+                "invalidDate":"Please select a valid date"
+            },
+            "meterOpening":{
+                "openingReading":"Opening reading should be greater than zero",
                 "invalidDate":"Please select a valid date"
             }
         },
@@ -407,6 +420,11 @@
             "rateMaster":{
                 "item":"Please select item",
                 "itemRate":"Please enter item rate"
+            },
+            "meterOpening":{
+                "pump":"Please select a pump",
+                "nozzle":"Please select a nozzle",
+                "openingReading":"Please enter a meter opening"
             }
         }
     },
@@ -459,7 +477,8 @@
         "supplier": "Suppliers",
         "tanker": "Tankers",
         "staffMaster":"Staffs",
-        "rateMaster":"Rates"
+        "rateMaster":"Rates",
+        "MeterOpening":"Meter Openings"
     },
     "add": {
         "addUnitMaster": "Add Unit",
@@ -477,7 +496,8 @@
         "addSupplier": "Add Supplier",
         "addTanker": "Add Tanker",
         "addStaffMaster":"Add Staff",
-        "rateMaster":"Add Rate"
+        "rateMaster":"Add Rate",
+        "addMeterOpening":"Add Meter Opening"
     },
     "edit": {
         "editUnitMaster": "Edit unit",

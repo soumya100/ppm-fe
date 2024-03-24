@@ -103,6 +103,8 @@ export const RateMasterHooks = () => {
               }
         }
     })
+
+    
     //rate get api call
     const getRateApiCall = async (id: number) => {
         setLoader(true)

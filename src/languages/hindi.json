@@ -124,6 +124,12 @@
             "item":"Item",
             "itemRate":"Item rate",
             "rateDate":"Rate date"
+        },
+        "addMeterOpening":{
+            "pump":"Pump",
+            "nozzle":"Nozzle",
+            "openingReading":"Opening reading",
+            "openingDate":"Opening date"
         }
     },
    "placeholders":{
@@ -223,6 +229,9 @@
         },
         "rateMaster":{
             "itemRate":"Enter item rate"
+        },
+        "addMeterOpening":{
+            "openingReading": "Enter opening date"
         }
    },
    "rememberMe":"मुझे याद करो",
@@ -304,6 +313,10 @@
             },
             "rateMaster":{
                 "itemRate":"Item rate should be greater than zero",
+                "invalidDate":"Please select a valid date"
+            },
+            "meterOpening":{
+                "openingReading":"Opening reading should be greater than zero",
                 "invalidDate":"Please select a valid date"
             }
         },
@@ -408,6 +421,11 @@
             "rateMaster":{
                 "item":"Please select item",
                 "itemRate":"Please enter item rate"
+            },
+            "meterOpening":{
+                "pump":"Please select a pump",
+                "nozzle":"Please select a nozzle",
+                "openingReading":"Please enter a meter opening"
             }
         }
     },
@@ -459,7 +477,8 @@
         "supplier":"Suppliers",
         "tanker":"tankers",
         "staffMaster":"Staffs",
-        "rateMaster":"Rates"
+        "rateMaster":"Rates",
+        "MeterOpening":"Meter Openings"
     },
     "add":{
         "addUnitMaster":"यूनिट मास्टर जोड़ें",
@@ -475,7 +494,8 @@
         "addCustomer":"Add Customer",
         "addSupplier":"Add supplier",
         "addStaffMaster":"add staff",
-        "rateMaster":"Add rate"
+        "rateMaster":"Add rate",
+        "addMeterOpening":"Add Meter Opening"
     },
     "edit":{
         "editUnitMaster":"इकाई संपादित करें",
