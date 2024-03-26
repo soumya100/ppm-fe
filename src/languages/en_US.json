@@ -77,7 +77,7 @@
             "posProvider": "Pos provider",
             "posType": "Pos type",
             "linkBank": "Link Bank",
-            "installationData": "Installation data"
+            "installationData": "Installation date"
         },
         "customer": {
             "customerName": "Customer name",
