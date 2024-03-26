@@ -1,4 +1,4 @@
-import { doGetApiCall, doPostApiCall } from "@/utils/ApiConfig";
+import { doGetApiCall, doPostApiCall, doPutApiCall } from "@/utils/ApiConfig";
 import { endPoints } from "@/utils/endPoints";
 
 export const getShiftMasterAPI = async(id: number)=>{
@@ -15,5 +15,14 @@ export const postShiftMasterAPI= async(body: any)=>{
         bodyData: body,
     }
     let res: any = await doPostApiCall(data)
+    return res;
+}
+
+export const updateShiftMasterAPI = async (body: any) => {
+    let data = {
+        url: endPoints?.updateShiftMaster,
+        bodyData: body,
+    }
+    let res: any = await doPutApiCall(data)
     return res;
 }

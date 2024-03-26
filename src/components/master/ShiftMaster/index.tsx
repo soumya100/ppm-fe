@@ -21,10 +21,13 @@ interface ShiftMasterProps {
     errorMessage: string
     timeRangeError: any
     postLoaders: boolean
+    handleEditData(data: any): void
+    handleResetFormData(): void
+    editData: any
 }
 
-const ShiftMaster: FC<ShiftMasterProps> = ({ formik, loader, token, handleTimeRange, handleTimeRangeError, 
-    timeRange, errorMessage, postLoaders }) => {
+const ShiftMaster: FC<ShiftMasterProps> = ({ formik, loader, token, handleTimeRange, handleTimeRangeError,
+    timeRange, errorMessage, postLoaders, handleEditData, editData, handleResetFormData }) => {
 
     const shiftMasterData = useSelector((state: any) => state.shiftMasterData?.shiftMasterData)
 
@@ -38,16 +41,18 @@ const ShiftMaster: FC<ShiftMasterProps> = ({ formik, loader, token, handleTimeRa
         </DynamicTypography>
         <Grid container spacing={2}>
             <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
-                <ShiftMasterTable shiftMasterData={shiftMasterData} handleEditData={() => { }} loading={loader} />
+                <ShiftMasterTable shiftMasterData={shiftMasterData} handleEditData={handleEditData} loading={loader} />
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
                 <Box className='shadow-md rounded-md border-t'>
-                    <ShiftMasterForm formik={formik} 
-                    handleTimeRange={handleTimeRange}
-                    handleTimeRangeError={handleTimeRangeError}
-                    timeRange={timeRange}
-                    errorMessage={errorMessage}
-                    postLoaders={postLoaders}
+                    <ShiftMasterForm formik={formik}
+                        handleTimeRange={handleTimeRange}
+                        handleTimeRangeError={handleTimeRangeError}
+                        timeRange={timeRange}
+                        errorMessage={errorMessage}
+                        postLoaders={postLoaders}
+                        handleResetForm={handleResetFormData}
+                        editData={editData}
                     />
                 </Box>
             </Grid>

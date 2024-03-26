@@ -2,7 +2,7 @@ import { ButtonFieldInput, FlexBetween, FlexItemCenter, TextFieldInput, TimeRang
 import { Divider, Grid } from '@mui/material'
 import { FC } from 'react'
 import text from '@/languages/en_US.json'
-import { DateRange, DateValidationError } from '@mui/x-date-pickers-pro'
+import { DateRange } from '@mui/x-date-pickers-pro'
 import dayjs, { Dayjs } from 'dayjs'
 
 interface ShiftMasterFormProps {
@@ -12,14 +12,19 @@ interface ShiftMasterFormProps {
     handleTimeRangeError(): void
     errorMessage: string
     postLoaders: boolean
+    handleResetForm(): void
+    editData: any
 }
 
 const ShiftMasterForm: FC<ShiftMasterFormProps> = ({ formik, handleTimeRange, handleTimeRangeError, 
-    timeRange, errorMessage, postLoaders }) => {
+    timeRange, errorMessage, postLoaders, editData, handleResetForm }) => {
     return <form onSubmit={formik?.handleSubmit}>
         <FlexItemCenter className='h-[3rem]'>
             <p className='font-bold text-black text-lg px-5'>
-                {text.add.shiftMaster}
+                { editData && Object.keys(editData).length > 0 ?
+                text.edit.editShiftMaster
+                :
+                text.add.shiftMaster}
             </p>
         </FlexItemCenter>
         <Divider className='w-full m-0' />
@@ -61,7 +66,9 @@ const ShiftMasterForm: FC<ShiftMasterFormProps> = ({ formik, handleTimeRange, ha
         </Grid>
         <FlexItemCenter className='w-full mt-2 p-5'>
             <FlexBetween className='flex-row-reverse w-full'>
-                <ButtonFieldInput name={text.buttonNames.add}
+                <ButtonFieldInput name={editData && Object.keys(editData).length > 0 ?
+                text.buttonNames.update :
+                 text.buttonNames.add}
                     buttonextracls={`rounded-full bg-blue-500  capitalize`}
                     variant={`contained`}
                     handleClick={(timeRange[0] === null || timeRange[1] === null) ||
@@ -73,7 +80,7 @@ const ShiftMasterForm: FC<ShiftMasterFormProps> = ({ formik, handleTimeRange, ha
                 />
                 <ButtonFieldInput name={text.buttonNames.cancel}
                     buttonextracls={`rounded-full bg-gray-400 capitalize`}
-                    variant={`contained`} type={`button`} />
+                    variant={`contained`} type={`button`} handleClick={handleResetForm}/>
             </FlexBetween>
         </FlexItemCenter>
     </form>

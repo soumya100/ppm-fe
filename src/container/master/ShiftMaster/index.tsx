@@ -6,7 +6,7 @@ import { useEffect } from "react"
 const ShiftMasterContainer = () => {
 
   const { AddShiftFormik, getShiftApiCall, loader, handleTimeRange,
-    timeRange,
+    timeRange, handleEditData, editData, handleResetFormData,
     handleTimeRangeError, errorMessage, timeRangeError, orgId, token, postLoaders } = ShiftMasterHooks()
 
   useEffect(() => {
@@ -25,6 +25,9 @@ const ShiftMasterContainer = () => {
     errorMessage={errorMessage}
     timeRangeError={timeRangeError}
     postLoaders={postLoaders}
+    handleEditData={handleEditData}
+    editData={editData}
+    handleResetFormData={handleResetFormData}
   />
 }
 

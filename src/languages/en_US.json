@@ -511,7 +511,8 @@
         "editCustomer":"Edit customer",
         "editSupplier":"Edit supplier",
         "editRate":"Edit Rate",
-        "editMeterOpening":"Edit Meter Opening"
+        "editMeterOpening":"Edit Meter Opening",
+        "editShiftMaster":"Edit Shift Master"
     },
     "addMsg": {
         "unitmaster": "To add unit, please enter your unit here",

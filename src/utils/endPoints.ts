@@ -27,6 +27,7 @@ export const endPoints = {
     postPumpMaster: `${createApi}master/AddPump`,
     getShiftMaster: (id: number) => `${createApi}master/GetShift/${id}`,
     postShiftMaster: `${createApi}master/AddShift`,
+    updateShiftMaster: `${createApi}master/UpdateShift`,
     getBankAccounts: (id: number) => `${createApi}master/GetBankAcct/${id}`,
     postBankAccounts: `${createApi}master/AddBankAcct`,
     updateBankAccounts: `${createApi}master/UpdateBankAcct`,

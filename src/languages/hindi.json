@@ -509,7 +509,8 @@
         "editCustomer":"Edit customer",
         "editSupplier":"Edit supplier",
         "editRate":"Edit Rate",
-        "editMeterOpening":"Edit Meter Opening"
+        "editMeterOpening":"Edit Meter Opening",
+        "editShiftMaster":"Edit Shift Master"
     },
     "addMsg": {
         "unitmaster":"यूनिट जोड़ने के लिए, कृपया यहां अपनी यूनिट दर्ज करें",
