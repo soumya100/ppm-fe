@@ -6,12 +6,13 @@ import { useRouter } from "next/navigation";
 import { pathName } from "@/utils/route";
 import { adminLoginAPI } from "./LoginApis";
 import toast from "react-hot-toast";
+import dayjs from "dayjs";
 
-export const LoginHooks = () =>{
+export const LoginHooks = () => {
 
-    const [rememberMe, setRememberMe]= useState<boolean>(false)
-    const[loading, setLoading]= useState<boolean>(false)
-    const router= useRouter()
+    const router = useRouter()
+    const [rememberMe, setRememberMe] = useState<boolean>(false)
+    const [loading, setLoading] = useState<boolean>(false)
 
     // Login formik
     const LoginFormik = useFormik({
@@ -22,10 +23,10 @@ export const LoginHooks = () =>{
         validationSchema: Yup.object().shape({
             email: Yup.string().email(text.errors.patternErrors.email)
                 .required(text.errors.requiredErrors.email),
-                password: Yup.string()
-            // .matches(PASSWORD_REGEX, text.errors.patternErrors.password)
+            password: Yup.string()
+                // .matches(PASSWORD_REGEX, text.errors.patternErrors.password)
                 .required(text.errors.requiredErrors.password),
-           
+
         }),
         onSubmit: (values, { resetForm }) => {
             // console.log(values, '* data')
@@ -35,8 +36,31 @@ export const LoginHooks = () =>{
         }
     })
 
-    const handleRememberMe=(event: React.ChangeEvent<HTMLInputElement>)=>{
+    const handleRememberMe = (event: React.ChangeEvent<HTMLInputElement>) => {
         setRememberMe(event.target.checked)
+    }
+
+    const checkRateApiCall = async (orgId: number) => {
+        let bodyData = {
+            org_id: orgId,
+            Check_Date: dayjs(new Date()).format('YYYY-MM-DD')
+        }
+        adminLoginAPI(bodyData, 'checkRate')
+        .then((res: any) => {
+            if(res.status === 400){
+                router.push('/master/rate')
+                alert('You have not set any rate yet!!! Please set a rate')
+                console.log('Ok')
+            }else{
+                toast.error(res.message)
+            }
+        })
+        .catch((err) => {
+            console.error(err)
+            toast.error('Something went wrong')
+        }).finally(() => {
+            setLoading(false)
+        })
     }
 
     const adminLoginApiCall = async (item: any, resetForm: any) => {
@@ -45,28 +69,30 @@ export const LoginHooks = () =>{
             email: item.email,
             password: item.password,
         }
-     adminLoginAPI(bodyData)
+        adminLoginAPI(bodyData, 'login')
             .then((res: any) => {
-             if(res.message==='Login Successful'){
-                resetForm();
-                toast.success('LoggedIn Successfully')
-                // console.log('hello world')
-                router.push(pathName.dashboard)
-                sessionStorage.setItem("token", res.token)
-                sessionStorage.setItem("orgId", res.org_id)
-                sessionStorage.setItem("orgName", res.org_name)
-             }else{
-                toast.error(res.message)
-             }
+                if (res.message === "Login Successful") {
+                    resetForm();
+                    toast.success('LoggedIn Successfully')
+                    // console.log('hello world')
+                    sessionStorage.setItem("token", res.token)
+                    sessionStorage.setItem("orgId", res.org_id)
+                    sessionStorage.setItem("orgName", res.org_name)
+                    router.push(pathName.dashboard)
+                    checkRateApiCall(res.org_id)
+                } else {
+                    toast.error(res.message)
+                }
             })
             .catch((err) => {
                 console.error(err)
                 toast.error('Something went wrong')
-            }).finally(()=>{
-                setLoading(false)      
+            }).finally(() => {
+                setLoading(false)
             })
     }
-    return{
+
+    return {
         LoginFormik,
         handleRememberMe,
         rememberMe,

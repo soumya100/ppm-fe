@@ -7,14 +7,16 @@ import { useRouter } from 'next/navigation'
 import { pathName } from '@/utils/route'
 
 const LoginContainer = () => {
-  const { LoginFormik, handleRememberMe, rememberMe, loading }=LoginHooks()
-  const token=getSessionStorageData('token')
+  
   const router=useRouter()
+  const token=getSessionStorageData('token')
+  const { LoginFormik, handleRememberMe, rememberMe, loading }=LoginHooks()
   useEffect(()=>{
     if(token){
       router.push(pathName.dashboard)
     }
   },[token])
+
   return (
     <Login 
     loginFormik={LoginFormik}

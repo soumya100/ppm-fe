@@ -1,6 +1,7 @@
 const createApi = `${process.env.NEXT_PUBLIC_BASE_API_URL}/api/`
 export const endPoints = {
     login: `${createApi}admin/login`,
+    checkRateLogin:`${createApi}master/CheckRateOpen`,
     finYear: (id: number) => `${createApi}admin/finyear/${id}`,
     sideBarData: `${createApi}admin/dashboard`,
     getUnitMaster: (id: number) => `${createApi}master/GetUnit/${id}`,

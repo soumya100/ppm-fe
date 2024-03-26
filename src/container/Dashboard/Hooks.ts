@@ -1,6 +1,11 @@
+import getSessionStorageData from "@/utils/getSessionStorageData"
 import { Dispatch, SetStateAction, useState } from "react"
 
 export const DashBoardHooks = () => {
+
+    const orgId=getSessionStorageData('orgId')
+    const token=getSessionStorageData('token')
+
 
     const [showSaleData, setShowSaleData] = useState<boolean>(true)
     const [showPurchaseData, setShowPurchaseData] = useState<boolean>(true)
@@ -23,6 +28,7 @@ export const DashBoardHooks = () => {
         setShowPurchaseData,
         showStockGraph,
         setShowStockGraph,
-        handleToggleDataCards
+        handleToggleDataCards,
+        token, orgId
     }
 }

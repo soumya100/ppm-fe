@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux"
 import getSessionStorageData from "@/utils/getSessionStorageData"
 import { getRateData } from "./RateMasterReducer"
 import toast from "react-hot-toast"
+import { LoginHooks } from "@/container/Login/Hooks"
 
 export const RateMasterHooks = () => {
 
