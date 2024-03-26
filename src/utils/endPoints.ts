@@ -51,5 +51,9 @@ export const endPoints = {
     getRate:(id: number)=>`${createApi}master/GetItemRate/${id}`,
     postRate:`${createApi}master/AddItemRate`,
     updateRate:`${createApi}master/UpdateItemRate`,
+    getMeterOpenings:(id: number)=>`${createApi}master/GetOpenRead/${id}`,
+    postMeterOpenings:`${createApi}master/PostOpenRead`,
+    updateMeterOpenings:`${createApi}master/UpdateOpenRead`,
+    getNozzle:(orgId: number,pumpId: number)=>`${createApi}master/GetNozzle/${orgId}/${pumpId}`,
     logout: `${createApi}logout`
 }

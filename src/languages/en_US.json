@@ -510,7 +510,8 @@
         "editcardPos":"Edit Pos/Card",
         "editCustomer":"Edit customer",
         "editSupplier":"Edit supplier",
-        "editRate":"Edit Rate"
+        "editRate":"Edit Rate",
+        "editMeterOpening":"Edit Meter Opening"
     },
     "addMsg": {
         "unitmaster": "To add unit, please enter your unit here",

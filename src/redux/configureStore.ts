@@ -19,6 +19,7 @@ import supplierSlice from '@/container/master/Supplier/SupplierReducer'
 import tankerSlice from '@/container/master/Tanker/TankerReducer' 
 import staffSlice from '@/container/master/Staff/StaffReducer'
 import rateSlice from '@/container/master/RateMaster/RateMasterReducer'
+import meterOpeningSlice from '@/container/master/MeterOpening/MeterOpeningReducer'
 
 export const store = configureStore({
     reducer: {
@@ -39,7 +40,8 @@ export const store = configureStore({
         supplier: supplierSlice,
         tanker: tankerSlice,
         staff: staffSlice,
-        rate: rateSlice
+        rate: rateSlice,
+        meterOpening: meterOpeningSlice
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });

@@ -14,16 +14,17 @@ interface MeterOpeningFormProps {
     date: Dayjs | null
     handleDateError(): void
     errMessage: string
+    editData: any
 }
 
 const MeterOpeningForm: FC<MeterOpeningFormProps> = ({ formik, postLoaders, resetFormHandle,
-    nozzleOptions, pumpOptions, date, handleDateChange, handleDateError, errMessage }) => {
+    nozzleOptions, pumpOptions, date, handleDateChange, handleDateError, errMessage, editData }) => {
     return <form onSubmit={formik?.handleSubmit}>
         <FlexItemCenter className='h-[3rem]'>
             <p className='font-bold text-black text-lg px-5'>
                 {
-                    //   editData && Object.keys(editData).length > 0 ? 
-                    //   text.edit.editAccoutnHead : 
+                      editData && Object.keys(editData).length > 0 ? 
+                      text.edit.editMeterOpening : 
                     text.add.addMeterOpening}
             </p>
         </FlexItemCenter>
@@ -59,6 +60,7 @@ const MeterOpeningForm: FC<MeterOpeningFormProps> = ({ formik, postLoaders, rese
                     handleChange={formik?.handleChange}
                     handleBlur={formik?.handleBlur}
                     selectOption={nozzleOptions}
+                    disabled={nozzleOptions?.length === 0}
                     error={
                         formik?.touched?.nozzle &&
                         Boolean(formik?.errors?.nozzle)
@@ -115,8 +117,8 @@ const MeterOpeningForm: FC<MeterOpeningFormProps> = ({ formik, postLoaders, rese
         <FlexItemCenter className='w-full mt-2 p-5'>
             <FlexBetween className='flex-row-reverse w-full'>
                 <ButtonFieldInput name={
-                    // editData && Object.keys(editData).length > 0 ?
-                    //     text.buttonNames.update :
+                    editData && Object.keys(editData).length > 0 ?
+                        text.buttonNames.update :
                     text.buttonNames.add}
                     buttonextracls={`rounded-full bg-blue-500  capitalize`}
                     handleClick={

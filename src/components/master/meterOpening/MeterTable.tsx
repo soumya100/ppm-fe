@@ -7,9 +7,10 @@ import { FC } from 'react'
 interface MeterOpeningTableProps {
   loader?: boolean,
   meterOpeningTable: any
+  handleEditData(data: any): void
 }
 
-const MeterOpeningTable: FC<MeterOpeningTableProps> = ({meterOpeningTable, loader }) => {
+const MeterOpeningTable: FC<MeterOpeningTableProps> = ({meterOpeningTable, loader, handleEditData }) => {
     const headerCls = `text-white font-extrabold text-md`
   return <TableContainer component={Paper}>
   <Table aria-label="simple table">
@@ -37,18 +38,18 @@ const MeterOpeningTable: FC<MeterOpeningTableProps> = ({meterOpeningTable, loade
                 {idx + 1}
               </TableCell>
               <TableCell component="th" scope="row" align='center'>
-                {data.Item_Name}
+                {data.Pump_Name}
               </TableCell>
               <TableCell component="th" scope="row" align='center'>
-                {data.Item_Rate}
+                {data.Nozzle_Name}
               </TableCell>
               <TableCell component="th" scope="row" align='center'>
-                {dayjs(new Date(data.Valid_Date)).format('DD-MM-YYYY')}
+                {dayjs(new Date(data.Open_Date)).format('DD-MM-YYYY')}
               </TableCell>
               <TableCell component="th" scope="row" align='right'>
                 <ButtonFieldInput name={`edit`} buttonextracls={`capitalize`}
                   variant={`outlined`}
-                  startIcon={<Edit />} handleClick={() => console.table(data)} />
+                  startIcon={<Edit />} handleClick={() => handleEditData(data)} />
               </TableCell>
             </TableRow>
           ))

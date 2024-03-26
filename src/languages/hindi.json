@@ -508,7 +508,8 @@
         "editcardPos":"Edit Pos/Card",
         "editCustomer":"Edit customer",
         "editSupplier":"Edit supplier",
-        "editRate":"Edit Rate"
+        "editRate":"Edit Rate",
+        "editMeterOpening":"Edit Meter Opening"
     },
     "addMsg": {
         "unitmaster":"यूनिट जोड़ने के लिए, कृपया यहां अपनी यूनिट दर्ज करें",

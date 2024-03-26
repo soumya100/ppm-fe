@@ -1,9 +1,17 @@
 import { doGetApiCall, doPostApiCall } from "@/utils/ApiConfig";
 import { endPoints } from "@/utils/endPoints";
 
-export const getPumpListAPI = async(id: number)=>{
+export const getPumpListAPI = async(id: number, type: 'pump' | 'nozzle' , pumpId?: number)=>{
+    let url: string;
+    switch(type){
+        case 'pump':
+            url=endPoints?.getPumpList(id)
+            break;
+        case 'nozzle':
+            url=pumpId ? endPoints?.getNozzle(id, pumpId) : ''
+    }
     let data = {
-        url: endPoints?.getPumpList(id)
+        url: url
     }
     let res: any = await doGetApiCall(data)
     return res;

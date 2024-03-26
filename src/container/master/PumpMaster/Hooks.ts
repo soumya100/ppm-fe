@@ -4,7 +4,7 @@ import text from '@/languages/en_US.json'
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { getPumpListAPI, postPumpMasterAPI } from "./PumpMasterApi"
-import { getPumpMasterData } from "./PumpMasterReducer"
+import { getNozzleData, getPumpMasterData } from "./PumpMasterReducer"
 import toast from "react-hot-toast"
 import { nozzleData } from "@/types/data-types"
 import getSessionStorageData from "@/utils/getSessionStorageData"
@@ -121,20 +121,42 @@ export const PumpMasterHooks = () => {
         }
     })
 
-    //get pump master data
-    const getPumpMasterApiCall = async (id: number) => {
-        setLoader(true)
-        getPumpListAPI(id).then((res: any) => {
-            // console.log(res)
-            if (res.status === 200) {
-                dispatch(getPumpMasterData(res.Data))
-            } else {
+    //cleanup reducers
+    const clearDispatchByType = (type: 'pump' | 'nozzle') => {
+        switch (type) {
+            case "nozzle":
+                dispatch(getNozzleData([]))
+                break;
+            case "pump":
                 dispatch(getPumpMasterData([]))
+                break;
+            default:
+                dispatch(getNozzleData([]))
+                dispatch(getPumpMasterData([]))
+                break;
+        }
+    }
+
+    //get pump master data
+    const getPumpMasterApiCall = async (id: number, type: 'pump' | 'nozzle', pumpId?: number) => {
+        setLoader(true)
+        getPumpListAPI(id, type, pumpId).then((res: any) => {
+            if (res.status === 200) {
+                switch (type) {
+                    case 'pump':
+                        dispatch(getPumpMasterData(res.Data))
+                        break;
+                    case 'nozzle':
+                        dispatch(getNozzleData(res.Data))
+                }
+                // console.log(res)
+            } else {
+                clearDispatchByType(type)
             }
         }).catch((err: any) => {
             toast.error(err)
             toast.error('Something went wrong')
-            dispatch(getPumpMasterData([]))
+            clearDispatchByType(type)
         }).finally(() => {
             setLoader(false)
         })
@@ -189,7 +211,7 @@ export const PumpMasterHooks = () => {
                     setShowNozzleForm(false)
                     setNozzleNumberError('')
                     setAddNozzleData([])
-                    getPumpMasterApiCall(orgId)
+                    getPumpMasterApiCall(orgId, 'pump')
                     toast.success('Pump added successfully')
                 } else {
                     toast.error(res.message)

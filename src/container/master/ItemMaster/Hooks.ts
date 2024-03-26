@@ -88,7 +88,7 @@ export const ItemMasterHooks = () => {
     //item master dropdown unit api call
     const getItemMasterUnitApiCall = async (id: number) => {
         getItemMasterDropDownAPI(id, 'unit').then((res: any) => {
-            if (res.message === 'Data Found') {
+            if (res.status === 200) {
                 dispatch(getItemMasterUnit(res.Data))
             } else {
                 dispatch(getItemMasterUnit([]))

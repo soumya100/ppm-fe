@@ -501,7 +501,8 @@
         "editcardPos":"Edit Pos/Card",
         "editCustomer":"Edit customer",
         "editSupplier":"Edit supplier",
-        "editRate":"Edit Rate"
+        "editRate":"Edit Rate",
+        "editMeterOpening":"Edit Meter Opening"
     },
     "addMsg": {
         "unitmaster": "ইউনিট যোগ করতে, এখানে আপনার ইউনিট লিখুন",

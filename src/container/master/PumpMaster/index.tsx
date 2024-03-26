@@ -20,7 +20,7 @@ const PumpMasterContainer = () => {
   useEffect(() => {
     if(token && orgId){
       getTankApiCall(orgId)
-      getPumpMasterApiCall(orgId)
+      getPumpMasterApiCall(orgId, 'pump')
     }
   }, [orgId && token])
   
