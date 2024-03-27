@@ -52,11 +52,14 @@ export const LoginHooks = () => {
         }
         adminLoginAPI(bodyData, 'checkRate')
         .then((res: any) => {
-            if(res.status === 400){
+            if(res.status === 200){
+                dispatch(getModalState(false))
+                // toast.success('Rate ')
+            } else if(res.status === 400){
                 // router.push('/master/rate')
                 // alert('You have not set any rate yet!!! Please set a rate')
                 dispatch(getModalState(true))
-                console.log('Ok')
+                // console.log('Ok')
             }else{
                 toast.error(res.message)
             }

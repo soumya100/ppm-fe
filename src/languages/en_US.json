@@ -425,6 +425,12 @@
                 "pump":"Please select a pump",
                 "nozzle":"Please select a nozzle",
                 "openingReading":"Please enter a meter opening"
+            },
+            "meterReading":{
+                "shiftName":"Please select staff name",
+                "pumpName":"Please select pump name",
+                "nozzleName":"Please select nozzle name",
+                "staffName":"Please select staffName"
             }
         }
     },
@@ -478,7 +484,8 @@
         "tanker": "Tankers",
         "staffMaster":"Staffs",
         "rateMaster":"Rates",
-        "MeterOpening":"Meter Openings"
+        "MeterOpening":"Meter Openings",
+        "meterReading":"Meter Reading"
     },
     "add": {
         "addUnitMaster": "Add Unit",
