@@ -20,10 +20,12 @@ import tankerSlice from '@/container/master/Tanker/TankerReducer'
 import staffSlice from '@/container/master/Staff/StaffReducer'
 import rateSlice from '@/container/master/RateMaster/RateMasterReducer'
 import meterOpeningSlice from '@/container/master/MeterOpening/MeterOpeningReducer'
+import loginSlice from '@/container/Login/LoginReducer'
 
 export const store = configureStore({
     reducer: {
         abc: demoSlice, // <--- Not for use, this is just an example
+        login: loginSlice,
         navbarData: navSlice,
         sideBarData: sideBarSlice,
         unitMasterData: unitMasterSlice,
@@ -41,7 +43,7 @@ export const store = configureStore({
         tanker: tankerSlice,
         staff: staffSlice,
         rate: rateSlice,
-        meterOpening: meterOpeningSlice
+        meterOpening: meterOpeningSlice,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });

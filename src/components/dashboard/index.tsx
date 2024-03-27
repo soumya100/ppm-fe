@@ -1,15 +1,14 @@
-import { Box, Grid, Modal } from '@mui/material'
+import { Box, Dialog, DialogTitle, Divider, Grid, Typography } from '@mui/material'
 import { FC } from 'react'
 import Header from './Header'
-import { DataCards, FlexBox } from '@/common'
+import { DataCards, FlexBox, FlexCenter } from '@/common'
 import { BarChart, PieChart } from '@mui/x-charts'
 import text from '@/languages/en_US.json'
 import PurchaseTable from './PurchaseTable'
 import { notFound } from 'next/navigation'
-import getSessionStorageData from '@/utils/getSessionStorageData'
 import RateMasterForm from '../master/rateMaster/RateMasterForm'
 import { Dayjs } from 'dayjs'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 interface DashBoardProps {
   handleShowStockData(): void
@@ -21,11 +20,21 @@ interface DashBoardProps {
   handleShowPurchaseGraph(): void
   handleShowSaleGraph(): void
   handleShowStockGraph(): void
+  token: string
+  AddRateMasterFormik: any
+  errorMessage: string
+  handleRateDate(): void
+  handleRateDateError(): void
+  postLoaders: boolean
+  rateDate: Dayjs | null
+  resetFormData(): void
 }
 
 const DashBoard: FC<DashBoardProps> = ({ handleShowPurchaseData, handleShowSaleData, handleShowStockData,
-  showAvailableStocksGraph, showMonthwiseData, showMonthwiseSale, handleShowPurchaseGraph, 
-   handleShowSaleGraph, handleShowStockGraph}) => {
+  showAvailableStocksGraph, showMonthwiseData, showMonthwiseSale, handleShowPurchaseGraph,
+  handleShowSaleGraph, handleShowStockGraph, token, AddRateMasterFormik,
+  errorMessage, handleRateDate, handleRateDateError,
+  postLoaders, rateDate, resetFormData }) => {
   const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
   const xLabels = [
     'Page A',
@@ -39,9 +48,17 @@ const DashBoard: FC<DashBoardProps> = ({ handleShowPurchaseData, handleShowSaleD
 
   const cardCls = `h-[23rem] overflow-x-auto max-w-[93vw]`
   const headerCls = `bg-gradient-to-tr from-blue-600 via-sky-400 to-indigo-600 p-5 h-[2rem] `
-  const token = getSessionStorageData('token')
 
-  
+  const modalOpen = useSelector((state: any) => state.login?.modalState)
+
+
+  const itemDropdownData = useSelector((state: any) => state.itemMasterData?.itemMasterData)?.map((data: any) => {
+    return {
+      name: data.Item_Name,
+      value: data.Id
+    }
+  })
+
   if (!token) notFound()
 
   return <Box>
@@ -166,6 +183,23 @@ const DashBoard: FC<DashBoardProps> = ({ handleShowPurchaseData, handleShowSaleD
         </Grid>
       </Grid>
     </Box>
+    <Dialog open={modalOpen}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <DialogTitle>
+        <FlexCenter className='p-0]'>
+          <Typography component={`p`} className='font-bold text-green-400 text-xl' >
+            {text.add.rateMaster} 
+          </Typography>
+        </FlexCenter>
+      </DialogTitle>
+      <Divider />
+      <RateMasterForm date={rateDate} editData={[]} errMessage={errorMessage} formik={AddRateMasterFormik}
+        handleDateChange={handleRateDate} handleError={handleRateDateError}
+        itemDropdownData={itemDropdownData} postLoaders={postLoaders} resetFormData={resetFormData}
+      />
+    </Dialog>
   </Box>
 }
 

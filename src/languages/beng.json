@@ -507,7 +507,8 @@
     },
     "addMsg": {
         "unitmaster": "ইউনিট যোগ করতে, এখানে আপনার ইউনিট লিখুন",
-        "itemCategory": "আইটেম বিভাগ যোগ করতে, এখানে আপনার আইটেম বিভাগ লিখুন"
+        "itemCategory": "আইটেম বিভাগ যোগ করতে, এখানে আপনার আইটেম বিভাগ লিখুন",
+        "rateMaster":"You have not added a rate yet!!! Please add one..."
     },
     "editMsg": {
         "unitmaster": "ইউনিট আপডেট করতে, এখানে আপনার আপডেট ইউনিট লিখুন",

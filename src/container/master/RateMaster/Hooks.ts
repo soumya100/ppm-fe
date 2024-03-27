@@ -10,6 +10,7 @@ import getSessionStorageData from "@/utils/getSessionStorageData"
 import { getRateData } from "./RateMasterReducer"
 import toast from "react-hot-toast"
 import { LoginHooks } from "@/container/Login/Hooks"
+import { getModalState } from "@/container/Login/LoginReducer"
 
 export const RateMasterHooks = () => {
 
@@ -140,6 +141,7 @@ export const RateMasterHooks = () => {
                 // console.log(res, '* res')
                 if (res.status === 200) {
                     getRateApiCall(orgId)
+                    dispatch(getModalState(false))
                     resetFormData()
                     toast.success('Rate added successfully')
                 } else {

@@ -516,7 +516,8 @@
     },
     "addMsg": {
         "unitmaster": "To add unit, please enter your unit here",
-        "itemCategory": "To add item category, please enter your item category here"
+        "itemCategory": "To add item category, please enter your item category here",
+        "rateMaster":"You have not added a rate yet!!! Please add one..."
     },
     "editMsg": {
         "unitmaster": "To update unit, please enter your update unit here",

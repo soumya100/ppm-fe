@@ -1,8 +1,10 @@
-import { ButtonFieldInput, DatePickerField, DropDownField, FlexBetween, FlexItemCenter, TextFieldInput } from '@/common'
-import { Grid } from '@mui/material'
+import { ButtonFieldInput, DatePickerField, DropDownField, FlexBetween, FlexCenter, FlexContentCenter, FlexItemCenter, TextFieldInput } from '@/common'
+import { Grid, Typography } from '@mui/material'
 import { FC } from 'react'
 import text from '@/languages/en_US.json'
 import { Dayjs } from 'dayjs'
+import { useSelector } from 'react-redux'
+import { WarningAmberOutlined } from '@mui/icons-material'
 
 interface RateMasterFormProps {
     formik: any
@@ -17,7 +19,10 @@ interface RateMasterFormProps {
 }
 
 const RateMasterForm: FC<RateMasterFormProps> = ({ formik, postLoaders, date, errMessage, editData,
-    handleDateChange, handleError,itemDropdownData, resetFormData }) => {
+    handleDateChange, handleError, itemDropdownData, resetFormData }) => {
+
+    const modalOpen = useSelector((state: any) => state.login?.modalState)
+
     return <form onSubmit={formik?.handleSubmit}>
         <Grid container spacing={1} className='p-5'>
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
@@ -83,20 +88,26 @@ const RateMasterForm: FC<RateMasterFormProps> = ({ formik, postLoaders, date, er
                 />
             </Grid>
         </Grid>
-        <FlexItemCenter className='w-full mt-2 p-5'>
+        {
+            modalOpen && <FlexCenter gap={1}>
+            <WarningAmberOutlined color='error'/>
+            <Typography component={`span`} className='text-sm text-red-500 font-bold'>{text.addMsg.rateMaster}</Typography>
+            </FlexCenter>
+        }
+        <FlexItemCenter className='w-full  p-5'>
             <FlexBetween className='flex-row-reverse w-full'>
                 <ButtonFieldInput name={
                     editData && Object.keys(editData).length > 0 ?
                         text.buttonNames.update :
-                    text.buttonNames.add}
+                        text.buttonNames.add}
                     buttonextracls={`rounded-full bg-blue-500  capitalize`}
                     variant={`contained`} loading={postLoaders}
-                    disabled={postLoaders} 
+                    disabled={postLoaders}
                     handleClick={date === null ? handleError : formik?.handleSubmit}
-                    />
+                />
                 <ButtonFieldInput name={text.buttonNames.cancel}
                     buttonextracls={`rounded-full bg-gray-400 capitalize`}
-                    variant={`contained`} type={`button`} 
+                    variant={`contained`} type={`button`}
                     handleClick={resetFormData} />
             </FlexBetween>
         </FlexItemCenter>
