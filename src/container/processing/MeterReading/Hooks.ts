@@ -11,6 +11,16 @@ export const MeterReadingHooks = () => {
     const orgId = getSessionStorageData('orgId')
     const token = getSessionStorageData('token')
 
+    //collapsible open state
+    const [showAddInfoForm, setOpenAddInfoForm]=useState<boolean>(false)
+
+    //handle collapsible data
+
+    const handleCollapsibleForm=()=>{
+        setOpenAddInfoForm(prev=> !prev)
+    }
+
+
     //date states
     const [readingDate, setReadingDate] = useState<Dayjs | null>(null)
     const [readingDateError, setReadingDateError] = useState<DateValidationError | null>(null)
@@ -83,12 +93,35 @@ export const MeterReadingHooks = () => {
 
     const pumpId= Number(addMeterReadingFormik.values.pump);
 
+// add info formik
+const addInfoForm = useFormik({
+    enableReinitialize: true,
+    initialValues: {
+        item: '',
+        itemQuantity: 0,
+        itemRate: 0
+    },
+    validationSchema: Yup.object().shape({
+        item: Yup.string()
+            .required(text.errors.requiredErrors.meterReading.itemName),
+            itemQuantity: Yup.number()
+            .positive(text.errors.patternErrors.meterReading.itemQuantity)
+            .required(text.errors.requiredErrors.meterReading.itemQuantity),
+            itemRate: Yup.number()
+            .positive(text.errors.patternErrors.meterReading.itemRate)
+            .required(text.errors.requiredErrors.meterReading.itemRate)
+    }),
+    onSubmit: (values) => {
+       console.log(values)
+    }
+})
 
     return {
         addMeterReadingFormik,
         handleReadingDate,
         errorMessage,
         handleReadingDateError, pumpId,
-        readingDate, orgId, token
+        readingDate, orgId, token,
+        addInfoForm, handleCollapsibleForm, showAddInfoForm
     }
 }

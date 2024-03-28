@@ -130,6 +130,10 @@
             "nozzle":"Nozzle",
             "openingReading":"Opening reading",
             "openingDate":"Opening date"
+        },
+        "addInfo":{
+            "itemQuantity": "Item quantity",
+            "itemRate":"Item rate"
         }
     },
    "placeholders":{
@@ -232,6 +236,10 @@
         },
         "addMeterOpening":{
             "openingReading": "Enter opening date"
+        },
+        "addInfo":{
+            "itemQuantity":"Enter item quantity",
+            "itemRate":"Enter item rate"
         }
    },
    "rememberMe":"मुझे याद करो",
@@ -318,6 +326,10 @@
             "meterOpening":{
                 "openingReading":"Opening reading should be greater than zero",
                 "invalidDate":"Please select a valid date"
+            },
+             "meterReading":{
+                "itemQuantity":"Item quantity should be greater than zero",
+                "itemRate":"Item quantity should be greater than zero"
             }
         },
         "requiredErrors":{
@@ -431,7 +443,10 @@
                 "shiftName":"Please select staff name",
                 "pumpName":"Please select pump name",
                 "nozzleName":"Please select nozzle name",
-                "staffName":"Please select staffName"
+                "staffName":"Please select staffName",
+                "itemName":"Please select item name",
+                "itemQuantity":"Please enter item quantity",
+                "itemRate":"Please enter item rate"
             }
         }
     },
@@ -485,7 +500,8 @@
         "staffMaster":"Staffs",
         "rateMaster":"Rates",
         "MeterOpening":"Meter Openings",
-        "meterReading":"Meter Reading"
+        "meterReading":"Meter Reading",
+        "addInfo":"Add information"
     },
     "add":{
         "addUnitMaster":"यूनिट मास्टर जोड़ें",
